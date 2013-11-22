@@ -48,7 +48,7 @@ class RStudioURLProvider(Processor):
             if ".dmg" in k.toxml():
                 r.append(k.firstChild.data)
                 
-        return RSTUDIO_BASE_URL + "/" + r[-1]
+        return base_url + "/" + r[-1]
 
     def main(self):
         # Determine base_url.

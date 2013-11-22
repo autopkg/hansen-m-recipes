@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the latest Mendeley dmg and provides the version string.</string>
+	<string>Downloads the latest version Mendeley Desktop.</string>
 	<key>Identifier</key>
 	<string>com.github.hansen-m.download.Mendeley</string>
 	<key>Input</key>
