@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads the latest version Stellarium.</string>
+	<key>Identifier</key>
+	<string>com.github.hansen-m.download.Stellarium</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>Stellarium</string>
+		<key>SOURCEFORGE_PROJECT_ID</key>
+		<string>48857</string>
+		<key>SOURCEFORGE_FILE_PATTERN</key>
+		<string>Stellarium-[0-9_\.]*\.dmg</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>0.2.0</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>SourceForgeURLProvider</string>
+		</dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%url%</string>
+                <key>filename</key>
+                <string>%NAME%.dmg</string>
+            </dict>
+        </dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+	</array>
+</dict>
+</plist>
