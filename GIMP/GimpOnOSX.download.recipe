@@ -8,10 +8,8 @@
 	<string>com.github.hansen-m.download.gimponosx</string>
 	<key>Input</key>
 	<dict>
-		<key>SYSTEM_VERSION</key>
-		<string>Mavericks</string>
 		<key>SOURCEFORGE_FILE_PATTERN</key>
-		<string>Gimp-.*-%SYSTEM_VERSION%</string>
+		<string>Gimp-.*-Mavericks</string>
 		<key>NAME</key>
 		<string>GIMP</string>
 	</dict>
