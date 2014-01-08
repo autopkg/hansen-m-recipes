@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the latest version of Julia.</string>
+	<string>Downloads the latest version of Processing.</string>
 	<key>Identifier</key>
-	<string>com.github.hansen-m.download.julia</string>
+	<string>com.github.hansen-m.download.processing</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
-		<string>Julia</string>
+		<string>Processing</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.2.0</string>
@@ -17,7 +17,7 @@
 	<array>
         <dict>
             <key>Processor</key>
-            <string>JuliaURLProvider</string>
+            <string>ProcessingURLProvider</string>
         </dict>
         <dict>
             <key>Processor</key>
@@ -27,7 +27,7 @@
                 <key>url</key>
                 <string>%url%</string>
                 <key>filename</key>
-                <string>%NAME%.dmg</string>
+                <string>%NAME%.zip</string>
             </dict>
         </dict>
 		<dict>
