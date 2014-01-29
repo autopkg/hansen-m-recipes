@@ -3,13 +3,15 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest version StudioCode.</string>
+    <string>Downloads the latest version VueScan. Defaults to 64-bit version, override by setting ARCH to '32'.</string>
     <key>Identifier</key>
-    <string>com.github.hansen-m.download.StudioCode</string>
+    <string>com.github.hansen-m.download.VueScan</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>StudioCode</string>
+        <string>VueScan</string>
+        <key>ARCH</key>
+        <string>64</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -21,9 +23,9 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>http://www.studiocodegroup.com/support/download-upgrades-fixes/</string>
+                <string>http://www.hamrick.com</string>
                 <key>re_pattern</key>
-                <string>(?P&lt;url&gt;http://downloads.sportstec.com/studiocode/installer/Studiocode.*?Installer\.dmg)</string>
+                <string>(?P&lt;url&gt;files/vuex%ARCH%.*?\.dmg)</string>
             </dict>
         </dict>
         <dict>
@@ -31,6 +33,8 @@
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
+                <key>url</key>
+                <string>http://www.hamrick.com/%url%</string>
                 <key>filename</key>
                 <string>%NAME%.dmg</string>
             </dict>
