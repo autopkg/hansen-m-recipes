@@ -2,30 +2,37 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Description</key>
-	<string>Downloads the latest version of Fetch.</string>
-	<key>Identifier</key>
-	<string>com.github.hansen-m.download.Fetch</string>
-	<key>Input</key>
-	<dict>
-		<key>NAME</key>
-		<string>Fetch</string>
-		<key>base_url</key>
-		<string>http://fetchsoftworks.com/fetch/download/latest</string>
-	</dict>
-	<key>MinimumVersion</key>
-	<string>0.2.0</string>
-	<key>Process</key>
-	<array>
-	    <dict>
+    <key>Description</key>
+    <string>Downloads the latest version of Fetch.</string>
+    <key>Identifier</key>
+    <string>com.github.hansen-m.download.Fetch</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>Fetch</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.9</string>
+    <key>Process</key>
+    <array>
+       <dict>
             <key>Processor</key>
-            <string>FetchURLProvider</string>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>http://fetchsoftworks.com/fetch/download/</string>
+                <key>re_pattern</key>
+                <string>(?P&lt;dmg&gt;Fetch_.*\.dmg)</string>
+            </dict>
         </dict>
-		<dict>
+        <dict>
             <key>Processor</key>
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
+                <key>url</key>
+                <string>http://fetchsoftworks.com/fetch/download/%dmg%?direct=1</string>
                 <key>filename</key>
                 <string>%NAME%.dmg</string>
             </dict>
@@ -34,6 +41,6 @@
             <key>Processor</key>
             <string>EndOfCheckPhase</string>
         </dict>
-	</array>
+    </array>
 </dict>
 </plist>

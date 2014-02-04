@@ -12,18 +12,27 @@
         <string>Zimbra Desktop</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.2.0</string>
+    <string>0.2.9</string>
     <key>Process</key>
     <array>
-        <dict>
+       <dict>
             <key>Processor</key>
-            <string>ZimbraDesktopURLProvider</string>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>http://www.zimbra.com/downloads/zd-downloads.html</string>
+                <key>re_pattern</key>
+                <string>(?P&lt;url&gt;http.*?zdesktop_.*_macos_intel.dmg)</string>
+            </dict>
         </dict>
         <dict>
             <key>Processor</key>
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
+                <key>url</key>
+                <string>%url%</string>
                 <key>filename</key>
                 <string>zdesktop.dmg</string>
             </dict>

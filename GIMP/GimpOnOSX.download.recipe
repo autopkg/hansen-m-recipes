@@ -2,43 +2,45 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Description</key>
-	<string>Downloads the latest GIMP from gimp.lisanet.de. See http://sourceforge.net/projects/gimponosx/files/ for SOURCEFORGE_FILE_PATTERN.</string>
-	<key>Identifier</key>
-	<string>com.github.hansen-m.download.gimponosx</string>
-	<key>Input</key>
-	<dict>
-		<key>SOURCEFORGE_FILE_PATTERN</key>
-		<string>Gimp-.*-Mavericks</string>
-		<key>NAME</key>
-		<string>GIMP</string>
-	</dict>
-	<key>MinimumVersion</key>
-	<string>0.2.0</string>
-	<key>Process</key>
-	<array>
-		<dict>
-			<key>Processor</key>
-			<string>SourceForgeURLProvider</string>
-			<key>Arguments</key>
-			<dict>
-				<key>SOURCEFORGE_PROJECT_ID</key>
-				<string>211713</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>URLDownloader</string>
-			<key>Arguments</key>
+    <key>Description</key>
+    <string>Downloads the latest GIMP for Mac OS X where MAJOR_OS_VERSION is SL-Lion-ML, MountainLion or Mavericks (default).</string>
+    <key>Identifier</key>
+    <string>com.github.hansen-m.download.gimponosx</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>GIMP</string>
+        <key>MAJOR_OS_VERSION</key>
+        <string>Mavericks</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.9</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
             <dict>
-				<key>filename</key>
-				<string>%NAME%.dmg</string>
+                <key>url</key>
+                <string>http://sourceforge.net/api/file/index/project-id/211713/mtime/desc/limit/20/rss</string>
+                <key>re_pattern</key>
+                <string>(?P&lt;url&gt;http.*?%MAJOR_OS_VERSION%.*?dmg)</string>
             </dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>EndOfCheckPhase</string>
-		</dict>
-	</array>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>filename</key>
+                <string>%NAME%.dmg</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+    </array>
 </dict>
 </plist>

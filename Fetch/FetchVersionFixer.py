@@ -32,13 +32,9 @@ class FetchVersionFixer(Processor):
     
     __doc__ = description
     
-    def clean_version_string(self, version):
-        
-        return version.encode("ascii", "ignore")
-    
     def main(self):
         
-        self.env["version"] = self.clean_version_string(self.env.get('version'))
+        self.env["version"] = self.env.get('version').encode("ascii", "ignore")
         self.output("Cleaned version string %s" % self.env["version"])
 
 if __name__ == '__main__':

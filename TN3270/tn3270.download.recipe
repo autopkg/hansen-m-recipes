@@ -14,18 +14,27 @@
         <string>http://www.brown.edu/cis/tn3270/</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.2.0</string>
+    <string>0.2.9</string>
     <key>Process</key>
     <array>
-        <dict>
+       <dict>
             <key>Processor</key>
-            <string>tn3270URLProvider</string>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>http://www.brown.edu/cis/tn3270/</string>
+                <key>re_pattern</key>
+                <string>(?P&lt;url&gt;http.*?tn3270_X_.*?\.dmg)</string>
+            </dict>
         </dict>
         <dict>
             <key>Processor</key>
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
+                <key>url</key>
+                <string>%url%</string>
                 <key>filename</key>
                 <string>%NAME%.dmg</string>
             </dict>

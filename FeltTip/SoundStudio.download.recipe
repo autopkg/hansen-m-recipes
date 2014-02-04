@@ -12,18 +12,27 @@
         <string>SoundStudio</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.2.0</string>
+    <string>0.2.9</string>
     <key>Process</key>
     <array>
-        <dict>
+       <dict>
             <key>Processor</key>
-            <string>SoundStudioURLProvider</string>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>http://felttip.com/ss/downloads.html</string>
+                <key>re_pattern</key>
+                <string>(?P&lt;dmg&gt;sound_studio_.*\.zip)</string>
+            </dict>
         </dict>
         <dict>
             <key>Processor</key>
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
+                <key>url</key>
+                <string>http://felttip.com/downloads/%dmg%</string>
                 <key>filename</key>
                 <string>%NAME%.zip</string>
             </dict>

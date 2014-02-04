@@ -12,18 +12,27 @@
         <string>Exceed onDemand Client</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.2.0</string>
+    <string>0.2.9</string>
     <key>Process</key>
     <array>
-        <dict>
+       <dict>
             <key>Processor</key>
-            <string>ExceedOnDemandURLProvider</string>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>http://connectivity.opentext.com/products/mac-os-x-platforms.aspx</string>
+                <key>re_pattern</key>
+                <string>(?P&lt;url&gt;http.*?eodclient8-.*\.dmg)</string>
+            </dict>
         </dict>
         <dict>
             <key>Processor</key>
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
+                <key>url</key>
+                <string>%url%</string>
                 <key>filename</key>
                 <string>eodclient.dmg</string>
             </dict>
