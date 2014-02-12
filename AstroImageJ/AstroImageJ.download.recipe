@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the latest version AstroImageJ.</string>
+    <key>Identifier</key>
+    <string>com.github.hansen-m.download.AstroImageJ</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>AstroImageJ</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.9</string>
+    <key>Process</key>
+    <array>
+       <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>http://www.astro.louisville.edu/software/astroimagej/</string>
+                <key>re_pattern</key>
+                <string>href=\"(?P&lt;build&gt;astroimagej_.*?/)\"</string>
+            </dict>
+        </dict>
+       <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>http://www.astro.louisville.edu/software/astroimagej/%build%</string>
+                <key>re_pattern</key>
+                <string>(?P&lt;zip&gt;AstroImageJ_.*?_mac.zip)</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>http://www.astro.louisville.edu/software/astroimagej/%build%/%zip%</string>
+                <key>filename</key>
+                <string>%NAME%.zip</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+    </array>
+</dict>
+</plist>
