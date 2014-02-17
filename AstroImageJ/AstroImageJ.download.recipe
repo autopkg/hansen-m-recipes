@@ -23,7 +23,7 @@
                 <key>url</key>
                 <string>http://www.astro.louisville.edu/software/astroimagej/</string>
                 <key>re_pattern</key>
-                <string>href=\"(?P&lt;build&gt;astroimagej_.*?/)\"</string>
+                <string>href=\"(?P&lt;build&gt;astroimagej_.*?)/\"</string>
             </dict>
         </dict>
        <dict>
