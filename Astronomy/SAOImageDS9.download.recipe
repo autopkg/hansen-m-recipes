@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the latest version SAOImageDS9.</string>
+    <key>Identifier</key>
+    <string>com.github.hansen-m.download.SAOImageDS9</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>SAOImageDS9</string>
+        <key>SAO_OS_KEY</key>
+        <string>darwinmountainlion</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.9</string>
+    <key>Process</key>
+    <array>
+       <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>http://ds9.si.edu/site/Download.html</string>
+                <key>re_pattern</key>
+                <string>(?P&lt;url&gt;http://ds9.si.edu/download/%SAO_OS_KEY%/ds9\.%SAO_OS_KEY%\.(?P&lt;version&gt;.*?)\.tar.gz)</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+    </array>
+</dict>
+</plist>
