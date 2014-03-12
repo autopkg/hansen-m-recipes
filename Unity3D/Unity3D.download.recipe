@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the latest version of Unity 3D.</string>
+    <key>Identifier</key>
+    <string>com.github.hansen-m.download.Unity3D</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>Unity3D</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.9</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>http://unity3d.com/unity/download/archive</string>
+                <key>re_pattern</key>
+                <string>&lt;td class=&quot;ts1 b&quot;&gt;Unity (?P&lt;version&gt;.*?)&lt;/td&gt;</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>http://netstorage.unity3d.com/unity/unity-%version%.dmg</string>
+                <key>filename</key>
+                <string>%NAME%.dmg</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+    </array>
+</dict>
+</plist>
