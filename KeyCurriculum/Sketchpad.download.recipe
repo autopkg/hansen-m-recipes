@@ -3,17 +3,15 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest version of Box Sync.</string>
+    <string>Downloads the latest version of Sketchpad.</string>
     <key>Identifier</key>
-    <string>com.github.hansen-m.download.boxsync</string>
+    <string>com.github.hansen-m.download.Sketchpad5</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>Box Sync</string>
+        <string>Sketchpad5</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://box.com/sync4mac</string>
-        <key>USER_AGENT</key>
-        <string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/536.28.10 (KHTML, like Gecko) Version/6.0.3 Safari/536.28.10</string>
+        <string>http://gsp5.s3.amazonaws.com/GSP5.dmg</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
@@ -26,11 +24,6 @@
             <dict>
                 <key>url</key>
                 <string>%DOWNLOAD_URL%</string>
-                <key>request_headers</key>
-                <dict>
-                        <key>user-agent</key>
-                        <string>%USER_AGENT%</string>
-                </dict>
                 <key>filename</key>
                 <string>%NAME%.dmg</string>
             </dict>

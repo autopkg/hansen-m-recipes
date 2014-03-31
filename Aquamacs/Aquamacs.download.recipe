@@ -2,19 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Description</key>
-	<string>Downloads the latest version Aquamacs.</string>
-	<key>Identifier</key>
-	<string>com.github.hansen-m.download.aquamacs</string>
-	<key>Input</key>
-	<dict>
-		<key>NAME</key>
-		<string>Aquamacs</string>
-	</dict>
-	<key>MinimumVersion</key>
-	<string>0.2.9</string>
-	<key>Process</key>
-	<array>
+    <key>Description</key>
+    <string>Downloads the latest version Aquamacs.</string>
+    <key>Identifier</key>
+    <string>com.github.hansen-m.download.aquamacs</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>Aquamacs</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.9</string>
+    <key>Process</key>
+    <array>
         <dict>
             <key>Processor</key>
             <string>URLTextSearcher</string>
@@ -37,10 +37,10 @@
                 <string>%NAME%.dmg</string>
             </dict>
         </dict>
-		<dict>
-			<key>Processor</key>
-			<string>EndOfCheckPhase</string>
-		</dict>
-	</array>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+    </array>
 </dict>
 </plist>

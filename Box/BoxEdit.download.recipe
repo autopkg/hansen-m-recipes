@@ -2,23 +2,23 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Description</key>
-	<string>Downloads the latest version of Box Edit.</string>
-	<key>Identifier</key>
-	<string>com.github.hansen-m.download.boxedit</string>
-	<key>Input</key>
-	<dict>
-		<key>NAME</key>
-		<string>Box Edit</string>
-		<key>DOWNLOAD_URL</key>
-		<string>https://app.box.com/static/BoxEdit/BoxEditInstaller.dmg</string>
-		<key>USER_AGENT</key>
+    <key>Description</key>
+    <string>Downloads the latest version of Box Edit.</string>
+    <key>Identifier</key>
+    <string>com.github.hansen-m.download.boxedit</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>Box Edit</string>
+        <key>DOWNLOAD_URL</key>
+        <string>https://app.box.com/static/BoxEdit/BoxEditInstaller.dmg</string>
+        <key>USER_AGENT</key>
         <string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/536.28.10 (KHTML, like Gecko) Version/6.0.3 Safari/536.28.10</string>
-	</dict>
-	<key>MinimumVersion</key>
-	<string>0.2.0</string>
-	<key>Process</key>
-	<array>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+    <key>Process</key>
+    <array>
         <dict>
             <key>Processor</key>
             <string>URLDownloader</string>
@@ -35,10 +35,10 @@
                 <string>%NAME%.dmg</string>
             </dict>
         </dict>
-		<dict>
-			<key>Processor</key>
-			<string>EndOfCheckPhase</string>
-		</dict>
-	</array>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+    </array>
 </dict>
 </plist>
