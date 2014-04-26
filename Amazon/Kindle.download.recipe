@@ -3,18 +3,18 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest version of Anki.</string>
+    <string>Downloads the latest version of the Kindle for Mac app from Amazon.</string>
     <key>Identifier</key>
-    <string>com.github.hansen-m.download.Anki</string>
+    <string>com.github.hansen-m.download.Kindle</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>Anki</string>
+        <string>Kindle</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://ankisrs.net</string>
+        <string>http://www.amazon.com/gp/kindle/mac/download</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.2.9</string>
+    <string>0.2.0</string>
     <key>Process</key>
     <array>
         <dict>
@@ -25,7 +25,7 @@
                 <key>url</key>
                 <string>%DOWNLOAD_URL%</string>
                 <key>re_pattern</key>
-                <string>(?P&lt;url&gt;http://ankisrs\.net/download/mirror/anki-.*?\.dmg)</string>
+                <string>(?P&lt;url&gt;http://kindleformac\.amazon\.com/.*?/KindleForMac\.dmg)</string>
             </dict>
         </dict>
         <dict>

@@ -3,15 +3,15 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest version of Anki.</string>
+    <string>Download the latest version of Google Picasa.</string>
     <key>Identifier</key>
-    <string>com.github.hansen-m.download.Anki</string>
+    <string>com.github.hansen-m.download.Picasa</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>Anki</string>
+        <string>Picasa</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://ankisrs.net</string>
+        <string>http://picasa.google.com</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -25,7 +25,7 @@
                 <key>url</key>
                 <string>%DOWNLOAD_URL%</string>
                 <key>re_pattern</key>
-                <string>(?P&lt;url&gt;http://ankisrs\.net/download/mirror/anki-.*?\.dmg)</string>
+                <string>(?P&lt;url&gt;https://dl\.google\.com/photos/picasamac.*?\.dmg)</string>
             </dict>
         </dict>
         <dict>
