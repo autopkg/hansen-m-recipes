@@ -25,7 +25,7 @@
                 <key>url</key>
                 <string>%DOWNLOAD_URL%</string>
                 <key>re_pattern</key>
-                <string>(?P&lt;url&gt;http://cdn.avid.com/Sibelius/.*?\.dmg)</string>
+                <string>(?P&lt;url&gt;http://cdn.avid.com/Sibelius/Sibelius_.*?/.*?/Sibelius_(?P&lt;version&gt;.*?)_Mac\.dmg)</string>
             </dict>
         </dict>
         <dict>
