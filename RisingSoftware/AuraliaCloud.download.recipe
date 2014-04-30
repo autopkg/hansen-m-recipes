@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest version of Auralia Cloud using your. Important: You must override SCHOOL_CODE with the value unique to your organization.</string>
+    <string>Downloads the latest version of Auralia Cloud. Important: You must override SCHOOL_CODE with the value unique to your organization.</string>
     <key>Identifier</key>
     <string>com.github.hansen-m.download.AuraliaCloud</string>
     <key>Input</key>
