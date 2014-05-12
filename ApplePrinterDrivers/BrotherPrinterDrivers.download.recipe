@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest version of the Apple provided Xerox Printer Drivers.</string>
+    <string>Downloads the latest version of the Apple provided Brother Printer Drivers.</string>
     <key>Identifier</key>
-    <string>com.github.hansen-m.download.XeroxPrinterDrivers</string>
+    <string>com.github.hansen-m.download.BrotherPrinterDrivers</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>XeroxPrinterDrivers</string>
+        <string>BrotherPrinterDrivers</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -21,7 +21,7 @@
             <key>Arguments</key>
             <dict>
                 <key>title_regex</key>
-                <string>Xerox Printer Drivers v.*? for OS X</string>
+                <string>Brother Printer Drivers v.*? for OS X</string>
             </dict>
         </dict>
         <dict>
@@ -32,7 +32,7 @@
                 <key>url</key>
                 <string>%link%</string>
                 <key>re_pattern</key>
-                <string>(?P&lt;dl_path&gt;/downloads/DL.*?/.*?/XeroxPrinter(?P&lt;version&gt;.*?)\.dmg)</string>
+                <string>(?P&lt;dl_path&gt;/downloads/DL.*?/.*?/BrotherPrinterDrivers(?P&lt;version&gt;.*?)\.dmg)</string>
             </dict>
         </dict>
         <dict>
