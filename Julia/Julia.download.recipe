@@ -10,6 +10,8 @@
     <dict>
         <key>NAME</key>
         <string>Julia</string>
+        <key>JULIA_PATTERN</key>
+        <string>https://s3.amazonaws.com/julialang/bin/osx/x64/.*?/julia-.*?-osx10.7\+\.dmg</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -23,7 +25,7 @@
                 <key>url</key>
                 <string>http://julialang.org/downloads/</string>
                 <key>re_pattern</key>
-                <string>(?P&lt;url&gt;http.*?julia-.*?dmg)</string>
+                <string>(?P&lt;url&gt;%JULIA_PATTERN%)</string>
             </dict>
         </dict>
         <dict>

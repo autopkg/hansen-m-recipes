@@ -10,6 +10,8 @@
     <dict>
         <key>NAME</key>
         <string>JuliaStudio</string>
+        <key>JULIASTUDIO_PATTERN</key>
+        <string>https://s3\.amazonaws\.com/cdn-common\.forio\.com/julia-studio/.*?/julia-studio-macx-installer-.*?\.dmg</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -23,7 +25,7 @@
                 <key>url</key>
                 <string>http://forio.com/julia/downloads/</string>
                 <key>re_pattern</key>
-                <string>(?P&lt;url&gt;http.*?/julia-studio-macx-installer-.*.dmg)</string>
+                <string>(?P&lt;url&gt;%JULIASTUDIO_PATTERN%)</string>
             </dict>
         </dict>
         <dict>
