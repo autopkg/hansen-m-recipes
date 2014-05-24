@@ -15,7 +15,7 @@
         <key>POLYCOMRPDESKTOP_REPATTERN</key>
         <string>http://support.polycom.com/PolycomService/support/us/support/eula/rpd/RPDagreement.*?_mac.html</string>
         <key>POLYCOMRPDESKTOP_DMG_REPATTERN</key>
-        <string>http://downloads\.polycom\.com/video/realpresence_desktop/RPD-release_(?P&lt;version&gt;.*?)\.dmg</string>
+        <string>http://downloads\.polycom\.com/video/realpresence_desktop/RPD-release_(?P&lt;version&gt;.*?)_(?P&lt;bundle_version&gt;.*?)\.dmg</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
