@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the latest version of Polycom Converged Management Application (CMA) Desktop.</string>
+    <key>Identifier</key>
+    <string>com.github.hansen-m.download.PolycomCMADesktop</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>PolycomCMADesktop</string>
+        <key>DOWNLOAD_URL</key>
+        <string>http://support.polycom.com/PolycomService/support/us/support/video/cma/cma_desktop.html</string>
+        <key>POLYCOMCMADESKTOP_REPATTERN</key>
+        <string>http://downloads\.polycom\.com/net_endpt_mgmt/cmad_mac/CMAD-release_(?P&lt;version&gt;.*?)\.dmg</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.9</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%DOWNLOAD_URL%</string>
+                <key>re_pattern</key>
+                <string>(?P&lt;url&gt;%POLYCOMCMADESKTOP_REPATTERN%)</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%url%</string>
+                <key>filename</key>
+                <string>%NAME%.dmg</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+    </array>
+</dict>
+</plist>
