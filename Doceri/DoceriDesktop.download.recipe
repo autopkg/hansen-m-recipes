@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the latest version of Doceri Desktop.</string>
+    <key>Identifier</key>
+    <string>com.github.hansen-m.download.DoceriDesktop</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>Doceri Desktop</string>
+        <key>BASE_URL</key>
+        <string>http://doceri.com</string>
+        <key>DOWNLOAD_URL</key>
+        <string>http://doceri.com/download_form.php</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.9</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%DOWNLOAD_URL%</string>
+                <key>re_pattern</key>
+                <string>(?P&lt;zip&gt;/DoceriDesktop/v.*?/Doceri_Desktop_.*?.zip)</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%BASE_URL%%zip%</string>
+                <key>filename</key>
+                <string>%NAME%.zip</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+    </array>
+</dict>
+</plist>
