@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>CanopyExpress</string>
         <key>DOWNLOAD_URL</key>
-        <string>https://www.enthought.com/downloads/canopy/osx-64/free/</string>
+        <string>https://store.enthought.com/downloads/canopy/osx/64/free/</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
