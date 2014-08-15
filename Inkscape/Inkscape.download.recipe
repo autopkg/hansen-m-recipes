@@ -3,15 +3,15 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest version of Pencil2D.</string>
+    <string>Downloads the latest version of Inkscape.</string>
     <key>Identifier</key>
-    <string>com.github.hansen-m.download.Pencil2D</string>
+    <string>com.github.hansen-m.download.Inkscape</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>Pencil2D</string>
+        <string>Inkscape</string>
         <key>DOWNLOAD_URL</key>
-        <string>https://bitbucket.org/chchwy/pencil2d/downloads/</string>
+        <string>http://inkscape.org/en/download/</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -25,7 +25,7 @@
                 <key>url</key>
                 <string>%DOWNLOAD_URL%</string>
                 <key>re_pattern</key>
-                <string>(?P&lt;zip&gt;Pencil2D-.*?-mac\.zip)</string>
+                <string>(?P&lt;url&gt;http://downloads\.sourceforge\.net/inkscape/Inkscape.*?\+X11\.dmg)</string>
             </dict>
         </dict>
         <dict>
@@ -34,9 +34,9 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%DOWNLOAD_URL%%zip%</string>
+                <string>%url%</string>
                 <key>filename</key>
-                <string>%NAME%.zip</string>
+                <string>%NAME%.dmg</string>
             </dict>
         </dict>
         <dict>
