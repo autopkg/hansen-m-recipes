@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest version of Scribus. DOWNLOAD_FORMAT can be either 'pkg' or 'dmg', default is 'pkg'.</string>
+    <string>Downloads the latest version of MeshLab.</string>
     <key>Identifier</key>
-    <string>com.github.hansen-m.download.Scribus</string>
+    <string>com.github.hansen-m.download.MeshLab</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
