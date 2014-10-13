@@ -25,7 +25,7 @@
                 <key>url</key>
                 <string>%DOWNLOAD_URL%</string>
                 <key>re_pattern</key>
-                <string>(?P&lt;url&gt;http://code\.soundsoftware\.ac\.uk/attachments/download/[0-9]*/Sonic%20Visualiser-[.0-9]*\.dmg)</string>
+                <string>(?P&lt;url&gt;https://code\.soundsoftware\.ac\.uk/attachments/download/[0-9]*/Sonic%20Visualiser-[.0-9]*\.dmg)</string>
             </dict>
         </dict>
         <dict>
