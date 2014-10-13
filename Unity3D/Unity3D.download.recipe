@@ -10,6 +10,8 @@
     <dict>
         <key>NAME</key>
         <string>Unity3D</string>
+        <key>DOWNLOAD_URL</key>
+        <string>http://unity3d.com/unity/download/archive</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -21,9 +23,9 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>http://unity3d.com/unity/download/archive</string>
+                <string>%DOWNLOAD_URL%</string>
                 <key>re_pattern</key>
-                <string>&lt;td class=&quot;ts1 b&quot;&gt;Unity (?P&lt;version&gt;.*?)&lt;/td&gt;</string>
+                <string>&lt;td&gt;&lt;p class=&quot;mb0&quot;&gt;Unity (?P&lt;version&gt;.*?)&lt;/p&gt;&lt;/td&gt;</string>
             </dict>
         </dict>
         <dict>
