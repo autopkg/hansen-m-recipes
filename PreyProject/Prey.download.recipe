@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>Prey</string>
         <key>SEARCH_URL</key>
-        <string>https://preyproject.com/releases/current/</string>
+        <string>https://preyproject.com/releases/current</string>
         <key>SEARCH_PATTERN</key>
         <string>(?P&lt;zip&gt;prey-(?P&lt;version&gt;.*?)-mac-batch\.mpkg\.zip)</string>
     </dict>
@@ -36,7 +36,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%DOWNLOAD_URL%%zip%</string>
+                <string>%SEARCH_URL%/%zip%</string>
                 <key>filename</key>
                 <string>%NAME%.zip</string>
             </dict>
