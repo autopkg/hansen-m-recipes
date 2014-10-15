@@ -10,7 +10,7 @@
     <dict>
         <key>NAME</key>
         <string>PolycomCMADesktop</string>
-        <key>DOWNLOAD_URL</key>
+        <key>SEARCH_URL</key>
         <string>http://support.polycom.com/PolycomService/support/us/support/video/realpresence_desktop/realpresence_desktop.html</string>
         <key>POLYCOMRPDESKTOP_REPATTERN</key>
         <string>http://support.polycom.com/PolycomService/support/us/support/eula/rpd/RPDagreement.*?_mac.html</string>
@@ -27,7 +27,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%DOWNLOAD_URL%</string>
+                <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
                 <string>(?P&lt;link&gt;%POLYCOMRPDESKTOP_REPATTERN%)</string>
             </dict>

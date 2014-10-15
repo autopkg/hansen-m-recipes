@@ -10,6 +10,12 @@
     <dict>
         <key>NAME</key>
         <string>SoundStudio</string>
+        <key>DOWNLOAD_URL</key>
+        <string>http://felttip.com/downloads/</string>
+        <key>SEARCH_URL</key>
+        <string>http://felttip.com/ss/downloads.html</string>
+        <key>SEARCH_PATTERN</key>
+        <string>(?P&lt;dmg&gt;sound_studio_.*\.zip)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -21,9 +27,9 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>http://felttip.com/ss/downloads.html</string>
+                <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
-                <string>(?P&lt;dmg&gt;sound_studio_.*\.zip)</string>
+                <string>%SEARCH_PATTERN%</string>
             </dict>
         </dict>
         <dict>
@@ -32,7 +38,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>http://felttip.com/downloads/%dmg%</string>
+                <string>%DOWNLOAD_URL%%dmg%</string>
                 <key>filename</key>
                 <string>%NAME%.zip</string>
             </dict>

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest version of SubEthaEdit from The Coding Monkeys.</string>
+    <string>Downloads SubEthaEdit 3.5.4 (the last non-Mac App Store version) from The Coding Monkeys.</string>
     <key>Identifier</key>
     <string>com.github.hansen-m.download.SubEthaEdit</string>
     <key>Input</key>

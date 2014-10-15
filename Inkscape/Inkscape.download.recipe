@@ -10,8 +10,10 @@
     <dict>
         <key>NAME</key>
         <string>Inkscape</string>
-        <key>DOWNLOAD_URL</key>
+        <key>SEARCH_URL</key>
         <string>http://inkscape.org/en/download/</string>
+        <key>SEARCH_PATTERN</key>
+        <string>(?P&lt;url&gt;http://downloads\.sourceforge\.net/inkscape/Inkscape.*?\+X11\.dmg)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -23,9 +25,9 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%DOWNLOAD_URL%</string>
+                <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
-                <string>(?P&lt;url&gt;http://downloads\.sourceforge\.net/inkscape/Inkscape.*?\+X11\.dmg)</string>
+                <string>%SEARCH_PATTERN%</string>
             </dict>
         </dict>
         <dict>

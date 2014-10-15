@@ -10,10 +10,12 @@
     <dict>
         <key>NAME</key>
         <string>Doceri Desktop</string>
-        <key>BASE_URL</key>
-        <string>http://doceri.com</string>
         <key>DOWNLOAD_URL</key>
+        <string>http://doceri.com</string>
+        <key>SEARCH_URL</key>
         <string>http://doceri.com/download_form.php</string>
+        <key>SEARCH_PATTERN</key>
+        <string>(?P&lt;zip&gt;/DoceriDesktop/v.*?/Doceri_Desktop_.*?.zip)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -25,9 +27,9 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%DOWNLOAD_URL%</string>
+                <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
-                <string>(?P&lt;zip&gt;/DoceriDesktop/v.*?/Doceri_Desktop_.*?.zip)</string>
+                <string>%SEARCH_PATTERN%</string>
             </dict>
         </dict>
         <dict>
@@ -36,7 +38,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%BASE_URL%%zip%</string>
+                <string>%DOWNLOAD_URL%%zip%</string>
                 <key>filename</key>
                 <string>%NAME%.zip</string>
             </dict>

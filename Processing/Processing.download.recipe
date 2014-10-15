@@ -10,6 +10,10 @@
     <dict>
         <key>NAME</key>
         <string>Processing</string>
+        <key>SEARCH_URL</key>
+        <string>https://processing.org/download/?processing</string>
+        <key>SEARCH_PATTERN</key>
+        <string>(?P&lt;url&gt;http.*?-macosx.zip)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -21,9 +25,9 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>https://processing.org/download/?processing</string>
+                <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
-                <string>(?P&lt;url&gt;http.*?-macosx.zip)</string>
+                <string>%SEARCH_PATTERN%</string>
             </dict>
         </dict>
         <dict>

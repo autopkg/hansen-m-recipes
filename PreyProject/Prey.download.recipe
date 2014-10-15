@@ -10,8 +10,10 @@
     <dict>
         <key>NAME</key>
         <string>Prey</string>
-        <key>DOWNLOAD_URL</key>
+        <key>SEARCH_URL</key>
         <string>https://preyproject.com/releases/current/</string>
+        <key>SEARCH_PATTERN</key>
+        <string>(?P&lt;zip&gt;prey-(?P&lt;version&gt;.*?)-mac-batch\.mpkg\.zip)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -23,9 +25,9 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%DOWNLOAD_URL%</string>
+                <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
-                <string>(?P&lt;zip&gt;prey-(?P&lt;version&gt;.*?)-mac-batch\.mpkg\.zip)</string>
+                <string>%SEARCH_PATTERN%</string>
             </dict>
         </dict>
         <dict>

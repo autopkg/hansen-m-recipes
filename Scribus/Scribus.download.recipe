@@ -10,8 +10,10 @@
     <dict>
         <key>NAME</key>
         <string>Scribus</string>
-        <key>RSS_FEED</key>
+        <key>SEARCH_URL</key>
         <string>http://sourceforge.net/projects/scribus/rss?path=/scribus</string>
+        <key>SEARCH_PATTERN</key>
+        <string>(?P&lt;url&gt;http://sourceforge.net/projects/scribus/files/scribus/(?P&lt;version&gt;.*?)/scribus-.*?.%DOWNLOAD_FORMAT%/download)</string>
         <key>DOWNLOAD_FORMAT</key>
         <string>pkg</string>
     </dict>
@@ -25,9 +27,9 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%RSS_FEED%</string>
+                <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
-                <string>(?P&lt;url&gt;http://sourceforge.net/projects/scribus/files/scribus/(?P&lt;version&gt;.*?)/scribus-.*?.%DOWNLOAD_FORMAT%/download)</string>
+                <string>%SEARCH_PATTERN%</string>
             </dict>
         </dict>
         <dict>

@@ -10,6 +10,12 @@
     <dict>
         <key>NAME</key>
         <string>Fetch</string>
+        <key>DOWNLOAD_URL</key>
+        <string>http://fetchsoftworks.com/fetch/download/</string>
+        <key>SEARCH_URL</key>
+        <string>http://fetchsoftworks.com/fetch/download/</string>
+        <key>SEARCH_PATTERN</key>
+        <string>(?P&lt;dmg&gt;Fetch_.*\.dmg)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -21,9 +27,9 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>http://fetchsoftworks.com/fetch/download/</string>
+                <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
-                <string>(?P&lt;dmg&gt;Fetch_.*\.dmg)</string>
+                <string>%SEARCH_PATTERN%</string>
             </dict>
         </dict>
         <dict>
@@ -32,7 +38,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>http://fetchsoftworks.com/fetch/download/%dmg%?direct=1</string>
+                <string>%DOWNLOAD_URL%%dmg%?direct=1</string>
                 <key>filename</key>
                 <string>%NAME%.dmg</string>
             </dict>

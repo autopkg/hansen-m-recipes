@@ -10,8 +10,10 @@
     <dict>
         <key>NAME</key>
         <string>OracleJava7JDK</string>
-        <key>DOWNLOAD_URL</key>
+        <key>SEARCH_URL</key>
         <string>http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html</string>
+        <key>SEARCH_PATTERN</key>
+        <string>(?P&lt;url&gt;http://download.oracle.com/otn-pub/java/jdk/.*?/jdk-7u[0-9]?[0-9]?-macosx-x64.dmg)</string>
         <key>ORACLE_LICENSE_COOKIE</key>
         <string>oraclelicense=accept-securebackup-cookie</string>
     </dict>
@@ -25,9 +27,9 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%DOWNLOAD_URL%</string>
+                <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
-                <string>(?P&lt;url&gt;http://download.oracle.com/otn-pub/java/jdk/.*?/jdk-7u[0-9]?[0-9]?-macosx-x64.dmg)</string>
+                <string>%SEARCH_PATTERN%</string>
             </dict>
         </dict>
         <dict>

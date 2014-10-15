@@ -12,6 +12,10 @@
         <string>SAOImageDS9</string>
         <key>SAO_OS_KEY</key>
         <string>darwinmountainlion</string>
+        <key>SEARCH_URL</key>
+        <string>http://ds9.si.edu/site/Download.html</string>
+        <key>SEARCH_PATTERN</key>
+        <string>(?P&lt;url&gt;http://ds9.si.edu/download/%SAO_OS_KEY%/ds9\.%SAO_OS_KEY%\.(?P&lt;version&gt;.*?)\.tar.gz)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -23,9 +27,9 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>http://ds9.si.edu/site/Download.html</string>
+                <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
-                <string>(?P&lt;url&gt;http://ds9.si.edu/download/%SAO_OS_KEY%/ds9\.%SAO_OS_KEY%\.(?P&lt;version&gt;.*?)\.tar.gz)</string>
+                <string>%SEARCH_PATTERN%</string>
             </dict>
         </dict>
         <dict>

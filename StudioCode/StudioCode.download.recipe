@@ -10,6 +10,10 @@
     <dict>
         <key>NAME</key>
         <string>StudioCode</string>
+        <key>SEARCH_URL</key>
+        <string>http://www.studiocodegroup.com/support/download-upgrades-fixes/</string>
+        <key>SEARCH_PATTERN</key>
+        <string>(?P&lt;url&gt;http://downloads.sportstec.com/studiocode/installer/Studiocode.*?Installer\.dmg)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -21,9 +25,9 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>http://www.studiocodegroup.com/support/download-upgrades-fixes/</string>
+                <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
-                <string>(?P&lt;url&gt;http://downloads.sportstec.com/studiocode/installer/Studiocode.*?Installer\.dmg)</string>
+                <string>%SEARCH_PATTERN%</string>
             </dict>
         </dict>
         <dict>
@@ -31,6 +35,8 @@
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
+                <key>url</key>
+                <string>%url%</string>
                 <key>filename</key>
                 <string>%NAME%.dmg</string>
             </dict>

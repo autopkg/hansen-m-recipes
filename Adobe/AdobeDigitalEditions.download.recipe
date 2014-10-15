@@ -10,6 +10,10 @@
     <dict>
         <key>NAME</key>
         <string>AdobeDigitalEditions</string>
+        <key>SEARCH_URL</key>
+        <string>http://www.adobe.com/products/digital-editions/download.html</string>
+        <key>SEARCH_PATTERN</key>
+        <string>(?P&lt;url&gt;http://download\.adobe\.com/pub/adobe/digitaleditions/ADE_(?P&lt;version&gt;.*?)_Installer\.dmg)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -23,7 +27,7 @@
                 <key>url</key>
                 <string>http://www.adobe.com/products/digital-editions/download.html</string>
                 <key>re_pattern</key>
-                <string>(?P&lt;url&gt;http://download\.adobe\.com/pub/adobe/digitaleditions/ADE_(?P&lt;version&gt;.*?)_Installer\.dmg)</string>
+                <string>%SEARCH_PATTERN%</string>
             </dict>
         </dict>
         <dict>

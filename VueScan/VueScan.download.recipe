@@ -12,6 +12,10 @@
         <string>VueScan</string>
         <key>ARCH</key>
         <string>64</string>
+        <key>SEARCH_URL</key>
+        <string>http://www.hamrick.com<string>
+        <key>SEARCH_PATTERN</key>
+        <string>(?P&lt;dmg&gt;files/vuex%ARCH%.*?\.dmg)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -23,9 +27,9 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>http://www.hamrick.com</string>
+                <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
-                <string>(?P&lt;url&gt;files/vuex%ARCH%.*?\.dmg)</string>
+                <string>%SEARCH_PATTERN%</string>
             </dict>
         </dict>
         <dict>
@@ -34,7 +38,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>http://www.hamrick.com/%url%</string>
+                <string>%SEARCH_URL%/%dmg%</string>
                 <key>filename</key>
                 <string>%NAME%.dmg</string>
             </dict>

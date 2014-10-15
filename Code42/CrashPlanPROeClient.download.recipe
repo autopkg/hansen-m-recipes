@@ -10,8 +10,10 @@
     <dict>
         <key>NAME</key>
         <string>CrashPlanPROe</string>
-        <key>RE_SEARCH_URL</key>
+        <key>SEARCH_URL</key>
         <string>http://www.crashplan.com/shared/js/cp.download.js</string>
+        <key>SEARCH_PATTERN</key>
+        <string>cp.download.CPPROE_CLIENT_VERSION = \'(?P&lt;version&gt;.*?)\';</string>
         <key>DOWNLOAD_URL</key>
         <string>http://download.crashplan.com/installs/mac/install/CrashPlanPROe/</string>
     </dict>
@@ -25,9 +27,9 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%RE_SEARCH_URL%</string>
+                <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
-                <string>cp.download.CPPROE_CLIENT_VERSION = \'(?P&lt;version&gt;.*?)\';</string>
+                <string>%SEARCH_PATTERN%</string>
             </dict>
         </dict>
         <dict>

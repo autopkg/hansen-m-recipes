@@ -10,6 +10,12 @@
     <dict>
         <key>NAME</key>
         <string>PyCharm</string>
+        <key>DOWNLOAD_URL</key>
+        <string>http://download.jetbrains.com/python/</string>
+        <key>SEARCH_URL</key>
+        <string>http://www.jetbrains.com/pycharm/download/download_thanks.jsp?os=mac&amp;edition=comm</string>
+        <key>SEARCH_PATTERN</key>
+        <string>(?P&lt;dmg&gt;pycharm-community-.*.dmg)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -21,9 +27,9 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>http://www.jetbrains.com/pycharm/download/download_thanks.jsp?os=mac&amp;edition=comm</string>
+                <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
-                <string>(?P&lt;dmg&gt;pycharm-community-.*.dmg)</string>
+                <string>%SEARCH_PATTERN%</string>
             </dict>
         </dict>
         <dict>
@@ -32,7 +38,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>http://download.jetbrains.com/python/%dmg%</string>
+                <string>%DOWNLOAD_URL%%dmg%</string>
                 <key>filename</key>
                 <string>%NAME%.dmg</string>
             </dict>

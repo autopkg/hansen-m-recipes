@@ -12,8 +12,10 @@
         <string>AuraliaCloud</string>
         <key>SCHOOL_CODE</key>
         <string>#</string>
-        <key>DOWNLOAD_URL</key>
+        <key>SEARCH_URL</key>
         <string>http://www.risingsoftware.com/cloudsupport/download.php</string>
+        <key>SEARCH_PATTERN</key>
+        <string>(?P&lt;url&gt;http://download\.risingsoftware\.com/auralia./cloud/auralia_m_(?P&lt;version&gt;.*?)_cloud.pkg)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -25,9 +27,9 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%DOWNLOAD_URL%?school_code=%SCHOOL_CODE%</string>
+                <string>%SEARCH_URL%?school_code=%SCHOOL_CODE%</string>
                 <key>re_pattern</key>
-                <string>(?P&lt;url&gt;http://download\.risingsoftware\.com/auralia./cloud/auralia_m_(?P&lt;version&gt;.*?)_cloud.pkg)</string>
+                <string>%SEARCH_PATTERN%</string>
             </dict>
         </dict>
         <dict>
