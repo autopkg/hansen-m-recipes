@@ -13,7 +13,7 @@
         <key>ARCH</key>
         <string>64</string>
         <key>SEARCH_URL</key>
-        <string>http://www.hamrick.com<string>
+        <string>http://www.hamrick.com</string>
         <key>SEARCH_PATTERN</key>
         <string>(?P&lt;dmg&gt;files/vuex%ARCH%.*?\.dmg)</string>
     </dict>
