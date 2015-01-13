@@ -3,15 +3,15 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest version SAOImageDS9.</string>
+    <string>Downloads the latest version SAOImageDS9 app.</string>
     <key>Identifier</key>
-    <string>com.github.hansen-m.download.SAOImageDS9</string>
+    <string>com.github.hansen-m.download.SAOImageDS9-app</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>SAOImageDS9</string>
+        <string>SAOImage DS9</string>
         <key>SAO_OS_KEY</key>
-        <string>darwinmavericks</string>
+        <string>macosxmavericks</string>
         <key>SEARCH_URL</key>
         <string>http://ds9.si.edu/download</string>
     </dict>
@@ -27,7 +27,7 @@
                 <key>url</key>
                 <string>%SEARCH_URL%/%SAO_OS_KEY%/?C=M;O=D</string>
                 <key>re_pattern</key>
-                <string>(?P&lt;tar_gz_file&gt;ds9\.%SAO_OS_KEY%\.(?P&lt;version&gt;.*?)\.tar.gz)</string>
+                <string>(?P&lt;dmg&gt;SAOImage\%20DS9\%20(?P&lt;version&gt;.*?)\.dmg)</string>
             </dict>
         </dict>
         <dict>
@@ -36,9 +36,9 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%SEARCH_URL%/%SAO_OS_KEY%/%tar_gz_file%</string>
+                <string>%SEARCH_URL%/%SAO_OS_KEY%/%dmg%</string>
                 <key>filename</key>
-                <string>%NAME%.tar.gz</string>
+                <string>SAOImage_DS9.dmg</string>
             </dict>
         </dict>
         <dict>
