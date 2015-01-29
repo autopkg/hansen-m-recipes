@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest version of Julia.</string>
+    <string>Downloads the latest version Juno.</string>
     <key>Identifier</key>
-    <string>com.github.hansen-m.download.julia</string>
+    <string>com.github.hansen-m.download.juno</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>Julia</string>
+        <string>Juno</string>
         <key>SEARCH_URL</key>
-        <string>http://julialang.org/downloads/</string>
+        <string>http://junolab.org/docs/install.html</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;https://s3\.amazonaws\.com/julialang/bin/osx/x64/[0-9.]+/julia-(?P&lt;version&gt;[0-9.]+)-osx10.7\+\.dmg)</string>
+        <string>(?P&lt;url&gt;https://junolab\.s3\.amazonaws\.com/release/(?P&lt;version&gt;[0-9.]+)/juno-mac-x64\.dmg)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
