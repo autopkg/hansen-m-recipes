@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>SoundStudio</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://felttip.com/downloads/</string>
+        <string>https://s3.amazonaws.com/felttip.ss-downloads/</string>
         <key>SEARCH_URL</key>
         <string>http://felttip.com/ss/downloads.html</string>
         <key>SEARCH_PATTERN</key>
