@@ -13,7 +13,7 @@
         <key>SEARCH_URL</key>
         <string>http://picasa.google.com</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;https://dl\.google\.com/photos/picasamac.*?\.dmg)</string>
+        <string>(?P&lt;url&gt;https://dl\.google\.com/dl/picasa/picasamac.*?\.dmg)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
