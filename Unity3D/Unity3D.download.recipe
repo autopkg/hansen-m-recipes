@@ -13,7 +13,7 @@
         <key>SEARCH_URL</key>
         <string>http://unity3d.com/unity/download/archive</string>
         <key>SEARCH_PATTERN</key>
-        <string>&lt;td&gt;&lt;p class=&quot;mb0&quot;&gt;Unity (?P&lt;version&gt;.*?)&lt;/p&gt;&lt;/td&gt;</string>
+        <string>(?P&lt;pkg&gt;http://netstorage\.unity3d\.com/unity/[A-Za-z0-9]*?/MacEditorInstaller/Unity-(?P&lt;version&gt;[A-Za-z0-9 -\.]*?)\.pkg)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -36,9 +36,9 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>http://netstorage.unity3d.com/unity/unity-%version%.dmg</string>
+                <string>%pkg%</string>
                 <key>filename</key>
-                <string>%NAME%.dmg</string>
+                <string>%NAME%.pkg</string>
             </dict>
         </dict>
         <dict>
