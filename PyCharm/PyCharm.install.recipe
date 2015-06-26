@@ -9,7 +9,7 @@
 	<key>Input</key>
 	<dict>
 		<key>Name</key>
-		<string>PyCharm</string>
+		<string>PyCharm CE</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.4.0</string>

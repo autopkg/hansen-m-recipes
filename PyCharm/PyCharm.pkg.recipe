@@ -9,7 +9,7 @@
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>PyCharm</string>
+        <string>PyCharm CE</string>
         <key>DOWNLOAD_URL</key>
         <string>http://download.jetbrains.com/python/</string>
         <key>SEARCH_URL</key>
@@ -70,7 +70,7 @@
             <key>Arguments</key>
             <dict>
                 <key>pkgname</key>
-                <string>%NAME%-%version%</string>
+                <string>PyCharmCE-%version%</string>
                 <key>pkg_request</key>
                 <dict>
                     <key>pkgdir</key>
