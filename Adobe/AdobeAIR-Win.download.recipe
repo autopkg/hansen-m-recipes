@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads latest Adobe AIR installer for Windows.</string>
+    <key>Identifier</key>
+    <string>com.github.hansen-m.download.AdobeAIR-Win</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>AdobeAIR</string>
+        <key>DOWNLOAD_URL</key>
+        <string>http://airdownload.adobe.com/air/win/download/latest/AdobeAIRInstaller.exe</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%DOWNLOAD_URL%</string>
+                <key>filename</key>
+                <string>%NAME%.exe</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>com.github.hansen-m.SharedProcessors/WinInstallerExtractor</string>
+            <key>Arguments</key>
+            <dict>
+                <key>exe_path</key>
+                <string>%pathname%</string>
+                <key>extract_dir</key>
+                <string>InstallerExtract</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>com.github.hansen-m.SharedProcessors/WinInstallerExtractor</string>
+            <key>Arguments</key>
+            <dict>
+                <key>exe_path</key>
+                <string>%RECIPE_CACHE_DIR%/InstallerExtract/setup.msi</string>
+                <key>extract_dir</key>
+                <string>SetupExtract</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>BESRelevanceProvider</string>
+            <key>Arguments</key>
+            <dict>
+                <key>bes_filepath</key>
+                <string>%pathname%</string>
+                <key>output_var_name</key>
+                <string>version</string>
+                <key>bes_relevance</key>
+                <string>(substring before "ArpInstallLocationInstallLocationArpNoModifyNoModify" of it) of (substring after "AIRArpDisplayVersionDisplayVersion" of it) of lines whose (it contains "AIRArpDisplayVersionDisplayVersion") of file "%RECIPE_CACHE_DIR%/SetupExtract/!_StringData" as version</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>PathDeleter</string>
+            <key>Arguments</key>
+            <dict>
+                <key>path_list</key>
+                <array>
+                    <string>%RECIPE_CACHE_DIR%/InstallerExtract</string>
+                    <string>%RECIPE_CACHE_DIR%/SetupExtract</string>
+                </array>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+    </array>
+</dict>
+</plist>

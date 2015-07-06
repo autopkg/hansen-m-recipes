@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads latest Adobe Flash Player ActiveX Plugin for Windows.</string>
+    <key>Identifier</key>
+    <string>com.github.hansen-m.download.AdobeFlashActiveX-Win</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>AdobeFlashPlayerPlugin</string>
+        <key>SEARCH_URL</key>
+        <string>http://www.adobe.com/products/flashplayer/distribution3.html</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%SEARCH_URL%</string>
+                <key>re_pattern</key>
+                <string>(?P&lt;exe&gt;https://fpdownload\.macromedia\.com/get/flashplayer/current/licensing/win/install_flash_player_[0-9]?[0-9]?_active_x.exe)</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%SEARCH_URL%</string>
+                <key>re_pattern</key>
+                <string> Flash Player (?P&lt;version&gt;[0-9.]+) \(Win and Mac\)</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%exe%</string>
+                <key>filename</key>
+                <string>%NAME%.exe</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+    </array>
+</dict>
+</plist>

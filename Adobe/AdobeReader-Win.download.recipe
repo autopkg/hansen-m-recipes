@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads latest version of Adobe Reader DC for Windows.</string>
+    <key>Identifier</key>
+    <string>com.github.hansen-m.download.AdobeReader-Win</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>AdobeReader</string>
+        <key>SEARCH_URL</key>
+        <string>https://get.adobe.com/reader/</string>
+        <key>USER_AGENT</key>
+        <string>Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%SEARCH_URL%</string>
+                <key>re_pattern</key>
+                <string>Version (?P&lt;display_version&gt;[0-9.]+)</string>
+                <key>request_headers</key>
+                <dict>
+                        <key>user-agent</key>
+                        <string>%USER_AGENT%</string>
+                </dict>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>BESRelevanceProvider</string>
+            <key>Arguments</key>
+            <dict>
+                <key>bes_filepath</key>
+                <string>/Applications/Utilities/QnA.app/Contents/Resources/QnA</string>
+                <key>output_var_name</key>
+                <string>version</string>
+                <key>bes_relevance</key>
+                <string>following text of position 2 of "%display_version%"</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>BESRelevanceProvider</string>
+            <key>Arguments</key>
+            <dict>
+                <key>bes_filepath</key>
+                <string>/Applications/Utilities/QnA.app/Contents/Resources/QnA</string>
+                <key>output_var_name</key>
+                <string>packed_version</string>
+                <key>bes_relevance</key>
+                <string>concatenation of substrings separated by "." of "%version%"</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>http://ardownload.adobe.com/pub/adobe/reader/win/AcrobatDC/%packed_version%/AcroRdrDC%packed_version%_en_US.exe</string>
+                <key>filename</key>
+                <string>%NAME%.exe</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+    </array>
+</dict>
+</plist>
