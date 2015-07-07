@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads latest Google Chrome x64 MSI for Windows.</string>
+    <key>Identifier</key>
+    <string>com.github.hansen-m.download.googlechrome-Win64</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>GoogleChrome64</string>
+        <key>DOWNLOAD_URL</key>
+        <string>https://dl.google.com/dl/chrome/install/googlechromestandaloneenterprise64.msi</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%DOWNLOAD_URL%</string>
+                <key>filename</key>
+                <string>%NAME%.msi</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>com.github.hansen-m.SharedProcessors/WinInstallerExtractor</string>
+            <key>Arguments</key>
+            <dict>
+                <key>exe_path</key>
+                <string>%pathname%</string>
+                <key>extract_dir</key>
+                <string>InstallerExtract</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>BESRelevanceProvider</string>
+            <key>Arguments</key>
+            <dict>
+                <key>bes_filepath</key>
+                <string>%pathname%</string>
+                <key>output_var_name</key>
+                <string>version</string>
+                <key>bes_relevance</key>
+                <string>preceding text of first " Copyright 2011 Google Inc." of substrings separated by "%00%00%00" whose (it ends with "Google Inc.") of lines whose (it contains "Installer") of file "%RECIPE_CACHE_DIR%/InstallerExtract/[5]SummaryInformation" as version</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>PathDeleter</string>
+            <key>Arguments</key>
+            <dict>
+                <key>path_list</key>
+                <array>
+                    <string>%RECIPE_CACHE_DIR%/InstallerExtract</string>
+                </array>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+    </array>
+</dict>
+</plist>
