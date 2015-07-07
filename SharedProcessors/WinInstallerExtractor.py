@@ -47,13 +47,9 @@ class WinInstallerExtractor(Processor):
 
         extract_flag = 'x' if preserve_paths == 'True' else 'e'
         extract_path = "%s/%s" % (working_directory, extract_directory)
-
-        if not os.path.isfile('/usr/local/bin/7z'):
-            self.output("7z Utility Not Found: /usr/local/bin/7z")
-            sys.exit(1)
         
         self.output("Extracting: %s" % exe_path)
-        cmd = ['/usr/local/bin/7z', extract_flag, '-y', '-o%s' % extract_path , exe_path]
+        cmd = ['7z', extract_flag, '-y', '-o%s' % extract_path , exe_path]
         if verbosity > 1:
             subprocess.check_call(cmd)
         else:

@@ -6,6 +6,7 @@
 # 
 # 
 # Retreives the version of a .msi file using the lessmsi utility via Wine.
+# Requires installation of Wine, and availablility of 'wine' in PATH
 
 import os
 import sys
@@ -15,10 +16,6 @@ from autopkglib import Processor, ProcessorError
 
 
 __all__ = ["MSIVersionProvider"]
-
-WINE_PATH = '/usr/local/bin/wine'
-LESSMSI_PATH = '/Users/Shared/lessmsi-v1/lessmsi.exe'
-LESSMSI_FLAGS = 'v'
 
 
 class MSIVersionProvider(Processor):
@@ -41,28 +38,18 @@ class MSIVersionProvider(Processor):
     
     def main(self):
         
-        WINE = self.env.get('WINE_PATH', WINE_PATH)
-        LESSMSI = self.env.get('LESSMSI_PATH', LESSMSI_PATH)
-        FLAGS = self.env.get('LESSMSI_FLAGS', LESSMSI_FLAGS)
+        LESSMSI = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                               'lessmsi/lessmsi.exe')
         
         msi_path = self.env.get('msi_path', self.env.get('pathname'))
         verbosity = self.env.get('verbose', 0)
-        
-        if not os.path.isfile(WINE):
-            self.output("Wine installation not found: %s" % WINE)
-            sys.exit(1)
-            
-        if not os.path.isfile(LESSMSI):
-            self.output("lessmsi installation not found: %s" % LESSMSI)
-            self.output("Download --> https://github.com/activescott/lessmsi")
-            sys.exit(1)
             
         if not os.path.isfile(msi_path):
             self.output("MSI file path not found: %s" % msi_path)
             sys.exit(1)
             
         self.output("Evauluating: %s" % msi_path)
-        cmd = [WINE, LESSMSI, FLAGS, msi_path]
+        cmd = ['wine', LESSMSI, 'v', msi_path]
 
         proc = subprocess.Popen(cmd,  stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         (stdout, stderr) = proc.communicate()

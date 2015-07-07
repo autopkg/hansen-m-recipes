@@ -8,16 +8,27 @@
 # https://github.com/jgstew/file-meta-data/blob/master/file_meta_data.py
 # 
 # Retreives file metadata using the Hachoir metadata library.
+# Requires https://bitbucket.org/haypo/hachoir/wiki/hachoir-metadata
 
 import os
 import sys
 import string
 
-# ToDo: Make sure these imports fail gracefully
-import hachoir_core
-import hachoir_core.cmd_line
-import hachoir_metadata
-import hachoir_parser
+try:
+    import hachoir_core
+    import hachoir_core.cmd_line
+    import hachoir_metadata
+    import hachoir_parser
+except ImportError:
+    print """
+    Hachoir Modules not installed!
+
+    Install using: 
+        `pip install hachoir_core`
+        `pip install hachoir_metadata`
+        `pip install hachoir_parser`
+    """
+    sys.exit(1)
 
 from autopkglib import Processor, ProcessorError
 
