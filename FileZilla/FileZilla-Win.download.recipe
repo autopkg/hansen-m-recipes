@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Downloads the latest version FileZilla Win Client.</string>
     <key>Identifier</key>
-    <string>ecom.github.hansen-m.download.FileZilla-Win</string>
+    <string>com.github.hansen-m.download.FileZilla-Win</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
