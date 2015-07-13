@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the latest version of Greenshot for Windows.</string>
+    <key>Identifier</key>
+    <string>com.github.hansen-m.download.Greenshot-Win</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>Greenshot</string>
+        <key>GREENSHOT_ASSET_REGEX</key>
+<!--    <string>Greenshot-INSTALLER-[0-9.]+-RELEASE\.exe</string>-->
+        <string>Greenshot-NO-INSTALLER-[0-9.]+-RELEASE\.zip</string>
+        <key>USER_AGENT</key>
+        <string>Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>GitHubReleasesInfoProvider</string>
+            <key>Arguments</key>
+            <dict>
+                <key>github_repo</key>
+                <string>greenshot/greenshot</string>
+                <key>asset_regex</key>
+                <string>%GREENSHOT_ASSET_REGEX%</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%url%</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>BESRelevanceProvider</string>
+            <key>Arguments</key>
+            <dict>
+                <key>bes_filepath</key>
+                <string>%pathname%</string>
+                <key>output_var_name</key>
+                <string>version</string>
+                <key>bes_relevance</key>
+                <string>preceding text of first "-RELEASE" of "%version%" as version</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+    </array>
+</dict>
+</plist>
