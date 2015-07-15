@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the latest version of Minitab Express Multi-User.</string>
+    <key>Identifier</key>
+    <string>com.github.hansen-m.download.MinitabExpressMU</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>Minitab Express Multi-User</string>
+        <key>SEARCH_URL</key>
+        <string>http://www.minitab.com/en-us/downloads</string>
+        <key>LOCALE</key>
+        <string>en-us</string>
+        <key>SEARCH_PATTERN</key>
+        <string>(?P&lt;url&gt;http://fs1\.minitab\.com/prodinstalls/minitabexpress/minitabexpress1/(?P&lt;version&gt;[0-9.]+)/mac/multi-user/Minitab_Express_MU_v[0-9.]+\.pkg)</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.9</string>
+    <key>Process</key>
+    <array>
+       <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>http://www.minitab.com/%LOCALE%/downloads</string>
+                <key>re_pattern</key>
+                <string>%SEARCH_PATTERN%</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%url%</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+    </array>
+</dict>
+</plist>
