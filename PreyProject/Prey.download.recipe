@@ -13,7 +13,7 @@
         <key>SEARCH_URL</key>
         <string>https://preyproject.com/download</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;https://s3.amazonaws.com/prey-releases/node-client/(?P&lt;version&gt;[0-9.]{3,10})/prey-mac-(?P&lt;other_version&gt;[0-9.]{3,10})-x64.pkg)</string>
+        <string>(?P&lt;url&gt;https://s3.amazonaws.com/prey-releases/node-client/(?P&lt;version&gt;[0-9.]+)/prey-mac-[0-9.]+-x86.pkg)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
