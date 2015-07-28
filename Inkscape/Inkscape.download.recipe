@@ -11,9 +11,9 @@
         <key>NAME</key>
         <string>Inkscape</string>
         <key>SEARCH_URL</key>
-        <string>http://inkscape.org/en/download/</string>
+        <string>https://inkscape.org/en/download/mac-os/</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;http://downloads\.sourceforge\.net/inkscape/Inkscape.*?\+X11\.dmg)</string>
+        <string>(?P&lt;url&gt;https://inkscape\.org/en/gallery/item/[0-9]+/Inkscape-[0-9.-]+-x11-10\.7-x86_64\.dmg)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
