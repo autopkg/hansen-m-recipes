@@ -13,7 +13,7 @@
 		<key>SEARCH_URL</key>
 		<string>https://www.zotero.org/download/</string>
 		<key>SEARCH_PATTERN</key>
-		<string>(?P&lt;exe&gt;download.zotero.org/standalone/[0-9.]+/Zotero-[0-9.]+_setup\.exe)</string>
+		<string>(?P&lt;exe&gt;download.zotero.org/standalone/(?P&lt;version&gt;[0-9.]+)/Zotero-[0-9.]+_setup\.exe)</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.2.9</string>
