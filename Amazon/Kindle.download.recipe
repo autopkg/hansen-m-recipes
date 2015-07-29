@@ -10,24 +10,13 @@
     <dict>
         <key>NAME</key>
         <string>Kindle</string>
-        <key>DOWNLOAD_URL</key>
-        <string>http://www.amazon.com/gp/kindle/mac/download</string>
+        <key>url</key>
+        <string>http://kindleformac.amazon.com/40961/KindleForMac.dmg</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
     <key>Process</key>
     <array>
-        <dict>
-            <key>Processor</key>
-            <string>URLTextSearcher</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>%DOWNLOAD_URL%</string>
-                <key>re_pattern</key>
-                <string>(?P&lt;url&gt;http://kindleformac\.amazon\.com/.*?/KindleForMac\.dmg)</string>
-            </dict>
-        </dict>
         <dict>
             <key>Processor</key>
             <string>URLDownloader</string>
