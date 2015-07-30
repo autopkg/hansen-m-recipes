@@ -9,7 +9,7 @@
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>PolycomCMADesktop</string>
+        <string>PolycomRealPresenceDesktop</string>
         <key>SEARCH_URL</key>
         <string>http://support.polycom.com/PolycomService/support/us/support/video/realpresence_desktop/realpresence_desktop.html</string>
         <key>POLYCOMRPDESKTOP_REPATTERN</key>
