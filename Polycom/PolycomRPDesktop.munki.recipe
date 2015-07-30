@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Imports the latest version of Polycom RealPresence (RP) Desktop into Munki.</string>
+    <key>Identifier</key>
+    <string>com.github.hansen-m.munki.PolycomRPDesktop</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>PolycomRealPresenceDesktop</string>
+        <key>SEARCH_URL</key>
+        <string>http://support.polycom.com/PolycomService/support/us/support/video/realpresence_desktop/realpresence_desktop.html</string>
+        <key>POLYCOMRPDESKTOP_REPATTERN</key>
+        <string>http://support.polycom.com/PolycomService/support/us/support/eula/rpd/RPDagreement.*?_mac.html</string>
+        <key>POLYCOMRPDESKTOP_DMG_REPATTERN</key>
+        <string>http://downloads\.polycom\.com/video/realpresence_desktop/RPDMac-release_(?P&lt;version&gt;.*?)_(?P&lt;bundle_version&gt;.*?)\.dmg</string>
+        <key>pkginfo</key>
+        <dict>
+            <key>category</key>
+            <string>Productivity</string>
+            <key>developer</key>
+            <string>Polycom</string>
+            <key>catalogs</key>
+            <array>
+                <string>testing</string>
+            </array>
+            <key>description</key>
+            <string>&lt;p&gt;
+    &lt;div&gt;Wiki: &lt;a href="http://our.intern.facebook.com/intern/wiki/index.php/Ops/NetOps/corpnet/Video/Polycom" target="_blank"&gt;https://our.intern.facebook.com/intern/wiki/index.php/Ops/NetOps/corpnet/Video/Polycom&lt;/a&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;br /&gt;
+        &lt;/div&gt;
+    &lt;div&gt;Polycom RealPresence desktop solutions conveniently connect you to HD video, voice, or content collaboration—whether you are in a routine sales meeting, on a customer call, or on a crisis-response team.&lt;/div&gt;
+    &lt;div&gt;&lt;br /&gt;
+        &lt;/div&gt;&lt;/p&gt;</string>
+            <key>display_name</key>
+            <string>Polycom RealPresence Desktop</string>
+            <key>unattended_install</key>
+            <true/>
+        </dict>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.9</string>
+    <key>ParentRecipe</key>
+    <string>com.github.hansen-m.download.PolycomRPDesktop</string>
+    <key>Process</key>
+    <array>
+      <dict>
+        <key>Processor</key>
+        <string>MunkiPkginfoMerger</string>
+        <key>Arguments</key>
+        <dict>
+          <key>additional_pkginfo</key>
+          <dict>
+            <key>name</key>
+            <string>%NAME%</string>            
+            <key>version</key>
+            <string>%version%</string>
+          </dict>
+        </dict>
+      </dict>
+      <dict>
+          <key>Processor</key>
+          <string>MunkiImporter</string>
+          <key>Arguments</key>
+          <dict>
+              <key>pkg_path</key>
+              <string>%pathname%</string>
+              <key>repo_subdirectory</key>
+              <string>apps/polycom</string>
+          </dict>
+      </dict>
+    </array>
+</dict>
+</plist>
