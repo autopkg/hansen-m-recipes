@@ -11,9 +11,11 @@
         <key>NAME</key>
         <string>Fitbit</string>
         <key>SEARCH_URL</key>
-        <string>https://www.fitbit.com/start/ultra?platform=mac</string>
+        <string>http://www.fitbit.com/start?platform=mac</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;http://cache.fitbit.com/uploader/Install_Fitbit-(?P&lt;version&gt;[0-9.]+).dmg)</string>
+        <string>http://cache\.fitbit\.com/FitbitConnect/FitbitConnect_Mac_[0-9]+_(?P&lt;version&gt;[0-9.]+)\.dmg</string>
+        <key>USER_AGENT</key>
+        <string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/600.7.12 (KHTML, like Gecko) Version/8.0.7 Safari/600.7.12</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -24,6 +26,11 @@
             <string>URLTextSearcher</string>
             <key>Arguments</key>
             <dict>
+                <key>request_headers</key>
+                <dict>
+                        <key>user-agent</key>
+                        <string>%USER_AGENT%</string>
+                </dict>
                 <key>url</key>
                 <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
