@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>Box Sync</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://box.com/sync4windows#</string>
+        <string>https://e3.boxcdn.net/box-installers/sync/Sync+4+External/BoxSyncSetup.exe#</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
