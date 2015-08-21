@@ -15,7 +15,7 @@
         <key>SEARCH_URL</key>
         <string>https://www.macports.org/install.php</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;https://distfiles\.macports\.org/MacPorts/MacPorts-[0-9.]+-%MACPORTS_REQUESTED_OS%.pkg)</string>
+        <string>(?P&lt;url&gt;https://distfiles\.macports\.org/MacPorts/MacPorts-(?P&lt;version&gt;[0-9.]+)-%MACPORTS_REQUESTED_OS%.pkg)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
