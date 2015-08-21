@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the latest version of MacPorts. Valid options for MACPORTS_REQUESTED_OS are:'10.10-Yosemite' (default), '10.9-Mavericks', '10.8-MountainLion'.</string>
+    <key>Identifier</key>
+    <string>com.github.hansen-m.download.MacPorts</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>MacPorts</string>
+        <key>MACPORTS_REQUESTED_OS</key>
+        <string>10.10-Yosemite</string>
+        <key>SEARCH_URL</key>
+        <string>https://www.macports.org/install.php</string>
+        <key>SEARCH_PATTERN</key>
+        <string>(?P&lt;url&gt;https://distfiles\.macports\.org/MacPorts/MacPorts-[0-9.]+-%MACPORTS_REQUESTED_OS%.pkg)</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.9</string>
+    <key>Process</key>
+    <array>
+       <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%SEARCH_URL%</string>
+                <key>re_pattern</key>
+                <string>%SEARCH_PATTERN%</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>filename</key>
+                <string>%NAME%.pkg</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+    </array>
+</dict>
+</plist>
