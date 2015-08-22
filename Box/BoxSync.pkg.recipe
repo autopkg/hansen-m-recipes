@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the latest Box Sync disk image, and builds a deployable package.</string>
+    <key>Identifier</key>
+    <string>com.github.hansen-m.pkg.boxsync</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>Box Sync</string>
+    </dict>
+    <key>MinimumVersion</key>
+	<string>0.4.1</string>
+    <key>ParentRecipe</key>
+    <string>com.github.hansen-m.download.boxsync</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Comment</key>
+            <string>Create a pkg root; we'll extract things from the disk image here.</string>
+            <key>Processor</key>
+            <string>PkgRootCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkgroot</key>
+                <string>%RECIPE_CACHE_DIR%/BoxSync</string>
+                <key>pkgdirs</key>
+                <dict>
+                    <key>Applications</key>
+                    <string>01775</string>
+                    <key>Library</key>
+                    <string>01775</string>
+                    <key>Library/PrivilegedHelperTools</key>
+                    <string>0775</string>
+                </dict>
+            </dict>
+        </dict>
+        <dict>
+            <key>Comment</key>
+            <string>Copy Box Sync.app</string>
+            <key>Processor</key>
+            <string>Copier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>source_path</key>
+                <string>%pathname%/Box Sync.app</string>
+                <key>destination_path</key>
+                <string>%pkgroot%/Applications/Box Sync.app</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Comment</key>
+            <string>Copy embedded com.box.sync.bootstrapper to pkgroot/Library/PrivilegedHelperTools/</string>
+            <key>Processor</key>
+            <string>Copier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>source_path</key>
+                <string>%pkgroot%/Applications/Box Sync.app/Contents/Resources/com.box.sync.bootstrapper</string>
+                <key>destination_path</key>
+                <string>%pkgroot%/Library/PrivilegedHelperTools/com.box.sync.bootstrapper</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Comment</key>
+            <string>Copy embedded com.box.sync.iconhelper to pkgroot/Library/PrivilegedHelperTools/</string>
+            <key>Processor</key>
+            <string>Copier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>source_path</key>
+                <string>%pkgroot%/Applications/Box Sync.app/Contents/Resources/com.box.sync.iconhelper</string>
+                <key>destination_path</key>
+                <string>%pkgroot%/Library/PrivilegedHelperTools/com.box.sync.iconhelper</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Comment</key>
+            <string>Get Box Sync version from the app bundle</string>
+            <key>Processor</key>
+            <string>Versioner</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_plist_path</key>
+                <string>%pkgroot%/Applications/Box Sync.app/Contents/Info.plist</string>
+                <key>plist_version_key</key>
+                <string>CFBundleVersion</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Comment</key>
+            <string>Make PackageInfo file for our package</string>
+            <key>Processor</key>
+            <string>PkgInfoCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>template_path</key>
+                <string>PackageInfoTemplate</string>
+                <key>infofile</key>
+                <string>%RECIPE_CACHE_DIR%/PackageInfo</string>
+                <key>pkgtype</key>
+                <string>flat</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Comment</key>
+            <string>Finally! Build a real Apple package from Box's poor excuse for enterprise software.</string>
+            <key>Processor</key>
+            <string>PkgCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkgname</key>
+                <string>BoxSync-%version%</string>
+                <key>pkg_request</key>
+                <dict>
+                    <key>pkgdir</key>
+                    <string>%RECIPE_CACHE_DIR%</string>
+                    <key>id</key>
+                    <string>com.box.pkg.boxsync</string>
+                    <key>infofile</key>
+                    <string>%RECIPE_CACHE_DIR%/PackageInfo</string>
+                    <key>options</key>
+                    <string>purge_ds_store</string>
+                    <key>chown</key>
+                    <array>
+                        <dict>
+                            <key>path</key>
+                            <string>Applications</string>
+                            <key>user</key>
+                            <string>root</string>
+                            <key>group</key>
+                            <string>admin</string>
+                        </dict>
+                        <dict>
+                            <key>path</key>
+                            <string>Library</string>
+                            <key>user</key>
+                            <string>root</string>
+                            <key>group</key>
+                            <string>wheel</string>
+                        </dict>
+                        <dict>
+                            <key>path</key>
+                            <string>Library/PrivilegedHelperTools/com.box.sync.bootstrapper</string>
+                            <key>user</key>
+                            <string>root</string>
+                            <key>group</key>
+                            <string>wheel</string>
+                            <key>mode</key>
+                            <string>4755</string>
+                        </dict>
+                        <dict>
+                            <key>path</key>
+                            <string>Library/PrivilegedHelperTools/com.box.sync.iconhelper</string>
+                            <key>user</key>
+                            <string>root</string>
+                            <key>group</key>
+                            <string>wheel</string>
+                            <key>mode</key>
+                            <string>4755</string>
+                        </dict>
+                    </array>
+                </dict>
+            </dict>
+        </dict>
+    </array>
+</dict>
+</plist>
