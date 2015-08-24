@@ -9,7 +9,7 @@
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>BESEngine</string>
+        <string>Box Sync</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.4.1</string>
