@@ -13,7 +13,7 @@
         <key>SEARCH_URL</key>
         <string>http://connectivity.opentext.com/products/mac-os-x-platforms.aspx</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;http.*?eodclient8-.*\.dmg)</string>
+        <string>(?P&lt;url&gt;http://mimage\.opentext\.com/patches/connectivity/eod8/[a-z0-9_]+/[a-z0-9]+/mac/eodclient.-(?P&lt;version&gt;[0-9.]+)\.dmg)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
