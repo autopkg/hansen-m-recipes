@@ -30,6 +30,10 @@
             <string>%NAME%</string>
             <key>unattended_install</key>
             <true/>
+            <key>blocking_applications</key>
+            <array>
+                <string>texmaker</string>
+            </array>
         </dict>
     </dict>
     <key>MinimumVersion</key>
