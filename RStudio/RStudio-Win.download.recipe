@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest RStudio installer package.</string>
+    <string>Downloads the latest RStudio installer for Windows.</string>
     <key>Identifier</key>
-    <string>com.github.hansen-m.download.RStudio</string>
+    <string>com.github.hansen-m.download.RStudio-Win</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
@@ -13,7 +13,7 @@
         <key>SEARCH_URL</key>
         <string>https://www.rstudio.com/products/rstudio/download/</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;dmg&gt;RStudio-(?P&lt;version&gt;[0-9.]+)\.dmg)</string>
+        <string>(?P&lt;exe&gt;RStudio-(?P&lt;version&gt;[0-9.]+)\.exe)</string>
         <key>DOWNLOAD_MIRROR</key>
         <string>http://download1.rstudio.org</string>
     </dict>
@@ -38,9 +38,9 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%DOWNLOAD_MIRROR%/%dmg%</string>
+                <string>%DOWNLOAD_MIRROR%/%exe%</string>
                 <key>filename</key>
-                <string>%NAME%.dmg</string>
+                <string>%NAME%.exe</string>
             </dict>
         </dict>
         <dict>
