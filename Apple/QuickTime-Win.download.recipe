@@ -15,7 +15,7 @@
         <key>VERSION_PATTERN</key>
         <string>&lt;h1 id="main-title"&gt;QuickTime (?P&lt;display_version&gt;[0-9.]+) for Windows&lt;/h1&gt;</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;https://secure-appldnld\.apple\.com/QuickTime/.*?/quicktimeinstaller\.exe)</string>
+        <string>(?P&lt;url&gt;https://secure-appldnld\.apple\.com\/[Qq]uick[Tt]ime\/[0-9A-Z-]+\/[Qq]uick[Tt]ime[Ii]nstaller\.exe)</string>
         <key>USER_AGENT</key>
         <string>Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko</string>
     </dict>
