@@ -10,24 +10,18 @@
     <dict>
         <key>NAME</key>
         <string>Aquamacs</string>
-        <key>SEARCH_URL</key>
-        <string>http://sourceforge.net/api/file/index/project-id/138078/mtime/desc/limit/20/rss</string>
-        <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;http.*?dmg)</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.2.9</string>
+    <string>0.5.0</string>
     <key>Process</key>
     <array>
         <dict>
             <key>Processor</key>
-            <string>URLTextSearcher</string>
+            <string>GitHubReleasesInfoProvider</string>
             <key>Arguments</key>
             <dict>
-                <key>url</key>
-                <string>%SEARCH_URL%</string>
-                <key>re_pattern</key>
-                <string>%SEARCH_PATTERN%</string>
+                <key>github_repo</key>
+                <string>davidswelt/aquamacs-emacs</string>
             </dict>
         </dict>
         <dict>
@@ -44,6 +38,17 @@
         <dict>
             <key>Processor</key>
             <string>EndOfCheckPhase</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>CodeSignatureVerifier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_path</key>
+                <string>%pathname%/Aquamacs.app</string>
+                <key>requirement</key>
+                <string>identifier "org.gnu.Aquamacs" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "4YEZ374VAY"</string>
+            </dict>
         </dict>
     </array>
 </dict>
