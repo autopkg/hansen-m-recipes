@@ -16,7 +16,7 @@
         <string>(?P&lt;url&gt;https://code\.soundsoftware\.ac\.uk/attachments/download/[0-9]*/Sonic%20Visualiser-[.0-9]*\.dmg)</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.2.9</string>
+    <string>0.4.0</string>
     <key>Process</key>
     <array>
         <dict>
@@ -44,6 +44,17 @@
         <dict>
             <key>Processor</key>
             <string>EndOfCheckPhase</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>CodeSignatureVerifier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_path</key>
+                <string>%pathname%/Sonic Visualiser.app</string>
+                <key>requirement</key>
+                <string>identifier "org.sonicvisualiser.SonicVisualiser" and (anchor apple generic and certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = M2H8666U82)</string>
+            </dict>
         </dict>
     </array>
 </dict>
