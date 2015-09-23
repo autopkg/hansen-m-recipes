@@ -13,7 +13,7 @@
         <key>SEARCH_URL</key>
         <string>http://unity3d.com/unity/download/archive</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;pkg&gt;http://netstorage\.unity3d\.com/unity/[A-Za-z0-9]*?/MacEditorInstaller/Unity-(?P&lt;version&gt;[A-Za-z0-9 -\.]*?)\.pkg)</string>
+        <string>(?P&lt;unity_url&gt;http://netstorage\.unity3d\.com/unity/[A-Za-z0-9]*?/MacEditorInstaller/Unity-(?P&lt;version&gt;[A-Za-z0-9 -\.]*?)\.pkg)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -32,11 +32,33 @@
         </dict>
         <dict>
             <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%SEARCH_URL%</string>
+                <key>re_pattern</key>
+                <string>(?P&lt;assets_url&gt;http://netstorage\.unity3d\.com/unity/[A-Za-z0-9]*?/MacStandardAssetsInstaller/StandardAssets-(?P&lt;assets_version&gt;[A-Za-z0-9 -\.]*?)\.pkg)</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%pkg%</string>
+                <string>%assets_url%</string>
+                <key>filename</key>
+                <string>StandardAssets.pkg</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%unity_url%</string>
                 <key>filename</key>
                 <string>%NAME%.pkg</string>
             </dict>
