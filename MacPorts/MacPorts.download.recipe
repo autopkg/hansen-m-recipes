@@ -11,11 +11,11 @@
         <key>NAME</key>
         <string>MacPorts</string>
         <key>MACPORTS_REQUESTED_OS</key>
-        <string>10.10-Yosemite</string>
+        <string>10.11-ElCapitan</string>
         <key>SEARCH_URL</key>
         <string>https://www.macports.org/install.php</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;https://distfiles\.macports\.org/MacPorts/MacPorts-(?P&lt;version&gt;[0-9.]+)-%MACPORTS_REQUESTED_OS%.pkg)</string>
+        <string>(?P&lt;url&gt;(http|https)://[a-zA-Z0-9.-/]+/MacPorts-(?P&lt;version&gt;[0-9.]+)-%MACPORTS_REQUESTED_OS%.pkg)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
