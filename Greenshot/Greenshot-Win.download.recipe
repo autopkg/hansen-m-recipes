@@ -50,7 +50,7 @@
                 <key>output_var_name</key>
                 <string>version</string>
                 <key>bes_relevance</key>
-                <string>preceding text of first "-RELEASE" of "%version%" as version</string>
+                <string>if ("1.2.6.12" contains "-RELEASE") then (preceding text of first "-RELEASE" of "%version%" as version) else "%version%" as version</string>
             </dict>
         </dict>
         <dict>
