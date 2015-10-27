@@ -50,7 +50,7 @@
                 <key>output_var_name</key>
                 <string>version</string>
                 <key>bes_relevance</key>
-                <string>(it as version) of (preceding text of first "-RELEASE" of "%version%" | "%version%")</string>
+                <string>(it as version) of (following text of first "-RELEASE-" of "%version%" | "%version%")</string>
             </dict>
         </dict>
         <dict>
