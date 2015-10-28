@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads and installs the latest version of the Google Voice and Video Plugin.</string>
+    <key>Identifier</key>
+    <string>com.github.hansen-m.install.GoogleVoiceAndVideo</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>GoogleVoiceAndVideo</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.4.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.hansen-m.pkg.GoogleVoiceAndVideo</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>Installer</string>
+        </dict>
+    </array>
+</dict>
+</plist>
