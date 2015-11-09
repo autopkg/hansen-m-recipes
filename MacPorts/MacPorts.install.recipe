@@ -10,8 +10,6 @@
     <dict>
         <key>NAME</key>
         <string>MacPorts</string>
-        <key>MACPORTS_REQUESTED_OS</key>
-        <string>10.10-Yosemite</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.4.0</string>
