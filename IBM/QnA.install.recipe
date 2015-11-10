@@ -3,18 +3,18 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads latest BigFix Utilities, and installs QnA to /Applications/Utilities.</string>
+    <string>Downloads and installs the latest QnA utility.</string>
     <key>Identifier</key>
     <string>com.github.hansen-m.install.QnA</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>BESEngine</string>
+        <string>QnA</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.4.0</string>
     <key>ParentRecipe</key>
-    <string>com.github.rustymyers.download.BigFixUtilities</string>
+    <string>com.github.hansen-m.pkg.QnA</string>
     <key>Process</key>
     <array>
         <dict>
@@ -23,27 +23,7 @@
         </dict>
         <dict>
             <key>Processor</key>
-            <string>InstallFromDMG</string>
-            <key>Arguments</key>
-            <dict>
-                <key>dmg_path</key>
-                <string>%pathname%</string>
-                <key>items_to_copy</key>
-                <array>
-                    <dict>
-                    <key>source_item</key>
-                        <string>QnA.app</string>
-                        <key>destination_path</key>
-                        <string>/Applications/Utilities</string>
-                        <key>user</key>
-                        <string>root</string>
-                        <key>group</key>
-                        <string>admin</string>
-                        <key>mode</key>
-                        <string>ug+rwx</string>
-                    </dict>
-                </array>
-            </dict>
+            <string>Installer</string>
         </dict>
     </array>
 </dict>
