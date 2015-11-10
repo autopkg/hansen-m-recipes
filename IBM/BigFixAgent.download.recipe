@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the latest BigFix BESAgent for OS X.</string>
+    <key>Identifier</key>
+    <string>com.github.hansen-m.download.BigFixAgent</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>BESAgent</string>
+        <key>SEARCH_URL</key>
+        <string>http://support.bigfix.com/bes/release</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.9</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%SEARCH_URL%</string>
+                <key>re_pattern</key>
+                <string><![CDATA[<a href="(?P<latest_release_path>[0-9].[0-9]/patch[0-9])">Patch [0-9]</a>]]></string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%SEARCH_URL%/%latest_release_path%</string>
+                <key>re_pattern</key>
+                <string><![CDATA[(?P<url>http://software\.bigfix\.com/download/bes/[0-9]+/BESAgent-(?P<version>[0-9.]+)-BigFix_MacOSX10.6.pkg)]]></string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%url%</string>
+                <key>filename</key>
+                <string>%NAME%.pkg</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+    </array>
+</dict>
+</plist>
