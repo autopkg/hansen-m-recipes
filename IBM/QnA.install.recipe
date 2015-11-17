@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads and installs the latest QnA utility.</string>
+    <string>Installs the latest IBM BigFix QnA utility to /usr/local/bin.</string>
     <key>Identifier</key>
     <string>com.github.hansen-m.install.QnA</string>
     <key>Input</key>
