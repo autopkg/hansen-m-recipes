@@ -10,10 +10,8 @@
     <dict>
         <key>NAME</key>
         <string>Firefox</string>
-        <key>SEARCH_URL</key>
-        <string>http://ftp.mozilla.org/pub/mozilla.org/firefox/releases/latest/win32/en-US/</string>
-        <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;exe&gt;Firefox%20Setup%20(?P&lt;version&gt;[0-9.]+)\.exe)</string>
+        <key>DOWNLOAD_URL</key>
+        <string>https://download.mozilla.org/?product=firefox-latest&amp;os=win&amp;lang=en-US</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
@@ -21,22 +19,11 @@
     <array>
         <dict>
             <key>Processor</key>
-            <string>URLTextSearcher</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>%SEARCH_URL%</string>
-                <key>re_pattern</key>
-                <string>%SEARCH_PATTERN%</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%SEARCH_URL%%exe%</string>
+                <string>%DOWNLOAD_URL%</string>
                 <key>filename</key>
                 <string>%NAME%.exe</string>
             </dict>
