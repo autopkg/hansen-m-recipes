@@ -11,43 +11,47 @@
         <key>NAME</key>
         <string>AdobeFlashPlayerPlugin</string>
         <key>SEARCH_URL</key>
-        <string>http://www.adobe.com/products/flashplayer/distribution3.html</string>
+        <string>http://fpdownload2.macromedia.com/get/flashplayer/update/current/xml/version_en_win_pl.xml</string>
+        <key>DOWNLOAD_URL</key>
+        <string>http://fpdownload.macromedia.com/get/flashplayer/current/licensing/win/install_flash_player_20_active_x.exe</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.2.0</string>
+    <string>0.2.9</string>
     <key>Process</key>
     <array>
-        <dict>
-            <key>Processor</key>
-            <string>URLTextSearcher</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>%SEARCH_URL%</string>
-                <key>re_pattern</key>
-                <string>(?P&lt;exe&gt;https://fpdownload\.macromedia\.com/get/flashplayer/current/licensing/win/install_flash_player_[0-9]?[0-9]?_active_x.exe)</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>URLTextSearcher</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>%SEARCH_URL%</string>
-                <key>re_pattern</key>
-                <string> Flash Player (?P&lt;version&gt;[0-9.]+) \(Win and Mac\)</string>
-            </dict>
-        </dict>
         <dict>
             <key>Processor</key>
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%exe%</string>
+                <string>%DOWNLOAD_URL%</string>
                 <key>filename</key>
                 <string>%NAME%.exe</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%SEARCH_URL%</string>
+                <key>re_pattern</key>
+                <string>&lt;update version=&quot;(?P&lt;version_match&gt;[0-9,]+)&quot;&gt;</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>BESRelevanceProvider</string>
+            <key>Arguments</key>
+            <dict>
+                <key>bes_filepath</key>
+                <string>%pathname%</string>
+                <key>output_var_name</key>
+                <string>version</string>
+                <key>bes_relevance</key>
+                <string>concatenation "." of substrings separated by "," of "%version_match%"</string>
             </dict>
         </dict>
         <dict>
