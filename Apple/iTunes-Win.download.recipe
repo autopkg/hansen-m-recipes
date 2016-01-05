@@ -13,7 +13,7 @@
         <key>SEARCH_URL</key>
         <string>https://swdlp.apple.com/iframes/82/en_us/82_en_us.html</string>
         <key>SEARCH_PATTERN</key>
-        <string>id='system_OS_Hide_Show:6:win:64bit:radio:binaryUrl' value='(?P&lt;exe&gt;https://secure-appldnld\.apple\.com/itunes../.*?/itunes6464setup\.exe)'</string>
+        <string>value='(?P&lt;exe&gt;https:\/\/secure-appldnld\.apple\.com\/itunes[0-9][0-9]\/[A-F0-9]{3}-?[A-F0-9]{5}-?[A-F0-9]{8}-?[A-F0-9]{8}-?[A-F0-9]{4}-?[A-F0-9]{4}-?[A-F0-9]{4}-?[A-F0-9]{12}\/i[tT]unes[sS]etup\.exe)'</string>
         <key>USER_AGENT</key>
         <string>Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko</string>
     </dict>
