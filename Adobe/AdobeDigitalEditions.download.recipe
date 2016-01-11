@@ -13,7 +13,7 @@
         <key>SEARCH_URL</key>
         <string>http://www.adobe.com/products/digital-editions/download.html</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;http://download\.adobe\.com/pub/adobe/digitaleditions/ADE_(?P&lt;version&gt;.*?)_Installer\.dmg)</string>
+        <string>(?P&lt;url&gt;https://adedownload\.adobe\.com/pub/adobe/digitaleditions/ADE_(?P&lt;version&gt;.*?)_Installer\.dmg)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.4.0</string>
@@ -25,7 +25,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>http://www.adobe.com/products/digital-editions/download.html</string>
+                <string>https://www.adobe.com/solutions/ebook/digital-editions/download.html</string>
                 <key>re_pattern</key>
                 <string>%SEARCH_PATTERN%</string>
             </dict>
