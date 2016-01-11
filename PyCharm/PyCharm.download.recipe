@@ -10,20 +10,18 @@
     <dict>
         <key>NAME</key>
         <string>PyCharm CE</string>
-        <key>DOWNLOAD_URL</key>
-        <string>http://download.jetbrains.com/python/</string>
         <key>SEARCH_URL</key>
-        <string>http://www.jetbrains.com/pycharm/download/download_thanks.jsp?os=mac&amp;edition=comm</string>
+        <string>https://data.services.jetbrains.com/products/releases?code=PCC</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;dmg&gt;pycharm-community-.*.dmg)</string>
+        <string>mac":{"link":"(.+?dmg)"</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.3.1</string>
+    <string>0.4.1</string>
     <key>Process</key>
     <array>
        <dict>
             <key>Processor</key>
-            <string>URLTextSearcher</string>
+            <string>CURLTextSearcher</string>
             <key>Arguments</key>
             <dict>
                 <key>url</key>
@@ -38,7 +36,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%DOWNLOAD_URL%%dmg%</string>
+                <string>%match%</string>
                 <key>filename</key>
                 <string>%NAME%.dmg</string>
             </dict>
