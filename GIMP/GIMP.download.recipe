@@ -11,9 +11,9 @@
         <key>NAME</key>
         <string>GIMP</string>
         <key>SEARCH_URL</key>
-        <string>http://www.gimp.org/downloads/</string>
+        <string>https://www.gimp.org/downloads/</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;http://download.gimp.org/pub/gimp/v.*?/osx/gimp-.*?.dmg)</string>
+        <string>(?P&lt;url&gt;download.gimp.org/mirror/pub/gimp/v.*?/osx/gimp-.*?.dmg)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -35,6 +35,8 @@
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
+                <key>url</key>
+                <string>https://%match%</string>
                 <key>filename</key>
                 <string>%NAME%.dmg</string>
             </dict>
