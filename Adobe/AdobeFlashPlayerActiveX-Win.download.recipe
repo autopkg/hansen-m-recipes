@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>AdobeFlashPlayerPlugin</string>
         <key>SEARCH_URL</key>
-        <string>http://fpdownload2.macromedia.com/get/flashplayer/update/current/xml/version_en_win_pl.xml</string>
+        <string>http://fpdownload2.macromedia.com/get/flashplayer/update/current/xml/version_en_win_ax.xml</string>
         <key>DOWNLOAD_URL</key>
         <string>http://fpdownload.macromedia.com/get/flashplayer/current/licensing/win/install_flash_player_20_active_x.exe</string>
     </dict>
