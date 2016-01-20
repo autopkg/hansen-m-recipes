@@ -13,7 +13,7 @@
         <key>SEARCH_URL</key>
         <string>http://www.videolan.org/vlc/download-windows.html</string>
         <key>SEARCH_PATTERN</key>
-        <string>Download latest VLC - (?P&lt;version&gt;[0-9.]+)</string>
+        <string>(?P&lt;url&gt;get\.videolan\.org\/vlc\/(?P&lt;version&gt;[0-9.]+)\/win32\/vlc-[0-9.]+-win32\.exe)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -36,7 +36,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>http://get.videolan.org/vlc/%version%/win32/vlc-%version%-win32.exe</string>
+                <string>http://%url%</string>
                 <key>filename</key>
                 <string>%NAME%.exe</string>
             </dict>
