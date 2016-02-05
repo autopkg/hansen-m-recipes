@@ -3,15 +3,15 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest version FileZilla Win Client.</string>
+    <string>Downloads the latest version FileZilla for Mac Client.</string>
     <key>Identifier</key>
-    <string>com.github.hansen-m.download.FileZilla-Win</string>
+    <string>com.github.hansen-m.download.FileZilla</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
         <string>FileZilla</string>
         <key>SEARCH_URL</key>
-        <string>http://update.filezilla-project.org/updatecheck.php?platform=i586-pc-mingw32msvc&amp;version=3.0&amp;osversion=5.1</string>
+        <string>http://update.filezilla-project.org/updatecheck.php?platform=i686-apple-darwin9&amp;version=3.0.0&amp;osversion=12</string>
         <key>CHANNEL</key>
         <string>release</string>
     </dict>
@@ -27,7 +27,7 @@
                 <key>url</key>
                 <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
-                <string>%CHANNEL% (?P&lt;version&gt;[0-9.]+) (?P&lt;url&gt;http:\/\/downloads\.sourceforge\.net\/filezilla\/FileZilla_[0-9.]+_win32-setup\.exe)</string>
+                <string>%CHANNEL% (?P&lt;version&gt;[0-9.]+) (?P&lt;url&gt;http:\/\/downloads\.sourceforge\.net\/filezilla\/FileZilla_[0-9.]+_macosx-x86\.app\.tar\.bz2)</string>
             </dict>
         </dict>
         <dict>
@@ -38,7 +38,7 @@
                 <key>url</key>
                 <string>%url%</string>
                 <key>filename</key>
-                <string>%NAME%.exe</string>
+                <string>%NAME%.tar.bz2</string>
             </dict>
         </dict>
         <dict>
