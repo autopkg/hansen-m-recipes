@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>FileZilla</string>
         <key>SEARCH_URL</key>
-        <string>http://update.filezilla-project.org/updatecheck.php?platform=i586-pc-mingw32msvc&amp;version=3.0&amp;osversion=5.1</string>
+        <string>https://update.filezilla-project.org/updatecheck.php?platform=i586-pc-mingw32msvc&amp;version=3.0&amp;osversion=5.1</string>
         <key>CHANNEL</key>
         <string>release</string>
     </dict>

@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>FileZilla</string>
         <key>SEARCH_URL</key>
-        <string>http://update.filezilla-project.org/updatecheck.php?platform=i686-apple-darwin9&amp;version=3.0.0&amp;osversion=12</string>
+        <string>https://update.filezilla-project.org/updatecheck.php?platform=i686-apple-darwin9&amp;version=3.0.0&amp;osversion=12</string>
         <key>CHANNEL</key>
         <string>release</string>
     </dict>
