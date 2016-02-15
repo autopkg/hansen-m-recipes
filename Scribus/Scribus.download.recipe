@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest version of Scribus. DOWNLOAD_FORMAT can be either 'pkg' or 'dmg', default is 'pkg'.</string>
+    <string>Downloads the latest version of Scribus.</string>
     <key>Identifier</key>
     <string>com.github.hansen-m.download.Scribus</string>
     <key>Input</key>
@@ -11,11 +11,9 @@
         <key>NAME</key>
         <string>Scribus</string>
         <key>SEARCH_URL</key>
-        <string>http://sourceforge.net/projects/scribus/rss?path=/scribus</string>
+        <string>https://sourceforge.net/projects/scribus/rss?path=/scribus</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;http://sourceforge.net/projects/scribus/files/scribus/(?P&lt;version&gt;.*?)/scribus-.*?.%DOWNLOAD_FORMAT%/download)</string>
-        <key>DOWNLOAD_FORMAT</key>
-        <string>pkg</string>
+        <string>(?P&lt;url&gt;https://sourceforge.net/projects/scribus/files/scribus/(?P&lt;version&gt;.*?)/scribus-.*?.dmg/download)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -40,7 +38,7 @@
                 <key>url</key>
                 <string>%url%</string>
                 <key>filename</key>
-                <string>%NAME%.%DOWNLOAD_FORMAT%</string>
+                <string>%NAME%.dmg</string>
             </dict>
         </dict>
         <dict>
