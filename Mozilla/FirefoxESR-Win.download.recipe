@@ -30,6 +30,41 @@
         </dict>
         <dict>
             <key>Processor</key>
+            <string>com.github.hansen-m.SharedProcessors/WinInstallerExtractor</string>
+            <key>Arguments</key>
+            <dict>
+                <key>exe_path</key>
+                <string>%pathname%</string>
+                <key>extract_dir</key>
+                <string>ExeExtract</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>com.github.hansen-m.SharedProcessors/BESRelevanceProvider</string>
+            <key>Arguments</key>
+            <dict>
+                <key>bes_filepath</key>
+                <string>%pathname%</string>
+                <key>output_var_name</key>
+                <string>version</string>
+                <key>bes_relevance</key>
+                <string>following text of first "Version=" of line whose (it starts with "Version=") of file "%RECIPE_CACHE_DIR%/ExeExtract/core/application.ini"</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>PathDeleter</string>
+            <key>Arguments</key>
+            <dict>
+                <key>path_list</key>
+                <array>
+                    <string>%RECIPE_CACHE_DIR%/ExeExtract</string>
+                </array>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
             <string>EndOfCheckPhase</string>
         </dict>
     </array>
