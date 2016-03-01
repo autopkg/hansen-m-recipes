@@ -11,9 +11,9 @@
         <key>NAME</key>
         <string>Mega</string>
         <key>SEARCH_URL</key>
-        <string>http://www.megasoftware.net/megamac.php</string>
+        <string>http://www.megasoftware.net/history</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;http://update\.megasoftware\.net/MEGA(?P&lt;version&gt;.*?)_setup\.dmg)</string>
+        <string>\) MEGA(?P&lt;version&gt;[0-9.]+) build (?P&lt;build&gt;[0-9]+)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -36,7 +36,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%url%</string>
+                <string>http://www.megasoftware.net/releases/MEGA%version%_mac32_setup.dmg</string>
                 <key>filename</key>
                 <string>%NAME%.dmg</string>
             </dict>
