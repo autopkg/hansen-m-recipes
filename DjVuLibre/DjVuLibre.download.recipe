@@ -13,7 +13,7 @@
         <key>SEARCH_URL</key>
         <string>https://sourceforge.net/projects/djvu/rss?path=/DjVuLibre_MacOS</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;https://sourceforge\.net/projects/djvu/files/DjVuLibre_MacOS/.*?/djvulibre-.*?-osx-intel\.zip)</string>        
+        <string>(?P&lt;url&gt;https://sourceforge\.net/projects/djvu/files/DjVuLibre_MacOS/.*?/djvulibre-.*?-(?P&lt;version&gt;[0-9.]+)-osx-intel\.zip)</string>        
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
