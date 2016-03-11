@@ -12,24 +12,11 @@
         <string>AdobeFlashPlayerPlugin</string>
         <key>SEARCH_URL</key>
         <string>http://fpdownload2.macromedia.com/get/flashplayer/update/current/xml/version_en_win_pl.xml</string>
-        <key>DOWNLOAD_URL</key>
-        <string>http://fpdownload.macromedia.com/get/flashplayer/current/licensing/win/install_flash_player_20_plugin.exe</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
     <key>Process</key>
     <array>
-        <dict>
-            <key>Processor</key>
-            <string>URLDownloader</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>%DOWNLOAD_URL%</string>
-                <key>filename</key>
-                <string>%NAME%.exe</string>
-            </dict>
-        </dict>
         <dict>
             <key>Processor</key>
             <string>URLTextSearcher</string>
@@ -52,6 +39,30 @@
                 <string>version</string>
                 <key>bes_relevance</key>
                 <string>concatenation "." of substrings separated by "," of "%version_match%"</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>BESRelevanceProvider</string>
+            <key>Arguments</key>
+            <dict>
+                <key>bes_filepath</key>
+                <string>%pathname%</string>
+                <key>output_var_name</key>
+                <string>base_version</string>
+                <key>bes_relevance</key>
+                <string>preceding text of first "." of "%version%"</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>http://fpdownload.macromedia.com/get/flashplayer/current/licensing/win/install_flash_player_%base_version%_plugin.exe</string>
+                <key>filename</key>
+                <string>%NAME%.exe</string>
             </dict>
         </dict>
         <dict>
