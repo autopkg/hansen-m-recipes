@@ -30,11 +30,9 @@
         </dict>
         <dict>
             <key>Processor</key>
-            <string>BESRelevanceProvider</string>
+            <string>com.github.hansen-m.SharedProcessors/BESRelevanceProvider</string>
             <key>Arguments</key>
             <dict>
-                <key>bes_filepath</key>
-                <string>%pathname%</string>
                 <key>output_var_name</key>
                 <string>version</string>
                 <key>bes_relevance</key>
@@ -43,11 +41,9 @@
         </dict>
         <dict>
             <key>Processor</key>
-            <string>BESRelevanceProvider</string>
+            <string>com.github.hansen-m.SharedProcessors/BESRelevanceProvider</string>
             <key>Arguments</key>
             <dict>
-                <key>bes_filepath</key>
-                <string>%pathname%</string>
                 <key>output_var_name</key>
                 <string>base_version</string>
                 <key>bes_relevance</key>
