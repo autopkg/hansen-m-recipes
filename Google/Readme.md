@@ -1,0 +1,1 @@
+**Note: Google Picasa recipes have been removed due to it no longer being developed.**
