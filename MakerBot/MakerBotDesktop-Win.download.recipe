@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the latest version of MakerBot Desktop. Use the following 'MAKERBOT_OS_KEY' keys to change OS selection: urlMac, urlWinx64, urlWinx86, urlWin81x64, urlWin81x86. Default is urlWinx64</string>
+    <key>Identifier</key>
+    <string>com.github.hansen-m.download.MakerBotDesktop</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>MakerBot Desktop</string>
+        <key>BASE_URL</key>
+        <string>https://s3.amazonaws.com/downloads-makerbot-com/makerware/</string>
+        <key>SEARCH_URL</key>
+        <string>http://www.makerbot.com/desktop</string>
+        <key>MAKERBOT_OS_KEY</key>
+        <string>urlWinx64</string>
+        <key>USER_AGENT</key>
+        <string>curl/7.21.4</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.9</string>
+    <key>Process</key>
+    <array>
+       <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%SEARCH_URL%</string>
+                <key>re_pattern</key>
+                <string>currentVersion":"(?P&lt;version&gt;[0-9.]+)"</string>
+                <key>request_headers</key>
+                <dict>
+                        <key>user-agent</key>
+                        <string>%USER_AGENT%</string>
+                </dict>
+            </dict>
+        </dict>
+       <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%SEARCH_URL%</string>
+                <key>re_pattern</key>
+                <string>"%MAKERBOT_OS_KEY%":"(?P&lt;url&gt;http:\\\/\\\/s3\.amazonaws\.com\\\/downloads-makerbot-com\\\/makerware\\\/(?P&lt;filename&gt;[A-z0-9._ ]+))"</string>
+                <key>request_headers</key>
+                <dict>
+                        <key>user-agent</key>
+                        <string>%USER_AGENT%</string>
+                </dict>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%BASE_URL%%filename%</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+    </array>
+</dict>
+</plist>
