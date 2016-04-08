@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Description</key>
+  <string>Downloads the current release version of PyCharm and imports into Munki.</string>
+  <key>Identifier</key>
+  <string>io.github.hansen-m.munki.pycharm</string>
+  <key>Input</key>
+  <dict>
+    <key>NAME</key>
+    <string>PyCharm CE</string>
+    <key>MUNKI_REPO_SUBDIR</key>
+    <string>apps/pycharm</string>
+    <key>MUNKI_CATEGORY</key>
+    <string>Developer</string>
+    <key>pkginfo</key>
+    <dict>
+      <key>catalogs</key>
+      <array>
+        <string>testing</string>
+      </array>
+      <key>category</key>
+      <string>%MUNKI_CATEGORY%</string>
+      <key>description</key>
+      <string>PyCharm is designed by programmers, for programmers, to provide all the tools you need for productive Python development.</string>
+      <key>developer</key>
+      <string>JetBrains</string>
+      <key>display_name</key>
+      <string>PyCharm CE</string>
+      <key>name</key>
+      <string>%NAME%</string>
+      <key>unattended_install</key>
+      <true/>
+    </dict>
+  </dict>
+  <key>MinimumVersion</key>
+  <string>0.2.9</string>
+  <key>ParentRecipe</key>
+  <string>com.github.hansen-m.download.pycharm</string>
+  <key>Process</key>
+  <array>
+    <dict>
+      <key>Processor</key>
+      <string>MunkiImporter</string>
+      <key>Arguments</key>
+      <dict>
+        <key>munkiimport_appname</key>
+        <string>PyCharm CE.app</string>
+        <key>pkg_path</key>
+        <string>%pathname%</string>
+        <key>repo_subdirectory</key>
+        <string>%MUNKI_REPO_SUBDIR%</string>
+      </dict>
+    </dict>
+  </array>
+</dict>
+</plist>
