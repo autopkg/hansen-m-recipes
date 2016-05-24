@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the latest version 7zip 64-bit for Windows.</string>
+    <key>Identifier</key>
+    <string>com.github.hansen-m.download.7zip-Win64</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>7zip</string>
+        <key>SEARCH_URL</key>
+        <string>http://7-zip.org/download.html</string>
+        <key>SEARCH_PATTERN</key>
+        <string>a/7z[0-9]+-x64\.msi</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.9</string>
+    <key>Process</key>
+    <array>
+      <dict>
+          <key>Processor</key>
+          <string>URLTextSearcher</string>
+          <key>Arguments</key>
+          <dict>
+              <key>url</key>
+              <string>%SEARCH_URL%</string>
+              <key>re_pattern</key>
+              <string>%SEARCH_PATTERN%</string>
+          </dict>
+      </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%SEARCH_URL%</string>
+                <key>re_pattern</key>
+                <string>%SEARCH_PATTERN%</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>http://d.7-zip.org/%match%</string>
+                <key>filename</key>
+                <string>%NAME%.msi</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>com.github.hansen-m.SharedProcessors/MSIVersionProvider</string>
+            <key>Arguments</key>
+            <dict>
+                <key>msi_path</key>
+                <string>%pathname%</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+    </array>
+</dict>
+</plist>
