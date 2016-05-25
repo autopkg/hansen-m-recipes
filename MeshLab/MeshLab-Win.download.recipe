@@ -24,7 +24,7 @@
 				<integer>149444</integer>
 			</dict>
 			<key>Processor</key>
-			<string>SourceForgeURLProvider</string>
+			<string>com.github.jessepeterson.munki.GrandPerspective/SourceForgeURLProvider</string>
 		</dict>
 		<dict>
 			<key>Arguments</key>
