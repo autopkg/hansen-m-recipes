@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Downloads the latest version of MeshLab.</string>
     <key>Identifier</key>
-    <string>com.github.hansen-m.download.MeshLab</string>
+    <string>com.github.hansen-m.download.MeshLab-Win</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
@@ -19,7 +19,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>SOURCEFORGE_FILE_PATTERN</key>
-				<string>\.dmg</string>
+				<string>\.exe</string>
 				<key>SOURCEFORGE_PROJECT_ID</key>
 				<integer>149444</integer>
 			</dict>
@@ -30,7 +30,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>filename</key>
-				<string>%NAME%.dmg</string>
+				<string>%NAME%.exe</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
