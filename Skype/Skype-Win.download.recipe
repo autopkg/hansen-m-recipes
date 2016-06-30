@@ -44,6 +44,8 @@
             <string>com.github.hansen-m.SharedProcessors/WinInstallerExtractor</string>
             <key>Arguments</key>
             <dict>
+                <key>ignore_errors</key>
+                <string>True</string>
                 <key>exe_path</key>
                 <string>%RECIPE_CACHE_DIR%/MSIExtract/Skype.exe</string>
                 <key>extract_dir</key>
