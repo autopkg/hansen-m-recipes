@@ -13,7 +13,7 @@
         <key>SEARCH_URL</key>
         <string>http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;http://download.oracle.com/otn-pub/java/jdk/.*?/jdk-8u[0-9]?[0-9]?-macosx-x64.dmg)</string>
+        <string>(?P&lt;url&gt;http://download.oracle.com/otn-pub/java/jdk/.*?/jdk-8u\d*-macosx-x64.dmg)</string>
         <key>ORACLE_LICENSE_COOKIE</key>
         <string>oraclelicense=accept-securebackup-cookie</string>
     </dict>
