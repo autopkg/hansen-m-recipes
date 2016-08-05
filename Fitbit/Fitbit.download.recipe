@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>Fitbit</string>
         <key>SEARCH_URL</key>
-        <string>http://www.fitbit.com/start?platform=mac</string>
+        <string>https://www.fitbit.com/start?platform=mac</string>
         <key>SEARCH_PATTERN</key>
         <string>(?P&lt;url&gt;http://cache\.fitbit\.com/FitbitConnect/FitbitConnect_Mac_[0-9]+_(?P&lt;version&gt;[0-9.]+)\.dmg)</string>
         <key>USER_AGENT</key>
@@ -51,6 +51,21 @@
         <dict>
             <key>Processor</key>
             <string>EndOfCheckPhase</string>
+        </dict>
+        <dict>   
+            <key>Processor</key>   
+            <string>CodeSignatureVerifier</string>   
+            <key>Arguments</key>   
+            <dict>   
+                <key>input_path</key>   
+                <string>%pathname%/Install Fitbit Connect.pkg</string>
+                <key>expected_authority_names</key>
+                <array>
+                    <string>Developer ID Installer: Fitbit, Inc.</string>
+                    <string>Developer ID Certification Authority</string>
+                    <string>Apple Root CA</string>
+                </array>
+            </dict>
         </dict>
     </array>
 </dict>
