@@ -71,7 +71,8 @@ class BESRelevanceProvider(Processor):
 
             output = {}
             for line in out.strip().split('\n'):
-                output[line.split(':')[0].strip()] = line.split(':')[1].strip()
+                line_split = line.split(': ')
+                output[line_split[0]] = ''.join(line_split[1:])
 
             if output.get('E', None):
                 self.output("Relevance Error: {%s} -- %s" %
