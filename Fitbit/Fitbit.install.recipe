@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Installs the Fitbit Connect app.</string>
+    <key>Identifier</key>
+    <string>com.github.hansen-m.install.Fitbit</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>Fitbit</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.4.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.hansen-m.download.Fitbit</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>Installer</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%pathname%/Install Fitbit Connect.pkg</string>
+            </dict>
+        </dict>
+    </array>
+</dict>
+</plist>
