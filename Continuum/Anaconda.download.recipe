@@ -11,9 +11,9 @@
         <key>NAME</key>
         <string>Anaconda</string>
         <key>SEARCH_URL</key>
-        <string>http://continuum.io/downloads</string>
+        <string>https://continuum.io/downloads</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;http\://repo\.continuum\.io/archive/Anaconda2-(?P&lt;version&gt;[0-9.]+)-MacOSX-x86_64\.pkg)</string>
+        <string>(?P&lt;url&gt;https\://repo\.continuum\.io/archive/Anaconda2-(?P&lt;version&gt;[0-9.]+)-MacOSX-x86_64\.pkg)</string>
         <key>USER_AGENT</key>
         <string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/536.28.10 (KHTML, like Gecko) Version/6.0.3 Safari/536.28.10</string>
     </dict>
