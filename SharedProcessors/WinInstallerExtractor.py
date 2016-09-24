@@ -70,7 +70,6 @@ class WinInstallerExtractor(Processor):
             else:
                 subprocess.check_call(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         except:
-            print "EXCEPTION"
             if ignore_errors != 'True':
                 raise
 

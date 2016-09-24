@@ -29,6 +29,43 @@
 			<string>URLDownloader</string>
 		</dict>
 		<dict>
+				<key>Processor</key>
+				<string>com.github.hansen-m.SharedProcessors/WinInstallerExtractor</string>
+				<key>Arguments</key>
+				<dict>
+						<key>exe_path</key>
+						<string>%pathname%</string>
+						<key>ignore_errors</key>
+						<string>True</string>
+						<key>extract_dir</key>
+						<string>InstallerExtract</string>
+				</dict>
+		</dict>
+		<dict>
+				<key>Processor</key>
+				<string>com.github.hansen-m.SharedProcessors/BESRelevanceProvider</string>
+				<key>Arguments</key>
+				<dict>
+						<key>bes_filepath</key>
+						<string>%pathname%</string>
+						<key>output_var_name</key>
+						<string>version</string>
+						<key>bes_relevance</key>
+						<string>preceding text of first "%22" of following texts of first "VALUE %22ProductVersion%22,    %22" of concatenation "" of substrings separated by "%00" of concatenation ";" of lines of file "%RECIPE_CACHE_DIR%/InstallerExtract/.rsrc/version.txt" as version</string>
+				</dict>
+		</dict>
+		<dict>
+				<key>Processor</key>
+				<string>PathDeleter</string>
+				<key>Arguments</key>
+				<dict>
+						<key>path_list</key>
+						<array>
+								<string>%RECIPE_CACHE_DIR%/InstallerExtract</string>
+						</array>
+				</dict>
+		</dict>
+		<dict>
 			<key>Processor</key>
 			<string>EndOfCheckPhase</string>
 		</dict>
