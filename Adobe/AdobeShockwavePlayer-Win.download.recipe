@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>AdobeShockwavePlayer</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://www.adobe.com/go/sw_msi_installer</string>
+        <string>https://www.adobe.com/go/sw_msi_installer</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
