@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>Google Earth Pro</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://dl.google.com/earth/client/advanced/current/GoogleEarthProWin.exe</string>
+        <string>https://dl.google.com/earth/client/advanced/current/GoogleEarthProWin.exe</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
