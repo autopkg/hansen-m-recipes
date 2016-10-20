@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>MacPorts</string>
         <key>MACPORTS_REQUESTED_OS</key>
-        <string>10.11-ElCapitan</string>
+        <string>10.12-Sierra</string>
         <key>SEARCH_URL</key>
         <string>https://www.macports.org/install.php</string>
         <key>SEARCH_PATTERN</key>
