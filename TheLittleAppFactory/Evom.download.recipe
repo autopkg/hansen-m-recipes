@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>Evom</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://files.thelittleappfactory.com/evom/Evom.zip</string>
+        <string>https://files.thelittleappfactory.com/evom/Evom.zip</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>

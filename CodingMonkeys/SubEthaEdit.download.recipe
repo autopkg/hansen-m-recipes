@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>SubEthaEdit</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://subethaedit.net/downloads/SubEthaEdit-354.zip</string>
+        <string>https://subethaedit.net/downloads/SubEthaEdit-354.zip</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
