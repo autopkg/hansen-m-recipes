@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Download recipe for Bluejeans app.</string>
+    <key>Identifier</key>
+    <string>com.github.hansen-m.download.bluejeansapp-Win</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>BlueJeans</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.3.1</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>com.github.gregneagle.download.bluejeansapp/BluejeansAppURLProvider</string>
+            <key>Arguments</key>
+            <dict>
+                <key>feed_url</key>
+                <string>https://swdl.bluejeans.com/desktop/win/live.json</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+    </array>
+</dict>
+</plist>
