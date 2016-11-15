@@ -22,16 +22,14 @@ import urllib2
 from ConfigParser import SafeConfigParser
 
 from autopkglib import Processor, ProcessorError
+from autopkglib.URLTextSearcher import URLTextSearcher
 
 __all__ = ["Unity3DComponetsURLProvider"]
 
 DEFAULT_COMPONENT = "Unity"
 BASE_URL = "http://netstorage.unity3d.com/unity"
-DOWNLOAD_URL = "http://download.unity3d.com/download_unity/"
-WHATS_NEW = "http://unity3d.com/unity/whats-new"
-UNITY_DOWNLOAD_ARCHIVE = "http://unity3d.com/get-unity/download/archive"
 
-class Unity3DComponetsURLProvider(Processor):
+class Unity3DComponetsURLProvider(URLTextSearcher):
     """Extracts a URL for a Unity3D Component."""
     description = __doc__
     input_variables = {
@@ -42,6 +40,11 @@ class Unity3DComponetsURLProvider(Processor):
                 "'StandardAssets', 'Example', 'Android', 'iOS', 'AppleTV', "
                 "'Linux', 'Samsung-TV', 'Tizen', 'WebGL', 'Windows'. "
                 "Defaults to %s" % (DEFAULT_COMPONENT),
+        },
+        "search_url": {
+            "required": False,
+            "description": "The URL to search for the version and revision."
+            "Defaults to %s" % (SEARCH_URL),
         },
     }
     output_variables = {
@@ -78,12 +81,13 @@ class Unity3DComponetsURLProvider(Processor):
         """Return a download URL and info for a Unity3D component"""
 
         revision, version = self.get_latest_version()
+        ini_url = "%s/%s/unity-%s-osx.ini" % (BASE_URL, revision, version)
 
         try:
-            data = urllib2.urlopen("%s/%s/unity-%s-osx.ini" % (BASE_URL, revision, version))
+            data = urllib2.urlopen(ini_url)
         except BaseException as err:
             raise ProcessorError(
-                "Unexpected error retrieving ini file: '%s'" % err)
+                "Unexpected error retrieving ini: %s - %s" % (err, ini_url))
 
         parser = SafeConfigParser()
         parser.readfp(data)
@@ -99,29 +103,34 @@ class Unity3DComponetsURLProvider(Processor):
             self.output("%s: %s = %s" % (component_name, key, self.env.get(key)))
 
     def get_latest_version(self):
-        """Return the latest revision and version from the release notes"""
+        """Return the latest revision and version from the download link"""
 
-        try:
-            data = urllib2.urlopen(WHATS_NEW).read()
-        except BaseException as err:
-            raise ProcessorError(
-                "Unexpected error retrieving URL: '%s'" % err)
+        search_url = self.env.get('SEARCH_URL', SEARCH_URL)
+
+        # Setup CURL_PATH, if not already
+        if not 'CURL_PATH' in self.env:
+            self.env['CURL_PATH'] = '/usr/bin/curl'
 
         # Regex matching expressions
-        re_version = re.compile(r'<h2>?(?P<version>[0-9a-z.]+)"? Release Notes \(FULL\)</h2>')
-        re_revision = re.compile(r'<p>Revision: ?(?P<revision>[0-9a-z]+)"?</p> ')
+        re_version = re.compile(r'UnityDownloadAssistant-(?P<version>[0-9a-z.]+)?\.dmg')
+        re_revision = re.compile(r'unity\\/(?P<revision>[0-9a-z]+)"?\\/UnityDownloadAssistant-')
+
+        version, vmatch_dict = self.get_url_and_search(search_url, re_version)
+        revision, rmatch_dict = self.get_url_and_search(search_url, re_revision)
 
         # Search for latest version string.
-        version_match = re_version.search(data)
-        if not version_match:
-            raise ProcessorError("Unable to find latest version string in %s." % WHATS_NEW)
+        if not version:
+            raise ProcessorError("Can't find version from %s." % SEARCH_URL)
+        else:
+            self.output("Latest Version: %s" % version)
 
         # Search for latest revision string.
-        revision_match = re_revision.search(data)
-        if not revision_match:
-            raise ProcessorError("Unable to find latest revision string in %s." % WHATS_NEW)
+        if not revision:
+            raise ProcessorError("Can't find revision from %s." % SEARCH_URL)
+        else:
+            self.output("Latest Revision: %s" % revision)
 
-        return (revision_match.group("revision"), version_match.group("version"))
+        return (revision, version)
 
 
 if __name__ == "__main__":
