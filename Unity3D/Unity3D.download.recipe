@@ -10,8 +10,6 @@
     <dict>
         <key>NAME</key>
         <string>Unity3D</string>
-        <key>SEARCH_URL</key>
-        <string>https://store.unity.com/download/thank-you?thank-you=personal&amp;os=osx&amp;nid=149</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>

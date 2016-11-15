@@ -28,6 +28,7 @@ __all__ = ["Unity3DComponetsURLProvider"]
 
 DEFAULT_COMPONENT = "Unity"
 BASE_URL = "http://netstorage.unity3d.com/unity"
+SEARCH_URL = "https://store.unity.com/download/thank-you?thank-you=personal&os=osx&nid=149"
 
 class Unity3DComponetsURLProvider(URLTextSearcher):
     """Extracts a URL for a Unity3D Component."""
@@ -105,7 +106,7 @@ class Unity3DComponetsURLProvider(URLTextSearcher):
     def get_latest_version(self):
         """Return the latest revision and version from the download link"""
 
-        search_url = self.env.get('SEARCH_URL', SEARCH_URL)
+        search_url = self.env.get('search_url', SEARCH_URL)
 
         # Setup CURL_PATH, if not already
         if not 'CURL_PATH' in self.env:
