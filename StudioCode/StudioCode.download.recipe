@@ -10,10 +10,8 @@
     <dict>
         <key>NAME</key>
         <string>StudioCode</string>
-        <key>SEARCH_URL</key>
-        <string>http://www.studiocodegroup.com/support/download-upgrades-fixes/</string>
-        <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;http://downloads.sportstec.com/studiocode/installer/Studiocode.*?Installer\.dmg)</string>
+        <key>DOWNLOAD_URL</key>
+        <string>https://vosaic.com/cms-assets/downloads/studiocode-latest.dmg</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -21,22 +19,11 @@
     <array>
         <dict>
             <key>Processor</key>
-            <string>URLTextSearcher</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>%SEARCH_URL%</string>
-                <key>re_pattern</key>
-                <string>%SEARCH_PATTERN%</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%url%</string>
+                <string>%DOWNLOAD_URL%</string>
                 <key>filename</key>
                 <string>%NAME%.dmg</string>
             </dict>
