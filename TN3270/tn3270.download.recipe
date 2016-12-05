@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>tn3270 X</string>
         <key>SEARCH_URL</key>
-        <string>http://www.brown.edu/cis/tn3270/</string>
+        <string>https://www.brown.edu/cis/tn3270/</string>
         <key>SEARCH_PATTERN</key>
         <string>(?P&lt;url&gt;http.*?tn3270_X_.*?\.dmg)</string>
     </dict>
