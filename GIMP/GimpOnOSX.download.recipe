@@ -13,7 +13,7 @@
         <key>MAJOR_OS_VERSION</key>
         <string>Mavericks</string>
         <key>SEARCH_URL</key>
-        <string>http://sourceforge.net/api/file/index/project-id/211713/mtime/desc/limit/20/rss</string>
+        <string>https://sourceforge.net/api/file/index/project-id/211713/mtime/desc/limit/20/rss</string>
         <key>SEARCH_PATTERN</key>
         <string>(?P&lt;url&gt;http.*?%MAJOR_OS_VERSION%.*?dmg)</string>
     </dict>

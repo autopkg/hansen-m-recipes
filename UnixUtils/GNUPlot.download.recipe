@@ -11,9 +11,9 @@
         <key>NAME</key>
         <string>GNUPlot</string>
         <key>SEARCH_URL</key>
-        <string>http://sourceforge.net/api/file/index/project-id/2055/mtime/desc/limit/20/rss</string>
+        <string>https://sourceforge.net/api/file/index/project-id/2055/mtime/desc/limit/20/rss</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;http://sourceforge.net/projects/gnuplot/files/gnuplot/(?P&lt;version&gt;.*?)/gnuplot-.*?.tar.gz/download)</string>
+        <string>(?P&lt;url&gt;https://sourceforge.net/projects/gnuplot/files/gnuplot/(?P&lt;version&gt;.*?)/gnuplot-.*?.tar.gz/download)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>

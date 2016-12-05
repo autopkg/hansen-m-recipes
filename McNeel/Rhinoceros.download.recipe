@@ -11,9 +11,9 @@
 			<key>NAME</key>
 			<string>Rhinoceros</string>
 			<key>SEARCH_URL</key>
-            <string>http://www.rhino3d.com/download/rhino-for-mac/5/evaluation</string>
+            <string>https://www.rhino3d.com/download/rhino-for-mac/5/evaluation</string>
             <key>DOWNLOAD_URL</key>
-            <string>http://files.mcneel.com/Releases/Rhino/5.0/Mac</string>
+            <string>https://files.mcneel.com/Releases/Rhino/5.0/Mac</string>
 		</dict>
 		<key>MinimumVersion</key>
 		<string>0.4.0</string>
