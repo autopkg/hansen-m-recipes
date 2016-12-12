@@ -10,10 +10,8 @@
     <dict>
         <key>NAME</key>
         <string>Mega</string>
-        <key>SEARCH_URL</key>
-        <string>http://www.megasoftware.net/releases/?C=M;O=D</string>
-        <key>SEARCH_PATTERN</key>
-        <string>MEGA(?P&lt;version&gt;[0-9\.]+)_mac32_setup\.dmg</string>
+        <key>DOWNLOAD_URL</key>
+        <string>http://www.megasoftware.net/releases/MEGA7.0.21_mac32_setup.dmg</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -21,24 +19,11 @@
     <array>
         <dict>
             <key>Processor</key>
-            <string>URLTextSearcher</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>%SEARCH_URL%</string>
-                <key>re_pattern</key>
-                <string>%SEARCH_PATTERN%</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>http://www.megasoftware.net/releases/MEGA%version%_mac32_setup.dmg</string>
-                <key>filename</key>
-                <string>MEGA%version%_mac32_setup.dmg</string>
+                <string>%DOWNLOAD_URL%</string>
             </dict>
         </dict>
         <dict>
