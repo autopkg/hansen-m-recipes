@@ -11,13 +11,11 @@
         <key>NAME</key>
         <string>Anaconda</string>
         <key>PYTHON_MAJOR_VERSION</key>
-        <string>3</string>
-        <key>PKG_NAME</key>
-        <string>%NAME%%PYTHON_MAJOR_VERSION%</string>
+        <string>2</string>
         <key>SEARCH_URL</key>
         <string>https://www.continuum.io/downloads#osx</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;https\://repo\.continuum\.io/archive/%PKG_NAME%-(?P&lt;ANACONDA_VERSION&gt;[0-9.]+)-MacOSX-x86_64\.pkg)</string>
+        <string>(?P&lt;url&gt;https\://repo\.continuum\.io/archive/Anaconda%PYTHON_MAJOR_VERSION%-(?P&lt;version&gt;[0-9.]+)-MacOSX-x86_64\.pkg)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.4.0</string>
@@ -53,7 +51,7 @@
                 <key>url</key>
                 <string>%url%</string>
                 <key>filename</key>
-                <string>%PKG_NAME%.pkg</string>
+                <string>%NAME%%PYTHON_MAJOR_VERSION%-%version%.pkg</string>
             </dict>
         </dict>
         <dict>
