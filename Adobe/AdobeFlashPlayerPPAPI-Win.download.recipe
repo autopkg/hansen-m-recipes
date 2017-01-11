@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads latest Adobe Flash Player Plugin for Windows.</string>
+    <string>Downloads latest Adobe Flash Player PPAPI for Windows.</string>
     <key>Identifier</key>
-    <string>com.github.hansen-m.download.AdobeFlashPlugin-Win</string>
+    <string>com.github.hansen-m.download.AdobeFlashPPAPI-Win</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>AdobeFlashPlayerPlugin</string>
+        <string>AdobeFlashPlayerPPAPI</string>
         <key>SEARCH_URL</key>
         <string>http://fpdownload2.macromedia.com/get/flashplayer/update/current/xml/version_en_win_pl.xml</string>
     </dict>
@@ -45,7 +45,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>http://fpdownload.adobe.com/get/flashplayer/pdc/%version%/install_flash_player.exe</string>
+                <string>http://fpdownload.adobe.com/get/flashplayer/pdc/%version%/install_flash_player_ppapi.exe</string>
                 <key>filename</key>
                 <string>%NAME%.exe</string>
             </dict>
