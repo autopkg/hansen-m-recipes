@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>Zoom</string>
         <key>DOWNLOAD_URL</key>
-        <string>https://zoom.us/client/latest/ZoomInstaller.exe</string>
+        <string>https://www.zoom.us/client/latest/ZoomInstallerFull.msi</string>
         <key>USER_AGENT</key>
         <string>Mozilla/5.0 (Windows NT 10.0; Win64; x64)</string>
     </dict>
@@ -32,7 +32,7 @@
                         <string>%USER_AGENT%</string>
                 </dict>
                 <key>filename</key>
-                <string>%NAME%.exe</string>
+                <string>%NAME%.msi</string>
             </dict>
         </dict>
         <dict>
