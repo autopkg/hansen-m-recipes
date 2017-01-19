@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>Soundflower</string>
         <key>SEARCH_URL</key>
-        <string>http://code.google.com/feeds/p/soundflower/downloads/basic</string>
+        <string>https://code.google.com/feeds/p/soundflower/downloads/basic</string>
         <key>SEARCH_PATTERN</key>
         <string>(?P&lt;url&gt;http://soundflower\.googlecode\.com/files/Soundflower-(?P&lt;version&gt;.*?)\.dmg)</string>
     </dict>
@@ -36,9 +36,9 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%url%</string>
+                <string>https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/soundflower/Soundflower-%version%.dmg</string>
                 <key>filename</key>
-                <string>%NAME%.dmg</string>
+                <string>%NAME%-%version%.dmg</string>
             </dict>
         </dict>
         <dict>

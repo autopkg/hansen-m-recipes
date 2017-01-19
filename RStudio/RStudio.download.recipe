@@ -15,7 +15,7 @@
         <key>SEARCH_PATTERN</key>
         <string>(?P&lt;dmg&gt;RStudio-(?P&lt;version&gt;[0-9.]+)\.dmg)</string>
         <key>DOWNLOAD_MIRROR</key>
-        <string>http://download1.rstudio.org</string>
+        <string>https://download1.rstudio.org</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.5.1</string>
@@ -23,7 +23,7 @@
     <array>
        <dict>
             <key>Processor</key>
-            <string>CURLTextSearcher</string>
+            <string>URLTextSearcher</string>
             <key>Arguments</key>
             <dict>
                 <key>url</key>

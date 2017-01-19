@@ -3,7 +3,8 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest version of Inkscape.</string>
+    <string>Downloads the latest version of Inkscape.
+    Note: Code signature verification for Inkscape cannot be done at this time.</string>
     <key>Identifier</key>
     <string>com.github.hansen-m.download.Inkscape</string>
     <key>Input</key>

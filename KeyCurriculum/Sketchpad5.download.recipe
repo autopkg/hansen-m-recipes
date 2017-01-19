@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>Sketchpad5</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://gsp5.s3.amazonaws.com/GSP5.dmg</string>
+        <string>https://gsp5.s3.amazonaws.com/GSP5.dmg</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>

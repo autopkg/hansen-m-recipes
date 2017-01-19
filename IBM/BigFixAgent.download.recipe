@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>BESAgent</string>
         <key>SEARCH_URL</key>
-        <string>http://support.bigfix.com/bes/release</string>
+        <string>https://support.bigfix.com/bes/release</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -36,7 +36,7 @@
                 <key>url</key>
                 <string>%SEARCH_URL%/%latest_release_path%</string>
                 <key>re_pattern</key>
-                <string><![CDATA[(?P<url>http://software\.bigfix\.com/download/bes/[0-9]+/BESAgent-(?P<version>[0-9.]+)-BigFix_MacOSX10.7.pkg)]]></string>
+                <string><![CDATA[(?P<url>software\.bigfix\.com/download/bes/[0-9]+/BESAgent-(?P<version>[0-9.]+)-BigFix_MacOSX10.7.pkg)]]></string>
             </dict>
         </dict>
         <dict>
@@ -45,7 +45,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%url%</string>
+                <string>https://%url%</string>
                 <key>filename</key>
                 <string>%NAME%.pkg</string>
             </dict>
@@ -53,6 +53,21 @@
         <dict>
             <key>Processor</key>
             <string>EndOfCheckPhase</string>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>expected_authorities</key>
+                <array>
+                    <string>Developer ID Installer: International Business Machines Corp.(Tivoli)</string>
+                    <string>Developer ID Certification Authority</string>
+                    <string>Apple Root CA</string>
+                </array>
+                <key>input_path</key>
+                <string>%pathname%</string>
+            </dict>
+            <key>Processor</key>
+            <string>CodeSignatureVerifier</string>
         </dict>
     </array>
 </dict>

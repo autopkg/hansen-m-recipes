@@ -37,7 +37,7 @@
         </dict>
         <dict>
             <key>Processor</key>
-            <string>BESRelevanceProvider</string>
+            <string>com.github.hansen-m.SharedProcessors/BESRelevanceProvider</string>
             <key>Arguments</key>
             <dict>
                 <key>bes_filepath</key>
@@ -50,7 +50,7 @@
         </dict>
         <dict>
             <key>Processor</key>
-            <string>BESRelevanceProvider</string>
+            <string>com.github.hansen-m.SharedProcessors/BESRelevanceProvider</string>
             <key>Arguments</key>
             <dict>
                 <key>bes_filepath</key>

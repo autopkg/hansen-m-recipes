@@ -41,22 +41,11 @@
         </dict>
         <dict>
             <key>Processor</key>
-            <string>com.github.hansen-m.SharedProcessors/BESRelevanceProvider</string>
-            <key>Arguments</key>
-            <dict>
-                <key>output_var_name</key>
-                <string>base_version</string>
-                <key>bes_relevance</key>
-                <string>preceding text of first "." of "%version%"</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>http://fpdownload.macromedia.com/get/flashplayer/current/licensing/win/install_flash_player_%base_version%_active_x.exe</string>
+                <string>http://fpdownload.adobe.com/get/flashplayer/pdc/%version%/install_flash_player_ax.exe</string>
                 <key>filename</key>
                 <string>%NAME%.exe</string>
             </dict>

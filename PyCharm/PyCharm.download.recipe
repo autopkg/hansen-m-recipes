@@ -21,7 +21,7 @@
     <array>
        <dict>
             <key>Processor</key>
-            <string>CURLTextSearcher</string>
+            <string>URLTextSearcher</string>
             <key>Arguments</key>
             <dict>
                 <key>url</key>
@@ -51,7 +51,7 @@
             <key>Arguments</key>
             <dict>
                 <key>input_path</key>
-                <string>%pathname%/%NAME%.app</string>
+                <string>%pathname%/PyCharm CE.app</string>
                 <key>requirement</key>
                 <string>identifier "com.jetbrains.pycharm" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "2ZEFAR8TH3"</string>
             </dict>

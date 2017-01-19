@@ -11,11 +11,11 @@
         <key>NAME</key>
         <string>CrashPlanPROe</string>
         <key>SEARCH_URL</key>
-        <string>http://www.crashplan.com/shared/js/cp.download.js</string>
+        <string>https://www.crashplan.com/shared/js/cp.download.js</string>
         <key>SEARCH_PATTERN</key>
         <string>cp.download.CPPROE_CLIENT_VERSION = \'(?P&lt;version&gt;.*?)\';</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://download.crashplan.com/installs/win/install/CrashPlanPROe/jre/</string>
+        <string>https://download.crashplan.com/installs/win/install/CrashPlanPROe/jre/</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>

@@ -71,7 +71,8 @@ class BESRelevanceProvider(Processor):
 
             output = {}
             for line in out.strip().split('\n'):
-                output[line.split(':')[0].strip()] = line.split(':')[1].strip()
+                line_split = line.split(': ')
+                output[line_split[0]] = ''.join(line_split[1:])
 
             if output.get('E', None):
                 self.output("Relevance Error: {%s} -- %s" %
@@ -112,7 +113,13 @@ class BESRelevanceProvider(Processor):
             output_var_name = self.env.get("output_var_name",
                                            "bes_relevance_result")
 
-            self.env[output_var_name] = self.eval_relevance(bes_relevance)
+            relevance_result = self.eval_relevance(bes_relevance)
+
+            if relevance_result != None:
+                self.env[output_var_name] = relevance_result
+            elif output_var_name not in self.env:
+                self.env[output_var_name] = None
+
             self.output("%s = %s" %
                         (output_var_name,
                          self.env.get(output_var_name)))

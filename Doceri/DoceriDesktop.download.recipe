@@ -13,7 +13,7 @@
         <key>DOWNLOAD_URL</key>
         <string>https://doceri.com</string>
         <key>SEARCH_URL</key>
-        <string>http://doceri.com/download_form.php</string>
+        <string>https://doceri.com/download_form.php</string>
         <key>SEARCH_PATTERN</key>
         <string>(?P&lt;zip&gt;/DoceriDesktop/v.*?/Doceri_Desktop_.*?.zip)</string>
     </dict>

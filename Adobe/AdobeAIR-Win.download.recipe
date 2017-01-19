@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>AdobeAIR</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://airdownload.adobe.com/air/win/download/latest/AdobeAIRInstaller.exe</string>
+        <string>https://airdownload.adobe.com/air/win/download/latest/AdobeAIRInstaller.exe</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
@@ -52,7 +52,7 @@
         </dict>
         <dict>
             <key>Processor</key>
-            <string>BESRelevanceProvider</string>
+            <string>com.github.hansen-m.SharedProcessors/BESRelevanceProvider</string>
             <key>Arguments</key>
             <dict>
                 <key>bes_filepath</key>

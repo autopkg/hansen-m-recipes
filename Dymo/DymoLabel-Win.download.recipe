@@ -56,11 +56,13 @@
         </dict>
         <dict>
             <key>Processor</key>
-            <string>com.github.hansen-m.SharedProcessors/HachoirMetaDataProvider</string>
+            <string>com.github.hansen-m.SharedProcessors/BESRelevanceProvider</string>
             <key>Arguments</key>
             <dict>
-                <key>file_path</key>
-                <string>%RECIPE_CACHE_DIR%/EXEExtract/DLS.exe</string>
+                <key>bes_relevance</key>
+                <string>concatenation "" of substrings separated by "%22" of preceding texts of first "      " of following texts of first "%22ProductVersion%22," of concatenation "" of substrings separated by "%00" of lines of file "%RECIPE_CACHE_DIR%/EXEExtract/version.txt" as trimmed string</string>
+                <key>output_var_name</key>
+                <string>version</string>
             </dict>
         </dict>
         <dict>

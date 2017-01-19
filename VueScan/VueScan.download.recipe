@@ -13,9 +13,9 @@
         <key>ARCH</key>
         <string>64</string>
         <key>SEARCH_URL</key>
-        <string>http://www.hamrick.com</string>
+        <string>https://www.hamrick.com/download.html</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;dmg&gt;files/vuex%ARCH%.*?\.dmg)</string>
+        <string>vuex32(?P&lt;vers&gt;[\d]+)\.dmg</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.4.0</string>
@@ -38,7 +38,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%SEARCH_URL%/%dmg%</string>
+                <string>https://d2bwyyzfw77fhf.cloudfront.net/vuex%ARCH%%vers%.dmg</string>
                 <key>filename</key>
                 <string>%NAME%.dmg</string>
             </dict>
