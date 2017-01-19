@@ -3,19 +3,17 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest version CrashPlan PROe Client.</string>
+    <string>Downloads the latest version Stellarium for Windows. Valid PLATFORM values are: win32 or win64 (default is win64)</string>
     <key>Identifier</key>
-    <string>com.github.hansen-m.download.CrashPlanPROeClient-Solaris</string>
+    <string>com.github.hansen-m.download.Stellarium-Win</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>CrashPlanPROe</string>
+        <string>Stellarium</string>
+        <key>PLATFORM</key>
+        <string>win64</string>
         <key>SEARCH_URL</key>
-        <string>https://www.crashplan.com/shared/js/cp.download.js</string>
-        <key>SEARCH_PATTERN</key>
-        <string>cp.download.CPPROE_CLIENT_VERSION = \'(?P&lt;version&gt;.*?)\';</string>
-        <key>DOWNLOAD_URL</key>
-        <string>https://download.crashplan.com/installs/solaris/install/CrashPlanPROe/</string>
+        <string>https://sourceforge.net/projects/stellarium/rss?path=/Stellarium</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -27,9 +25,9 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%SEARCH_URL%</string>
+                <string>%SEARCH_URL%-%PLATFORM%</string>
                 <key>re_pattern</key>
-                <string>%SEARCH_PATTERN%</string>
+                <string>(?P&lt;url&gt;https://sourceforge\.net/projects/stellarium/files/[Ss]tellarium-%PLATFORM%/[0-9.]+/[Ss]tellarium-(?P&lt;version&gt;[0-9.]+)-%PLATFORM%\.exe)</string>
             </dict>
         </dict>
         <dict>
@@ -38,9 +36,9 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%DOWNLOAD_URL%CrashPlanPROe_%version%_Solaris.tar.gz</string>
+                <string>%url%</string>
                 <key>filename</key>
-                <string>%NAME%.tgz</string>
+                <string>%NAME%-%version%-%PLATFORM%.exe</string>
             </dict>
         </dict>
         <dict>

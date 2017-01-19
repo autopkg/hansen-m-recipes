@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads the latest version of Adobe's Creative Cloud Installer for Windows.</string>
+	<key>Identifier</key>
+	<string>com.github.hansen-m.download.AdobeCreativeCloudInstaller-Win</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>CreativeCloudInstaller</string>
+		<key>DOWNLOAD_URL</key>
+		<string>https://ccmdls.adobe.com/AdobeProducts/KCCC/1/win32/CreativeCloudSet-Up.exe</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>0.6.1</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>filename</key>
+				<string>%NAME%.exe</string>
+				<key>url</key>
+				<string>%DOWNLOAD_URL%</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+		</dict>
+		<dict>
+				<key>Processor</key>
+				<string>com.github.hansen-m.SharedProcessors/WinInstallerExtractor</string>
+				<key>Arguments</key>
+				<dict>
+						<key>exe_path</key>
+						<string>%pathname%</string>
+						<key>ignore_errors</key>
+						<string>True</string>
+						<key>extract_dir</key>
+						<string>InstallerExtract</string>
+				</dict>
+		</dict>
+		<dict>
+				<key>Processor</key>
+				<string>com.github.hansen-m.SharedProcessors/BESRelevanceProvider</string>
+				<key>Arguments</key>
+				<dict>
+						<key>bes_filepath</key>
+						<string>%pathname%</string>
+						<key>output_var_name</key>
+						<string>version</string>
+						<key>bes_relevance</key>
+						<string>preceding text of first "%22" of following texts of first "VALUE %22ProductVersion%22,    %22" of concatenation "" of substrings separated by "%00" of concatenation ";" of lines of file "%RECIPE_CACHE_DIR%/InstallerExtract/.rsrc/version.txt" as version</string>
+				</dict>
+		</dict>
+		<dict>
+				<key>Processor</key>
+				<string>PathDeleter</string>
+				<key>Arguments</key>
+				<dict>
+						<key>path_list</key>
+						<array>
+								<string>%RECIPE_CACHE_DIR%/InstallerExtract</string>
+						</array>
+				</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+	</array>
+</dict>
+</plist>

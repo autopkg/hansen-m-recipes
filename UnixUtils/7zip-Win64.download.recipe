@@ -3,24 +3,33 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest version CrashPlan PROe Client.</string>
+    <string>Downloads the latest version 7zip 64-bit for Windows.</string>
     <key>Identifier</key>
-    <string>com.github.hansen-m.download.CrashPlanPROeClient-Solaris</string>
+    <string>com.github.hansen-m.download.7zip-Win64</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>CrashPlanPROe</string>
+        <string>7zip</string>
         <key>SEARCH_URL</key>
-        <string>https://www.crashplan.com/shared/js/cp.download.js</string>
+        <string>http://7-zip.org/download.html</string>
         <key>SEARCH_PATTERN</key>
-        <string>cp.download.CPPROE_CLIENT_VERSION = \'(?P&lt;version&gt;.*?)\';</string>
-        <key>DOWNLOAD_URL</key>
-        <string>https://download.crashplan.com/installs/solaris/install/CrashPlanPROe/</string>
+        <string>a/7z[0-9]+-x64\.msi</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
     <key>Process</key>
     <array>
+      <dict>
+          <key>Processor</key>
+          <string>URLTextSearcher</string>
+          <key>Arguments</key>
+          <dict>
+              <key>url</key>
+              <string>%SEARCH_URL%</string>
+              <key>re_pattern</key>
+              <string>%SEARCH_PATTERN%</string>
+          </dict>
+      </dict>
         <dict>
             <key>Processor</key>
             <string>URLTextSearcher</string>
@@ -38,9 +47,18 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%DOWNLOAD_URL%CrashPlanPROe_%version%_Solaris.tar.gz</string>
+                <string>http://d.7-zip.org/%match%</string>
                 <key>filename</key>
-                <string>%NAME%.tgz</string>
+                <string>%NAME%.msi</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>com.github.hansen-m.SharedProcessors/MSIVersionProvider</string>
+            <key>Arguments</key>
+            <dict>
+                <key>msi_path</key>
+                <string>%pathname%</string>
             </dict>
         </dict>
         <dict>

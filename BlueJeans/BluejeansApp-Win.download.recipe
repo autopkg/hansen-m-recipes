@@ -3,37 +3,34 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest version of Unity 3D.</string>
+    <string>Download recipe for Bluejeans app.</string>
     <key>Identifier</key>
-    <string>com.github.hansen-m.download.Unity3D</string>
+    <string>com.github.hansen-m.download.bluejeansapp-Win</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>Unity3D</string>
+        <string>BlueJeans</string>
+        <key>FEED_URL_KEY</key>
+        <string>installer_download_url_admin_msi</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.2.9</string>
+    <string>0.3.1</string>
     <key>Process</key>
     <array>
         <dict>
             <key>Processor</key>
-            <string>Unity3DComponetsURLProvider</string>
+            <string>com.github.gregneagle.download.bluejeansapp/BluejeansAppURLProvider</string>
             <key>Arguments</key>
             <dict>
-                <key>component_name</key>
-                <string>Unity</string>
+                <key>feed_url</key>
+                <string>https://swdl.bluejeans.com/desktop/win/live.json</string>
+                <key>feed_url_key</key>
+                <string>FEED_URL_KEY</string>
             </dict>
         </dict>
         <dict>
             <key>Processor</key>
             <string>URLDownloader</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>%url%</string>
-                <key>filename</key>
-                <string>%NAME%.pkg</string>
-            </dict>
         </dict>
         <dict>
             <key>Processor</key>

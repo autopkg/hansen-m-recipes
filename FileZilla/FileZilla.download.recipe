@@ -35,6 +35,9 @@
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
+            	<!-- Due to the use of mirrors, the ETag and Modified Dates cannot be used -->
+          		<key>CHECK_FILESIZE_ONLY</key>
+          		<true/>
                 <key>url</key>
                 <string>%url%</string>
                 <key>filename</key>

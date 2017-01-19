@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest version of MacPorts. Valid options for MACPORTS_REQUESTED_OS are:'10.10-Yosemite' (default), '10.9-Mavericks', '10.8-MountainLion'.</string>
+    <string>Downloads the latest version of MacPorts. Valid options for MACPORTS_REQUESTED_OS are:'10.12-Sierra (default), 10.11-ElCapitan, 10.10-Yosemite', '10.9-Mavericks', '10.8-MountainLion'.</string>
     <key>Identifier</key>
     <string>com.github.hansen-m.download.MacPorts</string>
     <key>Input</key>
@@ -11,25 +11,21 @@
         <key>NAME</key>
         <string>MacPorts</string>
         <key>MACPORTS_REQUESTED_OS</key>
-        <string>10.11-ElCapitan</string>
-        <key>SEARCH_URL</key>
-        <string>https://www.macports.org/install.php</string>
-        <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;(http|https)://[a-zA-Z0-9.-/]+/MacPorts-(?P&lt;version&gt;[0-9.]+)-%MACPORTS_REQUESTED_OS%.pkg)</string>
+        <string>10.12-Sierra</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.2.9</string>
+    <string>0.5.0</string>
     <key>Process</key>
     <array>
        <dict>
             <key>Processor</key>
-            <string>URLTextSearcher</string>
+            <string>GitHubReleasesInfoProvider</string>
             <key>Arguments</key>
             <dict>
-                <key>url</key>
-                <string>%SEARCH_URL%</string>
-                <key>re_pattern</key>
-                <string>%SEARCH_PATTERN%</string>
+                <key>github_repo</key>
+                <string>macports/macports-base</string>
+                <key>asset_regex</key>
+                <string>MacPorts-[0-9.]+-%MACPORTS_REQUESTED_OS%\.pkg</string>
             </dict>
         </dict>
         <dict>

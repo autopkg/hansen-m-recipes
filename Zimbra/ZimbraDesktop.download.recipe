@@ -23,7 +23,7 @@
     <array>
        <dict>
             <key>Processor</key>
-            <string>CURLTextSearcher</string>
+            <string>URLTextSearcher</string>
             <key>Arguments</key>
             <dict>
                 <key>url</key>
@@ -39,7 +39,7 @@
         </dict>
         <dict>
             <key>Processor</key>
-            <string>CURLDownloader</string>
+            <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
                 <key>url</key>
