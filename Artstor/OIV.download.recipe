@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the latest version of Artstor Offline Image Viewer (OIV).</string>
+    <key>Identifier</key>
+    <string>com.github.hansen-m.download.OIV</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>OIV</string>
+        <key>SEARCH_URL</key>
+        <string>http://internal.artstor.org/global/g-html/download-oiv-participant.html</string>
+        <key>BASE_URL</key>
+        <string>http://www.artstor.org</string>
+        <key>USER_AGENT</key>
+        <string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/602.2.14 (KHTML, like Gecko) Version/10.0.1 Safari/602.2.14</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.4.0</string>
+    <key>Process</key>
+    <array>
+        <dict>
+           <key>Processor</key>
+           <string>URLTextSearcher</string>
+           <key>Arguments</key>
+           <dict>
+               <key>url</key>
+               <string>%SEARCH_URL%</string>
+               <key>re_pattern</key>
+               <string>OIV (?P&lt;version&gt;[0-9.]+) for Mac </string>
+               <key>request_headers</key>
+               <dict>
+                       <key>user-agent</key>
+                       <string>%USER_AGENT%</string>
+               </dict>
+           </dict>
+        </dict>
+        <dict>
+           <key>Processor</key>
+           <string>URLTextSearcher</string>
+           <key>Arguments</key>
+           <dict>
+               <key>url</key>
+               <string>%SEARCH_URL%</string>
+               <key>re_pattern</key>
+               <string>"(?P&lt;zip_path&gt;/oiv/(mac|windows)/OIV_(?P&lt;base_version&gt;[A-z0-9._ ]+)_Mac_Install\.zip)"</string>
+               <key>request_headers</key>
+               <dict>
+                       <key>user-agent</key>
+                       <string>%USER_AGENT%</string>
+               </dict>
+           </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%BASE_URL%%zip_path%</string>
+                <key>request_headers</key>
+                <dict>
+                        <key>user-agent</key>
+                        <string>%USER_AGENT%</string>
+                </dict>
+                <key>filename</key>
+                <string>%NAME%.zip</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+    </array>
+</dict>
+</plist>
