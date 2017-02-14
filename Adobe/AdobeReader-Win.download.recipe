@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>AdobeReader</string>
         <key>SEARCH_URL</key>
-        <string>https://get.adobe.com/reader/</string>
+        <string>https://get.adobe.com/reader/?platform_type=Windows</string>
         <key>USER_AGENT</key>
         <string>Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko</string>
     </dict>
@@ -27,7 +27,7 @@
                 <key>url</key>
                 <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
-                <string>Version (?P&lt;display_version&gt;[0-9.]+)</string>
+                <string>Version ([0-9.]+)</string>
                 <key>request_headers</key>
                 <dict>
                         <key>user-agent</key>
@@ -70,6 +70,11 @@
                 <string>http://ardownload.adobe.com/pub/adobe/reader/win/AcrobatDC/%packed_version%/AcroRdrDC%packed_version%_en_US.exe</string>
                 <key>filename</key>
                 <string>%NAME%.exe</string>
+                <key>request_headers</key>
+                <dict>
+                        <key>user-agent</key>
+                        <string>%USER_AGENT%</string>
+                </dict>
             </dict>
         </dict>
         <dict>
