@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>Notepad++</string>
         <key>SEARCH_URL</key>
-        <string>https://notepad-plus-plus.org/update/getDownloadUrl.php</string>
+        <string>https://notepad-plus-plus.org</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -25,7 +25,7 @@
                 <key>url</key>
                 <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
-                <string><![CDATA[<Version>(?P<version>[0-9.]+)</Version>]]></string>
+                <string><![CDATA[Current Version: <span>(?P<version>[0-9.]+)</span>]]></string>
             </dict>
         </dict>
         <dict>
@@ -36,7 +36,7 @@
                 <key>url</key>
                 <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
-                <string><![CDATA[<Location>(?P<url>.*?)</Location>]]></string>
+                <string><![CDATA[<a href="(?P<url>.*?)">Download]]></string>
             </dict>
         </dict>
         <dict>
@@ -45,7 +45,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%url%</string>
+                <string>https://notepad-plus-plus.org/%url%</string>
                 <key>filename</key>
                 <string>%NAME%.exe</string>
             </dict>
