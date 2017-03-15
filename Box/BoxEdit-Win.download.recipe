@@ -9,7 +9,7 @@
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>BoxEdit</string>
+        <string>Box Edit</string>
         <key>DOWNLOAD_URL</key>
         <string>https://e3.boxcdn.net/box-installers/boxedit/win/currentrelease/BoxEditInstaller-AdminInstall.msi</string>
     </dict>
