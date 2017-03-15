@@ -9,7 +9,7 @@
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>Box Edit</string>
+        <string>BoxEdit</string>
         <key>DOWNLOAD_URL</key>
         <string>https://e3.boxcdn.net/box-installers/boxedit/win/currentrelease/BoxEditInstaller-AdminInstall.msi</string>
     </dict>
@@ -30,33 +30,11 @@
         </dict>
         <dict>
             <key>Processor</key>
-            <string>com.github.hansen-m.SharedProcessors/WinInstallerExtractor</string>
+            <string>com.github.hansen-m.SharedProcessors/MSIVersionProvider</string>
             <key>Arguments</key>
             <dict>
-                <key>exe_path</key>
+                <key>msi_path</key>
                 <string>%pathname%</string>
-                <key>extract_dir</key>
-                <string>MSIExtract</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>com.github.hansen-m.SharedProcessors/HachoirMetaDataProvider</string>
-            <key>Arguments</key>
-            <dict>
-                <key>file_path</key>
-                <string>%RECIPE_CACHE_DIR%/MSIExtract/BoxEdit.exe</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>PathDeleter</string>
-            <key>Arguments</key>
-            <dict>
-                <key>path_list</key>
-                <array>
-                    <string>%RECIPE_CACHE_DIR%/MSIExtract</string>
-                </array>
             </dict>
         </dict>
         <dict>
