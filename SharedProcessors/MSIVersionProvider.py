@@ -34,7 +34,6 @@ class MSIVersionProvider(Processor):
     }
     
     __doc__ = description
-
     
     def main(self):
         
@@ -43,7 +42,11 @@ class MSIVersionProvider(Processor):
         
         msi_path = self.env.get('msi_path', self.env.get('pathname'))
         verbosity = self.env.get('verbose', 0)
-            
+        
+        if subprocess.call("type wine", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE) != 0:
+            self.output("wine executable not found.")
+            sys.exit(1)
+        
         if not os.path.isfile(msi_path):
             self.output("MSI file path not found: %s" % msi_path)
             sys.exit(1)
