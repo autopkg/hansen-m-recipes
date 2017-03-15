@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest version of Box Edit for Windows.</string>
+    <string>Downloads the latest version of Box Tools for Windows.</string>
     <key>Identifier</key>
     <string>com.github.hansen-m.BoxEdit-Win</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>Box Edit</string>
+        <string>Box Tools</string>
         <key>DOWNLOAD_URL</key>
         <string>https://e3.boxcdn.net/box-installers/boxedit/win/currentrelease/BoxEditInstaller-AdminInstall.msi</string>
     </dict>
