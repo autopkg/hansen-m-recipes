@@ -17,7 +17,7 @@
     <string>0.2.9</string>
     <key>Process</key>
     <array>
-        <dict>
+         <dict>
             <key>Processor</key>
             <string>URLTextSearcher</string>
             <key>Arguments</key>
@@ -41,15 +41,61 @@
         </dict>
         <dict>
             <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%SEARCH_URL%/%match%</string>
+                <key>re_pattern</key>
+                <string><![CDATA[\/repository\/.*Installer.exe]]></string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>https://notepad-plus-plus.org/%url%</string>
+                <string>https://notepad-plus-plus.org%match%</string>
                 <key>filename</key>
                 <string>%NAME%.exe</string>
             </dict>
         </dict>
+        <!-- Download using update feed: https://notepad-plus-plus.org/repository/7.x/7.3.3/npp.7.3.3.Installer.exe -->
+        <!-- 
+        <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>https://notepad-plus-plus.org/update/getDownloadUrl.php</string>
+                <key>re_pattern</key>
+                <string><![CDATA[<Version>(?P<version>[0-9.]+)</Version>]]></string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>https://notepad-plus-plus.org/update/getDownloadUrl.php</string>
+                <key>re_pattern</key>
+                <string><![CDATA[<Location>(?P<url>http.*)<\/Location>]]></string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%url%</string>
+                <key>filename</key>
+                <string>%NAME%.exe</string>
+            </dict>
+        </dict> -->
         <dict>
             <key>Processor</key>
             <string>EndOfCheckPhase</string>
