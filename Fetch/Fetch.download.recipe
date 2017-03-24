@@ -11,9 +11,9 @@
         <key>NAME</key>
         <string>Fetch</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://fetchsoftworks.com/fetch/download/</string>
+        <string>https://fetchsoftworks.com/fetch/download/</string>
         <key>SEARCH_URL</key>
-        <string>http://fetchsoftworks.com/fetch/download/</string>
+        <string>https://fetchsoftworks.com/fetch/download/</string>
         <key>SEARCH_PATTERN</key>
         <string>(?P&lt;dmg&gt;Fetch_.*\.dmg)</string>
     </dict>

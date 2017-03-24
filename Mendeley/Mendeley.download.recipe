@@ -46,12 +46,8 @@
             <dict>
                 <key>input_path</key>
                 <string>%pathname%/Mendeley Desktop.app</string>
-                <key>expected_authority_names</key>
-                <array>
-                    <string>Developer ID Application: Mendeley Ltd.</string>
-                    <string>Developer ID Certification Authority</string>
-                    <string>Apple Root CA</string>
-                </array>
+                <key>requirement</key>
+                <string>identifier "com.mendeley.desktop" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = A43FW9RYK2</string>
             </dict>
         </dict>
     </array>

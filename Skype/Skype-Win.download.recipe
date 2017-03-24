@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>Skype</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://www.skype.com/go/getskype-msi</string>
+        <string>https://www.skype.com/go/getskype-msi</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
@@ -30,62 +30,11 @@
         </dict>
         <dict>
             <key>Processor</key>
-            <string>com.github.hansen-m.SharedProcessors/WinInstallerExtractor</string>
+            <string>com.github.hansen-m.SharedProcessors/MSIVersionProvider</string>
             <key>Arguments</key>
             <dict>
-                <key>exe_path</key>
+                <key>msi_path</key>
                 <string>%pathname%</string>
-                <key>extract_dir</key>
-                <string>MSIExtract</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>com.github.hansen-m.SharedProcessors/WinInstallerExtractor</string>
-            <key>Arguments</key>
-            <dict>
-                <key>exe_path</key>
-                <string>%RECIPE_CACHE_DIR%/MSIExtract/Skype.exe</string>
-                <key>extract_dir</key>
-                <string>EXEExtract</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>com.github.hansen-m.SharedProcessors/BESRelevanceProvider</string>
-            <key>Arguments</key>
-            <dict>
-                <key>bes_filepath</key>
-                <string>%pathname%</string>
-                <key>output_var_name</key>
-                <string>partial_version</string>
-                <key>bes_relevance</key>
-                <string>substring between "%22" of lines whose (it starts with "    version=") of file "%RECIPE_CACHE_DIR%/EXEExtract/.rsrc/0/MANIFEST/1" as version</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>com.github.hansen-m.SharedProcessors/BESRelevanceProvider</string>
-            <key>Arguments</key>
-            <dict>
-                <key>bes_filepath</key>
-                <string>%pathname%</string>
-                <key>output_var_name</key>
-                <string>version</string>
-                <key>bes_relevance</key>
-                <string>(preceding text of last "." of preceding text of last "." of it &amp; ".32." &amp; following text of last "." of it) of "%partial_version%"</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>PathDeleter</string>
-            <key>Arguments</key>
-            <dict>
-                <key>path_list</key>
-                <array>
-                    <string>%RECIPE_CACHE_DIR%/MSIExtract</string>
-                    <string>%RECIPE_CACHE_DIR%/EXEExtract</string>
-                </array>
             </dict>
         </dict>
         <dict>

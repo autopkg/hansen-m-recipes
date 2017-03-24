@@ -3,15 +3,15 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest version of Box Edit for Windows.</string>
+    <string>Downloads the latest version of Box Tools for Windows.</string>
     <key>Identifier</key>
     <string>com.github.hansen-m.BoxEdit-Win</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>Box Edit</string>
+        <string>Box Tools</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://e3.boxcdn.net/box-installers/boxedit/win/currentrelease/BoxEditInstaller-AdminInstall.msi</string>
+        <string>https://e3.boxcdn.net/box-installers/boxedit/win/currentrelease/BoxEditInstaller-AdminInstall.msi</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
@@ -30,33 +30,11 @@
         </dict>
         <dict>
             <key>Processor</key>
-            <string>com.github.hansen-m.SharedProcessors/WinInstallerExtractor</string>
+            <string>com.github.hansen-m.SharedProcessors/MSIVersionProvider</string>
             <key>Arguments</key>
             <dict>
-                <key>exe_path</key>
+                <key>msi_path</key>
                 <string>%pathname%</string>
-                <key>extract_dir</key>
-                <string>MSIExtract</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>com.github.hansen-m.SharedProcessors/HachoirMetaDataProvider</string>
-            <key>Arguments</key>
-            <dict>
-                <key>file_path</key>
-                <string>%RECIPE_CACHE_DIR%/MSIExtract/BoxEdit.exe</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>PathDeleter</string>
-            <key>Arguments</key>
-            <dict>
-                <key>path_list</key>
-                <array>
-                    <string>%RECIPE_CACHE_DIR%/MSIExtract</string>
-                </array>
             </dict>
         </dict>
         <dict>

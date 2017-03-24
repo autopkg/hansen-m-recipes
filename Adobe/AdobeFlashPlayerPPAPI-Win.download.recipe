@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads latest Adobe Flash Player PPAPI for Windows.</string>
+    <key>Identifier</key>
+    <string>com.github.hansen-m.download.AdobeFlashPPAPI-Win</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>AdobeFlashPlayerPPAPI</string>
+        <key>SEARCH_URL</key>
+        <string>http://fpdownload2.macromedia.com/get/flashplayer/update/current/xml/version_en_win_pl.xml</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.9</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%SEARCH_URL%</string>
+                <key>re_pattern</key>
+                <string>&lt;update version=&quot;(?P&lt;version_match&gt;[0-9,]+)&quot;&gt;</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>com.github.hansen-m.SharedProcessors/BESRelevanceProvider</string>
+            <key>Arguments</key>
+            <dict>
+                <key>output_var_name</key>
+                <string>version</string>
+                <key>bes_relevance</key>
+                <string>concatenation "." of substrings separated by "," of "%version_match%"</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>http://fpdownload.adobe.com/get/flashplayer/pdc/%version%/install_flash_player_ppapi.exe</string>
+                <key>filename</key>
+                <string>%NAME%.exe</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+    </array>
+</dict>
+</plist>

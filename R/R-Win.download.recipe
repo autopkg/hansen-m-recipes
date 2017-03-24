@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>R</string>
         <key>SEARCH_URL</key>
-        <string>http://cran.r-project.org/bin/windows/base/</string>
+        <string>https://cran.r-project.org/bin/windows/base/</string>
         <key>SEARCH_PATTERN</key>
         <string>(?P&lt;exe&gt;R-(?P&lt;version&gt;[0-9.]+)-win\.exe)</string>
     </dict>

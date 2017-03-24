@@ -11,9 +11,9 @@
         <key>NAME</key>
         <string>Anki</string>
         <key>SEARCH_URL</key>
-        <string>http://ankisrs.net</string>
+        <string>https://apps.ankiweb.net</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;http://ankisrs\.net/download/mirror/anki-(?P&lt;version&gt;[0-9.]+)\.dmg)</string>
+        <string>(\/downloads\/current\/anki-([0-9].){3,}.dmg)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.4.0</string>
@@ -36,7 +36,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%url%</string>
+                <string>%url%%match%</string>
                 <key>filename</key>
                 <string>%NAME%.dmg</string>
             </dict>

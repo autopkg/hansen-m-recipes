@@ -10,12 +10,6 @@
     <dict>
         <key>NAME</key>
         <string>PyCharm CE</string>
-        <key>DOWNLOAD_URL</key>
-        <string>http://download.jetbrains.com/python/</string>
-        <key>SEARCH_URL</key>
-        <string>http://www.jetbrains.com/pycharm/download/download_thanks.jsp?os=mac&amp;edition=comm</string>
-        <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;dmg&gt;pycharm-community-.*.dmg)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
