@@ -9,7 +9,7 @@
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>SAOImage DS9</string>
+        <string>SAOImageDS9-app</string>
         <key>SAO_OS_KEY</key>
         <string>macosxmavericks</string>
         <key>SEARCH_URL</key>
@@ -38,7 +38,7 @@
                 <key>url</key>
                 <string>%SEARCH_URL%/%SAO_OS_KEY%/%dmg%</string>
                 <key>filename</key>
-                <string>SAOImage_DS9.dmg</string>
+                <string>SAOImageDS9-%SAO_OS_KEY%.dmg</string>
             </dict>
         </dict>
         <dict>
