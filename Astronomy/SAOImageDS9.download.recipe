@@ -38,7 +38,7 @@
                 <key>url</key>
                 <string>%SEARCH_URL%/%SAO_OS_KEY%/%tar_gz_file%</string>
                 <key>filename</key>
-                <string>%NAME%.tar.gz</string>
+                <string>%NAME%-%SAO_OS_KEY%.tar.gz</string>
             </dict>
         </dict>
         <dict>
