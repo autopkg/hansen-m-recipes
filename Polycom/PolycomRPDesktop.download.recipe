@@ -11,9 +11,9 @@
         <key>NAME</key>
         <string>PolycomRealPresenceDesktop</string>
         <key>SEARCH_URL</key>
-        <string>http://support.polycom.com/PolycomService/support/us/support/video/realpresence_desktop/realpresence_desktop.html</string>
+        <string>http://support.polycom.com/content/support/North_America/USA/en/support/video/realpresence_desktop/realpresence_desktop.html</string>
         <key>POLYCOMRPDESKTOP_REPATTERN</key>
-        <string>http://support.polycom.com/PolycomService/support/us/support/eula/rpd/RPDagreement.*?_mac.html</string>
+        <string>/content/support/North_America/USA/en/eula/rpd/rpdagreement_v.*mactrial.html</string>
         <key>POLYCOMRPDESKTOP_DMG_REPATTERN</key>
         <string>http://downloads\.polycom\.com/video/realpresence_desktop/RPDMac-release_(?P&lt;version&gt;.*?)_(?P&lt;bundle_version&gt;.*?)\.dmg</string>
     </dict>
@@ -38,7 +38,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%link%</string>
+                <string>http://support.polycom.com%link%</string>
                 <key>re_pattern</key>
                 <string>(?P&lt;url&gt;%POLYCOMRPDESKTOP_DMG_REPATTERN%)</string>
             </dict>
