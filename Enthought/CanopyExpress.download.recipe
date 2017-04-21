@@ -10,22 +10,42 @@
     <dict>
         <key>NAME</key>
         <string>CanopyExpress</string>
+        <key>SEARCH_URL</key>
+        <string>https://store.enthought.com/downloads/</string>
+        <key>SEARCH1</key>
+        <string><![CDATA[<td>macOS*.*[\n]*.*[\n]*.*"(\/downloads\/installer\/[0-9]\/)"]]></string>
         <key>DOWNLOAD_URL</key>
-        <string>https://store.enthought.com/downloads/canopy/osx/64/free/</string>
+        <string>https://store.enthought.com</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
     <key>Process</key>
     <array>
         <dict>
+        <key>Processor</key>
+        <string>URLTextSearcher</string>
+        <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%SEARCH_URL%</string>
+                <key>re_pattern</key>
+                <string>%SEARCH1%</string>
+            </dict>
+        </dict>
+        <dict>
             <key>Processor</key>
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%DOWNLOAD_URL%</string>
+                <string>%DOWNLOAD_URL%%match%</string>
                 <key>filename</key>
                 <string>%NAME%.dmg</string>
+                <key>request_headers</key>
+                <dict>
+                    <key>user-agent</key>
+                    <string>%USER_AGENT%</string>
+                </dict>
             </dict>
         </dict>
         <dict>
