@@ -13,7 +13,7 @@
         <key>SEARCH_URL</key>
         <string>https://preyproject.com/download</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;https:\/\/storage\.googleapis\.com/prey_public\/prey-releases\/node-client\/(?P&lt;version&gt;[0-9.]+)\/prey-mac-[0-9.]+-x86\.pkg)</string>
+        <string>(?P&lt;url&gt;https:\/\/downloads.preyproject.com\/prey-client-releases\/node-client\/(?P&lt;version&gt;[0-9.]+)\/prey-mac-[0-9.]+-x64\.pkg)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -39,6 +39,21 @@
                 <string>%url%</string>
                 <key>filename</key>
                 <string>%NAME%.pkg</string>
+            </dict>
+        </dict>
+        <dict>   
+            <key>Processor</key>   
+            <string>CodeSignatureVerifier</string>   
+            <key>Arguments</key>   
+            <dict>   
+                <key>input_path</key>   
+                <string>%pathname%</string>
+                <key>expected_authority_names</key>
+                <array>
+                    <string>Developer ID Installer: Prey, Inc. (M2J57RQ35B)</string>
+                    <string>Developer ID Certification Authority</string>
+                    <string>Apple Root CA</string>
+                </array>
             </dict>
         </dict>
         <dict>
