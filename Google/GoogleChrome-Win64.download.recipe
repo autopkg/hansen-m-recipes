@@ -52,7 +52,7 @@
                 <string>preceding text of first " Copyright 2011 Google Inc." of substrings separated by "%00" whose (it ends with "Google Inc.") of lines whose (it contains "Installer") of file "%RECIPE_CACHE_DIR%/InstallerExtract/[5]SummaryInformation" as version</string>
             </dict>
         </dict>
-<!--        <dict>
+        <dict>
             <key>Processor</key>
             <string>PathDeleter</string>
             <key>Arguments</key>
@@ -62,7 +62,7 @@
                     <string>%RECIPE_CACHE_DIR%/InstallerExtract</string>
                 </array>
             </dict>
-        </dict>-->
+        </dict>
         <dict>
             <key>Processor</key>
             <string>EndOfCheckPhase</string>
