@@ -10,33 +10,29 @@
     <dict>
         <key>NAME</key>
         <string>Soundflower</string>
-        <key>SEARCH_URL</key>
-        <string>https://code.google.com/feeds/p/soundflower/downloads/basic</string>
-        <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;http://soundflower\.googlecode\.com/files/Soundflower-(?P&lt;version&gt;.*?)\.dmg)</string>
+        <key>GITHUB_REPO</key>
+        <string>mattingalls/Soundflower</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.2.9</string>
+    <string>1.0.0</string>
     <key>Process</key>
     <array>
-       <dict>
-            <key>Processor</key>
-            <string>URLTextSearcher</string>
+        <dict>
             <key>Arguments</key>
             <dict>
-                <key>url</key>
-                <string>%SEARCH_URL%</string>
-                <key>re_pattern</key>
-                <string>%SEARCH_PATTERN%</string>
+                <key>github_repo</key>
+                <string>%GITHUB_REPO%</string>
+                <key>include_prereleases</key>
+                <string>true</string>
             </dict>
+            <key>Processor</key>
+            <string>GitHubReleasesInfoProvider</string>
         </dict>
         <dict>
             <key>Processor</key>
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
-                <key>url</key>
-                <string>https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/soundflower/Soundflower-%version%.dmg</string>
                 <key>filename</key>
                 <string>%NAME%-%version%.dmg</string>
             </dict>
