@@ -18,13 +18,11 @@
 		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>SOURCEFORGE_FILE_PATTERN</key>
-				<string>\.dmg</string>
-				<key>SOURCEFORGE_PROJECT_ID</key>
-				<integer>149444</integer>
+				<key>github_repo</key>
+				<string>cnr-isti-vclab/meshlab</string>
 			</dict>
 			<key>Processor</key>
-			<string>com.github.jessepeterson.munki.GrandPerspective/SourceForgeURLProvider</string>
+			<string>GitHubReleasesInfoProvider</string>
 		</dict>
 		<dict>
 			<key>Arguments</key>
