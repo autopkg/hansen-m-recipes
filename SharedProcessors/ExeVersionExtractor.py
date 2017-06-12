@@ -60,7 +60,7 @@ class ExeVersionExtractor(Processor):
             if verbosity > 2:
                 print line
             if "ProductVersion:" in line:
-                archiveVersion = line
+                archiveVersion = line.split()[-1]
                 continue
         
         self.env['version'] = archiveVersion.encode('ascii', 'ignore')
