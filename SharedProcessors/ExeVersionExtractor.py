@@ -30,6 +30,9 @@ class ExeVersionExtractor(Processor):
         },
     }
     output_variables = {
+        "version": {
+            "description": "Version of exe found." 
+        },
     }
 
     __doc__ = description
