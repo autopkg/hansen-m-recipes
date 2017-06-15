@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Downloads the latest version of MakerBot Desktop. Use the following 'PLATFORM' keys to change OS selection: x86, x64</string>
     <key>Identifier</key>
-    <string>com.github.hansen-m.download.MakerBotPrint</string>
+    <string>com.github.hansen-m.download.MakerBotPrint-Win</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
