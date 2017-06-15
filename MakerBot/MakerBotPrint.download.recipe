@@ -42,16 +42,36 @@
             </dict>
         </dict>
         <dict>
-            <key>Processor</key>
-            <string>URLTextSearcher</string>
+           <key>Processor</key>
+            <string>FlatPkgUnpacker</string>
             <key>Arguments</key>
             <dict>
-                <key>url</key>
-                <string>%SEARCH_URL%</string>
-                <key>re_pattern</key>
-                <string>Download MakerBot Print ([0-9]{1,}.[0-9]{1,})</string>
-                <key>result_output_var_name</key>
-                <string>version</string>
+                <key>flat_pkg_path</key>
+                <string>%pathname%</string>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%</string>
+            </dict>
+        </dict>
+         <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_payload_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/MakerBotPrint.pkg/Payload</string>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%Payload</string>
+            </dict>
+            <key>Processor</key>
+            <string>PkgPayloadUnpacker</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>Versioner</string>
+            <key>Arguments</key>
+            <dict>
+                <key>plist_version_key</key>
+                <string>CFBundleShortVersionString</string>
+                <key>input_plist_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%Payload/MakerBot Print.app/Contents/Info.plist</string>
             </dict>
         </dict>
         <dict>
