@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Downloads the latest version of EndNote for OS X.</string>
     <key>Identifier</key>
-    <string>com.github.hansen-m.download.EndNote</string>
+    <string>com.github.hansen-m.download.EndNoteX7</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>

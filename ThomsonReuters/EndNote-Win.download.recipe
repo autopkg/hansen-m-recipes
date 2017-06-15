@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>EndNote</string>
         <key>ENDNOTE_MAJOR_VERSION</key>
-        <string>X7</string>
+        <string>X8</string>
         <key>DOWNLOAD_URL</key>
         <string>http://download.endnote.com/downloads/%ENDNOTE_MAJOR_VERSION%/EN%ENDNOTE_MAJOR_VERSION%Inst.msi</string>
     </dict>
