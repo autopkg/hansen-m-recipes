@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>3DCoat</string>
         <key>SEARCH_URL</key>
-        <string>http://3dcoat.com/download/</string>
+        <string>https://3dcoat.com/download/</string>
         <key>SEARCH_PATTERN</key>
         <string>&lt;span class="download-icon"&gt;(?P&lt;version&gt;[0-9.]+)&lt;\/span&gt;</string>
     </dict>
@@ -47,7 +47,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>http://3dcoat.com/pilgway/sergyi/3D-CoatV%formatted_version%.dmg</string>
+                <string>https://3dcoat.com/pilgway/sergyi/3D-CoatV%formatted_version%.dmg</string>
                 <key>filename</key>
                 <string>%NAME%.dmg</string>
             </dict>
