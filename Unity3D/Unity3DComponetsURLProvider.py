@@ -28,7 +28,7 @@ __all__ = ["Unity3DComponetsURLProvider"]
 
 DEFAULT_COMPONENT = "Unity"
 BASE_URL = "http://netstorage.unity3d.com/unity"
-SEARCH_URL = "https://store.unity.com/download/thank-you?thank-you=personal&os=osx&nid=149"
+SEARCH_URL = "https://store.unity.com/download/thank-you?thank-you=update&os=osx&nid=325"
 
 class Unity3DComponetsURLProvider(URLTextSearcher):
     """Extracts a URL for a Unity3D Component."""
