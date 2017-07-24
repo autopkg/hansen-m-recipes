@@ -10,8 +10,8 @@
     <dict>
         <key>NAME</key>
         <string>MacTeX</string>
-        <key>DOWNLOAD_URL</key>
-        <string>http://mirror.ctan.org/systems/mac/mactex/MacTeX.pkg</string>
+        <key>DOWNLOADPAGE_URL</key>
+        <string>http://www.tug.org/mactex/mactex-download.html</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
@@ -19,13 +19,22 @@
     <array>
         <dict>
             <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%DOWNLOADPAGE_URL%</string>
+                <key>re_pattern</key>
+                <string>http*.*MacTeX.pkg</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%DOWNLOAD_URL%</string>
-                <key>filename</key>
-                <string>%NAME%.pkg</string>
+                <string>%match%</string>
             </dict>
         </dict>
         <dict>
@@ -35,3 +44,4 @@
     </array>
 </dict>
 </plist>
+
