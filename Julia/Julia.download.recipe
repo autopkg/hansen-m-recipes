@@ -13,7 +13,7 @@
         <key>SEARCH_URL</key>
         <string>https://julialang.org/downloads/</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;https://julialang-s3.julialang.org/bin/osx/x64/[0-9.]+/julia-(?P&lt;version&gt;[0-9.]+)-latest-osx10.7\+\.dmg)</string>
+        <string>(?P&lt;url&gt;https://julialang-s3.julialang.org/bin/osx/x64/[0-9.]+/julia-(?P&lt;version&gt;[0-9.]+)-osx10.7\+\.dmg)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
