@@ -12,6 +12,11 @@
 		<string>Zotero</string>
 		<key>SEARCH_URL</key>
 		<string>https://www.zotero.org/download/</string>
+		<key>DOWNLOAD_URL</key>
+		<string>https://download.zotero.org/client/release/</string>
+		<key>VERSION_SEARCH_PATTERN</key>
+		<string>"win32":"(?P&lt;version&gt;[0-9.]+)"</string>
+		<!--5.0.7/Zotero-5.0.7_setup.exe-->
 		<key>SEARCH_PATTERN</key>
 		<string>(?P&lt;exe&gt;download.zotero.org/standalone/(?P&lt;version&gt;[0-9.]+)/Zotero-[0-9.]+_setup\.exe)</string>
 	</dict>
@@ -27,7 +32,7 @@
                 <key>url</key>
                 <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
-                <string>%SEARCH_PATTERN%</string>
+                <string>%VERSION_SEARCH_PATTERN%</string>
             </dict>
         </dict>
         <dict>
@@ -36,7 +41,7 @@
         	<key>Arguments</key>
         	<dict>
         		<key>url</key>
-        		<string>http://%exe%</string>
+        		<string>%DOWNLOAD_URL%%version%/Zotero-%version%_setup.exe</string>
         		<key>filename</key>
         		<string>%NAME%.exe</string>
         	</dict>
