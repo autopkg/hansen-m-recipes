@@ -11,9 +11,9 @@
         <key>NAME</key>
         <string>Zimbra Desktop</string>
         <key>SEARCH_URL</key>
-        <string>https://www.zimbra.com/downloads/zd-downloads.html</string>
+        <string>https://www.zimbra.com/downloads/zimbra-desktop/</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;https:\/\/files\.zimbra\.com\/downloads\/zdesktop\/(?P&lt;version&gt;[0-9.]+)\/.*?\/zdesktop_.*?_macos_intel\.dmg)</string>
+        <string>(?P&lt;url&gt;https:\/\/s3\.amazonaws\.com\/files\.zimbra\.com\/downloads\/zdesktop\/(?P&lt;version&gt;[0-9.]+)\/.*?\/zdesktop_.*?_macos_intel\.dmg)</string>
         <key>USER_AGENT</key>
         <string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/536.28.10 (KHTML, like Gecko) Version/6.0.3 Safari/536.28.10</string>
     </dict>
