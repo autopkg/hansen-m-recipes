@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads ProjectLibre for Mac.</string>
+	<key>MinimumVersion</key>
+	<string>0.2.9</string>
+	<key>Identifier</key>
+	<string>com.github.hansen-m.download.ProjectLibre</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>ProjectLibre</string>
+		<key>SOURCEFORGE_FILE_PATTERN</key>
+		<string>ProjectLibre-[0-9\.]*\.dmg</string>
+		<key>SOURCEFORGE_PROJECT_ID</key>
+		<string>715892</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>com.github.jessepeterson.munki.GrandPerspective/SourceForgeURLProvider</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+			<key>Arguments</key>
+			<dict>
+				<key>filename</key>
+				<string>%NAME%.dmg</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+	</array>
+	</dict>
+</dict>
+</plist>
