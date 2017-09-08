@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Downloads the latest version of Kolor GoPro VR Player for Windows.</string>
     <key>Identifier</key>
-    <string>com.github.hansen-m.download.GoProVRPlayer</string>
+    <string>com.github.hansen-m.download.GoProVRPlayer-Win</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
