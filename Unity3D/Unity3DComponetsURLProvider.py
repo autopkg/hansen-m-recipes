@@ -19,6 +19,7 @@
 
 import re
 import urllib2
+import HTMLParser
 from ConfigParser import SafeConfigParser
 
 from autopkglib import Processor, ProcessorError
@@ -27,8 +28,9 @@ from autopkglib.URLTextSearcher import URLTextSearcher
 __all__ = ["Unity3DComponetsURLProvider"]
 
 DEFAULT_COMPONENT = "Unity"
+DEFAULT_PLATFORM = 'osx'
 BASE_URL = "http://netstorage.unity3d.com/unity"
-SEARCH_URL = "https://store.unity.com/download/thank-you?thank-you=update&os=osx&nid=325"
+DOWNLOAD_URL = "https://store.unity.com/download"
 
 class Unity3DComponetsURLProvider(URLTextSearcher):
     """Extracts a URL for a Unity3D Component."""
@@ -42,10 +44,15 @@ class Unity3DComponetsURLProvider(URLTextSearcher):
                 "'Linux', 'Samsung-TV', 'Tizen', 'WebGL', 'Windows'. "
                 "Defaults to %s" % (DEFAULT_COMPONENT),
         },
+        "platform": {
+            "required": False,
+            "description": "The OS to return components for, 'mac' or 'win' ."
+            "Defaults to '%s'" % (DEFAULT_PLATFORM),
+        },
         "search_url": {
             "required": False,
             "description": "The URL to search for the version and revision."
-            "Defaults to %s" % (SEARCH_URL),
+            "Defaults latest from %s" % (DOWNLOAD_URL),
         },
     }
     output_variables = {
@@ -81,8 +88,9 @@ class Unity3DComponetsURLProvider(URLTextSearcher):
     def main(self):
         """Return a download URL and info for a Unity3D component"""
 
-        revision, version = self.get_latest_version()
-        ini_url = "%s/%s/unity-%s-osx.ini" % (BASE_URL, revision, version)
+        revision, version = self.get_revision_version()
+        platform = self.env.get('platform', DEFAULT_PLATFORM)
+        ini_url = "%s/%s/unity-%s-%s.ini" % (BASE_URL, revision, version, platform)
 
         try:
             data = urllib2.urlopen(ini_url)
@@ -103,17 +111,37 @@ class Unity3DComponetsURLProvider(URLTextSearcher):
 
             self.output("%s: %s = %s" % (component_name, key, self.env.get(key)))
 
-    def get_latest_version(self):
+    def get_latest_search_url(self):
+        """Scrapes for the latest search url listed on download link"""
+
+        # Setup CURL_PATH, if not already
+        if not 'CURL_PATH' in self.env:
+            self.env['CURL_PATH'] = '/usr/bin/curl'
+
+        platform = self.env.get('platform', DEFAULT_PLATFORM)
+        re_searchurl = re.compile(r'%s/thank-you\?thank-you=personal&amp;os=%s&amp;nid=[0-9]+' % (DOWNLOAD_URL, platform))
+
+        search_url, smatch_dict = self.get_url_and_search(DOWNLOAD_URL, re_searchurl)
+
+        if not search_url:
+            raise ProcessorError("Can't find search_url from %s." % DOWNLOAD_URL)
+        else:
+            search_url = HTMLParser.HTMLParser().unescape(search_url)
+            self.output("Search URL: %s" % search_url)
+
+        return search_url
+
+    def get_revision_version(self):
         """Return the latest revision and version from the download link"""
 
-        search_url = self.env.get('search_url', SEARCH_URL)
+        search_url = self.env.get('search_url', self.get_latest_search_url())
 
         # Setup CURL_PATH, if not already
         if not 'CURL_PATH' in self.env:
             self.env['CURL_PATH'] = '/usr/bin/curl'
 
         # Regex matching expressions
-        re_version = re.compile(r'UnityDownloadAssistant-(?P<version>[0-9a-z.]+)?\.dmg')
+        re_version = re.compile(r'UnityDownloadAssistant-(?P<version>[0-9a-z.]+)?\.[dmg|exe]')
         re_revision = re.compile(r'unity\\/(?P<revision>[0-9a-z]+)"?\\/UnityDownloadAssistant-')
 
         version, vmatch_dict = self.get_url_and_search(search_url, re_version)
@@ -121,13 +149,13 @@ class Unity3DComponetsURLProvider(URLTextSearcher):
 
         # Search for latest version string.
         if not version:
-            raise ProcessorError("Can't find version from %s." % SEARCH_URL)
+            raise ProcessorError("Can't find version from %s." % search_url)
         else:
             self.output("Latest Version: %s" % version)
 
         # Search for latest revision string.
         if not revision:
-            raise ProcessorError("Can't find revision from %s." % SEARCH_URL)
+            raise ProcessorError("Can't find revision from %s." % search_url)
         else:
             self.output("Latest Revision: %s" % revision)
 
