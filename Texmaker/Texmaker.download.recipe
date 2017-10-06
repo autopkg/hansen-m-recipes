@@ -10,22 +10,42 @@
     <dict>
         <key>NAME</key>
         <string>Texmaker</string>
-        <key>DOWNLOAD_URL</key>
-        <string>http://www.xm1math.net/texmaker/TexmakerMacosxLion.zip</string>
+        <key>SEARCH_URL</key>
+        <string>http://www.xm1math.net/texmaker/download.html</string>
+        <key>SEARCH_PATTERN</key>
+        <string>(assets/files/texmaker-(?P&lt;version&gt;[0-9].[0-9].[0-9]).dmg)</string>
+        <key>USER_AGENT</key>
+        <string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/536.28.10 (KHTML, like Gecko) Version/6.0.3 Safari/536.28.10</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
     <key>Process</key>
     <array>
+       <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%SEARCH_URL%</string>
+                <key>re_pattern</key>
+                <string>%SEARCH_PATTERN%</string>
+                <key>request_headers</key>
+                <dict>
+                        <key>user-agent</key>
+                        <string>%USER_AGENT%</string>
+                </dict>
+            </dict>
+        </dict>
         <dict>
             <key>Processor</key>
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%DOWNLOAD_URL%</string>
+                <string>http://www.xm1math.net/texmaker/%match%</string>
                 <key>filename</key>
-                <string>%NAME%.zip</string>
+                <string>%NAME%.dmg</string>
             </dict>
         </dict>
         <dict>
