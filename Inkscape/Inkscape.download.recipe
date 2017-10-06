@@ -12,9 +12,13 @@
         <key>NAME</key>
         <string>Inkscape</string>
         <key>SEARCH_URL</key>
-        <string>https://inkscape.org/en/download/mac-os/</string>
+        <string>https://inkscape.org/en/</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;https://inkscape\.org/en/gallery/item/[0-9]+/Inkscape-[0-9.-]+-x11-10\.7-x86_64\.dmg)</string>
+        <string>(?P&lt;url&gt;\/en\/release.*dmg\/dl\/)</string>
+        <key>SEARCH_PATTERN1</key>
+        <string>(Current stable version: (?P&lt;version&gt;[0-9]{1,2}.[0-9]{1,2}.[0-9]{1,2}))</string>
+        <key>SEARCH_PATTERN2</key>
+        <string>(?P&lt;dmgurl&gt;\/en\/gallery\/.*Inkscape.*dmg)</string>        
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -28,7 +32,29 @@
                 <key>url</key>
                 <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
+                <string>%SEARCH_PATTERN1%</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>https://inkscape.org/en/release/%version%/mac-os-x/</string>
+                <key>re_pattern</key>
                 <string>%SEARCH_PATTERN%</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>https://inkscape.org%url%</string>
+                <key>re_pattern</key>
+                <string>%SEARCH_PATTERN2%</string>
             </dict>
         </dict>
         <dict>
@@ -37,7 +63,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%url%</string>
+                <string>https://inkscape.org%dmgurl%</string>
                 <key>filename</key>
                 <string>%NAME%.dmg</string>
             </dict>
