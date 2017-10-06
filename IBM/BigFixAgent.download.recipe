@@ -45,7 +45,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>http://%url%</string>
+                <string>https://%url%</string>
                 <key>filename</key>
                 <string>%NAME%.pkg</string>
             </dict>
