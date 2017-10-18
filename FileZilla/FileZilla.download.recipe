@@ -11,7 +11,9 @@
         <key>NAME</key>
         <string>FileZilla</string>
         <key>SEARCH_URL</key>
-        <string>http://update.filezilla-project.org/updatecheck.php?platform=i686-apple-darwin9&amp;version=3.0.0&amp;osversion=12</string>
+        <string>https://download.filezilla-project.org/client/</string>
+        <key>VERSION_URL</key>
+        <string>https://filezilla-project.org/download.php?type=client</string>
         <key>CHANNEL</key>
         <string>release</string>
     </dict>
@@ -25,9 +27,11 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%SEARCH_URL%</string>
+                <string>%VERSION_URL%</string>
                 <key>re_pattern</key>
-                <string>%CHANNEL% (?P&lt;version&gt;[0-9.]+) (?P&lt;url&gt;http:\/\/downloads\.sourceforge\.net\/filezilla\/FileZilla_[0-9.]+_macosx-x86\.app\.tar\.bz2)</string>
+                <string>The latest stable version of FileZilla Client is ([0-9.]+)</string>
+                <key>result_output_var_name</key>
+                <string>version</string>
             </dict>
         </dict>
         <dict>
@@ -39,7 +43,7 @@
           		<key>CHECK_FILESIZE_ONLY</key>
           		<true/>
                 <key>url</key>
-                <string>%url%</string>
+                <string>https://download.filezilla-project.org/client/FileZilla_%version%_macosx-x86.app.tar.bz2</string>
                 <key>filename</key>
                 <string>%NAME%.tar.bz2</string>
             </dict>
