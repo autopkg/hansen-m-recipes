@@ -12,6 +12,8 @@
         <string>Skype</string>
         <key>DOWNLOAD_URL</key>
         <string>https://www.skype.com/go/getskype-msi</string>
+        <key>USER_AGENT</key>
+        <string>Mozilla/5.0 (Windows NT 10.0; Win64; x64)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
@@ -24,6 +26,11 @@
             <dict>
                 <key>url</key>
                 <string>%DOWNLOAD_URL%</string>
+                <key>request_headers</key>
+                <dict>
+                        <key>user-agent</key>
+                        <string>%USER_AGENT%</string>
+                </dict>
                 <key>filename</key>
                 <string>%NAME%.msi</string>
             </dict>
