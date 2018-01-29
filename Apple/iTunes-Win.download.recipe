@@ -13,7 +13,7 @@
         <key>SEARCH_URL</key>
         <string>https://www.apple.com/itunes/download/</string>
         <key>SEARCH_PATTERN</key>
-        <string><![CDATA[https:\/\/secure-appldnld\.apple\.com\/itunes[0-9][0-9]\/[A-F0-9]{3}-?[A-F0-9]{5}-?[A-F0-9]{8}-?[A-F0-9]{8}-?[A-F0-9]{4}-?[A-F0-9]{4}-?[A-F0-9]{4}-?[A-F0-9]{12}\/i[tT]unes64[sS]etup\.exe]]></string>
+       <!--Downloads 32 bit version by default. Add SEARCH_PATTERN to child recipe with i[tT]unes64[sS]etup\.exe for 64 bit version --> <string><![CDATA[https:\/\/secure-appldnld\.apple\.com\/itunes[0-9][0-9]\/[A-F0-9]{3}-?[A-F0-9]{5}-?[A-F0-9]{8}-?[A-F0-9]{8}-?[A-F0-9]{4}-?[A-F0-9]{4}-?[A-F0-9]{4}-?[A-F0-9]{12}\/i[tT]unes[sS]etup\.exe]]></string>
         <key>USER_AGENT</key>
         <string>Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko</string>
     </dict>
