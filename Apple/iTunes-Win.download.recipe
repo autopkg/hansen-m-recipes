@@ -11,9 +11,9 @@
         <key>NAME</key>
         <string>iTunes</string>
         <key>SEARCH_URL</key>
-        <string>https://swdlp.apple.com/iframes/82/en_us/82_en_us.html</string>
+        <string>https://www.apple.com/itunes/download/</string>
         <key>SEARCH_PATTERN</key>
-        <string><![CDATA[value='(?P<exe>https:\/\/secure-appldnld\.apple\.com\/itunes[0-9][0-9]\/[A-F0-9]{3}-?[A-F0-9]{5}-?[A-F0-9]{8}-?[A-F0-9]{8}-?[A-F0-9]{4}-?[A-F0-9]{4}-?[A-F0-9]{4}-?[A-F0-9]{12}\/i[tT]unes[sS]etup\.exe)']]></string>
+        <string><![CDATA[https:\/\/secure-appldnld\.apple\.com\/itunes[0-9][0-9]\/[A-F0-9]{3}-?[A-F0-9]{5}-?[A-F0-9]{8}-?[A-F0-9]{8}-?[A-F0-9]{4}-?[A-F0-9]{4}-?[A-F0-9]{4}-?[A-F0-9]{12}\/i[tT]unes64[sS]etup\.exe]]></string>
         <key>USER_AGENT</key>
         <string>Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko</string>
     </dict>
@@ -30,11 +30,6 @@
                 <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
                 <string>%SEARCH_PATTERN%</string>
-                <key>request_headers</key>
-                <dict>
-                        <key>user-agent</key>
-                        <string>%USER_AGENT%</string>
-                </dict>
             </dict>
         </dict>
         <dict>
@@ -43,7 +38,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%exe%</string>
+                <string>%match%</string>
                 <key>request_headers</key>
                 <dict>
                         <key>user-agent</key>
