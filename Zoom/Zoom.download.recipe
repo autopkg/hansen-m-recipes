@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Downloads the latest version of Zoom.</string>
     <key>Identifier</key>
-    <string>com.github.hansen-m.download.zoom</string>
+    <string>com.github.hansen-m.download.zoomus</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
