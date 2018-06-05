@@ -15,7 +15,6 @@
         <string>https://www.apple.com/itunes/download/win32</string>-->
         <key>DOWNLOAD_URL</key>
         <string>https://www.apple.com/itunes/download/win64</string>
-        <key>SEARCH_PATTERN</key>
         <key>USER_AGENT</key>
         <string>Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko</string>
     </dict>
