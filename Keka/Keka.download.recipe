@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>Keka</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://download.kekaosx.com/</string>
+        <string>https://d.keka.io/</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
