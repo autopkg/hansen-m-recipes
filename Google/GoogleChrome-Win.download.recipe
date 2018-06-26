@@ -49,7 +49,7 @@
                 <key>output_var_name</key>
                 <string>version</string>
                 <key>bes_relevance</key>
-                <string>preceding text of first " Copyright 2011 Google Inc." of substrings separated by "%00%00%00" whose (it contains "Google Inc.") of lines whose (it contains "Installer") of file "%RECIPE_CACHE_DIR%/InstallerExtract/[5]SummaryInformation" as version</string>
+                <string>preceding text of first " Copyright 2018 Google Inc." of substrings separated by "%00%00%00" whose (it contains "Google Inc.") of lines whose (it contains "Installer") of file "%RECIPE_CACHE_DIR%/InstallerExtract/[5]SummaryInformation" as version</string>
             </dict>
         </dict>
         <dict>
