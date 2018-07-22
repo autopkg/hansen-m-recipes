@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>Box Tools</string>
         <key>DOWNLOAD_URL</key>
-        <string>https://e3.boxcdn.net/box-installers/boxedit/win/currentrelease/BoxEditInstaller-AdminInstall.msi</string>
+        <string>https://e3.boxcdn.net/box-installers/boxedit/win/currentrelease/BoxToolsInstaller-AdminInstall.msi</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
