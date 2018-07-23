@@ -13,7 +13,9 @@
         <key>SEARCH_URL</key>
         <string>https://preyproject.com/download</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;https:\/\/downloads.preyproject.com\/prey-client-releases\/node-client\/(?P&lt;version&gt;[0-9.]+)\/prey-mac-[0-9.]+-x64\.pkg)</string>
+ 		<string>\/templates.*Download.[0-9,a-z,A-Z]{0,8}.js</string>
+        <key>SEARCH_PATTERN2</key> 		<string>(?P&lt;url&gt;https:\/\/downloads.preyproject.com\/prey-client-releases\/node-client\/(?P&lt;version&gt;[0-9.]+)\/prey-mac-[0-9.]+-x64\.pkg)</string>
+
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -28,6 +30,17 @@
                 <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
                 <string>%SEARCH_PATTERN%</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>https://preyproject.com%match%</string>
+                <key>re_pattern</key>
+                <string>%SEARCH_PATTERN2%</string>
             </dict>
         </dict>
         <dict>
