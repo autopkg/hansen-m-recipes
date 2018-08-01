@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>Box Edit</string>
         <key>DOWNLOAD_URL</key>
-        <string>https://e3.boxcdn.net/box-installers/boxedit/mac/currentrelease/BoxEditInstaller.dmg</string>
+        <string>https://e3.boxcdn.net/box-installers/boxedit/mac/currentrelease/BoxToolsInstaller.dmg</string>
         <key>USER_AGENT</key>
         <string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/536.28.10 (KHTML, like Gecko) Version/6.0.3 Safari/536.28.10</string>
     </dict>
