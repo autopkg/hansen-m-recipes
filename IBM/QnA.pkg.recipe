@@ -168,7 +168,7 @@
                 </dict>
             </dict>
         </dict>
-        <dict>
+        <!-- <dict>
             <key>Processor</key>
             <string>PathDeleter</string>
             <key>Arguments</key>
@@ -179,7 +179,7 @@
                     <string>%RECIPE_CACHE_DIR%/PackageInfo</string>
                 </array>
             </dict>
-        </dict>
+        </dict> -->
     </array>
 </dict>
 </plist>
