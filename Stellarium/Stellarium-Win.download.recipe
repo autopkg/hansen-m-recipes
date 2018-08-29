@@ -13,7 +13,7 @@
         <key>PLATFORM</key>
         <string>win64</string>
         <key>SEARCH_URL</key>
-        <string>https://sourceforge.net/projects/stellarium/rss?path=/Stellarium</string>
+        <string>http://stellarium.org</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -25,9 +25,9 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%SEARCH_URL%-%PLATFORM%</string>
+                <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
-                <string>(?P&lt;url&gt;https://sourceforge\.net/projects/stellarium/files/[Ss]tellarium-%PLATFORM%/[0-9.]+/[Ss]tellarium-(?P&lt;version&gt;[0-9.]+)-%PLATFORM%\.exe)</string>
+                <string>(?P&lt;url&gt;https://github.com.*(?P&lt;version&gt;[0-9]{1,2}.[0-9]{1,2}.[0-9]{1,2})-%PLATFORM%.exe)</string>
             </dict>
         </dict>
         <dict>

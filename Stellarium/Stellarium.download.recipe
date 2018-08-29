@@ -11,9 +11,9 @@
         <key>NAME</key>
         <string>Stellarium</string>
         <key>SEARCH_URL</key>
-        <string>https://sourceforge.net/projects/stellarium/rss?path=/Stellarium-MacOSX</string>
+        <string>http://stellarium.org</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;https://sourceforge\.net/projects/stellarium/files/Stellarium-MacOSX/[0-9.]+/Stellarium-(?P&lt;version&gt;[0-9.]+)\.dmg)</string>
+        <string>(?P&lt;url&gt;https://github.com.*(?P&lt;version&gt;[0-9]{1,2}.[0-9]{1,2}.[0-9]{1,2}).dmg)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
