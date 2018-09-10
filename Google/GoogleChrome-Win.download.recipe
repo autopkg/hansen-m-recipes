@@ -30,26 +30,13 @@
         </dict>
         <dict>
             <key>Processor</key>
-            <string>com.github.hansen-m.SharedProcessors/WinInstallerExtractor</string>
+            <string>com.github.hansen-m.SharedProcessors/GoogleChromeWinVersioner</string>
             <key>Arguments</key>
             <dict>
                 <key>exe_path</key>
                 <string>%pathname%</string>
                 <key>extract_dir</key>
                 <string>InstallerExtract</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>com.github.hansen-m.SharedProcessors/BESRelevanceProvider</string>
-            <key>Arguments</key>
-            <dict>
-                <key>bes_filepath</key>
-                <string>%pathname%</string>
-                <key>output_var_name</key>
-                <string>version</string>
-                <key>bes_relevance</key>
-                <string>preceding text of first " Copyright 2018 Google Inc." of substrings separated by "%00%00%00" whose (it contains "Google Inc.") of lines whose (it contains "Installer") of file "%RECIPE_CACHE_DIR%/InstallerExtract/[5]SummaryInformation" as version</string>
             </dict>
         </dict>
         <dict>
