@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Downloads the latest version of Mozilla Firefox for Windows.</string>
     <key>Identifier</key>
-    <string>com.github.hansen-m.download.Firefox-Win</string>
+    <string>com.github.hansen-m.download.Firefox64-Win</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
