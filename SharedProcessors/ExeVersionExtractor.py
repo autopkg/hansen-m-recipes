@@ -41,6 +41,7 @@ class ExeVersionExtractor(Processor):
 
         exe_path = self.env.get('exe_path', self.env.get('pathname'))
         verbosity = self.env.get('verbose', 0)
+        ignore_errors = self.env.get('ignore_errors', True)
         extract_flag = 'l'
 
         self.output("Extracting: %s" % exe_path)
