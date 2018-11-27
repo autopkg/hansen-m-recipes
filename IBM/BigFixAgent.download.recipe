@@ -25,7 +25,7 @@
                 <key>url</key>
                 <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
-                <string><![CDATA[<a href="(?P<latest_release_path>[0-9].[0-9]/patch[0-9])">Patch [0-9]</a>]]></string>
+                <string><![CDATA[<a href="(?P<latest_release_path>[0-9].[0-9]/patch[0-9]{1,})">Patch [0-9]{1,}</a>]]></string>
             </dict>
         </dict>
         <dict>
