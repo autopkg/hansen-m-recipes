@@ -43,9 +43,9 @@
           		<key>CHECK_FILESIZE_ONLY</key>
           		<true/>
                 <key>url</key>
-                <string>https://download.filezilla-project.org/client/FileZilla_%version%_win64-setup.exe</string>
+                <string>https://download.filezilla-project.org/client/FileZilla_%version%_win64-setup_bundled.exe</string>
                 <key>filename</key>
-                <string>%NAME%.tar.bz2</string>
+                <string>%NAME%.exe</string>
             </dict>
         </dict>
         <dict>
