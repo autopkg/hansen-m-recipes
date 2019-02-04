@@ -13,7 +13,7 @@
         <key>SEARCH_URL</key>
         <string>https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;download.oracle.com/otn-pub/java/jdk.*?/jdk-11\.[0-9\.]+_osx-x64_bin\.dmg)</string>
+        <string>(?P&lt;url&gt;download.oracle.com/otn-pub/java/jdk/11.[0-9]+.[0-9]+\+[0-9]/[^"]*/jdk-11.[0-9]+.[0-9]+_osx-x64_bin.dmg)</string>
         <key>ORACLE_LICENSE_COOKIE</key>
         <string>oraclelicense=accept-securebackup-cookie</string>
     </dict>
