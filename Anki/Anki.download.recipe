@@ -13,7 +13,7 @@
         <key>SEARCH_URL</key>
         <string>https://apps.ankiweb.net</string>
         <key>SEARCH_PATTERN</key>
-        <string>(\/downloads\/current\/anki-([0-9].){3,}.dmg)-mac</string>
+        <string>(\/downloads\/current\/anki-([0-9]{1,2}.){1,3}-mac.dmg)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.4.0</string>
