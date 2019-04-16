@@ -13,7 +13,7 @@
         <key>SEARCH_URL</key>
         <string>http://www.dymo.com/en-US/online-support/dymo-user-guides</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;http://download\.dymo\.com/dymo/Software/Win/DLS8Setup\.(?P&lt;display_version&gt;[0-9.]*)\.exe)</string>
+        <string>(?P&lt;url&gt;http://download\.dymo\.com/dymo/Software/Win/DCDSetup(?P&lt;version&gt;[0-9.]*)\.exe)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -54,7 +54,7 @@
                 <string>ExeExtract</string>
             </dict>
         </dict>
-        <dict>
+        <!-- <dict>
             <key>Processor</key>
             <string>com.github.hansen-m.SharedProcessors/BESRelevanceProvider</string>
             <key>Arguments</key>
@@ -64,7 +64,7 @@
                 <key>output_var_name</key>
                 <string>version</string>
             </dict>
-        </dict>
+        </dict> -->
         <dict>
             <key>Processor</key>
             <string>PathDeleter</string>
