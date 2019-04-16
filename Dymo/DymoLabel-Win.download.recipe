@@ -41,7 +41,7 @@
                 <string>%NAME%.exe</string>
             </dict>
         </dict>
-        <dict>
+        <!-- <dict>
             <key>Processor</key>
             <string>com.github.hansen-m.SharedProcessors/WinInstallerExtractor</string>
             <key>Arguments</key>
@@ -53,7 +53,7 @@
                 <key>extract_dir</key>
                 <string>ExeExtract</string>
             </dict>
-        </dict>
+        </dict> -->
         <!-- <dict>
             <key>Processor</key>
             <string>com.github.hansen-m.SharedProcessors/BESRelevanceProvider</string>
@@ -65,7 +65,7 @@
                 <string>version</string>
             </dict>
         </dict> -->
-        <dict>
+        <!-- <dict>
             <key>Processor</key>
             <string>PathDeleter</string>
             <key>Arguments</key>
@@ -75,7 +75,7 @@
                     <string>%RECIPE_CACHE_DIR%/ExeExtract</string>
                 </array>
             </dict>
-        </dict>
+        </dict> -->
         <dict>
             <key>Processor</key>
             <string>EndOfCheckPhase</string>
