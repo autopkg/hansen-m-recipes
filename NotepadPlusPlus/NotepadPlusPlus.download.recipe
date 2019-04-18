@@ -17,6 +17,7 @@
     <string>0.2.9</string>
     <key>Process</key>
     <array>
+        <!--
          <dict>
             <key>Processor</key>
             <string>URLTextSearcher</string>
@@ -60,9 +61,9 @@
                 <key>filename</key>
                 <string>%NAME%.exe</string>
             </dict>
-        </dict>
+        </dict> -->
         <!-- Download using update feed: https://notepad-plus-plus.org/repository/7.x/7.3.3/npp.7.3.3.Installer.exe -->
-        <!-- 
+        <!-- -->
         <dict>
             <key>Processor</key>
             <string>URLTextSearcher</string>
@@ -95,7 +96,7 @@
                 <key>filename</key>
                 <string>%NAME%.exe</string>
             </dict>
-        </dict> -->
+        </dict>
         <dict>
             <key>Processor</key>
             <string>EndOfCheckPhase</string>
