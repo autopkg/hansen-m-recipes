@@ -28,10 +28,15 @@ class ExeVersionExtractor(Processor):
             "required": False,
             "description": "Ignore any errors during the extraction.",
         },
+        "sevenzip_path": {
+            "required": False,
+            "default": "/usr/local/bin/7z",
+            "description": "Path to 7-Zip binary. Defaults to /usr/local/bin/7z."
+        }
     }
     output_variables = {
         "version": {
-            "description": "Version of exe found." 
+            "description": "Version of exe found."
         },
     }
 
@@ -45,7 +50,7 @@ class ExeVersionExtractor(Processor):
         extract_flag = 'l'
 
         self.output("Extracting: %s" % exe_path)
-        cmd = ['7z', extract_flag, '-y', exe_path]
+        cmd = [self.env['sevenzip_path'], extract_flag, '-y', exe_path]
 
         try:
             if verbosity > 1:
@@ -55,7 +60,7 @@ class ExeVersionExtractor(Processor):
         except:
             if ignore_errors != 'True':
                 raise
-        
+
         archiveVersion = ""
         for line in Output.split("\n"):
             if verbosity > 2:
@@ -63,7 +68,7 @@ class ExeVersionExtractor(Processor):
             if "ProductVersion:" in line:
                 archiveVersion = line.split()[-1]
                 continue
-        
+
         self.env['version'] = archiveVersion.encode('ascii', 'ignore')
         self.output("Found Version: %s" % (self.env['version']))
         # self.output("Extracted Archive Path: %s" % extract_path)

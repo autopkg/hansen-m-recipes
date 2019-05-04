@@ -39,6 +39,11 @@ class WinInstallerExtractor(Processor):
             "required": False,
             "description": "Ignore any errors during the extraction.",
         },
+        "sevenzip_path": {
+            "required": False,
+            "default": "/usr/local/bin/7z",
+            "description": "Path to 7-Zip binary. Defaults to /usr/local/bin/7z."
+        }
     }
     output_variables = {
     }
@@ -59,7 +64,7 @@ class WinInstallerExtractor(Processor):
         extract_path = "%s/%s" % (working_directory, extract_directory)
 
         self.output("Extracting: %s" % exe_path)
-        cmd = ['7z', extract_flag, '-y', '-o%s' % extract_path , exe_path]
+        cmd = [self.env['sevenzip_path'], extract_flag, '-y', '-o%s' % extract_path , exe_path]
 
         if ignore_pattern:
             cmd.append('-x!%s' % ignore_pattern)
