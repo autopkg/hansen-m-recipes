@@ -10,6 +10,8 @@
     <dict>
         <key>NAME</key>
         <string>Unity3D</string>
+        <key>DOWNLOAD_URL</key>
+        <string>https://public-cdn.cloud.unity3d.com/hub/prod/UnityHubSetup.dmg</string>        
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -17,22 +19,13 @@
     <array>
         <dict>
             <key>Processor</key>
-            <string>Unity3DComponetsURLProvider</string>
-            <key>Arguments</key>
-            <dict>
-                <key>component_name</key>
-                <string>Unity</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%url%</string>
+                <string>%DOWNLOAD_URL%</string>
                 <key>filename</key>
-                <string>%NAME%.pkg</string>
+                <string>%NAME%.dmg</string>
             </dict>
         </dict>
         <dict>
@@ -41,13 +34,9 @@
             <key>Arguments</key>
             <dict>
                 <key>input_path</key>
-                <string>%RECIPE_CACHE_DIR%/downloads/%NAME%.pkg</string>
-                <key>expected_authority_names</key>
-                <array>
-                    <string>Developer ID Installer: Unity Technologies ApS (BVPN9UFA9B)</string>
-                    <string>Developer ID Certification Authority</string>
-                    <string>Apple Root CA</string>
-                </array>
+                <string>%RECIPE_CACHE_DIR%/downloads/%NAME%.dmg/Unity Hub.app</string>
+                <key>requirement</key>
+                <string>identifier "com.unity3d.unityhub" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = BVPN9UFA9B</string>
             </dict>
 	    </dict>
         <dict>
