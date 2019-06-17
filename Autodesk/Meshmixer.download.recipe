@@ -13,7 +13,7 @@
         <key>SEARCH_URL</key>
         <string>http://www.meshmixer.com/download.html</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;http://labs-download\.autodesk\.com/us/labs/trials/worldwide/meshmixer/Autodesk_Meshmixer_v[A-Za-z0-9_.]+_MacOS\.pkg)</string>
+        <string>(?P&lt;url&gt;http://www.meshmixer.com/downloads/Autodesk_Meshmixer_v[A-Za-z0-9_.]+_MacOS\.pkg)</string>
         
     </dict>
     <key>MinimumVersion</key>
@@ -55,7 +55,7 @@
                 <string>%pathname%</string>
                 <key>expected_authority_names</key>
                 <array>
-                    <string>Developer ID Installer: Autodesk</string>
+                    <string>Developer ID Installer: Autodesk (XXKJ396S2Y)</string>
                     <string>Developer ID Certification Authority</string>
                     <string>Apple Root CA</string>
                 </array>
