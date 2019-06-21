@@ -15,7 +15,7 @@
         <key>LOCALE</key>
         <string>en-us</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;http://fs1\.minitab\.com/prodinstalls/minitabexpress/minitabexpress1/(?P&lt;version&gt;[0-9.]+)/mac/multi-user/Minitab_Express_MU_v[0-9.]+\.pkg)</string>
+        <string>(?P&lt;url&gt;https://files3\.minitab\.com/prodinstalls/minitabexpress/minitabexpress1/(?P&lt;version&gt;[0-9.]+)/mac/multi-user/Minitab_Express_MU_v[0-9.]+\.pkg)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -54,7 +54,7 @@
                 <string>%pathname%</string>
                 <key>expected_authority_names</key>
                 <array>
-                    <string>Developer ID Installer: Minitab, Inc. (3FXKQL2RC3)</string>
+                    <string>Developer ID Installer: Minitab, LLC (B429SLVXPB)</string>
                     <string>Developer ID Certification Authority</string>
                     <string>Apple Root CA</string>
                 </array>
