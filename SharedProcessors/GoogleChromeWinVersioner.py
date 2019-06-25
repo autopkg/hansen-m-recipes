@@ -50,6 +50,11 @@ class GoogleChromeWinVersioner(Processor):
             "description":
                 "Regex statement to override default."
         },
+        "sevenzip_path": {
+            "required": False,
+            "default": "/usr/local/bin/7z",
+            "description": "Path to 7-Zip binary. Defaults to /usr/local/bin/7z."
+        }
     }
     output_variables = {
         "version": {
@@ -76,7 +81,7 @@ class GoogleChromeWinVersioner(Processor):
         extract_path = "%s/%s" % (working_directory, extract_directory)
 
         self.output("Extracting: %s" % exe_path)
-        cmd = ['7z', extract_flag, '-y', '-o%s' % extract_path , exe_path]
+        cmd = [self.env['sevenzip_path'], extract_flag, '-y', '-o%s' % extract_path , exe_path]
 
         if ignore_pattern:
             cmd.append('-x!%s' % ignore_pattern)
@@ -91,7 +96,7 @@ class GoogleChromeWinVersioner(Processor):
                 raise
 
         self.output("Extracted Archive Path: %s" % extract_path)
-        
+
         pattern = re.compile(version_regex)
 
         with open(extract_path + "/[5]SummaryInformation") as file:
@@ -102,7 +107,7 @@ class GoogleChromeWinVersioner(Processor):
         else:
             self.output("Unable to get version from MSI")
             return None
-        
+
 
 if __name__ == '__main__':
     processor = GoogleChromeWinVersioner()
