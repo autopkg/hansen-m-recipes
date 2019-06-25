@@ -11,11 +11,11 @@
         <key>NAME</key>
         <string>PolycomRealPresenceDesktop</string>
         <key>SEARCH_URL</key>
-        <string>http://support.polycom.com/content/support/North_America/USA/en/support/video/realpresence_desktop/realpresence_desktop.html</string>
+        <string>https://support.polycom.com/content/support/north-america/usa/en/support/video/realpresence-desktop/realpresence-desktop.html</string>
         <key>POLYCOMRPDESKTOP_REPATTERN</key>
         <string>/content/support/North_America/USA/en/eula/rpd/Mac-OS-X-Trial-v-.*.html</string>
         <key>POLYCOMRPDESKTOP_DMG_REPATTERN</key>
-        <string>http://downloads\.polycom\.com/video/realpresence_desktop/RPDMac_(?P&lt;version&gt;.*?_.*?_.*?)_(?P&lt;bundle_version&gt;.*?)\.dmg</string>
+        <string>https://downloads\.polycom\.com/video/realpresence_desktop/RPDMac_(?P&lt;version&gt;.*?_.*?_.*?)_(?P&lt;bundle_version&gt;.*?)\.dmg</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -29,10 +29,10 @@
                 <key>url</key>
                 <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
-                <string>(?P&lt;link&gt;%POLYCOMRPDESKTOP_REPATTERN%)</string>
+                <string>(?P&lt;url&gt;%POLYCOMRPDESKTOP_DMG_REPATTERN%)</string>
             </dict>
         </dict>
-        <dict>
+        <!-- <dict>
             <key>Processor</key>
             <string>URLTextSearcher</string>
             <key>Arguments</key>
@@ -42,7 +42,7 @@
                 <key>re_pattern</key>
                 <string>(?P&lt;url&gt;%POLYCOMRPDESKTOP_DMG_REPATTERN%)</string>
             </dict>
-        </dict>
+        </dict> -->
         <dict>
             <key>Processor</key>
             <string>URLDownloader</string>
@@ -51,7 +51,7 @@
                 <key>url</key>
                 <string>%url%</string>
                 <key>filename</key>
-                <string>%NAME%.dmg</string>
+                <string>PolycomRealPresenceDesktop.dmg</string>
             </dict>
         </dict>
         <dict>
@@ -94,6 +94,10 @@
         </dict>
         <dict>
             <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
             <string>PathDeleter</string>
             <key>Arguments</key>
             <dict>
@@ -104,9 +108,20 @@
                 </array>
             </dict>
         </dict>
-        <dict>
-            <key>Processor</key>
-            <string>EndOfCheckPhase</string>
+        <dict>   
+            <key>Processor</key>   
+            <string>CodeSignatureVerifier</string>   
+            <key>Arguments</key>   
+            <dict>   
+                <key>input_path</key>   
+                <string>%pathname%/RealPresenceDesktop.pkg</string>
+                <key>expected_authority_names</key>
+                <array>
+                    <string>Developer ID Installer: Polycom (WJCM3F7AQ4)</string>
+                    <string>Developer ID Certification Authority</string>
+                    <string>Apple Root CA</string>
+                </array>
+            </dict>
         </dict>
     </array>
 </dict>
