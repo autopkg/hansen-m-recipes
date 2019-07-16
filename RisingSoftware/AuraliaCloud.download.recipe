@@ -15,7 +15,7 @@
         <key>SEARCH_URL</key>
         <string>https://www.risingsoftware.com/cloudsupport/download.php</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;http://download\.risingsoftware\.com/auralia./cloud/auralia_m_(?P&lt;version&gt;.*?)_cloud.pkg)</string>
+        <string>(?P&lt;url&gt;https://download\.risingsoftware\.com/auralia./cloud/auralia_m_(?P&lt;version&gt;.*?)_cloud.pkg)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -46,6 +46,21 @@
         <dict>
             <key>Processor</key>
             <string>EndOfCheckPhase</string>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>expected_authority_names</key>
+                <array>
+                    <string>Developer ID Installer: Rising Software Australia Pty Ltd (NQMN77T7W6)</string>
+                    <string>Developer ID Certification Authority</string>
+                    <string>Apple Root CA</string>
+                </array>
+                <key>input_path</key>
+                <string>%pathname%</string>
+            </dict>
+            <key>Processor</key>
+            <string>CodeSignatureVerifier</string>
         </dict>
     </array>
 </dict>
