@@ -11,9 +11,9 @@
         <key>NAME</key>
         <string>CanopyExpress</string>
         <key>SEARCH_URL</key>
-        <string>https://store.enthought.com/downloads/</string>
+        <string>https://assets.enthought.com/downloads/</string>
         <key>SEARCH1</key>
-        <string><![CDATA[<td>macOS*.*[\n]*.*[\n]*.*"(\/downloads\/installer\/[0-9]\/)"]]></string>
+        <string><![CDATA[<td>macOS*.*[\n]*.*[\n]*.*"(\/downloads\/installer\/[0-9].*\/)"]]></string>
         <key>DOWNLOAD_URL</key>
         <string>https://store.enthought.com</string>
     </dict>
