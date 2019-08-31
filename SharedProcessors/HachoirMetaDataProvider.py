@@ -10,6 +10,8 @@
 # Retreives file metadata using the Hachoir metadata library.
 # Requires https://bitbucket.org/haypo/hachoir/wiki/hachoir-metadata
 
+from __future__ import absolute_import
+from __future__ import print_function
 import os
 import sys
 import string
@@ -20,14 +22,14 @@ try:
     import hachoir_metadata
     import hachoir_parser
 except ImportError:
-    print """
+    print("""
     Hachoir Modules not installed!
 
     Install using: 
         `pip install hachoir_core`
         `pip install hachoir_metadata`
         `pip install hachoir_parser`
-    """
+    """)
     sys.exit(1)
 
 from autopkglib import Processor, ProcessorError
@@ -75,7 +77,7 @@ class HachoirMetaDataProvider(Processor):
 
         try:
             metadata = hachoir_metadata.extractMetadata(parser)
-        except HachoirError, err:
+        except HachoirError as err:
             self.output("Metadata extraction error: %s" % unicode(err))
             sys.exit(1)
             

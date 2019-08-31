@@ -6,6 +6,7 @@
 #
 # Extracts the .exe or .msi file using the 7z utility.
 
+from __future__ import absolute_import
 import os
 import sys
 import subprocess

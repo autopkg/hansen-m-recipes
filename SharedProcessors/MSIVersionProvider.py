@@ -8,6 +8,7 @@
 # Retreives the version of a .msi file using the lessmsi utility via Wine.
 # Requires installation of Wine, and availablility of 'wine' in PATH
 
+from __future__ import absolute_import
 import os
 import sys
 import subprocess
