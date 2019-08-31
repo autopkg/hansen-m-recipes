@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>Mega</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://www.megasoftware.net/releases/MEGA7.0.21_mac32_setup.dmg</string>
+        <string>https://www.megasoftware.net/releases/MEGA7.0.21_mac32_setup.dmg</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
