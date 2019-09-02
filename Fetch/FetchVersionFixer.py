@@ -9,10 +9,10 @@
 # contains a Unicode Zero-width space that causes us lots of problems.
 
 from __future__ import absolute_import
+
 import re
 
 from autopkglib import Processor, ProcessorError
-
 
 __all__ = ["FetchVersionFixer"]
 

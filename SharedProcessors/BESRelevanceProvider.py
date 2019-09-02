@@ -12,8 +12,9 @@ AutoPkg Processor for retreiving relevance data for tasks.
 """
 
 from __future__ import absolute_import
-import os
+
 import hashlib
+import os
 import subprocess
 
 from autopkglib import Processor, ProcessorError

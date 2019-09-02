@@ -9,12 +9,12 @@
 # Requires installation of Wine, and availablility of 'wine' in PATH
 
 from __future__ import absolute_import
+
 import os
-import sys
 import subprocess
+import sys
 
 from autopkglib import Processor, ProcessorError
-
 
 __all__ = ["MSIVersionProvider"]
 

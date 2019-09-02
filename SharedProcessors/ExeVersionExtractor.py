@@ -7,14 +7,11 @@
 #
 # Extracts version info from .exe file using the 7z utility.
 
-from __future__ import absolute_import
-from __future__ import print_function
-import os
-import sys
+from __future__ import absolute_import, print_function
+
 import subprocess
 
 from autopkglib import Processor, ProcessorError
-
 
 __all__ = ["ExeVersionExtractor"]
 

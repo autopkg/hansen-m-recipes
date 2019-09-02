@@ -8,13 +8,11 @@
 
 
 from __future__ import absolute_import
-import os
-import sys
-import subprocess
+
 import re
+import subprocess
 
 from autopkglib import Processor, ProcessorError
-
 
 __all__ = ["GoogleChromeWinVersioner"]
 

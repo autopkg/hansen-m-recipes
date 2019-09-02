@@ -10,11 +10,13 @@
 # Retreives file metadata using the Hachoir metadata library.
 # Requires https://bitbucket.org/haypo/hachoir/wiki/hachoir-metadata
 
-from __future__ import absolute_import
-from __future__ import print_function
+from __future__ import absolute_import, print_function
+
 import os
-import sys
 import string
+import sys
+
+from autopkglib import Processor, ProcessorError
 
 try:
     import hachoir_core
@@ -32,7 +34,6 @@ except ImportError:
     """)
     sys.exit(1)
 
-from autopkglib import Processor, ProcessorError
 
 
 __all__ = ["HachoirMetaDataProvider"]
