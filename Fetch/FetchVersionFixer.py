@@ -35,7 +35,7 @@ class FetchVersionFixer(Processor):
     
     def main(self):
         ascii_version = self.env.get('version').encode("ascii", "ignore")
-        rematch_version = re.search('[ -~][0-9.]+', ascii_version)
+        rematch_version = re.search(r'[ -~][0-9.]+', ascii_version)
         
         self.env["version"] = rematch_version.group(0)
         self.output("Cleaned version string %s" % self.env["version"])
