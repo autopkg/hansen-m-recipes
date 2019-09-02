@@ -81,7 +81,7 @@ class BESRelevanceProvider(Processor):
                 return None
             else:
                 return output.get('A', None)
-        except Exception as error:
+        except BaseException as error:
             self.output("QnA Error: (%s) -- %s" % (QNA, error))
             return None
 
