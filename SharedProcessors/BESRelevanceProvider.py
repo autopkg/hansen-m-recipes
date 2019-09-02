@@ -117,7 +117,7 @@ class BESRelevanceProvider(Processor):
 
             relevance_result = self.eval_relevance(bes_relevance)
 
-            if relevance_result != None:
+            if relevance_result is not None:
                 self.env[output_var_name] = relevance_result
             elif output_var_name not in self.env:
                 self.env[output_var_name] = None
