@@ -11,8 +11,10 @@ Created by Matt Hansen (mah60@psu.edu) on 2014-02-19.
 AutoPkg Processor for retreiving relevance data for tasks.
 """
 
-import os
+from __future__ import absolute_import
+
 import hashlib
+import os
 import subprocess
 
 from autopkglib import Processor, ProcessorError
@@ -80,7 +82,7 @@ class BESRelevanceProvider(Processor):
                 return None
             else:
                 return output.get('A', None)
-        except Exception, error:
+        except BaseException as error:
             self.output("QnA Error: (%s) -- %s" % (QNA, error))
             return None
 
@@ -95,10 +97,10 @@ class BESRelevanceProvider(Processor):
 
         if bes_filepath and os.path.isfile(bes_filepath):
 
-            self.env['bes_sha1'] = hashlib.sha1(file(
+            self.env['bes_sha1'] = hashlib.sha1(open(
                 bes_filepath).read()).hexdigest()
             self.env['bes_size'] = str(os.path.getsize(bes_filepath))
-            self.env['bes_sha256'] = hashlib.sha256(file(
+            self.env['bes_sha256'] = hashlib.sha256(open(
                 bes_filepath).read()).hexdigest()
             self.env['bes_sha1_short'] = str(self.env.get("bes_sha1"))[-5:]
 
@@ -115,7 +117,7 @@ class BESRelevanceProvider(Processor):
 
             relevance_result = self.eval_relevance(bes_relevance)
 
-            if relevance_result != None:
+            if relevance_result is not None:
                 self.env[output_var_name] = relevance_result
             elif output_var_name not in self.env:
                 self.env[output_var_name] = None

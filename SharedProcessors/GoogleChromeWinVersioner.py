@@ -7,13 +7,12 @@
 # Based on WinInstallerExtractor
 
 
-import os
-import sys
-import subprocess
+from __future__ import absolute_import
+
 import re
+import subprocess
 
 from autopkglib import Processor, ProcessorError
-
 
 __all__ = ["GoogleChromeWinVersioner"]
 
