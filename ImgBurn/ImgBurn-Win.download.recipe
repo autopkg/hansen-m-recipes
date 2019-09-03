@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>ImgBurn</string>
         <key>SEARCH_URL</key>
-        <string>http://imgburn.com/index.php?act=download</string>
+        <string>https://imgburn.com/index.php?act=download</string>
         <key>SEARCH_PATTERN</key>
         <string>Current version\: (?P&lt;version&gt;[0-9.]+)</string>
     </dict>

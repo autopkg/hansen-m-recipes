@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>Texmaker</string>
         <key>SEARCH_URL</key>
-        <string>http://www.xm1math.net/texmaker/download.html</string>
+        <string>https://www.xm1math.net/texmaker/download.html</string>
         <key>SEARCH_PATTERN</key>
         <string>(assets/files/texmaker-(?P&lt;version&gt;[0-9].[0-9].[0-9]).dmg)</string>
         <key>USER_AGENT</key>

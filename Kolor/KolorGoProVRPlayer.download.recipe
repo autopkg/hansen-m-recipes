@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>GoPro VR Player</string>
         <key>url</key>
-        <string>http://download.kolor.com/ked/stable/mac</string>
+        <string>https://download.kolor.com/ked/stable/mac</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>

@@ -13,7 +13,7 @@
         <key>PLATFORM</key>
         <string>win64</string>
         <key>SEARCH_URL</key>
-        <string>http://stellarium.org</string>
+        <string>https://stellarium.org</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
