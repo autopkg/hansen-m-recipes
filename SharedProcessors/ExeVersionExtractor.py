@@ -7,12 +7,11 @@
 #
 # Extracts version info from .exe file using the 7z utility.
 
-import os
-import sys
+from __future__ import absolute_import, print_function
+
 import subprocess
 
 from autopkglib import Processor, ProcessorError
-
 
 __all__ = ["ExeVersionExtractor"]
 
@@ -64,7 +63,7 @@ class ExeVersionExtractor(Processor):
         archiveVersion = ""
         for line in Output.split("\n"):
             if verbosity > 2:
-                print line
+                print(line)
             if "ProductVersion:" in line:
                 archiveVersion = line.split()[-1]
                 continue

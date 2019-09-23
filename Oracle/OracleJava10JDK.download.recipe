@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>OracleJava10JDK</string>
         <key>SEARCH_URL</key>
-        <string>http://www.oracle.com/technetwork/java/javase/downloads/jdk10-downloads-4416644.html</string>
+        <string>https://www.oracle.com/technetwork/java/javase/downloads/jdk10-downloads-4416644.html</string>
         <key>SEARCH_PATTERN</key>
         <string>(?P&lt;url&gt;http://download.oracle.com/otn-pub/java/jdk.*?/jdk-10\.[0-9\.]+_osx-x64_bin\.dmg)</string>
         <key>ORACLE_LICENSE_COOKIE</key>

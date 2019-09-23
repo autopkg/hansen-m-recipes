@@ -6,12 +6,11 @@
 #
 # Extracts the .exe or .msi file using the 7z utility.
 
-import os
-import sys
+from __future__ import absolute_import
+
 import subprocess
 
 from autopkglib import Processor, ProcessorError
-
 
 __all__ = ["WinInstallerExtractor"]
 

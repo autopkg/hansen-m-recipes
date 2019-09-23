@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>SonicVisualiser</string>
         <key>SEARCH_URL</key>
-        <string>http://www.sonicvisualiser.org/download.html</string>
+        <string>https://www.sonicvisualiser.org/download.html</string>
         <key>SEARCH_PATTERN</key>
         <string>(?P&lt;url&gt;https://code\.soundsoftware\.ac\.uk/attachments/download/[0-9]*/Sonic%20Visualiser-[.0-9]*\.dmg)</string>
     </dict>

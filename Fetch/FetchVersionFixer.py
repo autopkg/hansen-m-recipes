@@ -8,10 +8,11 @@
 # As of version Fetch 5.7.3 the Contents/Info.plist CFBundleVersion key 
 # contains a Unicode Zero-width space that causes us lots of problems.
 
+from __future__ import absolute_import
+
 import re
 
 from autopkglib import Processor, ProcessorError
-
 
 __all__ = ["FetchVersionFixer"]
 
@@ -34,7 +35,7 @@ class FetchVersionFixer(Processor):
     
     def main(self):
         ascii_version = self.env.get('version').encode("ascii", "ignore")
-        rematch_version = re.search('[ -~][0-9.]+', ascii_version)
+        rematch_version = re.search(r'[ -~][0-9.]+', ascii_version)
         
         self.env["version"] = rematch_version.group(0)
         self.output("Cleaned version string %s" % self.env["version"])
