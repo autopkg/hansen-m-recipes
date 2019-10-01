@@ -13,14 +13,32 @@
         <key>SEARCH_URL</key>
         <string>https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;https://download.oracle.com/otn-pub/java/jdk/.*?/.*?/jdk-8u[0-9]+-macosx-x64.dmg)</string>
+        <string><![CDATA[(?P<url>https:\/\/download.oracle.com\/.*?\/jdk-8u[0-9]+-macosx-x64.dmg)]]></string>
         <key>ORACLE_LICENSE_COOKIE</key>
-        <string>oraclelicense=accept-securebackup-cookie</string>
+        <string>oraclelicense=accept-securebackup-cookie; domain=.oracle.com; path=/; expires=Tue, 23 Jul 2019;</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.4.0</string>
     <key>Process</key>
     <array>
+        <dict>
+            <key>Processor</key>
+            <string>com.github.gregneagle.autopkg.sharedprocessors/DeprecationWarning</string>
+            <key>Arguments</key>
+            <dict>
+                <key>warning_message</key>
+                <string>Java JDK 8 has reached end of support. This recipe is now non-functional. Please remove it from your list of recipes.</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>StopProcessingIf</string>
+            <key>Arguments</key>
+            <dict>
+                <key>predicate</key>
+                <string>TRUEPREDICATE</string>
+            </dict>
+        </dict>
         <dict>
             <key>Processor</key>
             <string>URLTextSearcher</string>

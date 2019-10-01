@@ -13,7 +13,7 @@
         <key>SEARCH_URL</key>
         <string>https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;download.oracle.com/otn-pub/java/jdk/11\.[0-9]+\.[0-9]+\+[0-9]/[^"]*/jdk-11\.[0-9]+\.[0-9]+_osx-x64_bin.dmg)</string>
+        <string>(?P&lt;url&gt;download.oracle.com/otn/java/jdk/11\.[0-9]+\.[0-9]+\+[0-9].*/[^"]*/jdk-11\.[0-9]+\.[0-9]+_osx-x64_bin.dmg)</string>
         <key>ORACLE_LICENSE_COOKIE</key>
         <string>oraclelicense=accept-securebackup-cookie</string>
     </dict>
@@ -21,6 +21,24 @@
     <string>1.0.0</string>
     <key>Process</key>
     <array>
+        <dict>
+            <key>Processor</key>
+            <string>com.github.gregneagle.autopkg.sharedprocessors/DeprecationWarning</string>
+            <key>Arguments</key>
+            <dict>
+                <key>warning_message</key>
+                <string>Java SE 11 requires sign in to download. This recipe is now non-functional. Please remove it from your list of recipes.</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>StopProcessingIf</string>
+            <key>Arguments</key>
+            <dict>
+                <key>predicate</key>
+                <string>TRUEPREDICATE</string>
+            </dict>
+        </dict>
         <dict>
             <key>Processor</key>
             <string>URLTextSearcher</string>

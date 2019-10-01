@@ -25,6 +25,24 @@ http://www.oracle.com/technetwork/java/javase/terms/license/index.html
     <array>
         <dict>
             <key>Processor</key>
+            <string>com.github.gregneagle.autopkg.sharedprocessors/DeprecationWarning</string>
+            <key>Arguments</key>
+            <dict>
+                <key>warning_message</key>
+                <string>Java 8 x64 has reached end of support. This recipe is now non-functional. Please remove it from your list of recipes.</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>StopProcessingIf</string>
+            <key>Arguments</key>
+            <dict>
+                <key>predicate</key>
+                <string>TRUEPREDICATE</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
             <string>URLTextSearcher</string>
             <key>Arguments</key>
             <dict>
