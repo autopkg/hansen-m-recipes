@@ -20,7 +20,7 @@ __all__ = ["MSIVersionProvider"]
 
 
 class MSIVersionProvider(Processor):
-    description = "Retreives the version of a .msi file using lessmsi.'"
+    description = "Retreives the version of a .msi file using msitools.'"
     input_variables = {
         "msi_path": {
             "required": False,
@@ -38,32 +38,42 @@ class MSIVersionProvider(Processor):
     
     def main(self):
         
-        LESSMSI = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+        MSIINFO = os.path.abspath("/usr/local/bin/msiinfo")
+        # LESSMSI = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                                'lessmsi/lessmsi.exe')
         
         msi_path = self.env.get('msi_path', self.env.get('pathname'))
         verbosity = self.env.get('verbose', 0)
-        
-        if subprocess.call("type wine", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE) != 0:
-            self.output("wine executable not found.")
+
+        if subprocess.call("type msiinfo", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE) != 0:
+            self.output("msiinfo executable not found.")
             sys.exit(1)
+        
+        # if subprocess.call("type wine", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE) != 0:
+        #     self.output("wine executable not found.")
+        #     sys.exit(1)
         
         if not os.path.isfile(msi_path):
             self.output("MSI file path not found: %s" % msi_path)
             sys.exit(1)
             
         self.output("Evauluating: %s" % msi_path)
-        cmd = ['wine', LESSMSI, 'v', msi_path]
-
-        proc = subprocess.Popen(cmd,  stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        cmd = [MSIINFO, 'export', msi_path, 'Property']
+        # self.output(" ".join(cmd))
+        proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         (stdout, stderr) = proc.communicate()
 
+        version = ""
+        # self.output(stdout)
+        for line in stdout.split("\n"):
+            print "Line: {}".format(line)
+            if line.startswith("ProductVersion"):
+                version = line.split("\t")[1].strip("\r")
         if verbosity > 1:
             if stderr:
-                self.output('Wine Errors: %s' % stderr)
-        
-        version = stdout.strip(' \t\n\r')
-
+                self.output('msiinfo Errors: %s' % stderr)
+        if version == "":
+            self.output("Could not find version in msi file. Please open a bug.")
         self.env['version'] = version.encode('ascii', 'ignore')
         self.output("Found version: %s" % (self.env['version']))
 
