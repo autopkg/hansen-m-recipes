@@ -65,7 +65,6 @@ class MSIVersionProvider(Processor):
         version = ""
         # self.output(stdout)
         for line in stdout.split("\n"):
-            print "Line: {}".format(line)
             if line.startswith("ProductVersion"):
                 version = line.split("\t")[1].strip("\r")
         if verbosity > 1:
