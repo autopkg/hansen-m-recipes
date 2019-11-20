@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>MakerBot Desktop</string>
         <key>SEARCH_URL</key>
-        <string>https://www.makerbot.com/download-print/</string>
+        <string>https://www.makerbot.com/3d-printers/apps/makerbot-print/download/</string>
         <key>PLATFORM</key>
         <string>x64</string>
         <key>USER_AGENT</key>
@@ -29,7 +29,7 @@
                 <key>url</key>
                 <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
-                <string>(https:\/\/s3.amazonaws.com\/downloads-makerbot-com\/installer\/release\/MakerBotDesktopInstaller.pkg)</string>
+                <string>(https:\/\/s3.amazonaws.com\/downloads-makerbot-com\/installer\/release\/MakerBotPrintInstaller.pkg)</string>
             </dict>
         </dict>
         <dict>

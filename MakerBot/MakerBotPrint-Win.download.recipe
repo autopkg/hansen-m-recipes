@@ -29,7 +29,7 @@
                 <key>url</key>
                 <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
-                <string>(https:\/\/s3.amazonaws.com\/downloads-makerbot-com\/installer\/release\/MakerBotDesktopInstaller.exe)</string>
+                <string>(https:\/\/s3.amazonaws.com\/downloads-makerbot-com\/installer\/release\/MakerBotPrintInstaller.exe)</string>
             </dict>
         </dict>
         <dict>
