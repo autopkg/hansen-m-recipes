@@ -43,7 +43,7 @@
                 <key>url</key>
                 <string>https://zoom.us/download#client_4meeting</string>
                 <key>re_pattern</key>
-                <string><![CDATA[ZoomRoomsInstaller.msi(.*\n){1,20}Version.*\((?P<minorversion>[0-9]{1,5}.[0-9]{1,5} )\)]]></string>
+                <string><![CDATA[ZoomRoomsInstaller.msi(.*\n){1,20}Version.*\((?P<minorversion>[0-9]{1,5}.[0-9]{1,5})\)]]></string>
                 <key>request_headers</key>
                 <dict>
                         <key>user-agent</key>
