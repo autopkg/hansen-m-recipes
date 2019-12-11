@@ -7,7 +7,10 @@ These shared processors are for use in AutoPkg recipies.
 - uses the Hachoir MetaData python library to get version information from EXE files
 
 ### MSIVersionProvider.py
-- uses the msitools application to get version information from MSI files https://wiki.gnome.org/msitools
+- uses the lessmsi application and wine to get version information from MSI files
+
+### MSIInfoVersionProvider.py
+- uses the msitools and misinfo tool to get version information from MSI files https://wiki.gnome.org/msitools
 
 ### WinInstallerExtractor.py
 - uses the 7zip library to extract files (EXEs) to get their contents for further processing, including parsing the resulting files for version information. 
