@@ -54,7 +54,7 @@
         </dict>
         <dict>
             <key>Processor</key>
-            <string>com.github.hansen-m.SharedProcessors/MSIVersionProvider</string>
+            <string>com.github.hansen-m.SharedProcessors/MSIInfoVersionProvider</string>
             <key>Arguments</key>
             <dict>
                 <key>msi_path</key>
