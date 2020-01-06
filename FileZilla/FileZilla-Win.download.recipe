@@ -18,6 +18,8 @@
         <string>https://filezilla-project.org/download.php?show_all=1</string>
         <key>SEARCH_PATTERN</key>
         <string><![CDATA[(https.*FileZilla.*_win64.*[0-9].*)" ]]></string>
+        <key>VERSION_SEARCH_PATTERN</key>
+        <string><![CDATA[The latest stable version of FileZilla Client is ([0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3})]]></string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -42,9 +44,24 @@
                  <key>url</key>
                  <string>%SEARCH_URL%</string>
                  <key>re_pattern</key>
-                 <string>%SEARCH_PATTERN%</string>
+                 <string>%VERSION_SEARCH_PATTERN%</string>
+                 <key>result_output_var_name</key>
+                 <string>version</string>
              </dict>
          </dict>
+         <dict>
+              <key>Processor</key>
+              <string>URLTextSearcher</string>
+              <key>Arguments</key>
+              <dict>
+                  <key>url</key>
+                  <string>%SEARCH_URL%</string>
+                  <key>re_pattern</key>
+                  <string>%SEARCH_PATTERN%</string>
+                  <key>result_output_var_name</key>
+                  <string>match</string>
+              </dict>
+          </dict>
         <dict>
             <key>Processor</key>
             <string>URLDownloader</string>
