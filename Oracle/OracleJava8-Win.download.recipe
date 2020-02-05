@@ -20,12 +20,12 @@ http://www.oracle.com/technetwork/java/javase/terms/license/index.html
         <string>Java8JRE</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.3.1</string>
+    <string>1.1</string>
     <key>Process</key>
     <array>
         <dict>
             <key>Processor</key>
-            <string>com.github.gregneagle.autopkg.sharedprocessors/DeprecationWarning</string>
+            <string>DeprecationWarning</string>
             <key>Arguments</key>
             <dict>
                 <key>warning_message</key>
