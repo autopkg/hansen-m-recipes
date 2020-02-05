@@ -57,7 +57,7 @@
         <dict>
             <key>Arguments</key>
             <dict>
-                <key>expected_authorities</key>
+                <key>expected_authority_names</key>
                 <array>
                     <string>Developer ID Installer: International Business Machines Corp.(Tivoli)</string>
                     <string>Developer ID Certification Authority</string>
