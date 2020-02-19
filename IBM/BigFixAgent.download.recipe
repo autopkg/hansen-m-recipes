@@ -59,7 +59,7 @@
             <dict>
                 <key>expected_authority_names</key>
                 <array>
-                    <string>Developer ID Installer: International Business Machines Corp.(Tivoli)</string>
+                    <string>Developer ID Installer: HCL America (4EDX29VVN3)</string>
                     <string>Developer ID Certification Authority</string>
                     <string>Apple Root CA</string>
                 </array>
