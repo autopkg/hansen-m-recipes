@@ -9,9 +9,11 @@ BESRelevanceProvider.py
 Created by Matt Hansen (mah60@psu.edu) on 2014-02-19.
 
 AutoPkg Processor for retreiving relevance data for tasks.
-"""
 
-from __future__ import absolute_import
+Updated by Rusty Myers (rzm102@psu.edu) on 2020-02-21.
+
+Adding support for python3
+"""
 
 import hashlib
 import os
@@ -120,8 +122,6 @@ class BESRelevanceProvider(Processor):
 
         if bes_filepath and os.path.isfile(bes_filepath):
 
-#            self.env['bes_sha1'] = hashlib.sha1(open(
-#                bes_filepath).read()).hexdigest()
             self.env['bes_sha1'] = self.sha1sum(bes_filepath)
             self.env['bes_size'] = str(os.path.getsize(bes_filepath))
             self.env['bes_sha256'] = self.sha256sum(bes_filepath)
