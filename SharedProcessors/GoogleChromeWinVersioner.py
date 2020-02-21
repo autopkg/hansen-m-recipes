@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/local/autopkg/python
 #
 # Copyright 2018 The Pennsylvania State University.
 #
@@ -6,8 +6,6 @@
 # Modified original by Matt Hansen (mah60@psu.edu).
 # Based on WinInstallerExtractor
 
-
-from __future__ import absolute_import
 
 import re
 import subprocess
@@ -98,7 +96,7 @@ class GoogleChromeWinVersioner(Processor):
 
         pattern = re.compile(version_regex)
 
-        with open(extract_path + "/[5]SummaryInformation") as file:
+        with open(extract_path + "/[5]SummaryInformation", encoding="latin-1") as file:
             data = file.read()
             msiversion = pattern.findall(data)[0]
         if msiversion != "":

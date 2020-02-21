@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/local/autopkg/python
 # encoding: utf-8
 #
 # Copyright 2014 The Pennsylvania State University.
