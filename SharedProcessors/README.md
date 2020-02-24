@@ -1,13 +1,12 @@
 These shared processors are for use in AutoPkg recipies. 
 
-
 ## Processors for Windows Software
 
 ### HachoirMetaDataProvider.py
 - uses the Hachoir MetaData python library to get version information from EXE files
 
 ### MSIVersionProvider.py
-- uses the lessmsi application and wine to get version information from MSI files
+- uses the wine and lessmsi application and wine to get version information from MSI files. Depreciated 02/2020.
 
 ### MSIInfoVersionProvider.py
 - uses the msitools and misinfo tool to get version information from MSI files https://wiki.gnome.org/msitools
