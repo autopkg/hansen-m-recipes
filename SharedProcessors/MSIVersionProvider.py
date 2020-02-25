@@ -37,7 +37,8 @@ class MSIVersionProvider(Processor):
     __doc__ = description
 
     def main(self):
-
+        self.output("This processor is depreciated and should not be used. Switch to MSIInfoVersionProvider")
+        sys.exit(1)
         LESSMSI = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                             'lessmsi/lessmsi.exe')
 
