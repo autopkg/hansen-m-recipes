@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/local/autopkg/python
 # encoding: utf-8
 #
 # Copyright 2014 The Pennsylvania State University.
@@ -9,8 +9,11 @@ BESRelevanceProvider.py
 Created by Matt Hansen (mah60@psu.edu) on 2014-02-19.
 
 AutoPkg Processor for retreiving relevance data for tasks.
-"""
 
+Updated by Rusty Myers (rzm102@psu.edu) on 2020-02-21.
+
+Adding support for python3
+"""
 from __future__ import absolute_import
 
 import hashlib
@@ -69,10 +72,10 @@ class BESRelevanceProvider(Processor):
                                     stdin=subprocess.PIPE,
                                     stdout=subprocess.PIPE,
                                     stderr=subprocess.PIPE)
-            out, err = proc.communicate(relevance)
+            out, err = proc.communicate(relevance.encode())
 
             output = {}
-            for line in out.strip().split('\n'):
+            for line in out.decode().strip().split('\n'):
                 line_split = line.split(': ')
                 output[line_split[0]] = ''.join(line_split[1:])
 
@@ -86,6 +89,29 @@ class BESRelevanceProvider(Processor):
             self.output("QnA Error: (%s) -- %s" % (QNA, error))
             return None
 
+    #https://stackoverflow.com/questions/22058048/hashing-a-file-in-python
+    def sha256sum(self, filename):
+        h  = hashlib.sha256()
+        with open(filename, 'rb') as file:
+            while True:
+                # Reading is buffered, so we can read smaller chunks.
+                chunk = file.read(h.block_size)
+                if not chunk:
+                    break
+                h.update(chunk)
+        return h.hexdigest()
+    
+    def sha1sum(self, filename):
+        h  = hashlib.sha1()
+        with open(filename, 'rb') as file:
+            while True:
+                # Reading is buffered, so we can read smaller chunks.
+                chunk = file.read(h.block_size)
+                if not chunk:
+                    break
+                h.update(chunk)
+        return h.hexdigest()
+
     def main(self):
         # Assign BES Console Variables
         bes_filepath = self.env.get("bes_filepath", None)
@@ -97,11 +123,9 @@ class BESRelevanceProvider(Processor):
 
         if bes_filepath and os.path.isfile(bes_filepath):
 
-            self.env['bes_sha1'] = hashlib.sha1(open(
-                bes_filepath).read()).hexdigest()
+            self.env['bes_sha1'] = self.sha1sum(bes_filepath)
             self.env['bes_size'] = str(os.path.getsize(bes_filepath))
-            self.env['bes_sha256'] = hashlib.sha256(open(
-                bes_filepath).read()).hexdigest()
+            self.env['bes_sha256'] = self.sha256sum(bes_filepath)
             self.env['bes_sha1_short'] = str(self.env.get("bes_sha1"))[-5:]
 
             self.output("bes_sha1 = %s, bes_size = %s, "
@@ -114,7 +138,7 @@ class BESRelevanceProvider(Processor):
         if bes_relevance:
             output_var_name = self.env.get("output_var_name",
                                            "bes_relevance_result")
-
+            self.output(bes_relevance)
             relevance_result = self.eval_relevance(bes_relevance)
 
             if relevance_result is not None:
