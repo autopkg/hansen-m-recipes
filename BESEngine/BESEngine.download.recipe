@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>BESEngine</string>
         <key>DOWNLOAD_URL</key>
-        <string>https://github.com/CLCMacTeam/AutoPkgBESEngine/archive/master.zip</string>
+        <string>https://git.psu.edu/sysman/besengine/-/archive/master/besengine-master.zip</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.4.0</string>

@@ -42,7 +42,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>https://raw.githubusercontent.com/CLCMacTeam/AutoPkgBESEngine/master/Code/AutoPkgBESEngine.py</string>
+                <string>https://git.psu.edu/sysman/besengine/raw/master/Code/AutoPkgBESEngine.py</string>
                 <key>re_pattern</key>
                 <string>__version__ = \'(?P&lt;version&gt;[0-9.]+)\'</string>
             </dict>
@@ -75,7 +75,7 @@
             <key>Arguments</key>
             <dict>
                 <key>source_path</key>
-                <string>%RECIPE_CACHE_DIR%/%NAME%-Source/AutoPkgBESEngine-master/Code/AutoPkgBESEngine.py</string>
+                <string>%RECIPE_CACHE_DIR%/%NAME%-Source/besengine-master/Code/AutoPkgBESEngine.py</string>
                 <key>destination_path</key>
                 <string>%pkgroot%/Library/AutoPkg/autopkglib/AutoPkgBESEngine.py</string>
             </dict>
@@ -88,7 +88,7 @@
             <key>Arguments</key>
             <dict>
                 <key>source_path</key>
-                <string>%RECIPE_CACHE_DIR%/%NAME%-Source/AutoPkgBESEngine-master/Code/BESImporter.py</string>
+                <string>%RECIPE_CACHE_DIR%/%NAME%-Source/besengine-master/Code/BESImporter.py</string>
                 <key>destination_path</key>
                 <string>%pkgroot%/Library/AutoPkg/autopkglib/BESImporter.py</string>
             </dict>
@@ -101,7 +101,7 @@
             <key>Arguments</key>
             <dict>
                 <key>source_path</key>
-                <string>%RECIPE_CACHE_DIR%/%NAME%-Source/AutoPkgBESEngine-master/Code/BESUploader.py</string>
+                <string>%RECIPE_CACHE_DIR%/%NAME%-Source/besengine-master/Code/BESUploader.py</string>
                 <key>destination_path</key>
                 <string>%pkgroot%/Library/AutoPkg/autopkglib/BESUploader.py</string>
             </dict>
@@ -114,7 +114,7 @@
             <key>Arguments</key>
             <dict>
                 <key>source_path</key>
-                <string>%RECIPE_CACHE_DIR%/%NAME%-Source/AutoPkgBESEngine-master/Code/BESRelevanceProvider.py</string>
+                <string>%RECIPE_CACHE_DIR%/%NAME%-Source/besengine-master/Code/BESRelevanceProvider.py</string>
                 <key>destination_path</key>
                 <string>%pkgroot%/Library/AutoPkg/autopkglib/BESRelevanceProvider.py</string>
             </dict>
