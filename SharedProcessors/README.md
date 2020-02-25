@@ -15,4 +15,4 @@ These shared processors are for use in AutoPkg recipies.
 - uses the 7zip library to extract files (EXEs) to get their contents for further processing, including parsing the resulting files for version information. 
 
 ## GoogleChromeWinVersioner.py
-- uses 7zip library to extract Google Chrome MSI and regex to pull the current version from the SummaryInformation file.
+- uses 7zip (/usr/local/bin/7z) library to extract Google Chrome MSI and regex to pull the current version from the SummaryInformation file.

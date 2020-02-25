@@ -5,7 +5,7 @@
 # Updated by Rusty Myers (rzm102@psu.edu)
 # Modified original by Matt Hansen (mah60@psu.edu).
 # Based on WinInstallerExtractor
-
+from __future__ import absolute_import
 
 import re
 import subprocess

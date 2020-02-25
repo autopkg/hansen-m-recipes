@@ -79,7 +79,7 @@ class HachoirMetaDataProvider(Processor):
         try:
             metadata = hachoir_metadata.extractMetadata(parser)
         except HachoirError as err:
-            self.output("Metadata extraction error: %s" % unicode(err))
+            self.output("Metadata extraction error: %s" % err.decode())
             sys.exit(1)
             
         if not metadata:
@@ -107,7 +107,7 @@ class HachoirMetaDataProvider(Processor):
 
         # Find meta data value, given key and index and strip non-printables
         metadata_value = meta_data.get(metadata_key, index=metadata_index)
-        metadvalue_str= filter(lambda x: x in string.printable, metadata_value)
+        metadvalue_str= [x for x in metadata_value if x in string.printable]
         
         if metadvalue_str:
             output_var_name = self.env.get('output_var_name', metadata_key)
