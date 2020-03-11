@@ -9,6 +9,7 @@ from __future__ import absolute_import
 
 import re
 import subprocess
+import io
 
 from autopkglib import Processor, ProcessorError
 
@@ -96,7 +97,7 @@ class GoogleChromeWinVersioner(Processor):
 
         pattern = re.compile(version_regex)
 
-        with open(extract_path + "/[5]SummaryInformation", encoding="latin-1") as file:
+        with io.open(extract_path + "/[5]SummaryInformation", encoding="latin-1") as file:
             data = file.read()
             msiversion = pattern.findall(data)[0]
         if msiversion != "":
