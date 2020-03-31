@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/local/autopkg/python
 #
 # Copyright 2015 The Pennsylvania State University.
 #
@@ -61,7 +61,7 @@ class MSIInfoVersionProvider(Processor):
 
         version = ""
         # self.output(stdout)
-        for line in stdout.split("\n"):
+        for line in stdout.decode().split("\n"):
             if line.startswith("ProductVersion"):
                 version = line.split("\t")[1].strip("\r")
         if verbosity > 1:
@@ -69,7 +69,7 @@ class MSIInfoVersionProvider(Processor):
                 self.output('msiinfo Errors: %s' % stderr)
         if version == "":
             self.output("Could not find version in msi file. Please open a bug.")
-        self.env['version'] = version.encode('ascii', 'ignore')
+        self.env['version'] = version
         self.output("Found version: %s" % (self.env['version']))
 
 if __name__ == '__main__':
