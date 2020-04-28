@@ -12,6 +12,9 @@
         <string>Aquamacs</string>
         <key>DOWNLOAD_URL</key>
         <string>http://aquamacs.org/download-release.shtml</string>
+        <key>USER_AGENT</key>
+        <string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/536.28.10 (KHTML, like Gecko) Version/6.0.3 Safari/536.28.10</string>
+        
     </dict>
     <key>MinimumVersion</key>
     <string>0.5.0</string>
@@ -19,11 +22,22 @@
     <array>
         <dict>
             <key>Processor</key>
-            <string>URLDownloader</string>
+            <string>URLTextSearcher</string>
             <key>Arguments</key>
             <dict>
                 <key>url</key>
                 <string>%DOWNLOAD_URL%</string>
+                <key>re_pattern</key>
+                <string>https.*.dmg</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%match%</string>
                 <key>filename</key>
                 <string>%NAME%.dmg</string>
             </dict>
