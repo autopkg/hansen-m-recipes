@@ -45,7 +45,6 @@ to chose between 'sh' or 'pkg'.</string>
                 <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
                 <string>%SEARCH_PATTERN%</string> 
-<!--(https\://repo\.(anaconda|continuum)\.(com|io)/archive/Anaconda2-([0-9.]+)-MacOSX-x86_64\.%INSTALLER_TYPE%) -->
             </dict>
         </dict>
         <dict>
