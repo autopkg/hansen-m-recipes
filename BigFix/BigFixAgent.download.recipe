@@ -25,7 +25,7 @@
                 <key>url</key>
                 <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
-                <string><![CDATA[<a href="(?P<latest_release_path>[0-9].[0-9]/patch[0-9]{1,})">Patch [0-9]{1,}</a>]]></string>
+                <string><![CDATA[<a href="(?P<latest_release_path>[0-9]{1,}.[0-9]/patch[0-9]{1,})">Patch [0-9]{1,}</a>]]></string>
             </dict>
         </dict>
         <dict>
@@ -36,7 +36,7 @@
                 <key>url</key>
                 <string>%SEARCH_URL%/%latest_release_path%/</string>
                 <key>re_pattern</key>
-                <string><![CDATA[(?P<url>software\.bigfix\.com/download/bes/[0-9]+/BESAgent-(?P<version>[0-9.]+)-BigFix_MacOSX10.7.pkg)]]></string>
+                <string><![CDATA[(?P<url>software\.bigfix\.com/download/bes/[0-9]+/BESAgent-(?P<version>[0-9.]+)-BigFix_MacOSX10.[0-9]+.pkg)]]></string>
             </dict>
         </dict>
         <dict>
@@ -47,7 +47,7 @@
                 <key>url</key>
                 <string>https://%url%</string>
                 <key>filename</key>
-                <string>%NAME%.pkg</string>
+                <string>%NAME%-%version%.pkg</string>
             </dict>
         </dict>
         <dict>
