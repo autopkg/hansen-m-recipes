@@ -68,7 +68,7 @@ class GoogleChromeWinVersioner(Processor):
         
         if not(os.path.isfile(self.env['sevenzip_path']) and os.access(self.env['sevenzip_path'], os.X_OK)):
             raise ProcessorError(
-                f"GoogleChromeWinVersioner: Can't find 7z at `{self.env['sevenzip_path']}` Have you installed 7z?"
+                f"GoogleChromeWinVersioner: Can't find 7z at `{self.env['sevenzip_path']}` Have you installed 7z?: `brew install p7zip`"
             )
 
         exe_path = self.env.get('exe_path', self.env.get('pathname'))
