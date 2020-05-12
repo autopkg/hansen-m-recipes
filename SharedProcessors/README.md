@@ -10,6 +10,7 @@ These shared processors are for use in AutoPkg recipies.
 
 ### MSIInfoVersionProvider.py
 - uses the msitools and misinfo tool to get version information from MSI files https://wiki.gnome.org/msitools
+- To install, run: `brew install msitools`
 
 ### WinInstallerExtractor.py
 - uses the 7zip library to extract files (EXEs) to get their contents for further processing, including parsing the resulting files for version information. 

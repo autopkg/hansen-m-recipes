@@ -47,6 +47,9 @@ class MSIInfoVersionProvider(Processor):
 
         if subprocess.call(["type", "msiinfo"], stdout=subprocess.PIPE, stderr=subprocess.PIPE) != 0:
             self.output("msiinfo executable not found.")
+            raise ProcessorError(
+                f"MSIInfoVersionProvider: msiinfo executable not found. Need to install using `brew install msitools`"
+            )
             sys.exit(1)
 
         if not os.path.isfile(msi_path):
