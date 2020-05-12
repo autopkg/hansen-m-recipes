@@ -10,6 +10,7 @@ from __future__ import absolute_import
 import re
 import subprocess
 import io
+import os
 
 from autopkglib import Processor, ProcessorError
 
@@ -64,6 +65,11 @@ class GoogleChromeWinVersioner(Processor):
     __doc__ = description
 
     def main(self):
+        
+        if not(os.path.isfile(self.env['sevenzip_path']) and os.access(self.env['sevenzip_path'], os.X_OK)):
+            raise ProcessorError(
+                f"GoogleChromeWinVersioner: Can't find 7z at `{self.env['sevenzip_path']}` Have you installed 7z?"
+            )
 
         exe_path = self.env.get('exe_path', self.env.get('pathname'))
         preserve_paths = self.env.get('preserve_paths', 'True')
