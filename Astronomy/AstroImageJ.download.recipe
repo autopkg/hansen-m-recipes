@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>AstroImageJ</string>
         <key>SEARCH_URL</key>
-        <string>https://www.astro.louisville.edu/software/astroimagej/installation_packages/</string>
+        <string>https://www.astro.louisville.edu/software/astroimagej/installation_packages</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -25,7 +25,7 @@
                 <key>url</key>
                 <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
-                <string>(?P&lt;zip&gt;AstroImageJ_v.[0-9.]*_[0-9]*_mac.zip)</string>
+                <string>&lt;a href=&quot;(?P&lt;zip&gt;AstroImageJ_v[0-9.]+_[0-9]+_mac_java8.*\.zip)&quot;&gt;</string>
             </dict>
         </dict>
         <dict>
