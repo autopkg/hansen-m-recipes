@@ -10,21 +10,27 @@
     <dict>
         <key>NAME</key>
         <string>Mega</string>
-        <key>DOWNLOAD_URL</key>
-        <string>https://www.megasoftware.net/releases/MEGA7.0.21_mac32_setup.dmg</string>
+        <key>APP_FILENAME</key>
+        <string>MEGAXstandalone-osx-installer</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
     <key>Process</key>
     <array>
         <dict>
+            <key>Arguments</key>
+            <dict/>
             <key>Processor</key>
-            <string>URLDownloader</string>
+            <string>MEGAURLProvider</string>
+        </dict>
+        <dict>
             <key>Arguments</key>
             <dict>
-                <key>url</key>
-                <string>%DOWNLOAD_URL%</string>
+                <key>filename</key>
+                <string>%APP_FILENAME%.pkg</string>
             </dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
         </dict>
         <dict>
             <key>Processor</key>
