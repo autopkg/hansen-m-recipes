@@ -5,7 +5,7 @@
 Based on F5transkriptURLProvider.py by Tim Keller
 https://github.com/TK5-Tim/its-unibas-recipes/blob/LogitecSync/F5transkript/F5transkriptURLProvider.py
 
-The resulting link should be formatted similary: https://downloads.ccdc.cam.ac.uk/Mercury/2020.1/mercury-2020.1.0-macos-installer.dmg
+The resulting link should be formatted similary: https://www.megasoftware.net/do_force_download/MEGAX_10.1.8_installer.pkg
 """
 
 from __future__ import absolute_import, print_function
@@ -37,10 +37,10 @@ class MEGAURLProvider(URLGetter):
 		if sys.version_info.major < 3:
 			html_source = self.download(VERSION_URL)
 		else:
-			html_source = self.download(VERSION_URL).devode("utf-8")
+			html_source = self.download(VERSION_URL).decode("utf-8")
 		escaped_url = re.search(REGEX, html_source).group(1)
 		unescaped_url = HTMLParser().unescape(escaped_url)
-		SUFFIX = "{}_installer.pkg".format(unescaped_url)
+		suffix = "_installer.pkg"
 		return_url = BASE_URL + unescaped_url + suffix
 		self.env["url"] = return_url
 		print(
