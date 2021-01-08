@@ -17,7 +17,7 @@
         <key>SAO_REQUESTED_VERSION</key>
         <string></string>
         <key>SEARCH_URL</key>
-        <string>http://ds9.si.edu/download</string>
+        <string>https://ds9.si.edu/download</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
