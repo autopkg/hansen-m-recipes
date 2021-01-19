@@ -53,7 +53,7 @@
                 <key>input_path</key>
                 <string>%pathname%/Sonic Visualiser.app</string>
                 <key>requirement</key>
-                <string>identifier "org.sonicvisualiser.SonicVisualiser" and (anchor apple generic and certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = M2H8666U82)</string>
+                <string>identifier "org.sonicvisualiser.SonicVisualiser" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "73F996B92S"</string>
             </dict>
         </dict>
     </array>
