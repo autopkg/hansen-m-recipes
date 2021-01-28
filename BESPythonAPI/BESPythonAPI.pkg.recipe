@@ -202,8 +202,6 @@
                     <string>%RECIPE_CACHE_DIR%/</string>
                     <key>id</key>
                     <string>edu.psu.pkg.BESPythonAPI</string>
-                    <key>infofile</key>
-                    <string>%RECIPE_CACHE_DIR%/PackageInfo</string>
                     <key>options</key>
                     <string>purge_ds_store</string>
                     <key>chown</key>
