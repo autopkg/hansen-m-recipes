@@ -130,12 +130,12 @@
             <string>PkgCreator</string>
             <key>Arguments</key>
             <dict>
-                <key>pkgname</key>
-                <string>%NAME%-%version%</string>
-                <key>version</key>
-                <string>%version%</string>
                 <key>pkg_request</key>
                 <dict>
+                    <key>version</key>
+                    <string>%version%</string>
+                    <key>pkgname</key>
+                    <string>%NAME%-%version%</string>
                     <key>pkgdir</key>
                     <string>%RECIPE_CACHE_DIR%/</string>
                     <key>id</key>

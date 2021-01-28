@@ -46,9 +46,9 @@
             <dict>
                 <key>input_path</key>
                 <string>%pathname%</string>
-                <key>exepected_authority_names</key>
+                <key>expected_authority_names</key>
                     <array>
-                        <string>Developer ID Installer: Zoom Video Communications, Inc.</string>
+                        <string>Developer ID Installer: Zoom Video Communications, Inc. (BJ4HAAB9B3)</string>
                         <string>Developer ID Certification Authority</string>
                         <string>Apple Root CA</string>
                     </array>

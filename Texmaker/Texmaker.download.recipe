@@ -43,7 +43,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>http://www.xm1math.net/texmaker/%match%</string>
+                <string>https://www.xm1math.net/texmaker/%match%</string>
                 <key>filename</key>
                 <string>%NAME%.dmg</string>
             </dict>

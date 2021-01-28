@@ -27,7 +27,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>http://www.minitab.com/%LOCALE%/downloads</string>
+                <string>https://www.minitab.com/%LOCALE%/downloads</string>
                 <key>re_pattern</key>
                 <string>%SEARCH_PATTERN%</string>
             </dict>

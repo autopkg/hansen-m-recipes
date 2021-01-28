@@ -13,7 +13,7 @@
         <key>ENDNOTE_MAJOR_VERSION</key>
         <string>X7</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://download.endnote.com/downloads/%ENDNOTE_MAJOR_VERSION%/EndNote%ENDNOTE_MAJOR_VERSION%Installer.dmg</string>
+        <string>https://download.endnote.com/downloads/%ENDNOTE_MAJOR_VERSION%/EndNote%ENDNOTE_MAJOR_VERSION%Installer.dmg</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
