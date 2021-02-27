@@ -18,7 +18,7 @@ These SharedProcessors are for use in AutoPkg recipies:
 - Prereq: run `pip install hachoir_core hachoir_metadata hachoir_parser`
 
 ### MSIVersionProvider.py
-- ~~uses the wine and lessmsi application and wine to get version information from MSI files.~~ Depreciated 02/2020
+- ~~Uses the wine and lessmsi application and wine to get version information from MSI files.~~ Depreciated 02/2020
 
 ### MSIInfoVersionProvider.py
 - Uses the msitools and misinfo tool to get version information from MSI files https://wiki.gnome.org/msitools
