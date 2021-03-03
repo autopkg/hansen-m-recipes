@@ -31,7 +31,14 @@ class MEGAURLProvider(URLGetter):
 	"""Provides a download URL for the latest version of MEGA"""
 	description = __doc__
 	input_variables = {}
-	output_variables = {"url": {"description:" "URL to latest version"}}
+	output_variables = {
+		"url": {
+			"description": "URL to latest version"
+		},
+		"version": {
+			"description": "The latest version found"
+		}
+	}
 
 	def main(self):
 		if sys.version_info.major < 3:
@@ -42,6 +49,7 @@ class MEGAURLProvider(URLGetter):
 		unescaped_url = HTMLParser().unescape(escaped_url)
 		suffix = "_installer.pkg"
 		return_url = BASE_URL + unescaped_url + suffix
+		self.env["version"] = escaped_url
 		self.env["url"] = return_url
 		print(
 			"MEGAURLProvider: Match found is %s\n"
