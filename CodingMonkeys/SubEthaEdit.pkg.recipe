@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the latest Box Sync disk image, and builds a deployable package.</string>
+    <key>Identifier</key>
+    <string>com.github.hansen-m.pkg.SubEthaEdit</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>SubEthaEdit</string>
+    </dict>
+    <key>MinimumVersion</key>
+	<string>0.4.1</string>
+    <key>ParentRecipe</key>
+    <string>com.github.hansen-m.download.SubEthaEdit</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Comment</key>
+            <string>Unarchive %NAME%.app</string>
+            <key>Processor</key>
+            <string>Unarchiver</string>
+        </dict>
+        
+        <dict>
+            <key>Comment</key>
+            <string>Create a pkg root; we'll extract things from the disk image here.</string>
+            <key>Processor</key>
+            <string>PkgRootCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkgroot</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%</string>
+                <key>pkgdirs</key>
+                <dict>
+                    <key>Applications</key>
+                    <string>01775</string>
+                </dict>
+            </dict>
+        </dict>
+        <dict>
+            <key>Comment</key>
+            <string>Copy %NAME%.app</string>
+            <key>Processor</key>
+            <string>Copier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>source_path</key>
+                <string>%RECIPE_CACHE_DIR%/downloads/%NAME%.app</string>
+                <key>destination_path</key>
+                <string>%pkgroot%/Applications/%NAME%.app</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Comment</key>
+            <string>Get %NAME% version from the app bundle</string>
+            <key>Processor</key>
+            <string>Versioner</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_plist_path</key>
+                <string>%pkgroot%/Applications/%NAME%.app/Contents/Info.plist</string>
+                <key>plist_version_key</key>
+                <string>CFBundleShortVersionString</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Comment</key>
+            <string>Finally! Build a real Apple package.</string>
+            <key>Processor</key>
+            <string>PkgCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_request</key>
+                <dict>
+                    <key>pkgname</key>
+                    <string>%NAME%-%version%</string>
+                    <key>pkgdir</key>
+                    <string>%RECIPE_CACHE_DIR%</string>
+                    <key>id</key>
+                    <string>com.thecodingmonkeys.%NAME%</string>
+                    <key>options</key>
+                    <string>purge_ds_store</string>
+                    <key>chown</key>
+                    <array>
+                        <dict>
+                            <key>path</key>
+                            <string>Applications</string>
+                            <key>user</key>
+                            <string>root</string>
+                            <key>group</key>
+                            <string>admin</string>
+                        </dict>
+                    </array>
+                </dict>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>PathDeleter</string>
+            <key>Arguments</key>
+            <dict>
+                <key>path_list</key>
+                <array>
+                    <!-- <string>%RECIPE_CACHE_DIR%/downloads/</string> -->
+                    <string>%RECIPE_CACHE_DIR%/%NAME%/</string>
+                </array>
+            </dict>
+        </dict>
+    </array>
+</dict>
+</plist>
