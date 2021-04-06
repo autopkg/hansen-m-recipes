@@ -20,8 +20,8 @@
     <key>MinimumVersion</key>
     <string>0.2.9</string>
     <key>Process</key>
-    <!-- <array>
-        <dict>
+    <array>
+        <!-- <dict>
             <key>Processor</key>
             <string>URLTextSearcher</string>
             <key>Arguments</key>
