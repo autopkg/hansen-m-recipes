@@ -19,13 +19,6 @@
     <array>
         <dict>
             <key>Comment</key>
-            <string>Unarchive %NAME%.app</string>
-            <key>Processor</key>
-            <string>Unarchiver</string>
-        </dict>
-        
-        <dict>
-            <key>Comment</key>
             <string>Create a pkg root; we'll extract things from the disk image here.</string>
             <key>Processor</key>
             <string>PkgRootCreator</string>
