@@ -11,14 +11,16 @@
         <key>NAME</key>
         <string>DymoLabel</string>
         <key>SEARCH_URL</key>
-        <string>http://www.dymo.com/en-US/online-support/dymo-user-guides</string>
+        <string>https://www.dymo.com/on/demandware.store/Sites-dymo-Site/en_US/Support-user-guides</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;//download\.dymo\.com/dymo/Software/Mac/DLS8Setup[0-9.]*\.dmg)</string>
+        <string>(?P&lt;url&gt;DLS8Setup[0-9.]*\.dmg)</string>
+		<key>USER_AGENT</key>
+ 		<string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.2 Safari/605.1.15</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
     <key>Process</key>
-    <array>
+    <!-- <array>
         <dict>
             <key>Processor</key>
             <string>URLTextSearcher</string>
@@ -28,17 +30,37 @@
                 <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
                 <string>%SEARCH_PATTERN%</string>
+                <key>request_headers</key>
+                <dict>
+                    <key>user-agent</key>
+                    <string>%USER_AGENT%</string>
+                </dict>
             </dict>
-        </dict>
+        </dict> -->
         <dict>
             <key>Processor</key>
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>http:%url%</string>
+                <string>https://download.dymo.com/dymo/Software/Mac/DLS8Setup.8.7.5.dmg</string>
                 <key>filename</key>
                 <string>%NAME%.dmg</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>CodeSignatureVerifier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_path</key>
+                <string>%pathname%/*v.8.pkg</string>
+                <key>expected_authority_names</key>
+                <array>
+                    <string>Developer ID Installer: Sanford, L.P. (N3S6676K3E)</string>
+                    <string>Developer ID Certification Authority</string>
+                    <string>Apple Root CA</string>
+                </array>
             </dict>
         </dict>
         <dict>
