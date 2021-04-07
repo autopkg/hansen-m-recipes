@@ -12,7 +12,7 @@
         <string>SAOImageDS9-app</string>
         <!-- other values for SAO_OS_KEY include macoshighsierra, macosxelcapitan -->
         <key>SAO_OS_KEY</key>
-        <string>macossierra</string>
+        <string>macosbigsur</string>
         <!-- leave SAO_REQUESTED_VERSION blank to pull the latest version -->
         <key>SAO_REQUESTED_VERSION</key>
         <string></string>
