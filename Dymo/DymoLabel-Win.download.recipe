@@ -41,7 +41,7 @@
                 <string>%NAME%.exe</string>
             </dict>
         </dict>
-        <!-- <dict>
+        <dict>
             <key>Processor</key>
             <string>com.github.hansen-m.SharedProcessors/WinInstallerExtractor</string>
             <key>Arguments</key>
@@ -53,19 +53,19 @@
                 <key>extract_dir</key>
                 <string>ExeExtract</string>
             </dict>
-        </dict> -->
-        <!-- <dict>
+        </dict>
+        <dict>
             <key>Processor</key>
             <string>com.github.hansen-m.SharedProcessors/BESRelevanceProvider</string>
             <key>Arguments</key>
             <dict>
                 <key>bes_relevance</key>
-                <string>concatenation "" of substrings separated by "%22" of preceding texts of first "      " of following texts of first "%22ProductVersion%22," of concatenation "" of substrings separated by "%00" of lines of file "%RECIPE_CACHE_DIR%/EXEExtract/version.txt" as trimmed string</string>
+                <string><![CDATA[first matches(regex("([0-9]{1,3}\.){3}([0-9]{1,4})")) of substrings separated by "    " of following text of first "ProductVersion" of substrings separated by "      " of concatenation "" of substrings separated by "%00" of lines of file "%RECIPE_CACHE_DIR%/EXEExtract/version.txt" of encoding "ISO-8859-1" as  string]]></string>
                 <key>output_var_name</key>
                 <string>version</string>
             </dict>
-        </dict> -->
-        <!-- <dict>
+        </dict>
+        <dict>
             <key>Processor</key>
             <string>PathDeleter</string>
             <key>Arguments</key>
@@ -75,7 +75,7 @@
                     <string>%RECIPE_CACHE_DIR%/ExeExtract</string>
                 </array>
             </dict>
-        </dict> -->
+        </dict>
         <dict>
             <key>Processor</key>
             <string>EndOfCheckPhase</string>
