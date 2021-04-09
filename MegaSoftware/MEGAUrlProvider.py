@@ -22,7 +22,7 @@ except ImportError:
 
 VERSION_URL = "https://www.megasoftware.net/history"
 BASE_URL = "https://www.megasoftware.net/do_force_download/MEGAX_"
-REGEX = "(\d{2}\.\d\.\d)"
+REGEX = "MEGA\ X\ version\ (\d{2}\.\d\.\d).*macOS"
 
 
 # __all__ == ["MEGAURLProvider"]
