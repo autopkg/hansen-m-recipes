@@ -1,14 +1,12 @@
-#!/usr/bin/python
+#!/usr/local/autopkg/python
 #
 # Copyright 2013 The Pennsylvania State University.
 #
 # Created by Matt Hansen (mah60@psu.edu) on 2013-11-12.
 # Based on AutoPkg VersionFixers by Per Olofsson (per.olofsson@gu.se)
-#
+# Updated for Python3 by Rusty Myers on 04/09/2021
 # As of version Fetch 5.7.3 the Contents/Info.plist CFBundleVersion key 
 # contains a Unicode Zero-width space that causes us lots of problems.
-
-from __future__ import absolute_import
 
 import re
 
@@ -35,7 +33,7 @@ class FetchVersionFixer(Processor):
     
     def main(self):
         ascii_version = self.env.get('version').encode("ascii", "ignore")
-        rematch_version = re.search(r'[ -~][0-9.]+', ascii_version)
+        rematch_version = re.search(r'[ -~][0-9.]+', ascii_version.decode())
         
         self.env["version"] = rematch_version.group(0)
         self.output("Cleaned version string %s" % self.env["version"])
