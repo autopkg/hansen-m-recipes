@@ -36,7 +36,7 @@
                 <key>url</key>
                 <string>%SEARCH_URL%/%latest_release_path%/</string>
                 <key>re_pattern</key>
-                <string><![CDATA[(?P<url>software\.bigfix\.com/download/bes/[0-9]+/BESAgent-(?P<version>[0-9.]+)-BigFix_MacOSX10.[0-9]+.pkg)]]></string>
+                <string><![CDATA[(?P<url>software\.bigfix\.com/download/bes/[0-9]+/BESAgent-(?P<version>[0-9.]+)-BigFix_MacOS11.[0-9]+.pkg)]]></string>
             </dict>
         </dict>
         <dict>
