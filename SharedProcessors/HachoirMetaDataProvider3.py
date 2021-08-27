@@ -94,7 +94,14 @@ class HachoirMetaDataProvider3(Processor):
         self.output("Examining: %s" % file_path)
         meta_data = self.getMetaData(file_path)
 
-        
+        if verbosity > 2:
+            self.output("Possible keys:")
+            for k in meta_data._Metadata__data:
+                if k:
+                    # print(k) # print all keys
+                    if meta_data.has(k):
+                        self.output(f"  key name: `{k}`")
+
         if verbosity > 1:
             for line in meta_data.exportPlaintext():
                 self.output(line)

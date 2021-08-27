@@ -73,5 +73,5 @@ class ExeVersionExtractor(Processor):
         # self.output("Extracted Archive Path: %s" % extract_path)
 
 if __name__ == '__main__':
-    processor = WinInstallerExtractor()
+    processor = ExeVersionExtractor()
     processor.execute_shell()
