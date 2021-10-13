@@ -9,7 +9,7 @@
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>SonicVisualiser</string>
+        <string>SPEAR</string>
         <key>DOWNLOAD_URL</key>
         <string>http://www.klingbeil.com/spear/downloads/files/SPEAR_latest.dmg</string>
     </dict>
@@ -31,6 +31,17 @@
         <dict>
             <key>Processor</key>
             <string>EndOfCheckPhase</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>CodeSignatureVerifier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_path</key>
+                <string>%pathname%/SPEAR.app</string>
+                <key>requirement</key>
+                <string>identifier "com.klingbeil.spear" and certificate leaf = H"309882b2d525547eafa8febfe9639552d5fa2363"</string>
+            </dict>
         </dict>
     </array>
 </dict>
