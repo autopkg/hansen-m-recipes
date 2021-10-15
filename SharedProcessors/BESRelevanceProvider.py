@@ -62,6 +62,9 @@ class BESRelevanceProvider(Processor):
             "description":
                 "The resulting file size of the %bes_filepath%."
         },
+        "output_var_name": {"description":
+                "Output variable, defaults to 'version'"
+        }
     }
     __doc__ = description
 
