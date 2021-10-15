@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>Contour Shuttle Driver</string>
         <key>SEARCH_URL</key>
-        <string>https://www.contourdesign.com/support/drivers/</string>
+        <string>https://www.contourdesign.com/shuttle-drivers/</string>
         <key>SEARCH_PATTERN</key>
         <string>(?P&lt;url&gt;https://www.contourdesign.com/wp-content/uploads/[0-9.]+/[0-9.]+/Contour-Shuttle-(?P&lt;version&gt;[0-9.]+)\.zip)</string>
     </dict>
