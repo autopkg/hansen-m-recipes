@@ -25,6 +25,15 @@ to chose between 'sh' or 'pkg'.</string>
     <string>0.4.0</string>
     <key>Process</key>
     <array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>warning_message</key>
+				<string>Anaconda is moving to Python3 as default install. See Anaconda3.download</string>
+			</dict>
+			<key>Processor</key>
+			<string>DeprecationWarning</string>
+		</dict>
         <dict>
             <key>Processor</key>
             <string>URLTextSearcher</string>
