@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>PollEverywhere</string>
         <key>url</key>
-        <string>https://www.polleverywhere.com/app_downloads/windows</string>
+        <string>https://www.polleverywhere.com/app.exe</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -26,6 +26,39 @@
                 <string>%NAME%.exe</string>
             </dict>
         </dict>
+        <dict>
+            <key>Processor</key>
+            <string>com.github.hansen-m.SharedProcessors/ExeVersionExtractor</string>
+            <key>Arguments</key>
+            <dict>
+                <key>exe_path</key>
+                <string>%pathname%</string>
+            </dict>
+        </dict>
+        <!-- <dict>
+            <key>Processor</key>
+            <string>com.github.hansen-m.SharedProcessors/BESRelevanceProvider</string>
+            <key>Arguments</key>
+            <dict>
+                <key>bes_filepath</key>
+                <string>%pathname%</string>
+                <key>output_var_name</key>
+                <string>version</string>
+                <key>bes_relevance</key>
+                <string>following text of first "Version=" of line whose (it starts with "Version=") of file "%RECIPE_CACHE_DIR%/ExeExtract/core/application.ini"</string>
+            </dict>
+        </dict> -->
+        <!-- <dict>
+            <key>Processor</key>
+            <string>PathDeleter</string>
+            <key>Arguments</key>
+            <dict>
+                <key>path_list</key>
+                <array>
+                    <string>%RECIPE_CACHE_DIR%/ExeExtract</string>
+                </array>
+            </dict>
+        </dict> -->
         <dict>
             <key>Processor</key>
             <string>EndOfCheckPhase</string>

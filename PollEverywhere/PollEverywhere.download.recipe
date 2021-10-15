@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>PollEverywhere</string>
         <key>url</key>
-        <string>https://www.polleverywhere.com/app_downloads/mac</string>
+        <string>https://www.polleverywhere.com/app.dmg</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -28,11 +28,16 @@
         </dict>
         <dict>
             <key>Processor</key>
-            <string>AppDmgVersioner</string>
+            <string>PlistReader</string>
             <key>Arguments</key>
             <dict>
-                <key>dmg_path</key>
-                <string>%pathname%</string>
+                <key>info_path</key>
+                <string>%pathname%/Poll Everywhere.app/Contents/Info.plist</string>
+                <key>plist_keys</key>
+                 <dict>
+                     <key>CFBundleVersion</key>
+                     <string>version</string>
+                 </dict>
             </dict>
         </dict>
         <dict>
