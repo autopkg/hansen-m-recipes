@@ -19,6 +19,15 @@
     <string>0.4.0</string>
     <key>Process</key>
     <array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>warning_message</key>
+				<string>Sibelius downloads no longer availiable publicly.</string>
+			</dict>
+			<key>Processor</key>
+			<string>DeprecationWarning</string>
+		</dict>
         <dict>
             <key>Processor</key>
             <string>URLTextSearcher</string>
