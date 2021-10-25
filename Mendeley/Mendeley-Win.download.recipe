@@ -48,7 +48,7 @@
         </dict>
         <dict>
             <key>Processor</key>
-            <string>com.github.hansen-m.SharedProcessors/HachoirMetaDataProvider</string>
+            <string>com.github.hansen-m.SharedProcessors/HachoirMetaDataProvider3</string>
             <key>Arguments</key>
             <dict>
                 <key>file_path</key>
