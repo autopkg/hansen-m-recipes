@@ -14,6 +14,8 @@
         <string>http://www.dymo.com/en-US/online-support/dymo-user-guides</string>
         <key>SEARCH_PATTERN</key>
         <string>(?P&lt;url&gt;http://download\.dymo\.com/dymo/Software/Win/DCDSetup(?P&lt;version&gt;[0-9.]*)\.exe)</string>
+        <key>USER_AGENT</key>
+        <string>Mozilla/5.0 (Windows NT 10.0; Win64; x64)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -39,6 +41,11 @@
                 <string>https://download.dymo.com/dymo/Software/Win/DCDSetup1.3.2.exe</string>
                 <key>filename</key>
                 <string>%NAME%.exe</string>
+                <key>request_headers</key>
+                <dict>
+                        <key>user-agent</key>
+                        <string>%USER_AGENT%</string>
+                </dict>
             </dict>
         </dict>
         <dict>
