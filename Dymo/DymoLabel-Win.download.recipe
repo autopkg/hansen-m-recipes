@@ -11,9 +11,10 @@
         <key>NAME</key>
         <string>DymoLabel</string>
         <key>SEARCH_URL</key>
-        <string>http://www.dymo.com/en-US/online-support/dymo-user-guides</string>
+        <string>https://www.dymo.com/compatibility-chart.html</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;http://download\.dymo\.com/dymo/Software/Win/DCDSetup(?P&lt;version&gt;[0-9.]*)\.exe)</string>
+        <string>(https.*DCDSetup([0-9].*).exe)</string>
+            <!--https://download.dymo.com/dymo/Software/DYMO%20Connect%201.4.2/DCDSetup1.4.2.82.exe -->
         <key>USER_AGENT</key>
         <string>Mozilla/5.0 (Windows NT 10.0; Win64; x64)</string>
     </dict>
@@ -21,7 +22,7 @@
     <string>0.2.9</string>
     <key>Process</key>
     <array>
-        <!-- <dict>
+        <dict>
             <key>Processor</key>
             <string>URLTextSearcher</string>
             <key>Arguments</key>
@@ -30,8 +31,13 @@
                 <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
                 <string>%SEARCH_PATTERN%</string>
+                <key>request_headers</key>
+                <dict>
+                    <key>user-agent</key>
+                    <string>%USER_AGENT%</string>
+                </dict>
             </dict>
-        </dict> -->
+        </dict>
         <dict>
             <key>Processor</key>
             <string>URLDownloader</string>
