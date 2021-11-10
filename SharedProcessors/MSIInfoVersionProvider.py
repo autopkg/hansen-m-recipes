@@ -42,7 +42,7 @@ class MSIInfoVersionProvider(Processor):
         MSIINFO = os.path.abspath("/usr/local/bin/msiinfo")
         # LESSMSI = os.path.join(os.path.dirname(os.path.abspath(__file__)),'lessmsi/lessmsi.exe')
 
-        msi_path = self.env.get('msi_path', self.env.get('pathname'))
+        msi_path = self.env.get('msi_path', MSIINFO)
         verbosity = self.env.get('verbose', 0)
 
         if subprocess.call(["type", MSIINFO], stdout=subprocess.PIPE, stderr=subprocess.PIPE) != 0:
