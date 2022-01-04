@@ -26,7 +26,7 @@
             <key>Arguments</key>
             <dict>
                 <key>asset_regex</key>
-                <string>Aquamacs-Emacs-[0-9].[0-9].dmg</string>
+                <string>Aquamacs-[0-9].[0-9].dmg</string>
                 <key>github_repo</key>
                 <string>aquamacs-emacs/aquamacs-emacs</string>
             </dict>
