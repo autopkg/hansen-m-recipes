@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the latest version CrashPlan Win Client.</string>
+    <key>Identifier</key>
+    <string>com.github.hansen-m.download.CrashPlan-Win</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>CrashPlan64</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.9</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>https://download.code42.com/installs/agent/latest-smb-win.msi</string>
+                <key>filename</key>
+                <string>%NAME%.msi</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>com.github.hansen-m.SharedProcessors/MSIInfoVersionProvider</string>
+            <key>Arguments</key>
+            <dict>
+                <key>msi_path</key>
+                <string>%pathname%</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+    </array>
+</dict>
+</plist>

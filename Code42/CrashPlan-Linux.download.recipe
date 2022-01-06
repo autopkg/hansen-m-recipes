@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the latest version CrashPlan Client.</string>
+    <key>Identifier</key>
+    <string>com.github.hansen-m.download.CrashPlan-Linux</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>CrashPlan</string>
+        <key>DOWNLOAD_URL</key>
+        <string>https://download.code42.com/installs/agent/latest-smb-linux.tgz</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.9</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%DOWNLOAD_URL%</string>
+                <key>filename</key>
+                <string>%NAME%.tgz</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>Unarchiver</string>
+            <key>Arguments</key>
+            <dict>
+                <key>purge_destination</key>
+                <true/>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>FileFinder</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pattern</key>
+                <string>%RECIPE_CACHE_DIR%/CrashPlan/code42-install/c42.version.properties</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>BESRelevanceProvider</string>
+            <key>Arguments</key>
+            <dict>
+                <key>bes_filepath</key>
+                <string>%found_filename%</string>
+                <key>bes_relevance</key>
+                <string>unique values of following texts of firsts "cp_version_name=" of lines of file "%found_filename%" as version</string>
+                <key>output_var_name</key>
+                <string>version</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+    </array>
+</dict>
+</plist>
