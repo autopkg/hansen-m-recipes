@@ -43,7 +43,7 @@
             <key>Arguments</key>
             <dict>
                 <key>pattern</key>
-                <string>%RECIPE_CACHE_DIR%/CrashPlan/code42-install/c42.version.properties</string>
+                <string>%RECIPE_CACHE_DIR%/*/code42-install/c42.version.properties</string>
             </dict>
         </dict>
         <dict>
