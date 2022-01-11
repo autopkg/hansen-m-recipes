@@ -27,6 +27,10 @@ class MSIInfoVersionProvider(Processor):
             "required": False,
             "description": "Path to the .msi, defaults to %pathname%",
         },
+        "msiinfo_path": {
+            "required": False,
+            "description": "Path to the msiinfo binary, defaults to /usr/local/bin/msiinfo",
+        },
     }
     output_variables = {
         "version": {
@@ -38,11 +42,14 @@ class MSIInfoVersionProvider(Processor):
     __doc__ = description
 
     def main(self):
+        # Set default path to msiinfo
+        msiinfo_default_path = os.path.abspath("/usr/local/bin/msiinfo")
 
-        MSIINFO = os.path.abspath("/usr/local/bin/msiinfo")
-        # LESSMSI = os.path.join(os.path.dirname(os.path.abspath(__file__)),'lessmsi/lessmsi.exe')
+        # Set MSIINFO variable to input variable or default path
+        MSIINFO = self.env.get('msiinfo_path', msiinfo_default_path)
 
-        msi_path = self.env.get('msi_path', MSIINFO)
+        # Set msi_path from input
+        msi_path = self.env.get('msi_path')
         verbosity = self.env.get('verbose', 0)
 
         if subprocess.call(["type", MSIINFO], stdout=subprocess.PIPE, stderr=subprocess.PIPE) != 0:
