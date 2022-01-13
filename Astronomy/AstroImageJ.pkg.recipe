@@ -26,6 +26,17 @@
             <dict>
                 <key>dmg_path</key>
                 <string>%pathname%</string>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/downloads/</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>PlistReader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>info_path</key>
+                <string>%RECIPE_CACHE_DIR%/downloads/AstroImageJ.app/Contents/Info.plist</string>
             </dict>
         </dict>
         <dict>
@@ -42,16 +53,6 @@
                 </dict>
             </dict>
         </dict>
-        <dict>
-            <key>Processor</key>
-            <string>PlistReader</string>
-            <key>Arguments</key>
-            <dict>
-                <key>info_path</key>
-                <string>%RECIPE_CACHE_DIR%/downloads/AstroImageJ.app/Contents/Info.plist</string>
-            </dict>
-        </dict>
-
         <dict>
             <key>Processor</key>
             <string>Copier</string>
