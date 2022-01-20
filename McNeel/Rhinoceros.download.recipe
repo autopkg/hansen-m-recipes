@@ -11,7 +11,7 @@
 			<key>NAME</key>
 			<string>Rhinoceros</string>
 			<key>SEARCH_URL</key>
-            <string>https://files.mcneel.com/rhino/6/mac/updates/commercialUpdates.xml</string>
+            <string>https://files.mcneel.com/rhino/7/mac/updates/commercialUpdates.xml</string>
 		</dict>
 		<key>MinimumVersion</key>
 		<string>0.4.0</string>
