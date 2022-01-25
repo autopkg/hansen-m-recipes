@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the latest version AstroPlanner.</string>
+    <key>Identifier</key>
+    <string>com.github.hansen-m.pkg.AstroPlanner</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>AstroPlanner</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.9</string>
+    <key>ParentRecipe</key>
+    <string>com.github.hansen-m.download.AstroPlanner</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>AppPkgCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>app_path</key>
+                <string>%dmg_path%/%NAME%.app</string>
+                <key>pkg_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg</string>
+                <key>bundleid</key>
+                <string>com.iLanga.AstroPlanner.pkg</string>
+                <key>version</key>
+                <string>%version%</string>
+            </dict>
+        </dict>
+    </array>
+</dict>
+</plist>
