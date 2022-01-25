@@ -76,6 +76,8 @@
                     <string>%RECIPE_CACHE_DIR%</string>
                     <key>id</key>
                     <string>com.github.hansen-m.pkg.SAOImageDS9</string>
+                    <key>version</key>
+                    <string>%version%</string>
                     <key>options</key>
                     <string>purge_ds_store</string>
                     <key>chown</key>
