@@ -65,7 +65,7 @@
                     <key>pkgdir</key>
                     <string>%RECIPE_CACHE_DIR%</string>
                     <key>id</key>
-                    <string>com.github.mother.pkg.mother</string>
+                    <string>com.github.mothur.pkg.mothur</string>
                     <key>version</key>
                     <string>%version%</string>
                     <key>options</key>
