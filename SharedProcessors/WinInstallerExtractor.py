@@ -8,7 +8,7 @@
 
 from __future__ import absolute_import
 
-import subprocess
+from subprocess import PIPE, run
 
 from autopkglib import Processor, ProcessorError
 
@@ -45,6 +45,10 @@ class WinInstallerExtractor(Processor):
         }
     }
     output_variables = {
+        "version": {
+            "required": False,
+            "description": "ProductVersion of exe."
+        }
     }
 
     __doc__ = description
@@ -70,9 +74,17 @@ class WinInstallerExtractor(Processor):
 
         try:
             if verbosity > 1:
-                subprocess.check_call(cmd)
+                result = run(cmd, stdout=PIPE, stderr=PIPE, universal_newlines=True)
+                # self.output(result.returncode)
+                # self.output(result.stderr)
+                # self.output(result.stdout)
+                for line in result.stdout.split('\n'):
+                    self.output(line)
+                    if "ProductVersion: " in line:
+                        self.env['version'] =  line.split()[-1]
+                        self.output("Found Version: %s" % (self.env['version']))
             else:
-                subprocess.check_call(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+                cmd_output = subprocess.check_output(cmd)
         except:
             if ignore_errors != 'True':
                 raise
