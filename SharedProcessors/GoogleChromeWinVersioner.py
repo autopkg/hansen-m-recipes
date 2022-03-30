@@ -78,7 +78,7 @@ class GoogleChromeWinVersioner(Processor):
         ignore_pattern = self.env.get('ignore_pattern', '')
         ignore_errors = self.env.get('ignore_errors', 'False')
         output_var_name = self.env.get('output_var_name', 'version')
-        version_regex = self.env.get('version_regex', '[0-9]{1,2}.[0-9].[0-9]{4}.[0-9]{2,4}')
+        version_regex = self.env.get('version_regex', '[0-9]{1,3}.[0-9].[0-9]{4}.[0-9]{1,4}')
         verbosity = self.env.get('verbose', 0)
 
         extract_flag = 'x' if preserve_paths == 'True' else 'e'
