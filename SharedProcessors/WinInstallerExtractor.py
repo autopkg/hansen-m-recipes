@@ -8,7 +8,7 @@
 
 from __future__ import absolute_import
 
-from subprocess import PIPE, run
+import subprocess
 
 from autopkglib import Processor, ProcessorError
 
@@ -22,12 +22,16 @@ class WinInstallerExtractor(Processor):
             "required": False,
             "description": "Path to exe or msi, defaults to %pathname%",
         },
+        "exe_version_label": {
+            "required": False,
+            "description": "Name of the value to extract from exe, defaults to \"ProductVersion: \"",
+        },
         "preserve_paths": {
             "required": False,
             "description": "eXtract archive with full paths, defaults to 'True'",
         },
         "extract_dir": {
-            "required": True,
+            "required": False,
             "description": "Output path for the extracted archive.",
         },
         "ignore_pattern": {
@@ -58,10 +62,11 @@ class WinInstallerExtractor(Processor):
         exe_path = self.env.get('exe_path', self.env.get('pathname'))
         preserve_paths = self.env.get('preserve_paths', 'True')
         working_directory = self.env.get('RECIPE_CACHE_DIR')
-        extract_directory = self.env.get('extract_dir', 'ExtractedInstaller')
+        extract_directory = self.env.get('extract_dir', 'ExeExtract')
         ignore_pattern = self.env.get('ignore_pattern', '')
         ignore_errors = self.env.get('ignore_errors', 'False')
         verbosity = self.env.get('verbose', 0)
+        exe_version_label = self.env.get('exe_version_label', 'ProductVersion: ')
 
         extract_flag = 'x' if preserve_paths == 'True' else 'e'
         extract_path = "%s/%s" % (working_directory, extract_directory)
@@ -74,15 +79,13 @@ class WinInstallerExtractor(Processor):
 
         try:
             if verbosity > 1:
-                result = run(cmd, stdout=PIPE, stderr=PIPE, universal_newlines=True)
-                # self.output(result.returncode)
-                # self.output(result.stderr)
-                # self.output(result.stdout)
+                result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
                 for line in result.stdout.split('\n'):
                     self.output(line)
-                    if "ProductVersion: " in line:
+                    if exe_version_label in line:
                         self.env['version'] =  line.split()[-1]
                         self.output("Found Version: %s" % (self.env['version']))
+                        break
             else:
                 cmd_output = subprocess.check_output(cmd)
         except:
