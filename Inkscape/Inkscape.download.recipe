@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest version of Inkscape.</string>
+    <string>Downloads the latest version of Inkscape. You may choose between dmg and dmg-arm64 as architecture; this recipe defaults to dmg (Intel).</string>
     <key>Identifier</key>
     <string>com.github.hansen-m.download.Inkscape</string>
     <key>Input</key>
@@ -13,9 +13,13 @@
         <key>SEARCH_URL</key>
         <string>https://inkscape.org</string>
         <key>SEARCH_PATTERN1</key>
-        <string>(/release/inkscape-([0-9]{1,3}.[0-9]{0,3}.[0-9]{0,3})/mac-os-x/dmg/dl/)</string>
+        <string>(/release/([0-9]{1,3}.[0-9]{0,3}.[0-9]{0,3})/mac-os-x/)</string>
         <key>SEARCH_PATTERN2</key>
-        <string>(?P&lt;dmgurl&gt;\/gallery\/.*Inkscape.*dmg)</string>    
+        <string>(/%ARCHITECTURE%/dl)</string>  
+        <key>SEARCH_PATTERN3</key>
+        <string>(?P&lt;dmgurl&gt;\/gallery\/.*Inkscape.*dmg)</string>  
+        <key>ARCHITECTURE</key>
+        <string>dmg</string>  
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -43,6 +47,19 @@
                 <string>%SEARCH_URL%%release_page_match%</string>
                 <key>re_pattern</key>
                 <string>%SEARCH_PATTERN2%</string>
+                <key>result_output_var_name</key>
+                <string>arch_release_page_match</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%SEARCH_URL%%release_page_match%%arch_release_page_match%</string>
+                <key>re_pattern</key>
+                <string>%SEARCH_PATTERN3%</string>
                 <key>result_output_var_name</key>
                 <string>gallery_download_match</string>
             </dict>
