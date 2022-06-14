@@ -3,15 +3,13 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest version VueScan. Defaults to 64-bit version, override by setting ARCH to '32'.</string>
+    <string>Downloads the latest version VueScan (Universal installer).</string>
     <key>Identifier</key>
     <string>com.github.hansen-m.download.VueScan</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
         <string>VueScan</string>
-        <key>ARCH</key>
-        <string>64</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.4.0</string>
@@ -25,7 +23,7 @@
                 <key>url</key>
                 <string>https://www.hamrick.com/alternate-versions.html</string>
                 <key>re_pattern</key>
-                <string>href="files/(vuex%ARCH%[\d]+\.dmg)"</string>
+                <string>href="files/(vuea64[\d]+\.dmg)"</string>
             </dict>
         </dict>
         <dict>
