@@ -47,7 +47,7 @@
                         <string>%USER_AGENT%</string>
                 </dict>
                 <key>filename</key>
-                <string>%NAME%.msi</string>
+                <string>%NAME%64.msi</string>
             </dict>
         </dict>
         <dict>
