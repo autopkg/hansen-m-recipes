@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Downloads the latest version of Zoom 64bit.</string>
     <key>Identifier</key>
-    <string>com.github.hansen-m.download.zoom-win</string>
+    <string>com.github.hansen-m.download.zoom64-win</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
