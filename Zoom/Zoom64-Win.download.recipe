@@ -41,7 +41,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%DOWNLOAD_URL%</string>
+                <string>https://zoom.us/client/%match%/ZoomInstallerFull.msi?archType=x64</string>
                 <key>request_headers</key>
                 <dict>
                         <key>user-agent</key>
