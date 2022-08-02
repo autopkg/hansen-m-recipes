@@ -16,11 +16,14 @@ to chose between 'sh' or 'pkg'.</string>
         <string>Anaconda</string>
         <key>PYTHON_MAJOR_VERSION</key>
         <string>3</string>
+        <key>PLATFORM</key>
+        <string>x86_64</string>
+        <!-- x86_64 or arm64 -->
         <key>SEARCH_URL</key>
         <string>https://www.anaconda.com/download/#macos</string>
         <!-- Just to note, for future reference, incase it breaks, the above page is being redirected to:  https://www.anaconda.com/products/individual -->
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;https\://repo\.(anaconda\.com|continuum\.io)/archive/Anaconda%PYTHON_MAJOR_VERSION%-(?P&lt;version&gt;[0-9.]+)-MacOSX-x86_64\.%INSTALLER_TYPE%)</string>
+        <string>(?P&lt;url&gt;https\://repo\.(anaconda\.com|continuum\.io)/archive/Anaconda%PYTHON_MAJOR_VERSION%-(?P&lt;version&gt;[0-9.]+)-MacOSX-%PLATFORM%x86_64\.%INSTALLER_TYPE%)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.4.0</string>
