@@ -10,8 +10,6 @@
     <dict>
         <key>NAME</key>
         <string>Zoom</string>
-        <key>DOWNLOAD_URL</key>
-        <string><![CDATA[/client/(?P<majorversion>[0-9]{1,4}.[0-9]{1,4}.[0-9]{1,4}.[0-9]{1,4})/ZoomInstallerFull.msi\?archType=x64]]></string>
         <key>USER_AGENT</key>
         <string>Mozilla/5.0 (Windows NT 10.0; Win64; x64)</string>
     </dict>
@@ -21,27 +19,11 @@
     <array>
         <dict>
             <key>Processor</key>
-            <string>URLTextSearcher</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>https://zoom.us/download#client_4meeting</string>
-                <key>re_pattern</key>
-                <string><![CDATA[/client/(?P<majorversion>[0-9]{1,4}.[0-9]{1,4}.[0-9]{1,4}.[0-9]{1,4})/ZoomInstallerFull.msi\?archType=x64]]></string>
-                <key>request_headers</key>
-                <dict>
-                        <key>user-agent</key>
-                        <string>%USER_AGENT%</string>
-                </dict>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>https://zoom.us/client/%match%/ZoomInstallerFull.msi?archType=x64</string>
+                <string>https://zoom.us/client/latest/ZoomInstallerFull.msi?archType=x64</string>
                 <key>request_headers</key>
                 <dict>
                         <key>user-agent</key>
