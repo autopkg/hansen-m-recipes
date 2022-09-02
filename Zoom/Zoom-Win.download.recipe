@@ -19,38 +19,6 @@
     <string>0.2.0</string>
     <key>Process</key>
     <array>
-        <!-- <dict>
-            <key>Processor</key>
-            <string>URLTextSearcher</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>https://zoom.us/download#client_4meeting</string>
-                <key>re_pattern</key>
-                <string><![CDATA[/client/(?P<majorversion>[0-9]{1,4}.[0-9]{1,4}.[0-9]{1,4}.[0-9]{1,4})/ZoomInstallerFull.msi\?archType=x64]]></string>
-                <key>request_headers</key>
-                <dict>
-                        <key>user-agent</key>
-                        <string>%USER_AGENT%</string>
-                </dict>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>URLTextSearcher</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>https://zoom.us/download#client_4meeting</string>
-                <key>re_pattern</key>
-                <string><![CDATA[Version.* (?P<friendlyversion>(\d+\.){1,3}(\d+){1,2} \((?P<minorversion>([0-9]{1,5}.[0-9]{1,5}))\))]]></string>
-                <key>request_headers</key>
-                <dict>
-                        <key>user-agent</key>
-                        <string>%USER_AGENT%</string>
-                </dict>
-            </dict>
-        </dict> -->
         <dict>
             <key>Processor</key>
             <string>URLDownloader</string>
