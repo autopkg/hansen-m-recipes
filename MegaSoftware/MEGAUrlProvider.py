@@ -16,6 +16,7 @@ import sys
 try:
     # import for Python 3
     from html.parser import HTMLParser
+    import html
 except ImportError:
     # import for Python 2
     from HTMLParser import HTMLParser
@@ -44,7 +45,7 @@ class MEGAURLProvider(URLGetter):
         else:
             html_source = self.download(VERSION_URL).decode("utf-8")
         escaped_url = re.search(REGEX, html_source).group(1)
-        unescaped_url = HTMLParser().unescape(escaped_url)
+        unescaped_url = html.unescape(escaped_url)
         suffix = "_installer.pkg"
         return_url = BASE_URL + unescaped_url + suffix
         self.env["version"] = escaped_url
