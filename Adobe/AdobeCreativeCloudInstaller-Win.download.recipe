@@ -11,7 +11,7 @@
 		<key>NAME</key>
 		<string>CreativeCloudInstaller</string>
 		<key>DOWNLOAD_URL</key>
-		<string>https://prod-rel-ffc-ccm.oobesaas.adobe.com/adobe-ffc-external/core/v1/wam/download?sapCode=KCCC&productName=Creative%20Cloud&os=win&environment=prod</string>
+		<string><![CDATA[https://prod-rel-ffc-ccm.oobesaas.adobe.com/adobe-ffc-external/core/v1/wam/download?sapCode=KCCC&productName=Creative%20Cloud&os=win&environment=prod]]></string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.6.1</string>
