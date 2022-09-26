@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>AdobeReader</string>
         <key>SEARCH_URL</key>
-        <string>https://get.adobe.com/reader/?platform_type=Windows</string>
+        <string>https://rdc.adobe.io/reader/products?lang=en&platformArch=64&site=landing&os=Windows%2010&preInstalled=&country=US&nativeOs=Windows%2010&api_key=dc-get-adobereader-cdn</string>
         <key>USER_AGENT</key>
         <string>Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko</string>
     </dict>
