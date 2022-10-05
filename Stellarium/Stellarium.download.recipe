@@ -23,7 +23,7 @@
             <key>Arguments</key>
             <dict>
                 <key>warning_message</key>
-                <string>Too many Stellarium recipes, getting rid of this one. I suggest com.github.joshua-d-miller.autopkg.download.Stellarium</string>
+                <string>Too many Stellarium recipes, getting rid of this one. I suggest com.github.ahousseini-recipes.download.Stellarium</string>
             </dict>
             <key>Processor</key>
             <string>DeprecationWarning</string>
