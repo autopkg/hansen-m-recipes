@@ -18,9 +18,29 @@
         <string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/600.7.12 (KHTML, like Gecko) Version/8.0.7 Safari/600.7.12</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.2.9</string>
+    <string>1.1.0</string>
     <key>Process</key>
     <array>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>warning_message</key>
+                <string>This recipe has been deprecated. As of October 2022 Fitbit have discontuned their macOS Application. Please remove recipe from your runs.
+
+For further information please see the following community post:https://community.fitbit.com/t5/Windows-10-App/Fitbit-Connect-will-be-discontinued-on-Oct-13-2022/m-p/5193900#M19569</string>
+            </dict>
+            <key>Processor</key>
+            <string>DeprecationWarning</string>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>predicate</key>
+                <string>TRUEPREDICATE</string>
+            </dict>
+            <key>Processor</key>
+            <string>StopProcessingIf</string>
+        </dict>
         <dict>
             <key>Processor</key>
             <string>URLTextSearcher</string>
@@ -28,8 +48,8 @@
             <dict>
                 <key>request_headers</key>
                 <dict>
-                        <key>user-agent</key>
-                        <string>%USER_AGENT%</string>
+                    <key>user-agent</key>
+                    <string>%USER_AGENT%</string>
                 </dict>
                 <key>url</key>
                 <string>%SEARCH_URL%</string>
