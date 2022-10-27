@@ -14,7 +14,7 @@ from __future__ import absolute_import
 import os
 import subprocess
 import sys
-import cpuinfo
+import platform
 
 from autopkglib import Processor, ProcessorError
 
@@ -45,8 +45,7 @@ class MSIInfoVersionProvider(Processor):
     def main(self):
 
         # Set default path to msiinfo
-        manufacturer = cpuinfo.get_cpu_info().get('brand_raw')
-        if 'm1' in manufacturer.lower():
+        if 'arm' in platform.processor():
             msiinfo_default_path = os.path.abspath("/opt/homebrew/bin/msiinfo")
         else:
             msiinfo_default_path = os.path.abspath("/usr/local/bin/msiinfo")
