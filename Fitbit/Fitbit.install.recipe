@@ -12,11 +12,31 @@
         <string>Fitbit</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.4.0</string>
+    <string>1.1.0</string>
     <key>ParentRecipe</key>
     <string>com.github.hansen-m.download.Fitbit</string>
     <key>Process</key>
     <array>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>warning_message</key>
+                <string>This recipe has been deprecated. As of October 2022 Fitbit have discontuned their macOS Application. Please remove recipe from your runs.
+
+For further information please see the following community post:https://community.fitbit.com/t5/Windows-10-App/Fitbit-Connect-will-be-discontinued-on-Oct-13-2022/m-p/5193900#M19569</string>
+            </dict>
+            <key>Processor</key>
+            <string>DeprecationWarning</string>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>predicate</key>
+                <string>TRUEPREDICATE</string>
+            </dict>
+            <key>Processor</key>
+            <string>StopProcessingIf</string>
+        </dict>
         <dict>
             <key>Processor</key>
             <string>EndOfCheckPhase</string>
