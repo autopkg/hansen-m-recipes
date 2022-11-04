@@ -11,6 +11,7 @@ import re
 import subprocess
 import io
 import os
+import platform
 
 from autopkglib import Processor, ProcessorError
 
@@ -70,7 +71,15 @@ class GoogleChromeWinVersioner(Processor):
             raise ProcessorError(
                 f"GoogleChromeWinVersioner: Can't find 7z at `{self.env['sevenzip_path']}` Have you installed 7z?: `brew install p7zip`"
             )
+        # Set default path to msiinfo
+        if 'arm' in platform.processor():
+            sevenzip_default_path = os.path.abspath("/opt/homebrew/bin/7z")
+        else:
+            sevenzip_default_path = os.path.abspath("/usr/local/bin/7z")
 
+        # Set MSIINFO variable to input variable or default path
+        sevenzip_path = self.env.get('sevenzip_path', sevenzip_default_path)
+        
         exe_path = self.env.get('exe_path', self.env.get('pathname'))
         preserve_paths = self.env.get('preserve_paths', 'True')
         working_directory = self.env.get('RECIPE_CACHE_DIR')
@@ -85,7 +94,7 @@ class GoogleChromeWinVersioner(Processor):
         extract_path = "%s/%s" % (working_directory, extract_directory)
 
         self.output("Extracting: %s" % exe_path)
-        cmd = [self.env['sevenzip_path'], extract_flag, '-y', '-o%s' % extract_path , exe_path]
+        cmd = [sevenzip_default_path, extract_flag, '-y', '-o%s' % extract_path , exe_path]
 
         if ignore_pattern:
             cmd.append('-x!%s' % ignore_pattern)
