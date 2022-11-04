@@ -52,7 +52,6 @@ class GoogleChromeWinVersioner(Processor):
         },
         "sevenzip_path": {
             "required": False,
-            "default": "/usr/local/bin/7z",
             "description": "Path to 7-Zip binary. Defaults to /usr/local/bin/7z."
         }
     }
@@ -67,19 +66,18 @@ class GoogleChromeWinVersioner(Processor):
 
     def main(self):
         
-        if not(os.path.isfile(self.env['sevenzip_path']) and os.access(self.env['sevenzip_path'], os.X_OK)):
-            raise ProcessorError(
-                f"GoogleChromeWinVersioner: Can't find 7z at `{self.env['sevenzip_path']}` Have you installed 7z?: `brew install p7zip`"
-            )
         # Set default path to msiinfo
         if 'arm' in platform.processor():
             sevenzip_default_path = os.path.abspath("/opt/homebrew/bin/7z")
         else:
             sevenzip_default_path = os.path.abspath("/usr/local/bin/7z")
-
+        
         # Set MSIINFO variable to input variable or default path
         sevenzip_path = self.env.get('sevenzip_path', sevenzip_default_path)
-        
+        if not(os.path.isfile(sevenzip_path) and os.access(sevenzip_path, os.X_OK)):
+            raise ProcessorError(
+                f"GoogleChromeWinVersioner: Can't find 7z at `{self.env['sevenzip_path']}` Have you installed 7z?: `brew install p7zip`"
+            )
         exe_path = self.env.get('exe_path', self.env.get('pathname'))
         preserve_paths = self.env.get('preserve_paths', 'True')
         working_directory = self.env.get('RECIPE_CACHE_DIR')
