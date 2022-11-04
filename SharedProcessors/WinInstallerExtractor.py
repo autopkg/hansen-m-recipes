@@ -9,6 +9,8 @@
 from __future__ import absolute_import
 
 import subprocess
+import os
+import platform
 
 from autopkglib import Processor, ProcessorError
 
@@ -44,7 +46,6 @@ class WinInstallerExtractor(Processor):
         },
         "sevenzip_path": {
             "required": False,
-            "default": "/usr/local/bin/7z",
             "description": "Path to 7-Zip binary. Defaults to /usr/local/bin/7z."
         }
     }
@@ -72,7 +73,17 @@ class WinInstallerExtractor(Processor):
         extract_path = "%s/%s" % (working_directory, extract_directory)
 
         self.output("Extracting: %s" % exe_path)
-        cmd = [self.env['sevenzip_path'], extract_flag, '-y', '-o%s' % extract_path , exe_path]
+
+        # Set default path to msiinfo
+        if 'arm' in platform.processor():
+            sevenzip_default_path = os.path.abspath("/opt/homebrew/bin/7z")
+        else:
+            sevenzip_default_path = os.path.abspath("/usr/local/bin/7z")
+
+        # Set MSIINFO variable to input variable or default path
+        sevenzip = self.env.get('sevenzip_path', sevenzip_default_path)
+
+        cmd = [sevenzip, extract_flag, '-y', '-o%s' % extract_path , exe_path]
 
         if ignore_pattern:
             cmd.append('-x!%s' % ignore_pattern)

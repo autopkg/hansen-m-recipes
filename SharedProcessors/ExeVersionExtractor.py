@@ -10,6 +10,7 @@
 from __future__ import absolute_import, print_function
 
 import subprocess
+import platform
 
 from autopkglib import Processor, ProcessorError
 
@@ -29,7 +30,6 @@ class ExeVersionExtractor(Processor):
         },
         "sevenzip_path": {
             "required": False,
-            "default": "/usr/local/bin/7z",
             "description": "Path to 7-Zip binary. Defaults to /usr/local/bin/7z."
         }
     }
@@ -49,7 +49,17 @@ class ExeVersionExtractor(Processor):
         extract_flag = 'l'
 
         self.output("Extracting: %s" % exe_path)
-        cmd = [self.env['sevenzip_path'], extract_flag, '-y', exe_path]
+
+        # Set default path to msiinfo
+        if 'arm' in platform.processor():
+            sevenzip_default_path = os.path.abspath("/opt/homebrew/bin/7z")
+        else:
+            sevenzip_default_path = os.path.abspath("/usr/local/bin/7z")
+
+        # Set MSIINFO variable to input variable or default path
+        sevenzip = self.env.get('sevenzip_path', sevenzip_default_path)
+
+        cmd = [sevenzip, extract_flag, '-y', exe_path]
 
         try:
             if verbosity > 1:
