@@ -15,7 +15,7 @@
         <key>SEARCH_URL</key>
         <string>https://doceri.com/download_form.php</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;zip&gt;/DoceriDesktop/v.*?/Doceri_Desktop_.*?.zip)</string>
+        <string>(/DoceriDesktop/v.*?/Doceri_Desktop_.*?.zip)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -38,7 +38,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%DOWNLOAD_URL%/%zip%</string>
+                <string>%DOWNLOAD_URL%%match%</string>
                 <key>filename</key>
                 <string>%NAME%.zip</string>
             </dict>
