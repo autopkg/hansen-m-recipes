@@ -10,13 +10,24 @@
     <dict>
         <key>NAME</key>
         <string>Keka</string>
-        <key>DOWNLOAD_URL</key>
-        <string>https://d.keka.io/</string>
+        <key>GITHUB_REPO</key>
+        <string>aonez/Keka</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
     <key>Process</key>
     <array>
+        <dict>
+            <key>Processor</key>
+            <string>GitHubReleasesInfoProvider</string>
+            <key>Arguments</key>
+            <dict>
+                <key>github_repo</key>
+                <string>%GITHUB_REPO%</string>
+                <key>asset_regex</key>
+                <string>.*\.dmg</string>
+            </dict>
+        </dict>
         <dict>
             <key>Processor</key>
             <string>URLDownloader</string>
@@ -25,7 +36,7 @@
                 <key>url</key>
                 <string>%DOWNLOAD_URL%</string>
                 <key>filename</key>
-                <string>%NAME%.dmg</string>
+                <string>%NAME%-%version%.dmg</string>
             </dict>
         </dict>
         <dict>
