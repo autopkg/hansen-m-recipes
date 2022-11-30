@@ -10,6 +10,8 @@
     <dict>
         <key>NAME</key>
         <string>BESPythonAPI</string>
+        <key>pythonversion</key>
+        <string>3.10</string>
     </dict>
     <key>MinimumVersion</key>
     <string>2.0.0</string>
@@ -36,11 +38,27 @@
                 <string>zip</string>
             </dict>
         </dict>
+        <!-- <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>result_output_var_name</key>
+                <string>pythonversion</string>
+                <key>url</key>
+                <string>https://raw.githubusercontent.com/autopkg/autopkg/master/.github/workflows/tests.yaml</string>
+                <key>re_pattern</key>
+                <string>python-version: ([0-9.]+)</string>
+
+            </dict>
+        </dict> -->
         <dict>
             <key>Processor</key>
             <string>URLTextSearcher</string>
             <key>Arguments</key>
             <dict>
+                <key>result_output_var_name</key>
+                <string>version</string>
                 <key>url</key>
                 <string>https://git.psu.edu/sysman/python-besapi/raw/master/besapi.py</string>
                 <key>re_pattern</key>
@@ -72,9 +90,9 @@
                     <string>0775</string>
                     <key>Library/AutoPkg/Python3/Python.framework/Versions/Current/lib</key>
                     <string>0775</string>
-                    <key>Library/AutoPkg/Python3/Python.framework/Versions/Current/lib/python3.7</key>
+                    <key>Library/AutoPkg/Python3/Python.framework/Versions/Current/lib/python3.10</key>
                     <string>0775</string>
-                    <key>Library/AutoPkg/Python3/Python.framework/Versions/Current/lib/python3.7/site-packages</key>
+                    <key>Library/AutoPkg/Python3/Python.framework/Versions/Current/lib/python3.10/site-packages</key>
                     <string>0775</string>
                 </dict>
             </dict>
@@ -89,7 +107,7 @@
                 <key>source_path</key>
                 <string>%RECIPE_CACHE_DIR%/%NAME%-Source/python-besapi-master/modules/chardet</string>
                 <key>destination_path</key>
-                <string>%pkgroot%/Library/AutoPkg/Python3/Python.framework/Versions/Current/lib/python3.7/site-packages/chardet</string>
+                <string>%pkgroot%/Library/AutoPkg/Python3/Python.framework/Versions/Current/lib/python%pythonversion%/site-packages/chardet</string>
             </dict>
         </dict>
         <dict>
@@ -102,7 +120,7 @@
                 <key>source_path</key>
                 <string>%RECIPE_CACHE_DIR%/%NAME%-Source/python-besapi-master/modules/idna</string>
                 <key>destination_path</key>
-                <string>%pkgroot%/Library/AutoPkg/Python3/Python.framework/Versions/Current/lib/python3.7/site-packages/idna</string>
+                <string>%pkgroot%/Library/AutoPkg/Python3/Python.framework/Versions/Current/lib/python%pythonversion%/site-packages/idna</string>
             </dict>
         </dict>
         <dict>
@@ -115,7 +133,7 @@
                 <key>source_path</key>
                 <string>%RECIPE_CACHE_DIR%/%NAME%-Source/python-besapi-master/modules/lxml</string>
                 <key>destination_path</key>
-                <string>%pkgroot%/Library/AutoPkg/Python3/Python.framework/Versions/Current/lib/python3.7/site-packages/lxml</string>
+                <string>%pkgroot%/Library/AutoPkg/Python3/Python.framework/Versions/Current/lib/python%pythonversion%/site-packages/lxml</string>
             </dict>
         </dict>
         <dict>
