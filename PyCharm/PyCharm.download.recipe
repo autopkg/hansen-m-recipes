@@ -19,6 +19,15 @@
     <string>0.4.1</string>
     <key>Process</key>
     <array>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>warning_message</key>
+                <string>The recipe com.github.hansen-m.download.pycharm has been deprecated. Please transition to bnpl-recipes: https://github.com/autopkg/bnpl-recipes/blob/master/JetBrains/ </string>
+            </dict>
+            <key>Processor</key>
+            <string>DeprecationWarning</string>
+        </dict>
        <dict>
             <key>Processor</key>
             <string>URLTextSearcher</string>

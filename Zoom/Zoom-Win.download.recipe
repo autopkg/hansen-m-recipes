@@ -37,9 +37,11 @@
         </dict>
         <dict>
             <key>Processor</key>
-            <string>com.github.hansen-m.SharedProcessors/MSIInfoVersionProvider</string>
+            <string>com.github.jgstew.SharedProcessors/FileMsiGetProperty</string>
             <key>Arguments</key>
             <dict>
+                <key>custom_msi_property</key>
+                <string>ARPCOMMENTS</string>
                 <key>msi_path</key>
                 <string>%pathname%</string>
             </dict>

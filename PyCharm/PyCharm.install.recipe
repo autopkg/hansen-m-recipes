@@ -14,7 +14,7 @@
 	<key>MinimumVersion</key>
 	<string>0.4.0</string>
 	<key>ParentRecipe</key>
-	<string>com.github.hansen-m.download.pycharm</string>
+	<string>com.github.bnpl.autopkg.download.pycharmce</string>
 	<key>Process</key>
 	<array>
 		<dict>
