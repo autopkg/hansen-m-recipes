@@ -28,8 +28,8 @@
                 <string>%DOWNLOAD_URL%</string>
                 <key>request_headers</key>
                 <dict>
-                        <key>user-agent</key>
-                        <string>%USER_AGENT%</string>
+                    <key>user-agent</key>
+                    <string>%USER_AGENT%</string>
                 </dict>
                 <key>filename</key>
                 <string>%NAME%.pkg</string>
