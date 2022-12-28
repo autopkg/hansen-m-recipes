@@ -13,7 +13,7 @@
         <key>SEARCH_URL</key>
         <string>https://www.gimp.org/downloads/</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;download.gimp.org/gimp/v.*?/osx/gimp-.*?.dmg)</string>
+        <string>(?P&lt;url&gt;download.gimp.org/gimp/v.*?/macos/gimp-.*?.dmg)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
