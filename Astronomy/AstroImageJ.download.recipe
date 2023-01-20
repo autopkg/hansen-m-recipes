@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest version AstroImageJ.</string>
+    <string>Downloads the latest version AstroImageJ DMG.</string>
     <key>Identifier</key>
     <string>com.github.hansen-m.download.AstroImageJ</string>
     <key>Input</key>
@@ -25,7 +25,8 @@
                 <key>url</key>
                 <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
-                <string>&lt;a href=&quot;(?P&lt;zip&gt;AstroImageJ_v[0-9.]+_[0-9]+_mac_java8.*\.zip)&quot;&gt;</string>
+                <!-- AstroImageJ_v5.1.0.00_mac_intel_java18.dmg -->
+                <string>&lt;a href=&quot;(?P&lt;dmg&gt;AstroImageJ_v[0-9.]+.[0-9]+.*\.dmg)&quot;&gt;</string>
             </dict>
         </dict>
         <dict>
@@ -34,9 +35,9 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%SEARCH_URL%/%zip%</string>
+                <string>%SEARCH_URL%/%dmg%</string>
                 <key>filename</key>
-                <string>%NAME%.zip</string>
+                <string>%NAME%.dmg</string>
             </dict>
         </dict>
         <dict>
