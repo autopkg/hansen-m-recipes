@@ -3,19 +3,29 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest version of Prey using the package based batch installer.</string>
+    <string>Downloads the latest version of (Defaults: arm64 Mac) Prey using the package based batch installer.</string>
     <key>Identifier</key>
     <string>com.github.hansen-m.download.Prey</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
         <string>Prey</string>
+        <key>PLATFORM</key>
+        <string>mac</string>
+        <!-- Use mac or windows -->
+        <key>ARCHITECTURE</key>
+        <string>arm64</string>
+        <!-- Use arm64, x64, x86 -->
         <key>SEARCH_URL</key>
         <string>https://panel.preyproject.com/proxy/website/latest_version_agent</string>
         <key>SEARCH_PATTERN</key>
         <string>([0-9].*)</string>
         <key>USER_AGENT</key>
         <string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/536.28.10 (KHTML, like Gecko) Version/6.0.3 Safari/536.28.10</string>
+        <!-- "https://downloads.preyproject.com/prey-client-releases/node-client/1.11.4/prey-mac-1.11.4-arm64.pkg"
+             "https://downloads.preyproject.com/prey-client-releases/node-client/1.11.4/prey-mac-1.11.4-x64.pkg"
+             "https://downloads.preyproject.com/prey-client-releases/node-client/1.11.4/prey-windows-1.11.4-x64.exe"
+             "https://downloads.preyproject.com/prey-client-releases/node-client/1.11.4/prey-windows-1.11.4-x86.exe" -->
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -43,7 +53,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>https://downloads.preyproject.com/prey-client-releases/node-client/%match%/prey-mac-%match%-x64.pkg</string>
+                <string>https://downloads.preyproject.com/prey-client-releases/node-client/%match%/prey-%PLATFORM%-%match%-%ARCHITECTURE%.pkg</string>
                 <key>filename</key>
                 <string>%NAME%.pkg</string>
             </dict>
