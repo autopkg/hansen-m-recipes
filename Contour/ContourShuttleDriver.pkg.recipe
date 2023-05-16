@@ -30,14 +30,13 @@
                 <string>%RECIPE_CACHE_DIR%/%NAME%/*.dmg</string>
             </dict>
         </dict>
-
         <dict>
             <key>Processor</key>
-            <string>PkgCopier</string>
+            <string>AppPkgCreator</string>
             <key>Arguments</key>
             <dict>
-                <key>source_pkg</key>
-                <string>%found_filename%/Contour Shuttle.pkg</string>
+                <key>app_path</key>
+                <string>%found_filename%/Contour Shuttle.app</string>
             </dict>
         </dict>
         <dict>
