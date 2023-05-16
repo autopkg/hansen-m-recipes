@@ -11,9 +11,7 @@
         <key>NAME</key>
         <string>Contour Shuttle Driver</string>
         <key>SEARCH_URL</key>
-        <string>https://www.contourdesign.com/shuttle-drivers/</string>
-        <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;https://www.contourdesign.com/wp-content/uploads/[0-9.]+/[0-9.]+/Contour-Shuttle-(?P&lt;version&gt;[0-9.]+)\.zip)</string>
+        <string>https://contourdesign.com/pages/drivers</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.4.0</string>
@@ -21,24 +19,46 @@
     <array>
         <dict>
             <key>Processor</key>
-            <string>URLTextSearcher</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>%SEARCH_URL%</string>
-                <key>re_pattern</key>
-                <string>%SEARCH_PATTERN%</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%url%</string>
+                <string>https://contour-design.co.uk/Contour-Multimedia-Controller-driver-macOS-Big-Sur-and-macOS-Monterey</string>
                 <key>filename</key>
                 <string>Contour-Shuttle-Driver.zip</string>
+            </dict>
+        </dict>
+            <dict>
+            <key>Processor</key>
+            <string>Unarchiver</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>FileFinder</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pattern</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/*.dmg</string>
+            </dict>
+        </dict>
+        <dict>   
+            <key>Processor</key>   
+            <string>CodeSignatureVerifier</string>   
+            <key>Arguments</key>   
+            <dict>   
+                <key>input_path</key>   
+                <string>%found_filename%/Contour Shuttle.app</string>
+                <key>requirement</key>
+                <string>anchor apple generic and identifier "com.contourdesign.shuttle.app" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = BFENHQZJ2Z)</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>AppDmgVersioner</string>
+            <key>Arguments</key>
+            <dict>
+                <key>dmg_path</key>
+                <string>%found_filename%</string>
             </dict>
         </dict>
         <dict>
