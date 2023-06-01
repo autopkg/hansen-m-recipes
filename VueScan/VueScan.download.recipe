@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest version VueScan (Universal installer).</string>
+    <string>Downloads the latest universal arm64 version VueScan (Universal installer).</string>
     <key>Identifier</key>
     <string>com.github.hansen-m.download.VueScan</string>
     <key>Input</key>
