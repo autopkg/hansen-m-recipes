@@ -25,7 +25,7 @@
                 <key>url</key>
                 <string>%DOWNLOADPAGE_URL%</string>
                 <key>re_pattern</key>
-                <string>http*.*MacTeX.pkg</string>
+                <string>(https[^"]+MacTeX.pkg)</string>
             </dict>
         </dict>
         <dict>
