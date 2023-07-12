@@ -1,0 +1,20 @@
+Description: Downloads the latest version of Mendeley Reference Manager
+Identifier: com.github.grahampugh.recipes.download.MendeleyReferenceManager
+MinimumVersion: "2.3"
+
+Input:
+  NAME: Mendeley Reference Manager
+  DOWNLOAD_URL: https://static.mendeley.com/bin/desktop
+  SEARCH_URL: https://static.mendeley.com/bin/desktop/latest.yml
+
+Process:
+  - Processor: URLTextSearcher
+    Arguments:
+      re_pattern: mendeley-reference-manager-(?P<version>.*?)\.exe
+      url: "%SEARCH_URL%"
+
+  - Processor: URLDownloader
+    Arguments:
+      url: "%DOWNLOAD_URL%/mendeley-reference-manager-%version%.exe"
+
+  - Processor: EndOfCheckPhase
