@@ -1,5 +1,5 @@
 Description: Downloads the latest version of Mendeley Reference Manager
-Identifier: com.github.rustymyers.recipes.download.MendeleyReferenceManager
+Identifier: com.github.hansen-m.recipes.download.MendeleyReferenceManager
 MinimumVersion: "2.3"
 
 Input:
