@@ -12,6 +12,8 @@
         <string>AstroImageJ</string>
         <key>SEARCH_URL</key>
         <string>https://www.astro.louisville.edu/software/astroimagej/installation_packages</string>
+        <key>JAR_PATH</key>
+        <string>Path/to/jar/file</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
@@ -31,6 +33,17 @@
                     <key>Applications</key>
                     <string>0775</string>
                 </dict>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>Copier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>source_path</key>
+                <string>%JAR_PATH%/AstroImageJ.app</string>
+                <key>destination_path</key>
+                <string>%pkgroot%/Applications/AstroImageJ.app/Contents/Resources</string>
             </dict>
         </dict>
         <dict>
