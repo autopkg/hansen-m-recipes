@@ -41,9 +41,9 @@
             <key>Arguments</key>
             <dict>
                 <key>source_path</key>
-                <string>%JAR_PATH%/AstroImageJ.app</string>
+                <string>%pathname%/AstroImageJ.app</string>
                 <key>destination_path</key>
-                <string>%pkgroot%/Applications/AstroImageJ.app/Contents/Resources</string>
+                <string>%pkgroot%/Applications/AstroImageJ.app</string>
             </dict>
         </dict>
         <dict>
@@ -52,9 +52,9 @@
             <key>Arguments</key>
             <dict>
                 <key>source_path</key>
-                <string>%pathname%/AstroImageJ.app</string>
+                <string>%JAR_PATH%/AstroImageJ.app</string>
                 <key>destination_path</key>
-                <string>%pkgroot%/Applications/AstroImageJ.app</string>
+                <string>%pkgroot%/Applications/AstroImageJ.app/Contents/Resources</string>
             </dict>
         </dict>
         <dict>
