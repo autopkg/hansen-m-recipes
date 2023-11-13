@@ -12,8 +12,6 @@
         <string>AstroImageJ</string>
         <key>SEARCH_URL</key>
         <string>https://www.astro.louisville.edu/software/astroimagej/installation_packages</string>
-        <key>JAR_NAME</key>
-        <string>ij</string>
         <key>JAR_URL</key>
         <string>http://www.astro.louisville.edu/software/astroimagej/updates/updatesjava17/versions.txt</string>
     </dict>
@@ -62,9 +60,9 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%JAR_URL%/%jar%</string>
+                <string>%JAR_URL%</string>
                 <key>filename</key>
-                <string>%JAR_NAME%%version%.jar</string>
+                <string>ij%version%.jar</string>
             </dict>
         </dict>
         <dict>
