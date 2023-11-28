@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>MacPorts</string>
         <key>MACPORTS_REQUESTED_OS</key>
-        <string>10.12-Sierra</string>
+        <string>Sonoma</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.5.0</string>
@@ -25,7 +25,7 @@
                 <key>github_repo</key>
                 <string>macports/macports-base</string>
                 <key>asset_regex</key>
-                <string>MacPorts-[0-9.]+-%MACPORTS_REQUESTED_OS%\.pkg</string>
+                <string>MacPorts-[0-9.]+-[0-9]+-%MACPORTS_REQUESTED_OS%\.pkg</string>
             </dict>
         </dict>
         <dict>
