@@ -21,7 +21,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>https://www.astroplanner.net/download/AstroPlanner64.dmg</string>
+                <string>https://www.astroplanner.net/beta/files/AstroPlanner64.dmg</string>
                 <key>filename</key>
                 <string>%NAME%.dmg</string>
             </dict>
