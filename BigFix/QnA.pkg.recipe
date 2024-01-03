@@ -82,9 +82,9 @@
             <key>Arguments</key>
             <dict>
                 <key>source_path</key>
-                <string>%RECIPE_CACHE_DIR%/%NAME%_payload/BESAgent.app/Contents/MacOS/libBEScrypto.dylib</string>
+                <string>%RECIPE_CACHE_DIR%/%NAME%_payload/BESAgent.app/Contents/MacOS/fips.dylib</string>
                 <key>destination_path</key>
-                <string>%pkgroot%/usr/local/bin/libBEScrypto.dylib</string>
+                <string>%pkgroot%/usr/local/bin/fips.dylib</string>
             </dict>
         </dict>
         <dict>
@@ -93,9 +93,9 @@
             <key>Arguments</key>
             <dict>
                 <key>source_path</key>
-                <string>%RECIPE_CACHE_DIR%/%NAME%_payload/BESAgent.app/Contents/MacOS/libBEScryptoFIPS.dylib</string>
+                <string>%RECIPE_CACHE_DIR%/%NAME%_payload/BESAgent.app/Contents/MacOS/fipsmodule.cnf</string>
                 <key>destination_path</key>
-                <string>%pkgroot%/usr/local/bin/libBEScryptoFIPS.dylib</string>
+                <string>%pkgroot%/usr/local/bin/fipsmodule.cnf</string>
             </dict>
         </dict>
         <dict>
