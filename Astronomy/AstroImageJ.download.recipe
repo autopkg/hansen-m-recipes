@@ -25,8 +25,7 @@
                 <key>url</key>
                 <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
-                <!-- AstroImageJ_v5.1.0.00_mac_intel_java18.dmg -->
-                <string><![CDATA[<a href="(?P<dmg>AstroImageJ_v(?P<version>[0-9.]+.[0-9]+)_.*\.dmg)">]]></string>
+                <string><![CDATA[<a href="(?P<dmg>AstroImageJ_v(?P<version>[0-9.]+.[0-9]+)-.*\.dmg)">]]></string>
             </dict>
         </dict>
         <dict>
