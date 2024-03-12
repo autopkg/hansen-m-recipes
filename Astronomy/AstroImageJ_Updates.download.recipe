@@ -3,18 +3,20 @@
 <plist version="1.0">
     <dict>
         <key>Description</key>
-        <string>Downloads the latest version AstroImageJ DMG.</string>
+        <string>Downloads the latest Jar of AstroImageJ.</string>
         <key>Identifier</key>
-        <string>com.github.hansen-m.download.AstroImageJ</string>
+        <string>com.github.hansen-m.download.AstroImageJ_Updates</string>
         <key>Input</key>
         <dict>
             <key>NAME</key>
-            <string>AstroImageJ</string>
-            <key>SEARCH_URL</key>
-            <string>https://www.astro.louisville.edu/software/astroimagej/installation_packages</string>
+            <string>AstroImageJ Updates</string>
+            <key>JAR_URL</key>
+            <string>http://www.astro.louisville.edu/software/astroimagej/updates/updatesjava17</string>
         </dict>
         <key>MinimumVersion</key>
         <string>0.2.9</string>
+        <key>ParentRecipe</key>
+        <string>com.github.hansen-m.download.AstroImageJ</string>
         <key>Process</key>
         <array>
             <dict>
@@ -23,9 +25,9 @@
                 <key>Arguments</key>
                 <dict>
                     <key>url</key>
-                    <string>%SEARCH_URL%</string>
+                    <string>%JAR_URL%/versions.txt</string>
                     <key>re_pattern</key>
-                    <string><![CDATA[<a href="(?P<dmg>AstroImageJ_v(?P<version>[0-9.]+.[0-9]+)-.*\.dmg)">]]></string>
+                    <string><![CDATA[(?P<version>[0-9.]+.[0-9]+)]]></string>
                 </dict>
             </dict>
             <dict>
@@ -34,9 +36,9 @@
                 <key>Arguments</key>
                 <dict>
                     <key>url</key>
-                    <string>%SEARCH_URL%/%dmg%</string>
+                    <string>%JAR_URL%/ij%version%.jar</string>
                     <key>filename</key>
-                    <string>%NAME%.dmg</string>
+                    <string>ij%version%.jar</string>
                 </dict>
             </dict>
             <dict>
