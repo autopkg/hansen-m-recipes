@@ -39,7 +39,7 @@
                 <key>Arguments</key>
                 <dict>
                     <key>source_path</key>
-                    <string>%pathname%/downloads/AstroImageJ.dmg/AstroImageJ.app</string>
+                    <string>%RECIPE_CACHE_DIR%/downloads/AstroImageJ.dmg/AstroImageJ.app</string>
                     <key>destination_path</key>
                     <string>%pkgroot%/Applications/AstroImageJ.app</string>
                 </dict>
@@ -50,7 +50,7 @@
                 <key>Arguments</key>
                 <dict>
                     <key>source_path</key>
-                    <string>%JAR_PATH%/downloads/ij%version%.jar</string>
+                    <string>%RECIPE_CACHE_DIR%/downloads/ij%version%.jar</string>
                     <key>destination_path</key>
                     <string>%pkgroot%/Applications/AstroImageJ.app/Contents/Resources/</string>
                 </dict>
@@ -65,7 +65,7 @@
                         <key>pkgname</key>
                         <string>%NAME%-%version%</string>
                         <key>pkgdir</key>
-                        <string>%RECIPE_CACHE_DIR%</string>
+                        <string>%pkgroot%</string>
                         <key>id</key>
                         <string>edu.louisville.astro.AstroImageJ.pkg</string>
                         <key>options</key>
