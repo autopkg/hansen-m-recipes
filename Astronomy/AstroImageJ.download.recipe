@@ -1,74 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-    <key>Description</key>
-    <string>Downloads the latest version AstroImageJ DMG.</string>
-    <key>Identifier</key>
-    <string>com.github.hansen-m.download.AstroImageJ</string>
-    <key>Input</key>
     <dict>
-        <key>NAME</key>
-        <string>AstroImageJ</string>
-        <key>SEARCH_URL</key>
-        <string>https://www.astro.louisville.edu/software/astroimagej/installation_packages</string>
-        <key>JAR_URL</key>
-        <string>http://www.astro.louisville.edu/software/astroimagej/updates/updatesjava17/versions.txt</string>
+        <key>Description</key>
+        <string>Downloads the latest DMG and Jar of AstroImageJ.</string>
+        <key>Identifier</key>
+        <string>com.github.hansen-m.download.AstroImageJ</string>
+        <key>Input</key>
+        <dict>
+            <key>NAME</key>
+            <string>AstroImageJ</string>
+            <key>SEARCH_URL</key>
+            <string>https://www.astro.louisville.edu/software/astroimagej/installation_packages/</string>
+            <key>JAR_URL</key>
+            <string>http://www.astro.louisville.edu/software/astroimagej/updates/updatesjava17</string>
+        </dict>
+        <key>MinimumVersion</key>
+        <string>0.2.9</string>
+        <key>Process</key>
+        <array>
+            <dict>
+                <key>Processor</key>
+                <string>URLTextSearcher</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>url</key>
+                    <string>%SEARCH_URL%</string>
+                    <key>re_pattern</key>
+                    <string><![CDATA[<a href="(?P<dmg>AstroImageJ_v(?P<version>[0-9.]+.[0-9]+)-.*\.dmg)">]]></string>
+                </dict>
+            </dict>
+            <dict>
+                <key>Processor</key>
+                <string>URLDownloader</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>url</key>
+                    <string>%SEARCH_URL%/%dmg%</string>
+                    <key>filename</key>
+                    <string>%NAME%.dmg</string>
+                </dict>
+            </dict>
+            <dict>
+                <key>Processor</key>
+                <string>URLTextSearcher</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>url</key>
+                    <string>%JAR_URL%/versions.txt</string>
+                    <key>re_pattern</key>
+                    <string><![CDATA[(?P<version>[0-9.]+.[0-9]+)]]></string>
+                </dict>
+            </dict>
+            <dict>
+                <key>Processor</key>
+                <string>URLDownloader</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>url</key>
+                    <string>%JAR_URL%/ij%version%.jar</string>
+                </dict>
+            </dict>
+            <dict>
+                <key>Processor</key>
+                <string>EndOfCheckPhase</string>
+            </dict>
+        </array>
     </dict>
-    <key>MinimumVersion</key>
-    <string>0.2.9</string>
-    <key>Process</key>
-    <array>
-       <dict>
-            <key>Processor</key>
-            <string>URLTextSearcher</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>%SEARCH_URL%</string>
-                <key>re_pattern</key>
-                <!-- AstroImageJ_v5.1.0.00_mac_intel_java18.dmg -->
-                <string><![CDATA[<a href="(?P<dmg>AstroImageJ_v(?P<version>[0-9.]+.[0-9]+)_.*\.dmg)">]]></string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>URLDownloader</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>%SEARCH_URL%/%dmg%</string>
-                <key>filename</key>
-                <string>%NAME%.dmg</string>
-            </dict>
-        </dict>
-           <dict>
-            <key>Processor</key>
-            <string>URLTextSearcher</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>%JAR_URL%</string>
-                <key>re_pattern</key>
-                <!--<![CDATA[<a href="(?P<jar>AstroImageJ_v(?P<version>[0-9.]+.[0-9]+)_.*\.dmg)">]]> -->
-                <string>http://www\.astro\.louisville\.edu/software/astroimagej/updates/updatesjava17/ij5\.2\.1\.jar</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>URLDownloader</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>%JAR_URL%</string>
-                <key>filename</key>
-                <string>ij%version%.jar</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>EndOfCheckPhase</string>
-        </dict>
-    </array>
-</dict>
 </plist>
