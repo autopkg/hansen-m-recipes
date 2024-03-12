@@ -10,80 +10,22 @@
     <dict>
         <key>NAME</key>
         <string>Notepad++</string>
-        <key>SEARCH_URL</key>
-        <string>https://notepad-plus-plus.org</string>
+        <key>GITHUB_REPO</key>
+        <string>notepad-plus-plus/notepad-plus-plus</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
     <key>Process</key>
     <array>
-        <!--
-         <dict>
-            <key>Processor</key>
-            <string>URLTextSearcher</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>%SEARCH_URL%</string>
-                <key>re_pattern</key>
-                <string><![CDATA[Current Version: <span>(?P<version>[0-9.]+)</span>]]></string>
-            </dict>
-        </dict>
         <dict>
             <key>Processor</key>
-            <string>URLTextSearcher</string>
+            <string>GitHubReleasesInfoProvider</string>
             <key>Arguments</key>
             <dict>
-                <key>url</key>
-                <string>%SEARCH_URL%</string>
-                <key>re_pattern</key>
-                <string><![CDATA[<a href="(?P<url>.*?)">Download]]></string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>URLTextSearcher</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>%SEARCH_URL%/%match%</string>
-                <key>re_pattern</key>
-                <string><![CDATA[\/repository\/.*Installer.exe]]></string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>URLDownloader</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>https://notepad-plus-plus.org%match%</string>
-                <key>filename</key>
-                <string>%NAME%.exe</string>
-            </dict>
-        </dict> -->
-        <!-- Download using update feed: https://notepad-plus-plus.org/repository/7.x/7.3.3/npp.7.3.3.Installer.exe -->
-        <!-- -->
-        <dict>
-            <key>Processor</key>
-            <string>URLTextSearcher</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>https://notepad-plus-plus.org/update/getDownloadUrl.php</string>
-                <key>re_pattern</key>
-                <string><![CDATA[<Version>(?P<version>[0-9.]+)</Version>]]></string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>URLTextSearcher</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>https://notepad-plus-plus.org/update/getDownloadUrl.php</string>
-                <key>re_pattern</key>
-                <string><![CDATA[<Location>(?P<url>http.*)<\/Location>]]></string>
+                <key>github_repo</key>
+                <string>%GITHUB_REPO%</string>
+                <key>asset_regex</key>
+                <string>npp.[0-9.{0,1}]{1,3}.Installer.x64.exe</string>
             </dict>
         </dict>
         <dict>
