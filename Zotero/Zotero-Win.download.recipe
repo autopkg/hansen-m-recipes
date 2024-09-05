@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the latest verison of Zotero for Windows</string>
+	<string>Downloads the latest verison of Zotero for Windows.  Defaults to 32 bit version, pass win-x64 for 64 bit version</string>
 	<key>Identifier</key>
 	<string>com.github.hansen-m.download.zotero-win</string>
 	<key>Input</key>
@@ -12,10 +12,13 @@
 		<string>Zotero</string>
 		<key>SEARCH_URL</key>
 		<string>https://www.zotero.org/download/</string>
-		<key>DOWNLOAD_URL</key>
-		<string>https://download.zotero.org/client/release/</string>
 		<key>VERSION_SEARCH_PATTERN</key>
 		<string>"win32":"(?P&lt;version&gt;[0-9.]+)"</string>
+		<key>platform</key>
+		<!-- <string>win-x64</string> -->
+		<string>win32</string>
+		<key>DOWNLOAD_URL</key>
+		<string>https://www.zotero.org/download/client/dl?channel=release&amp;platform=</string>
 		<!--5.0.7/Zotero-5.0.7_setup.exe-->
 		<key>SEARCH_PATTERN</key>
 		<string>(?P&lt;exe&gt;download.zotero.org/standalone/(?P&lt;version&gt;[0-9.]+)/Zotero-[0-9.]+_setup\.exe)</string>
@@ -41,7 +44,7 @@
         	<key>Arguments</key>
         	<dict>
         		<key>url</key>
-        		<string>%DOWNLOAD_URL%%version%/Zotero-%version%_setup.exe</string>
+        		<string>%DOWNLOAD_URL%%platform%&amp;version=%version%</string>
         		<key>filename</key>
         		<string>%NAME%.exe</string>
         	</dict>
