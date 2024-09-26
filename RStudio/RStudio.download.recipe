@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>RStudio</string>
         <key>SEARCH_URL</key>
-        <string>https://www.rstudio.com/products/rstudio/download/</string>
+        <string>https://posit.co/download/rstudio-desktop/</string>
         <key>SEARCH_PATTERN</key>
         <string>(?P&lt;dmg&gt;RStudio-(?P&lt;version&gt;([0-9.]+){1,3}?.*).dmg)</string>
         <key>DOWNLOAD_MIRROR</key>
