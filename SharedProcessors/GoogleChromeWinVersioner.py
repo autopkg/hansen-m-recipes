@@ -110,9 +110,16 @@ class GoogleChromeWinVersioner(Processor):
 
         pattern = re.compile(version_regex)
 
-        with io.open(extract_path + "/[5]SummaryInformation", encoding="latin-1") as file:
-            data = file.read()
-            msiversion = pattern.findall(data)[0]
+        try:
+            with io.open(extract_path + "/[5]SummaryInformation", encoding="latin-1") as file:
+                data = file.read()
+                msiversion = pattern.findall(data)[0]
+        except:
+            version_regex = '(?<=manifest version=\")[0-9]{1,3}.[0-9].[0-9]{4}.[0-9]{1,4}'
+            pattern = re.compile(version_regex)
+            with io.open(extract_path + "/Binary.GoogleChromeInstaller", encoding="latin-1") as file:
+                data = file.read()
+                msiversion = pattern.findall(data)[0]
         if msiversion != "":
             self.env[output_var_name] = msiversion
         else:
