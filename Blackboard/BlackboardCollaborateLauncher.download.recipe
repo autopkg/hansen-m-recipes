@@ -12,9 +12,13 @@
         <string>Blackboard Collaborate Launcher</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.4.0</string>
+    <string>1.1</string>
     <key>Process</key>
     <array>
+        <dict>
+            <key>Processor</key>
+            <string>DeprecationWarning</string>
+        </dict>
         <dict>
             <key>Processor</key>
             <string>SparkleUpdateInfoProvider</string>
