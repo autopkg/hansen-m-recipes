@@ -10,12 +10,6 @@
     <dict>
         <key>NAME</key>
         <string>Amazon Music</string>
-        <key>USER_AGENT</key>
-        <string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12) AppleWebKit/602.1.50 (KHTML, like Gecko) Version/10.0 Safari/602.1.50</string>
-        <key>SEARCH_URL</key>
-        <string>https://www.amazon.com/gp/dmusic/desktop/downloadPlayer/</string>
-        <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;https://[A-Za-z0-9.-]+amazonaws\.com/.*?/AmazonMusicInstaller\.dmg)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.4.0</string>
@@ -26,15 +20,17 @@
             <string>URLTextSearcher</string>
             <key>Arguments</key>
             <dict>
+                <key>re_pattern</key>
+                <string>"(https://d2j9xt6n9dg5d3\.cloudfront\.net/mac/[0-9a-f_]+/Amazon\+Music\+Installer\.dmg)"</string>
+                <key>result_output_var_name</key>
+                <string>url</string>
+                <key>url</key>
+                <string>https://qatgqujbd2.execute-api.us-west-2.amazonaws.com/prod/getCurrentVersion</string>
                 <key>request_headers</key>
                 <dict>
-                        <key>user-agent</key>
-                        <string>%USER_AGENT%</string>
+                    <key>user-agent</key>
+                    <string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)</string>
                 </dict>
-                <key>url</key>
-                <string>%SEARCH_URL%</string>
-                <key>re_pattern</key>
-                <string>%SEARCH_PATTERN%</string>
             </dict>
         </dict>
         <dict>
@@ -42,13 +38,6 @@
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
-                <key>url</key>
-                <string>%url%</string>
-                <key>request_headers</key>
-                <dict>
-                        <key>user-agent</key>
-                        <string>%USER_AGENT%</string>
-                </dict>
                 <key>filename</key>
                 <string>%NAME%.dmg</string>
             </dict>
