@@ -3,19 +3,22 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest Apple Silicon version of Anki.</string>
+    <string>Downloads the latest Apple Silicon version of Anki.
+    
+Use RELEASE_REGEX to get Intel qt5 or qt6 releases:
+    .*intel-qt6.*
+    .*intel-qt5.*
+
+Create an input variable called include_prereleases and set to a non-empty string to include prerelease builds.
+</string>
     <key>Identifier</key>
     <string>com.github.hansen-m.download.Anki</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
         <string>Anki</string>
-        <key>GITHUB_REPO</key>
-        <string>ankitects/anki</string>
         <key>RELEASE_REGEX</key>
         <string>.*apple.*</string>
-        <!-- Use RELEASE_REGEX to get Intel qt5 or qt6 releases <string>.*intel-qt6.*</string>
-            <string>.*intel-qt5.*</string> -->
     </dict>
     <key>MinimumVersion</key>
     <string>0.4.0</string>
@@ -27,7 +30,7 @@
             <key>Arguments</key>
             <dict>
                 <key>github_repo</key>
-                <string>%GITHUB_REPO%</string>
+                <string>ankitects/anki</string>
                 <key>asset_regex</key>
                 <string>%RELEASE_REGEX%</string>
             </dict>
