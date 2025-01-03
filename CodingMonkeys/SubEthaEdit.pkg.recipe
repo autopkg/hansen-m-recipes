@@ -35,15 +35,15 @@
         </dict>
         <dict>
             <key>Comment</key>
-            <string>Copy %NAME%.app</string>
+            <string>Copy SubEthaEdit.app</string>
             <key>Processor</key>
             <string>Copier</string>
             <key>Arguments</key>
             <dict>
                 <key>source_path</key>
-                <string>%RECIPE_CACHE_DIR%/app/%NAME%.app</string>
+                <string>%RECIPE_CACHE_DIR%/app/SubEthaEdit.app</string>
                 <key>destination_path</key>
-                <string>%pkgroot%/Applications/%NAME%.app</string>
+                <string>%pkgroot%/Applications/SubEthaEdit.app</string>
             </dict>
         </dict>
         <dict>
@@ -54,7 +54,7 @@
             <key>Arguments</key>
             <dict>
                 <key>input_plist_path</key>
-                <string>%pkgroot%/Applications/%NAME%.app/Contents/Info.plist</string>
+                <string>%pkgroot%/Applications/SubEthaEdit.app/Contents/Info.plist</string>
                 <key>plist_version_key</key>
                 <string>CFBundleShortVersionString</string>
             </dict>
