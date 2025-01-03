@@ -20,10 +20,6 @@
     <key>Process</key>
     <array>
         <dict>
-            <key>Processor</key>
-            <string>EndOfCheckPhase</string>
-        </dict>
-        <dict>
             <key>Arguments</key>
             <dict>
                 <key>flat_pkg_path</key>

@@ -39,10 +39,6 @@
                 <string>%found_filename%/Contour Shuttle.app</string>
             </dict>
         </dict>
-        <dict>
-            <key>Processor</key>
-            <string>EndOfCheckPhase</string>
-        </dict>
     </array>
 </dict>
 </plist>
