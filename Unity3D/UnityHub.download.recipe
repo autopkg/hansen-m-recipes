@@ -14,7 +14,7 @@
         <string>https://public-cdn.cloud.unity3d.com/hub/prod/UnityHubSetup.dmg</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.2.9</string>
+    <string>1.1</string>
     <key>Process</key>
     <array>
         <dict>

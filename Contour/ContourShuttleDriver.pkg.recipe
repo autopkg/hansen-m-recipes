@@ -12,7 +12,7 @@
         <string>Contour Shuttle Driver</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.4.0</string>
+    <string>1.0</string>
     <key>ParentRecipe</key>
     <string>com.github.hansen-m.download.ContourShuttleDriver</string>
     <key>Process</key>

@@ -16,7 +16,7 @@
         <string>(?P&lt;url&gt;https://github.com.*(?P&lt;version&gt;[0-9]{1,2}.[0-9]{1,2}.[0-9]{1,2}).zip)</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.2.9</string>
+    <string>1.1</string>
     <key>Process</key>
     <array>
         <dict>

@@ -16,7 +16,7 @@
         <string>(?P&lt;exe&gt;R-(?P&lt;version&gt;[0-9.]+)-win\.exe)</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.2.0</string>
+    <string>0.2.9</string>
     <key>Process</key>
     <array>
         <dict>
