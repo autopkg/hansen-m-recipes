@@ -16,7 +16,7 @@
         <string>(?P&lt;url&gt;https://junolab\.s3\.amazonaws\.com/release/(?P&lt;version&gt;[0-9.]+)/juno-mac-x64\.dmg)</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.2.9</string>
+    <string>1.1</string>
     <key>Process</key>
     <array>
         <dict>

@@ -17,7 +17,7 @@
         <string>Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.2.0</string>
+    <string>0.5.0</string>
     <key>Process</key>
     <array>
         <dict>

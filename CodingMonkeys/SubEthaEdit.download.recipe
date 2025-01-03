@@ -14,7 +14,7 @@
         <string>https://subethaedit.net/SubEthaEdit.zip</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.2.0</string>
+    <string>0.3.1</string>
     <key>Process</key>
     <array>
         <dict>
@@ -47,7 +47,7 @@
             <key>Arguments</key>
             <dict>
                 <key>input_path</key>
-                <string>%RECIPE_CACHE_DIR%/app/%NAME%.app</string>
+                <string>%RECIPE_CACHE_DIR%/app/SubEthaEdit.app</string>
                 <key>requirement</key>
                 <string>anchor apple generic and identifier "de.codingmonkeys.SubEthaEdit.MacFULL" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = S76GCAG929)</string>
             </dict>

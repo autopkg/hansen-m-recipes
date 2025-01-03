@@ -16,7 +16,7 @@
         <string>(?P&lt;url&gt;download.gimp.org/gimp/v.*?/macos/gimp-.*?.dmg)</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.2.9</string>
+    <string>0.3.1</string>
     <key>Process</key>
     <array>
         <dict>

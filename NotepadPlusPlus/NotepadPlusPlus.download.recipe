@@ -14,7 +14,7 @@
         <string>notepad-plus-plus/notepad-plus-plus</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.2.9</string>
+    <string>0.5.0</string>
     <key>Process</key>
     <array>
         <dict>

@@ -18,7 +18,7 @@
         <string>(?P&lt;url&gt;https://download\.risingsoftware\.com/auralia./cloud/auralia_m_(?P&lt;version&gt;.*?)_cloud.pkg)</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.2.9</string>
+    <string>0.3.1</string>
     <key>Process</key>
     <array>
         <dict>

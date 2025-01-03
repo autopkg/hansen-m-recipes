@@ -18,7 +18,7 @@
         <string>(?P&lt;url&gt;https://files3\.minitab\.com/prodinstalls/minitabexpress/minitabexpress1/(?P&lt;version&gt;[0-9.]+)/mac/multi-user/Minitab_Express_MU_v[0-9.]+\.pkg)</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.2.9</string>
+    <string>0.3.1</string>
     <key>Process</key>
     <array>
        <dict>

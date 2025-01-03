@@ -28,7 +28,11 @@
                 <string>Contour-Shuttle-Driver.zip</string>
             </dict>
         </dict>
-            <dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+        <dict>
             <key>Processor</key>
             <string>Unarchiver</string>
         </dict>
@@ -60,10 +64,6 @@
                 <key>dmg_path</key>
                 <string>%found_filename%</string>
             </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>EndOfCheckPhase</string>
         </dict>
     </array>
 </dict>
