@@ -1,35 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-	<key>Description</key>
-	<string>Downloads the current release version of Atom for Windows.</string>
-	<key>Identifier</key>
-	<string>com.github.hansen-m.download.Atom-Win</string>
-	<key>Input</key>
 	<dict>
-		<key>NAME</key>
-		<string>Atom</string>
-	</dict>
-	<key>MinimumVersion</key>
-	<string>0.3.1</string>
-	<key>Process</key>
-	<array>
+		<key>Description</key>
+		<string>Downloads the current release version of Atom for Windows.</string>
+		<key>Identifier</key>
+		<string>com.github.hansen-m.download.Atom-Win</string>
+		<key>Input</key>
 		<dict>
-			<key>Processor</key>
-			<string>URLDownloader</string>
-			<key>Arguments</key>
+			<key>NAME</key>
+			<string>Atom</string>
+		</dict>
+		<key>MinimumVersion</key>
+		<string>0.3.1</string>
+		<key>Process</key>
+		<array>
 			<dict>
-				<key>url</key>
-				<string>https://atom.io/download/windows</string>
-				<key>filename</key>
-				<string>%NAME%.exe</string>
+				<key>Processor</key>
+				<string>DeprecationWarning</string>
+				<key>Arguments</key>
+				<dict>
+					<key>warning_message</key>
+					<string>Atom and all projects under the Atom organization have an official
+						sunset on December 15, 2022</string>
+				</dict>
 			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>EndOfCheckPhase</string>
-		</dict>
-	</array>
-</dict>
+			<!-- <dict>
+				<key>Processor</key>
+				<string>URLDownloader</string>
+				<key>Arguments</key>
+				<dict>
+					<key>url</key>
+					<string>https://atom.io/download/windows</string>
+					<key>filename</key>
+					<string>%NAME%.exe</string>
+				</dict>
+			</dict> -->
+			<dict>
+				<key>Processor</key>
+				<string>EndOfCheckPhase</string>
+			</dict>
+		</array>
+	</dict>
 </plist>
