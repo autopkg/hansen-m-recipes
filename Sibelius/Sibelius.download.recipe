@@ -16,7 +16,7 @@
         <string>(?P&lt;url&gt;http://cdn.avid.com/Sibelius/Sibelius_.*?/.*?/Sibelius_(?P&lt;version&gt;.*?)_Mac\.dmg)</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.4.0</string>
+    <string>1.1</string>
     <key>Process</key>
     <array>
 		<dict>

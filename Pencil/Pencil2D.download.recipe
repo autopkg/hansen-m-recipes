@@ -16,7 +16,7 @@
         <string>(?P&lt;zip&gt;Pencil2D-.*?-mac\.zip)</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.2.9</string>
+    <string>1.1</string>
     <key>Process</key>
     <array>
         <dict>
