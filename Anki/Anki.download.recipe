@@ -53,7 +53,7 @@ Create an input variable called include_prereleases and set to a non-empty strin
                 <key>input_path</key>
                 <string>%pathname%/Anki.app</string>
                 <key>requirement</key>
-                <string>identifier "net.ankiweb.dtop" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "7ZM8SLJM4P"</string>
+                <string>identifier "net.ankiweb.launcher" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "7ZM8SLJM4P"</string>
             </dict>
         </dict>
     </array>
