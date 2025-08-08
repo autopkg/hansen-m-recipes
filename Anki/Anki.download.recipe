@@ -4,11 +4,6 @@
 <dict>
     <key>Description</key>
     <string>Downloads the latest Apple Silicon version of Anki.
-    
-Use RELEASE_REGEX to get Intel qt5 or qt6 releases:
-    .*intel-qt6.*
-    .*intel-qt5.*
-
 Create an input variable called include_prereleases and set to a non-empty string to include prerelease builds.
 </string>
     <key>Identifier</key>
@@ -18,7 +13,7 @@ Create an input variable called include_prereleases and set to a non-empty strin
         <key>NAME</key>
         <string>Anki</string>
         <key>RELEASE_REGEX</key>
-        <string>.*apple.*</string>
+        <string>.*mac.*</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.5.0</string>
