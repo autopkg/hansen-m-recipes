@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>SPEAR</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://www.klingbeil.com/spear/downloads/files/SPEAR_latest.dmg</string>
+        <string>https://www.klingbeil.com/spear/downloads/files/SPEAR_latest.dmg</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.3.1</string>

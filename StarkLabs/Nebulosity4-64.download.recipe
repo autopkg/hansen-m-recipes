@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>Nebulosity4</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://www.stark-labs.com/downloads_files/Nebulosity4-64.pkg</string>
+        <string>https://www.stark-labs.com/downloads_files/Nebulosity4-64.pkg</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.3.1</string>

@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>Silverlight</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://www.microsoft.com/getsilverlight/handlers/getsilverlight.ashx</string>
+        <string>https://www.microsoft.com/getsilverlight/handlers/getsilverlight.ashx</string>
         <key>USER_AGENT</key>
         <string>Mozilla/5.0 (Windows NT 6.2; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0</string>
     </dict>

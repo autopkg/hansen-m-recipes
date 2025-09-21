@@ -67,7 +67,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>http://ardownload.adobe.com/pub/adobe/reader/win/AcrobatDC/%packed_version%/AcroRdrDC%packed_version%_en_US.exe</string>
+                <string>https://ardownload.adobe.com/pub/adobe/reader/win/AcrobatDC/%packed_version%/AcroRdrDC%packed_version%_en_US.exe</string>
                 <key>filename</key>
                 <string>%NAME%.exe</string>
                 <key>request_headers</key>
