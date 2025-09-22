@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>Exceed onDemand Client</string>
         <key>SEARCH_URL</key>
-        <string>http://connectivity.opentext.com/products/mac-os-x-platforms.aspx</string>
+        <string>https://connectivity.opentext.com/products/mac-os-x-platforms.aspx</string>
         <key>SEARCH_PATTERN</key>
         <string>(?P&lt;url&gt;http://mimage\.opentext\.com/patches/connectivity/eod8/[a-z0-9_]+/[a-z0-9]+/mac/eodclient.-(?P&lt;version&gt;[0-9.]+)\.dmg)</string>
     </dict>

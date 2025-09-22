@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>Firestorm</string>
         <key>SEARCH_URL</key>
-        <string>http://www.firestormviewer.org/mac/</string>
+        <string>https://www.firestormviewer.org/mac/</string>
         <key>SEARCH_PATTERN</key>
         <string>(?P&lt;url&gt;http://downloads\.firestormviewer\.org/mac/Phoenix-Firestorm-Release-.*?\.dmg)</string>
     </dict>

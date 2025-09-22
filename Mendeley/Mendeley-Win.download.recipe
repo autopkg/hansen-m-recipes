@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>Mendeley</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://www.mendeley.com/client/get/1/</string>
+        <string>https://www.mendeley.com/client/get/1/</string>
         <key>USER_AGENT</key>
         <string>Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko</string>
     </dict>

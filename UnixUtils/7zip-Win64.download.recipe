@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>7zip</string>
         <key>SEARCH_URL</key>
-        <string>http://7-zip.org/download.html</string>
+        <string>https://7-zip.org/download.html</string>
         <key>SEARCH_PATTERN</key>
         <string>a/7z[0-9]+-x64\.msi</string>
     </dict>
@@ -47,7 +47,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>http://d.7-zip.org/%match%</string>
+                <string>https://d.7-zip.org/%match%</string>
                 <key>filename</key>
                 <string>%NAME%.msi</string>
             </dict>

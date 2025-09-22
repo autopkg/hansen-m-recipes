@@ -13,7 +13,7 @@
         <key>SEARCH_URL</key>
         <string>http://internal.artstor.org/global/g-html/download-oiv-participant.html</string>
         <key>BASE_URL</key>
-        <string>http://www.artstor.org</string>
+        <string>https://www.artstor.org</string>
         <key>USER_AGENT</key>
         <string>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12</string>
     </dict>

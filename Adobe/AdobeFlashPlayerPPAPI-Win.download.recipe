@@ -45,7 +45,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>http://fpdownload.adobe.com/get/flashplayer/pdc/%version%/install_flash_player_ppapi.exe</string>
+                <string>https://fpdownload.adobe.com/get/flashplayer/pdc/%version%/install_flash_player_ppapi.exe</string>
                 <key>filename</key>
                 <string>%NAME%.exe</string>
             </dict>
