@@ -1,61 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-    <key>Description</key>
-    <string>Downloads the latest Apple Silicon version of Anki.
-Create an input variable called include_prereleases and set to a non-empty string to include prerelease builds.
-</string>
-    <key>Identifier</key>
-    <string>com.github.hansen-m.download.Anki</string>
-    <key>Input</key>
     <dict>
-        <key>NAME</key>
-        <string>Anki</string>
-        <key>RELEASE_REGEX</key>
-        <string>.*mac.*</string>
+        <key>Description</key>
+        <string>Downloads the latest Apple Silicon version of Anki. Create an input variable called
+            include_prereleases and set to a non-empty string to include prerelease builds. </string>
+        <key>Identifier</key>
+        <string>com.github.hansen-m.download.Anki</string>
+        <key>Input</key>
+        <dict>
+            <key>NAME</key>
+            <string>Anki</string>
+            <key>RELEASE_REGEX</key>
+            <string>.*mac.*</string>
+        </dict>
+        <key>MinimumVersion</key>
+        <string>0.5.0</string>
+        <key>Process</key>
+        <array>
+            <dict>
+                <key>Processor</key>
+                <string>GitHubReleasesInfoProvider</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>github_repo</key>
+                    <string>ankitects/anki</string>
+                    <key>asset_regex</key>
+                    <string>%RELEASE_REGEX%</string>
+                </dict>
+            </dict>
+            <dict>
+                <key>Processor</key>
+                <string>URLDownloader</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>url</key>
+                    <string>%url%</string>
+                    <key>filename</key>
+                    <string>%NAME%.dmg</string>
+                </dict>
+            </dict>
+            <dict>
+                <key>Processor</key>
+                <string>EndOfCheckPhase</string>
+            </dict>
+            <dict>
+                <key>Processor</key>
+                <string>CodeSignatureVerifier</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>input_path</key>
+                    <string>%pathname%/Anki.app</string>
+                    <key>requirement</key>
+                    <string>identifier "net.ankiweb.dtop" and anchor apple generic and certificate
+                        1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate
+                        leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate
+                        leaf[subject.OU] = "7ZM8SLJM4P"</string>
+                </dict>
+            </dict>
+        </array>
     </dict>
-    <key>MinimumVersion</key>
-    <string>0.5.0</string>
-    <key>Process</key>
-    <array>
-        <dict>
-            <key>Processor</key>
-            <string>GitHubReleasesInfoProvider</string>
-            <key>Arguments</key>
-            <dict>
-                <key>github_repo</key>
-                <string>ankitects/anki</string>
-                <key>asset_regex</key>
-                <string>%RELEASE_REGEX%</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>URLDownloader</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>%url%</string>
-                <key>filename</key>
-                <string>%NAME%.dmg</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>EndOfCheckPhase</string>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>CodeSignatureVerifier</string>
-            <key>Arguments</key>
-            <dict>
-                <key>input_path</key>
-                <string>%pathname%/Anki.app</string>
-                <key>requirement</key>
-                <string>identifier "net.ankiweb.launcher" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "7ZM8SLJM4P"</string>
-            </dict>
-        </dict>
-    </array>
-</dict>
 </plist>
