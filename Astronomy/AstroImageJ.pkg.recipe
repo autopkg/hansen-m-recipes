@@ -86,8 +86,6 @@
                         <string>%pkgroot%</string>
                         <key>id</key>
                         <string>edu.louisville.astro.AstroImageJ.pkg</string>
-                        <key>options</key>
-                        <string>purge_ds_store</string>
                         <key>chown</key>
                         <array>
                             <dict>
