@@ -77,8 +77,6 @@
                    <string>%NAME%-%version%</string>
                    <key>id</key>
                    <string>com.mendeley.desktop.pkg</string>
-                   <key>resources</key>
-                   <string>Resources</string>
                    <key>chown</key>
                    <array>
                        <dict>
