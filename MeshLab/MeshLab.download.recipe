@@ -3,13 +3,17 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest version of MeshLab.</string>
+    <string>Downloads the latest version of MeshLab.
+
+Set INCLUDE_PRERELEASES to a non-empty value to download pre-release versions of the software.</string>
     <key>Identifier</key>
     <string>com.github.hansen-m.download.MeshLab</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
         <string>MeshLab</string>
+        <key>INCLUDE_PRERELEASES</key>
+        <string></string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.6.1</string>
@@ -22,6 +26,8 @@
                 <string>cnr-isti-vclab/meshlab</string>
                 <key>asset_regex</key>
                 <string>.*-macos.dmg</string>
+                <key>include_prereleases</key>
+                <string>%INCLUDE_PRERELEASES%</string>
             </dict>
             <key>Processor</key>
             <string>GitHubReleasesInfoProvider</string>
