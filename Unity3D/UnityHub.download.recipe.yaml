@@ -1,0 +1,20 @@
+Description: Downloads the latest version of Unity Hub.
+Identifier: com.github.hansen-m.download.UnityHub
+MinimumVersion: 2.7.6
+
+Input:
+  NAME: UnityHub
+  DOWNLOAD_URL: "https://public-cdn.cloud.unity3d.com/hub/prod/UnityHubSetup.dmg"
+
+Process:
+  - Processor: URLDownloader
+    Arguments:
+      url: "%DOWNLOAD_URL%"
+      filename: "UnityHub.dmg"
+
+  - Processor: CodeSignatureVerifier
+    Arguments:
+      input_path: "%RECIPE_CACHE_DIR%/downloads/UnityHub.dmg/Unity Hub.app"
+      requirement: identifier "com.unity3d.unityhub" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "9QW8UQUTAA"
+
+  - Processor: EndOfCheckPhase
