@@ -4,7 +4,7 @@ MinimumVersion: 2.7.6
 
 Input:
   NAME: UnityHub
-  BUILD: arm64 # Options: arm64, x86
+  BUILD: arm64 # Options: arm64, x64
 
 Process:
   - Processor: URLDownloader
