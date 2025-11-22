@@ -10,7 +10,7 @@
     <dict>
         <key>NAME</key>
         <string>iTunes</string>
-        <!--Downloads 64 bit version by default. Uncomment following win32 url or override to get 32bit version--> 
+        <!--Downloads 64 bit version by default. Uncomment following win32 url or override to get 32bit version-->
         <!--<key>DOWNLOAD_URL</key>
         <string>https://www.apple.com/itunes/download/win32</string>-->
         <key>DOWNLOAD_URL</key>
@@ -37,6 +37,10 @@
                 <key>filename</key>
                 <string>%NAME%.exe</string>
             </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
         </dict>
         <dict>
             <key>Processor</key>
@@ -81,10 +85,6 @@
                     <string>%RECIPE_CACHE_DIR%/ExeExtract</string>
                 </array>
             </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>EndOfCheckPhase</string>
         </dict>
     </array>
 </dict>

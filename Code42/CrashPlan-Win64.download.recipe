@@ -28,16 +28,16 @@
         </dict>
         <dict>
             <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
             <string>com.github.hansen-m.SharedProcessors/MSIInfoVersionProvider</string>
             <key>Arguments</key>
             <dict>
                 <key>msi_path</key>
                 <string>%pathname%</string>
             </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>EndOfCheckPhase</string>
         </dict>
     </array>
 </dict>

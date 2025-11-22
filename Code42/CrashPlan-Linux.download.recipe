@@ -30,6 +30,10 @@
         </dict>
         <dict>
             <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
             <string>Unarchiver</string>
             <key>Arguments</key>
             <dict>
@@ -58,10 +62,6 @@
                 <key>output_var_name</key>
                 <string>version</string>
             </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>EndOfCheckPhase</string>
         </dict>
     </array>
 </dict>

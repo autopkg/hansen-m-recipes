@@ -30,6 +30,10 @@
         </dict>
         <dict>
             <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
             <string>com.github.hansen-m.SharedProcessors/HachoirMetaDataProvider</string>
             <key>Arguments</key>
             <dict>
@@ -49,10 +53,6 @@
                 <key>bes_relevance</key>
                 <string>(if (last 2 of it = ".0") then substring (0, length of it - 2) of it else it) of "%version%"</string>
             </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>EndOfCheckPhase</string>
         </dict>
     </array>
 </dict>

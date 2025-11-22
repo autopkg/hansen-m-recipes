@@ -15,11 +15,11 @@
         <key>SEARCH_PATTERN1</key>
         <string>(/release/([0-9]{1,3}.[0-9]{0,3}.[0-9]{0,3})/mac-os-x/)</string>
         <key>SEARCH_PATTERN2</key>
-        <string>(/%ARCHITECTURE%/dl)</string>  
+        <string>(/%ARCHITECTURE%/dl)</string>
         <key>SEARCH_PATTERN3</key>
-        <string>(?P&lt;dmgurl&gt;\/gallery\/.*Inkscape.*dmg)</string>  
+        <string>(?P&lt;dmgurl&gt;\/gallery\/.*Inkscape.*dmg)</string>
         <key>ARCHITECTURE</key>
-        <string>dmg</string>  
+        <string>dmg</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.3.1</string>
@@ -77,6 +77,10 @@
         </dict>
         <dict>
             <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
             <string>Versioner</string>
             <key>Arguments</key>
             <dict>
@@ -94,10 +98,6 @@
                 <key>requirement</key>
                 <string>identifier "org.inkscape.Inkscape" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = SW3D6BB6A6</string>
             </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>EndOfCheckPhase</string>
         </dict>
     </array>
 </dict>
