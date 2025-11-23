@@ -52,6 +52,10 @@
         </dict>
         <dict>
             <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
             <string>CodeSignatureVerifier</string>
             <key>Arguments</key>
             <dict>
@@ -60,10 +64,6 @@
                 <key>requirement</key>
                 <string>identifier "org.gimp.gimp-2.10" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = T25BQ8HSJF</string>
             </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>EndOfCheckPhase</string>
         </dict>
     </array>
 </dict>

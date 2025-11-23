@@ -12,6 +12,8 @@ Process:
       url: "https://public-cdn.cloud.unity3d.com/hub/prod/UnityHubSetup-%BUILD%.dmg"
       filename: "%NAME%.dmg"
 
+  - Processor: EndOfCheckPhase
+
   - Processor: CodeSignatureVerifier
     Arguments:
       input_path: "%RECIPE_CACHE_DIR%/downloads/%NAME%.dmg/Unity Hub.app"
@@ -20,5 +22,3 @@ Process:
   - Processor: Versioner
     Arguments:
       input_plist_path: "%RECIPE_CACHE_DIR%/downloads/%NAME%.dmg/Unity Hub.app/Contents/Info.plist"
-
-  - Processor: EndOfCheckPhase

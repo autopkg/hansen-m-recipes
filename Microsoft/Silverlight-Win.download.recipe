@@ -37,16 +37,16 @@
         </dict>
         <dict>
             <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
             <string>com.github.hansen-m.SharedProcessors/HachoirMetaDataProvider</string>
             <key>Arguments</key>
             <dict>
                 <key>file_path</key>
                 <string>%pathname%</string>
             </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>EndOfCheckPhase</string>
         </dict>
     </array>
 </dict>

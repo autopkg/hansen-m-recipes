@@ -34,16 +34,16 @@
         </dict>
         <dict>
             <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
             <string>Versioner</string>
             <key>Arguments</key>
             <dict>
                 <key>input_plist_path</key>
                 <string>%pathname%/ProjectLibre.app/Contents/Info.plist</string>
             </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>EndOfCheckPhase</string>
         </dict>
     </array>
 </dict>

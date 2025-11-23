@@ -37,6 +37,10 @@
         </dict>
         <dict>
             <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
             <string>com.github.jgstew.SharedProcessors/FileMsiGetProperty</string>
             <key>Arguments</key>
             <dict>
@@ -45,10 +49,6 @@
                 <key>msi_path</key>
                 <string>%pathname%</string>
             </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>EndOfCheckPhase</string>
         </dict>
     </array>
 </dict>

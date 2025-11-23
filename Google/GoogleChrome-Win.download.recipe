@@ -30,6 +30,10 @@
         </dict>
         <dict>
             <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
             <string>com.github.hansen-m.SharedProcessors/GoogleChromeWinVersioner</string>
             <key>Arguments</key>
             <dict>
@@ -49,10 +53,6 @@
                     <string>%RECIPE_CACHE_DIR%/InstallerExtract</string>
                 </array>
             </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>EndOfCheckPhase</string>
         </dict>
     </array>
 </dict>

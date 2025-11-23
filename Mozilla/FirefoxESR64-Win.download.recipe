@@ -30,6 +30,10 @@
         </dict>
         <dict>
             <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
             <string>com.github.hansen-m.SharedProcessors/WinInstallerExtractor</string>
             <key>Arguments</key>
             <dict>
@@ -62,10 +66,6 @@
                     <string>%RECIPE_CACHE_DIR%/ExeExtract</string>
                 </array>
             </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>EndOfCheckPhase</string>
         </dict>
     </array>
 </dict>

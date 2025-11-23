@@ -42,6 +42,10 @@
         </dict>
         <dict>
             <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
             <string>BESRelevanceProvider</string>
             <key>Arguments</key>
             <dict>
@@ -52,10 +56,6 @@
                 <key>bes_relevance</key>
                 <string>(it as version) of (following text of first "-RELEASE-" of "%version%" | "%version%")</string>
             </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>EndOfCheckPhase</string>
         </dict>
     </array>
 </dict>

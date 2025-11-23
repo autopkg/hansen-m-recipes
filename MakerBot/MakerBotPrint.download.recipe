@@ -51,6 +51,10 @@
             </dict>
         </dict>
         <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+        <dict>
            <key>Processor</key>
             <string>FlatPkgUnpacker</string>
             <key>Arguments</key>
@@ -94,10 +98,6 @@
             </dict>
             <key>Processor</key>
             <string>PathDeleter</string>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>EndOfCheckPhase</string>
         </dict>
     </array>
 </dict>

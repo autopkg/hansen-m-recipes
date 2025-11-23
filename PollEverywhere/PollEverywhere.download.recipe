@@ -37,6 +37,10 @@
         </dict>
         <dict>
             <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
             <string>PlistReader</string>
             <key>Arguments</key>
             <dict>
@@ -48,10 +52,6 @@
                      <string>version</string>
                  </dict>
             </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>EndOfCheckPhase</string>
         </dict>
     </array>
 </dict>
