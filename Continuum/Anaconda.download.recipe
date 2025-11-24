@@ -36,18 +36,7 @@ to chose between 'sh' or 'pkg'.</string>
                 <key>url</key>
                 <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
-                <string>Python (?P&lt;PYTHON_VERSION&gt;%PYTHON_MAJOR_VERSION%\.\d)</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>URLTextSearcher</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>%SEARCH_URL%</string>
-                <key>re_pattern</key>
-                <string>%SEARCH_PATTERN%</string> 
+                <string>%SEARCH_PATTERN%</string>
             </dict>
         </dict>
         <dict>
