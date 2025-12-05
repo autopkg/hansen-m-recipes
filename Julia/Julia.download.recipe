@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>Julia</string>
         <key>SEARCH_URL</key>
-        <string>https://julialang.org/downloads/</string>
+        <string>https://julialang.org/downloads/manual-downloads/</string>
         <key>SEARCH_PATTERN</key>
         <string>(?P&lt;url&gt;https://julialang-s3.julialang.org/bin/mac/x64/[0-9.]+/julia-(?P&lt;version&gt;[0-9.]+)-mac64.dmg)</string>
     </dict>
