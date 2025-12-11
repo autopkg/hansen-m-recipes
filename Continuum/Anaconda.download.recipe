@@ -17,7 +17,7 @@ to chose between 'sh' or 'pkg'.</string>
         <key>PYTHON_MAJOR_VERSION</key>
         <string>3</string>
         <key>ARCH</key>
-        <string>x86_64</string>
+        <string>arm64</string>
         <key>SEARCH_URL</key>
         <string>https://www.anaconda.com/download/success</string>
         <!-- Just to note, for future reference, incase it breaks, the above page is being redirected to:  https://www.anaconda.com/products/individual -->
