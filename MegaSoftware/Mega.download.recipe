@@ -28,6 +28,11 @@
             <dict>
                 <key>filename</key>
                 <string>%APP_FILENAME%.pkg</string>
+                <key>request_headers</key>
+                <dict>
+					<key>User-Agent</key>
+					<string>Mozilla/5.0 (Macintosh; Intel Mac OS X 13_5_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15</string>
+				</dict>
             </dict>
             <key>Processor</key>
             <string>URLDownloader</string>
