@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>MacTeX</string>
         <key>DOWNLOADPAGE_URL</key>
-        <string>http://www.tug.org/mactex/mactex-download.html</string>
+        <string>https://www.tug.org/mactex/mactex-download.html</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>

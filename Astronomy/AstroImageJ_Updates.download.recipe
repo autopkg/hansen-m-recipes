@@ -11,7 +11,7 @@
             <key>NAME</key>
             <string>AstroImageJ Updates</string>
             <key>JAR_URL</key>
-            <string>http://www.astro.louisville.edu/software/astroimagej/updates/updatesjava17</string>
+            <string>https://www.astro.louisville.edu/software/astroimagej/updates/updatesjava17</string>
         </dict>
         <key>MinimumVersion</key>
         <string>0.2.9</string>
