@@ -14,7 +14,7 @@
         <string>https://www.tug.org/mactex/mactex-download.html</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.2.9</string>
+    <string>1.1</string>
     <key>Process</key>
     <array>
         <dict>
@@ -23,7 +23,7 @@
             <key>Arguments</key>
             <dict>
                 <key>warning_message</key>
-                <string>This recipe is being depricated. Please remove it from your list of recipes. Use parent com.github.joshua-d-miller.download.MacTeX instead.</string>
+                <string>Consider switching to MacTeX recipes in the joshua-d-miller-recipes repo. This recipe is deprecated and will be removed in the future.</string>
             </dict>
         </dict>
         <dict>
