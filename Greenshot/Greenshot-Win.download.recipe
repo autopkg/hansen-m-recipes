@@ -12,7 +12,7 @@
         <string>Greenshot</string>
         <key>GREENSHOT_ASSET_REGEX</key>
 <!--    <string>Greenshot-INSTALLER-[0-9.]+-RELEASE\.exe</string>-->
-        <string>Greenshot-NO-INSTALLER-[0-9.]+-RELEASE\.zip</string>
+        <string>Greenshot-PORTABLE-[0-9.]+-RELEASE\.zip</string>
         <key>USER_AGENT</key>
         <string>Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko</string>
     </dict>
