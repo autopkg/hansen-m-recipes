@@ -1,0 +1,23 @@
+Description: Downloads the latest version of Scribus.
+Identifier: com.github.hansen-m.download.Scribus
+MinimumVersion: "0.2.9"
+
+Input:
+  NAME: Scribus
+  ARCH: arm64 # Set to arm64 or x86_64
+  SEARCH_URL: https://sourceforge.net/projects/scribus/rss?path=/scribus
+  SEARCH_PATTERN: >-
+    (?P<url>https://sourceforge.net/projects/scribus/files/scribus/(?P<version>.*?)/scribus-.*?-%ARCH%.dmg/download)
+
+Process:
+  - Processor: URLTextSearcher
+    Arguments:
+      url: "%SEARCH_URL%"
+      re_pattern: "%SEARCH_PATTERN%"
+
+  - Processor: URLDownloader
+    Arguments:
+      url: "%url%"
+      filename: "%NAME%-%version%-%ARCH%.dmg"
+
+  - Processor: EndOfCheckPhase
