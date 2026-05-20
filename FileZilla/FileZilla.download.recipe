@@ -27,7 +27,7 @@
             <key>Arguments</key>
             <dict>
                 <key>warning_message</key>
-                <string>Consider switching to the FileZilla recipes in the keeleysam-recipes repo. This recipe is deprecated and will be removed in the future.</string>
+                <string>Consider switching to the FileZilla recipe com.github.wycomco.download.FileZilla. This recipe is deprecated and will be removed in the future.</string>
             </dict>
         </dict>
         <dict>
