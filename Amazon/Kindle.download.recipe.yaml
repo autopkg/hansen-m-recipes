@@ -1,0 +1,36 @@
+Description: Downloads the latest version of the Kindle for Mac app from Amazon.
+Identifier: com.github.hansen-m.download.Kindle
+MinimumVersion: "0.6.1"
+
+Input:
+  NAME: Kindle
+  ARCH: x86_64 # Override to arm64 if a direct ARM DMG becomes available
+  USER_AGENT: >-
+    Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3)
+    AppleWebKit/601.4.4 (KHTML, like Gecko)
+    Version/9.0.3 Safari/601.4.4
+
+  # NOTE:
+  # Amazon currently redirects the "direct download" button to the Mac App Store.
+  # If Amazon restores direct downloads and provides architecture-specific DMGs,
+  # replace DOWNLOAD_URL with the appropriate Intel/ARM URL logic.
+  DOWNLOAD_URL: https://www.amazon.com/kindlemacdownload/ref=klp_mac
+
+Process:
+  - Processor: URLDownloader
+    Arguments:
+      request_headers:
+        user-agent: "%USER_AGENT%"
+      url: "%DOWNLOAD_URL%"
+      filename: "%NAME%-%ARCH%.dmg"
+
+  - Processor: EndOfCheckPhase
+
+  - Processor: CodeSignatureVerifier
+    Arguments:
+      input_path: "%pathname%/Kindle.app"
+      requirement: >-
+        identifier "com.amazon.Kindle" and anchor apple generic and
+        certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and
+        certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and
+        certificate leaf[subject.OU] = "94KV3E626L"
