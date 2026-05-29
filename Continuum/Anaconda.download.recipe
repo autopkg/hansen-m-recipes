@@ -19,10 +19,9 @@ to chose between 'sh' or 'pkg'.</string>
         <key>ARCH</key>
         <string>arm64</string>
         <key>SEARCH_URL</key>
-        <string>https://www.anaconda.com/download/success</string>
-        <!-- Just to note, for future reference, incase it breaks, the above page is being redirected to:  https://www.anaconda.com/products/individual -->
+        <string>https://repo.anaconda.com/archive</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;https\://repo\.(anaconda\.com|continuum\.io)/archive/Anaconda%PYTHON_MAJOR_VERSION%-(?P&lt;version&gt;[0-9.|-]+)-MacOSX-%ARCH%\.%INSTALLER_TYPE%)</string>
+        <string>(?P&lt;url&gt;Anaconda%PYTHON_MAJOR_VERSION%-(?P&lt;version&gt;[0-9.|-]+)-MacOSX-%ARCH%\.%INSTALLER_TYPE%)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.4.0</string>
@@ -45,7 +44,7 @@ to chose between 'sh' or 'pkg'.</string>
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%url%</string>
+                <string>https://repo.anaconda.com/archive/%match%</string>
                 <key>filename</key>
                 <string>%NAME%%PYTHON_MAJOR_VERSION%-%version%.%INSTALLER_TYPE%</string>
             </dict>
