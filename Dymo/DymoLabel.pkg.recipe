@@ -10,8 +10,6 @@
     <dict>
         <key>NAME</key>
         <string>DYMO Label</string>
-        <key>bes_icon</key>
-        <string>http://bes.win.psu.edu:52311/ManualUploads/PSU/Icons/DYMO-DYMOLabel.png</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
