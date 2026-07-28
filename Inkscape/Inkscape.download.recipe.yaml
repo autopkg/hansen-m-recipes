@@ -1,0 +1,43 @@
+Description: Downloads the latest version of Inkscape. You may choose between dmg and dmg-arm64 as architecture; this recipe defaults to dmg (Intel).
+Identifier: com.github.hansen-m.download.Inkscape
+MinimumVersion: "0.3.1"
+
+Input:
+  NAME: Inkscape
+  SEARCH_URL: https://inkscape.org
+  SEARCH_PATTERN1: >-
+    (/release/([0-9]{1,3}.[0-9]{0,3}.[0-9]{0,3})/mac-os-x/)
+  SEARCH_PATTERN2: >-
+    (/%ARCHITECTURE%/dl)
+  SEARCH_PATTERN3: >-
+    (?P<dmgurl>\/gallery\/.*Inkscape.*dmg)
+  ARCHITECTURE: dmg
+
+Process:
+  - Processor: URLTextSearcher
+    Arguments:
+      url: "%SEARCH_URL%/release"
+      re_pattern: "%SEARCH_PATTERN1%"
+      result_output_var_name: release_page_match
+  - Processor: URLTextSearcher
+    Arguments:
+      url: "%SEARCH_URL%%release_page_match%"
+      re_pattern: "%SEARCH_PATTERN2%"
+      result_output_var_name: arch_release_page_match
+  - Processor: URLTextSearcher
+    Arguments:
+      url: "%SEARCH_URL%%release_page_match%%arch_release_page_match%"
+      re_pattern: "%SEARCH_PATTERN3%"
+      result_output_var_name: gallery_download_match
+  - Processor: URLDownloader
+    Arguments:
+      url: "%SEARCH_URL%%gallery_download_match%"
+      filename: "%NAME%.dmg"
+  - Processor: EndOfCheckPhase
+  - Processor: Versioner
+    Arguments:
+      input_plist_path: "%pathname%/Inkscape.app/Contents/Info.plist"
+  - Processor: CodeSignatureVerifier
+    Arguments:
+      input_path: "%pathname%/Inkscape*.*app"
+      requirement: 'identifier "org.inkscape.Inkscape" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = SW3D6BB6A6'
