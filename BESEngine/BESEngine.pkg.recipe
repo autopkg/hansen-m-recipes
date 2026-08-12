@@ -60,7 +60,7 @@
             <key>Arguments</key>
             <dict>
                 <key>source_path</key>
-                <string>%RECIPE_CACHE_DIR%/%NAME%-Source/besengine-master/Code/AutoPkgBESEngine.py</string>
+                <string>%RECIPE_CACHE_DIR%/%NAME%-Source/besengine-%version%/Code/AutoPkgBESEngine.py</string>
                 <key>destination_path</key>
                 <string>%pkgroot%/Library/AutoPkg/autopkglib/AutoPkgBESEngine.py</string>
             </dict>
@@ -73,7 +73,7 @@
             <key>Arguments</key>
             <dict>
                 <key>source_path</key>
-                <string>%RECIPE_CACHE_DIR%/%NAME%-Source/besengine-master/Code/BESImporter.py</string>
+                <string>%RECIPE_CACHE_DIR%/%NAME%-Source/besengine-%version%/Code/BESImporter.py</string>
                 <key>destination_path</key>
                 <string>%pkgroot%/Library/AutoPkg/autopkglib/BESImporter.py</string>
             </dict>
@@ -86,7 +86,7 @@
             <key>Arguments</key>
             <dict>
                 <key>source_path</key>
-                <string>%RECIPE_CACHE_DIR%/%NAME%-Source/besengine-master/Code/BESUploader.py</string>
+                <string>%RECIPE_CACHE_DIR%/%NAME%-Source/besengine-%version%/Code/BESUploader.py</string>
                 <key>destination_path</key>
                 <string>%pkgroot%/Library/AutoPkg/autopkglib/BESUploader.py</string>
             </dict>
@@ -99,7 +99,7 @@
             <key>Arguments</key>
             <dict>
                 <key>source_path</key>
-                <string>%RECIPE_CACHE_DIR%/%NAME%-Source/besengine-master/Code/BESRelevanceProvider.py</string>
+                <string>%RECIPE_CACHE_DIR%/%NAME%-Source/besengine-%version%/Code/BESRelevanceProvider.py</string>
                 <key>destination_path</key>
                 <string>%pkgroot%/Library/AutoPkg/autopkglib/BESRelevanceProvider.py</string>
             </dict>
