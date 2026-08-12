@@ -12,6 +12,8 @@
         <string>BESEngine</string>
         <key>DOWNLOAD_URL</key>
         <string>https://git.psu.edu/sysman/besengine/-/archive/master/besengine-master.zip</string>
+        <key>GITHUB_REPO</key>
+        <string>psu-em/besengine</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.4.0</string>
@@ -19,11 +21,22 @@
     <array>
         <dict>
             <key>Processor</key>
+            <string>GitHubReleasesInfoProvider</string>
+            <key>Arguments</key>
+            <dict>
+                <key>github_repo</key>
+                <string>%GITHUB_REPO%</string>
+                <key>asset_regex</key>
+                <string>.*\.zip</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%DOWNLOAD_URL%</string>
+                <string>%url%</string>
                 <key>filename</key>
                 <string>%NAME%.zip</string>
             </dict>
