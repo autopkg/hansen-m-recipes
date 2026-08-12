@@ -10,8 +10,6 @@
     <dict>
         <key>NAME</key>
         <string>BESEngine</string>
-        <key>DOWNLOAD_URL</key>
-        <string>https://git.psu.edu/sysman/besengine/-/archive/master/besengine-master.zip</string>
         <key>GITHUB_REPO</key>
         <string>psu-em/besengine</string>
     </dict>
