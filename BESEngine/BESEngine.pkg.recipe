@@ -33,17 +33,6 @@
             </dict>
         </dict>
         <dict>
-            <key>Processor</key>
-            <string>URLTextSearcher</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>https://git.psu.edu/sysman/besengine/raw/master/Code/AutoPkgBESEngine.py</string>
-                <key>re_pattern</key>
-                <string>__version__ = \'(?P&lt;version&gt;[0-9.]+)\'</string>
-            </dict>
-        </dict>
-        <dict>
             <key>Comment</key>
             <string>Create a pkg root; we'll extract things from the zip file here.</string>
             <key>Processor</key>
