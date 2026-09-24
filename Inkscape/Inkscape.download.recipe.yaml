@@ -18,6 +18,8 @@ Process:
     Arguments:
       url: "%SEARCH_URL%/release"
       re_pattern: "%SEARCH_PATTERN1%"
+      curl_opts:
+        - "-L"
       result_output_var_name: release_page_match
   - Processor: URLTextSearcher
     Arguments:
