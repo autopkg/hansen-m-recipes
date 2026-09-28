@@ -10,8 +10,11 @@
     <dict>
         <key>NAME</key>
         <string>Firefox</string>
+        <key>os_arch</key>
+        <string>win64</string>
+        <!--pass win64-aarch64 for arm64 version-->
         <key>DOWNLOAD_URL</key>
-        <string>https://download.mozilla.org/?product=firefox-latest&amp;os=win64&amp;lang=en-US</string>
+        <string>https://download.mozilla.org/?product=firefox-latest&amp;os=%os_arch%&amp;lang=en-US</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
