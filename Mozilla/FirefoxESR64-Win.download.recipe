@@ -11,7 +11,10 @@
         <key>NAME</key>
         <string>FirefoxESR64</string>
         <key>DOWNLOAD_URL</key>
-        <string>https://download.mozilla.org/?product=firefox-esr-latest&amp;os=win64&amp;lang=en-US</string>
+        <key>os_arch</key>
+        <string>win64</string>
+        <!--pass win64-aarch64 for arm64 download-->
+        <string>https://download.mozilla.org/?product=firefox-esr-latest&amp;os=%os_arch%&amp;lang=en-US</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
