@@ -1,0 +1,129 @@
+name: Test AutoPkg Pull Request
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+    paths:
+      - "**/*.recipe"
+      - "**/*.recipe.yaml"
+      - "**/*.recipe.yml"
+      - "**/*.recipe.plist"
+
+permissions:
+  contents: read
+
+jobs:
+  test-recipes:
+    name: Test Changed AutoPkg Recipes
+    runs-on: macos-15
+    timeout-minutes: 30
+
+    steps:
+      #
+      # Checkout the PR
+      #
+      - name: Checkout pull request
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      #
+      # Install AutoPkg
+      #
+      - name: Setup AutoPkg
+        uses: autopkg/setup-autopkg-actions@v0.1.2
+        with:
+          use-python-version: "3.11"
+
+      #
+      # Show environment information
+      #
+      - name: Show environment
+        shell: bash
+        run: |
+          echo "macOS:"
+          sw_vers
+
+          echo
+          echo "Architecture:"
+          uname -m
+
+          echo
+          echo "AutoPkg:"
+          python autopkg/Code/autopkg version
+
+      #
+      # Configure this repository as a recipe search directory
+      #
+      - name: Configure AutoPkg
+        shell: bash
+        run: |
+          defaults write com.github.autopkg RECIPE_SEARCH_DIRS -array \
+            "$GITHUB_WORKSPACE" \
+            "$HOME/Library/AutoPkg/RecipeRepos"
+
+          echo "Recipe search directories:"
+          defaults read com.github.autopkg RECIPE_SEARCH_DIRS
+
+      #
+      # Determine which recipes the PR changed
+      #
+      - name: Find changed recipes
+        id: changed
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          git diff \
+            --name-only \
+            --diff-filter=ACMRT \
+            "${{ github.event.pull_request.base.sha }}" \
+            "${{ github.event.pull_request.head.sha }}" \
+            | grep -E '\.recipe(\.yaml|\.yml|\.plist)?$' \
+            | sort -u \
+            > /tmp/recipes.txt || true
+
+          echo "Recipes changed by PR:"
+
+          if [[ -s /tmp/recipes.txt ]]; then
+            cat /tmp/recipes.txt
+            echo "has_recipes=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "No recipes changed."
+            echo "has_recipes=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      #
+      # Test each changed recipe
+      #
+      - name: Test changed recipes
+        if: steps.changed.outputs.has_recipes == 'true'
+        shell: bash
+        run: |
+          set -uo pipefail
+
+          failed=0
+
+          while IFS= read -r recipe; do
+
+            echo
+            echo "=================================================="
+            echo "Testing: $recipe"
+            echo "=================================================="
+            echo
+
+            if python autopkg/Code/autopkg run -vv "$GITHUB_WORKSPACE/$recipe"; then
+              echo
+              echo "PASS: $recipe"
+            else
+              echo
+              echo "::error file=$recipe::AutoPkg recipe failed"
+              failed=1
+            fi
+
+          done < /tmp/recipes.txt
+
+          exit "$failed"
