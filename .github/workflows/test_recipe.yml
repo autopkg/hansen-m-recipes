@@ -33,7 +33,41 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      
+      - name: Debug checkout
+        shell: bash
+        run: |
+          echo "=== Repository ==="
+          echo "$GITHUB_REPOSITORY"
 
+          echo
+          echo "=== Ref ==="
+          echo "$GITHUB_REF"
+
+          echo
+          echo "=== SHA ==="
+          echo "$GITHUB_SHA"
+
+          echo
+          echo "=== Working directory ==="
+          pwd
+
+          echo
+          echo "=== Repository root ==="
+          ls -la
+
+          echo
+          echo "=== autopkg directory ==="
+          ls -la autopkg || true
+
+          echo
+          echo "=== requirements file ==="
+          if [[ -f autopkg/gh_actions_requirements.txt ]]; then
+            echo "FOUND"
+            cat autopkg/gh_actions_requirements.txt
+          else
+            echo "NOT FOUND"
+          fi
       - name: Setup AutoPkg
         uses: autopkg/setup-autopkg-actions@v0.1.2
         with:
