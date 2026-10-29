@@ -52,7 +52,7 @@ jobs:
       
           python -m pip install --upgrade pip
           python -m pip install \
-            --requirement autopkg/gh_actions_requirements.txt
+            --requirement requirements.txt
       
       - name: Verify AutoPkg
         shell: bash
