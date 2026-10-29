@@ -1,2 +1,3 @@
 # test requirements
 requests
+yaml
