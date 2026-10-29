@@ -34,11 +34,50 @@ jobs:
         with:
           fetch-depth: 0
       
-      - name: Checkout AutoPkg
-        uses: actions/checkout@v4
-        with:
-          repository: autopkg/autopkg
-          path: autopkg
+      - name: Install AutoPkg release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+      
+          echo "Finding latest AutoPkg release package..."
+      
+          PKG_URL=$(
+            curl -fsSL \
+              -H "Authorization: Bearer ${GH_TOKEN}" \
+              -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/autopkg/autopkg/releases/latest" \
+            | python3 -c '
+          import json
+          import sys
+      
+          release = json.load(sys.stdin)
+      
+          for asset in release["assets"]:
+              if asset["name"].endswith(".pkg"):
+                  print(asset["browser_download_url"])
+                  break
+          '
+          )
+      
+          if [[ -z "$PKG_URL" ]]; then
+            echo "::error::Could not find AutoPkg .pkg in latest release."
+            exit 1
+          fi
+      
+          echo "Downloading AutoPkg package..."
+      
+          curl -fL \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            "$PKG_URL" \
+            -o "$RUNNER_TEMP/autopkg.pkg"
+      
+          echo "Installing AutoPkg..."
+      
+          sudo installer \
+            -pkg "$RUNNER_TEMP/autopkg.pkg" \
+            -target /
       
       - name: Install MacAdmins Python
         shell: bash
