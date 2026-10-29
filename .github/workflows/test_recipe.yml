@@ -40,10 +40,42 @@ jobs:
           repository: autopkg/autopkg
           path: autopkg
       
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
+      - name: Install MacAdmins Python
+        shell: bash
+        run: |
+          set -euo pipefail
+      
+          # Get the latest Python 3.11 package
+          PKG_URL=$(
+            curl -sL \
+              https://api.github.com/repos/macadmins/python/releases/latest \
+            | python3 -c '
+          import json
+          import sys
+      
+          data = json.load(sys.stdin)
+      
+          for asset in data["assets"]:
+              name = asset["name"]
+              if "3.11" in name and name.endswith(".pkg"):
+                  print(asset["browser_download_url"])
+                  break
+          '
+          )
+      
+          if [[ -z "$PKG_URL" ]]; then
+            echo "::error::Could not find MacAdmins Python 3.11 package"
+            exit 1
+          fi
+      
+          echo "Downloading MacAdmins Python:"
+          echo "$PKG_URL"
+      
+          curl -fL "$PKG_URL" -o "$RUNNER_TEMP/macadmins-python.pkg"
+      
+          sudo installer \
+            -pkg "$RUNNER_TEMP/macadmins-python.pkg" \
+            -target /
       
       - name: Install AutoPkg requirements
         shell: bash
@@ -56,7 +88,28 @@ jobs:
           python -m pip install \
             --requirement .github/requirements.txt
       
-      - name: Verify AutoPkg
+      - name: Verify MacAdmins Python
         shell: bash
         run: |
-          python autopkg/Code/autopkg version
+          set -euo pipefail
+      
+          PYTHON="/Library/ManagedFrameworks/Python/Python3.framework/Versions/Current/bin/python3"
+      
+          echo "Python:"
+          "$PYTHON" --version
+      
+          echo
+          echo "PyObjC:"
+          "$PYTHON" -c "import objc; print(objc.__version__)"
+      
+          echo
+          echo "Foundation:"
+          "$PYTHON" -c "import Foundation; print('Foundation OK')"
+      
+          echo
+          echo "CoreFoundation:"
+          "$PYTHON" -c "import CoreFoundation; print('CoreFoundation OK')"
+      
+          echo
+          echo "AutoPkg:"
+          "$PYTHON" autopkg/Code/autopkg version
