@@ -34,214 +34,27 @@ jobs:
         with:
           fetch-depth: 0
       
-      - name: Debug checkout
-        shell: bash
-        run: |
-          echo "=== Repository ==="
-          echo "$GITHUB_REPOSITORY"
-
-          echo
-          echo "=== Ref ==="
-          echo "$GITHUB_REF"
-
-          echo
-          echo "=== SHA ==="
-          echo "$GITHUB_SHA"
-
-          echo
-          echo "=== Working directory ==="
-          pwd
-
-          echo
-          echo "=== Repository root ==="
-          ls -la
-
-          echo
-          echo "=== autopkg directory ==="
-          ls -la autopkg || true
-
-          echo
-          echo "=== requirements file ==="
-          if [[ -f autopkg/gh_actions_requirements.txt ]]; then
-            echo "FOUND"
-            cat autopkg/gh_actions_requirements.txt
-          else
-            echo "NOT FOUND"
-          fi
-      - name: Setup AutoPkg
-        uses: autopkg/setup-autopkg-actions@v0.1.2
+      - name: Checkout AutoPkg
+        uses: actions/checkout@v4
         with:
-          use-python-version: "3.11"
-
-      - name: Show environment
+          repository: autopkg/autopkg
+          path: autopkg
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      
+      - name: Install AutoPkg requirements
         shell: bash
         run: |
           set -euo pipefail
-
-          echo "macOS:"
-          sw_vers
-
-          echo
-          echo "Architecture:"
-          uname -m
-
-          echo
-          echo "AutoPkg:"
+      
+          python -m pip install --upgrade pip
+          python -m pip install \
+            --requirement autopkg/gh_actions_requirements.txt
+      
+      - name: Verify AutoPkg
+        shell: bash
+        run: |
           python autopkg/Code/autopkg version
-
-      - name: Configure AutoPkg
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          defaults write com.github.autopkg RECIPE_SEARCH_DIRS -array \
-            "$GITHUB_WORKSPACE" \
-            "$HOME/Library/AutoPkg/RecipeRepos"
-
-          echo "Recipe search directories:"
-          defaults read com.github.autopkg RECIPE_SEARCH_DIRS
-
-      #
-      # For PRs, automatically determine which recipes changed.
-      #
-      - name: Find changed recipes
-        if: github.event_name == 'pull_request'
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          git diff \
-            --name-only \
-            --diff-filter=ACMRT \
-            "${{ github.event.pull_request.base.sha }}" \
-            "${{ github.event.pull_request.head.sha }}" \
-            | grep -E '\.recipe(\.yaml|\.yml|\.plist)?$' \
-            | sort -u \
-            > /tmp/recipes.txt || true
-
-          echo
-          echo "Recipes changed by PR:"
-          echo
-
-          if [[ -s /tmp/recipes.txt ]]; then
-            cat /tmp/recipes.txt
-          else
-            echo "No changed recipes found."
-          fi
-
-      #
-      # For workflow_dispatch, use the recipe(s) entered by the user.
-      #
-      - name: Select manual recipes
-        if: github.event_name == 'workflow_dispatch'
-        shell: bash
-        env:
-          MANUAL_RECIPES: ${{ inputs.recipes }}
-        run: |
-          set -euo pipefail
-
-          printf '%s\n' "$MANUAL_RECIPES" \
-            | tr ',' '\n' \
-            | sed \
-                -e 's/^[[:space:]]*//' \
-                -e 's/[[:space:]]*$//' \
-            | grep -v '^$' \
-            > /tmp/recipes.txt
-
-          echo
-          echo "Recipes selected manually:"
-          echo
-
-          cat /tmp/recipes.txt
-
-      #
-      # Run every selected recipe.
-      #
-      - name: Test recipes
-        shell: bash
-        run: |
-          set -uo pipefail
-
-          if [[ ! -s /tmp/recipes.txt ]]; then
-            echo "::error::No recipes selected for testing."
-            exit 1
-          fi
-
-          failures=()
-          successes=()
-
-          while IFS= read -r recipe; do
-
-            [[ -z "$recipe" ]] && continue
-
-            echo
-            echo "============================================================"
-            echo "Testing: $recipe"
-            echo "============================================================"
-            echo
-
-            #
-            # First try the value as a path within the repository.
-            # Otherwise let AutoPkg resolve it as a recipe identifier.
-            #
-            if [[ -f "$GITHUB_WORKSPACE/$recipe" ]]; then
-              recipe_target="$GITHUB_WORKSPACE/$recipe"
-            else
-              recipe_target="$recipe"
-            fi
-
-            echo "Recipe target: $recipe_target"
-            echo
-
-            if python autopkg/Code/autopkg \
-              run \
-              -vv \
-              "$recipe_target"; then
-
-              echo
-              echo "PASS: $recipe"
-
-              successes+=("$recipe")
-
-            else
-
-              echo
-              echo "::error file=$recipe::AutoPkg recipe failed"
-
-              failures+=("$recipe")
-
-            fi
-
-          done < /tmp/recipes.txt
-
-          echo
-          echo "============================================================"
-          echo "AutoPkg Test Summary"
-          echo "============================================================"
-
-          if (( ${#successes[@]} > 0 )); then
-
-            echo
-            echo "Successful recipes:"
-
-            for recipe in "${successes[@]}"; do
-              echo "  ✓ $recipe"
-            done
-
-          fi
-
-          if (( ${#failures[@]} > 0 )); then
-
-            echo
-            echo "Failed recipes:"
-
-            for recipe in "${failures[@]}"; do
-              echo "  ✗ $recipe"
-            done
-
-            exit 1
-
-          fi
-
-          echo
-          echo "All recipes completed successfully."
