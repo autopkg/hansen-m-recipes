@@ -189,4 +189,4 @@ jobs:
 
           echo
           echo "AutoPkg:"
-          "/usr/local/bin/autopkg version"
+          "/usr/local/autopkg/python /Library/AutoPkg/autopkg version"
