@@ -166,6 +166,7 @@ jobs:
 
           "$PYTHON" -c \
             "import CoreFoundation; print('CoreFoundation OK')"
+
       - name: Install AutoPkg requirements
         shell: bash
         run: |
@@ -199,4 +200,4 @@ jobs:
 
           echo
           echo "AutoPkg:"
-          "$PYTHON" autopkg/Code/autopkg version
+          "autopkg version"
