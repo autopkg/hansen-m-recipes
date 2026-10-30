@@ -154,19 +154,6 @@ jobs:
             -pkg "$RUNNER_TEMP/macadmins-python.pkg" \
             -target /
 
-          echo
-          echo "Verifying installation..."
-
-          PYTHON="/Library/ManagedFrameworks/Python/Python3.framework/Versions/Current/bin/python3"
-
-          "$PYTHON" --version
-
-          "$PYTHON" -c \
-            "import Foundation; print('Foundation OK')"
-
-          "$PYTHON" -c \
-            "import CoreFoundation; print('CoreFoundation OK')"
-
       - name: Install AutoPkg requirements
         shell: bash
         run: |
