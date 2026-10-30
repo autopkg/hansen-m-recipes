@@ -200,4 +200,4 @@ jobs:
 
           echo
           echo "AutoPkg:"
-          "autopkg version"
+          "/usr/local/bin/autopkg version"
