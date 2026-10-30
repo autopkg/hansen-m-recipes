@@ -79,16 +79,16 @@ jobs:
             -pkg "$RUNNER_TEMP/autopkg.pkg" \
             -target /
 
-      - name: Install MacAdmins Python
+      - name: Install latest MacAdmins Python
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
 
-          echo "Getting latest MacAdmins Python release..."
-
           RELEASE_JSON="$RUNNER_TEMP/macadmins-python-release.json"
+
+          echo "Getting latest MacAdmins Python release..."
 
           curl \
             --fail-with-body \
@@ -109,44 +109,35 @@ jobs:
           with open(sys.argv[1]) as f:
               data = json.load(f)
 
-          assets = data.get("assets")
+          assets = data.get("assets", [])
 
-          if assets is None:
+          packages = [
+              asset
+              for asset in assets
+              if asset.get("name", "").endswith(".pkg")
+          ]
+
+          if not packages:
               print(
-                  "GitHub API did not return a release object:",
-                  data.get("message", data),
+                  "No .pkg assets found in latest MacAdmins Python release.",
                   file=sys.stderr,
               )
+
+              print("Available assets:", file=sys.stderr)
+
+              for asset in assets:
+                  print(
+                      f"  {asset.get('name')}",
+                      file=sys.stderr,
+                  )
+
               sys.exit(1)
 
-          for asset in assets:
-              name = asset.get("name", "")
-
-              if "3.11" in name and name.endswith(".pkg"):
-                  print(asset["browser_download_url"])
-                  sys.exit(0)
-
-          print(
-              "No Python 3.11 .pkg found in release assets.",
-              file=sys.stderr,
-          )
-
-          print(
-              "Available assets:",
-              file=sys.stderr,
-          )
-
-          for asset in assets:
-              print(
-                  f"  {asset.get('name')}",
-                  file=sys.stderr,
-              )
-
-          sys.exit(1)
+          print(packages[0]["browser_download_url"])
           PY
           )
 
-          echo "Downloading:"
+          echo "Downloading latest MacAdmins Python:"
           echo "$PKG_URL"
 
           curl \
@@ -169,46 +160,12 @@ jobs:
           PYTHON="/Library/ManagedFrameworks/Python/Python3.framework/Versions/Current/bin/python3"
 
           "$PYTHON" --version
-          "$PYTHON" -c "import Foundation; print('Foundation OK')"
-          "$PYTHON" -c "import CoreFoundation; print('CoreFoundation OK')"
 
-      - name: Install MacAdmins Python
-        shell: bash
-        run: |
-          set -euo pipefail
+          "$PYTHON" -c \
+            "import Foundation; print('Foundation OK')"
 
-          # Get the latest Python 3.11 package
-          PKG_URL=$(
-            curl -sL \
-              https://api.github.com/repos/macadmins/python/releases/latest \
-            | python3 -c '
-          import json
-          import sys
-
-          data = json.load(sys.stdin)
-
-          for asset in data["assets"]:
-              name = asset["name"]
-              if "3.11" in name and name.endswith(".pkg"):
-                  print(asset["browser_download_url"])
-                  break
-          '
-          )
-
-          if [[ -z "$PKG_URL" ]]; then
-            echo "::error::Could not find MacAdmins Python 3.11 package"
-            exit 1
-          fi
-
-          echo "Downloading MacAdmins Python:"
-          echo "$PKG_URL"
-
-          curl -fL "$PKG_URL" -o "$RUNNER_TEMP/macadmins-python.pkg"
-
-          sudo installer \
-            -pkg "$RUNNER_TEMP/macadmins-python.pkg" \
-            -target /
-
+          "$PYTHON" -c \
+            "import CoreFoundation; print('CoreFoundation OK')"
       - name: Install AutoPkg requirements
         shell: bash
         run: |
