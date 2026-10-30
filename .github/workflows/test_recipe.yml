@@ -60,7 +60,7 @@ jobs:
                   break
           '
           )
-
+          echo "$PKG_URL"
           if [[ -z "$PKG_URL" ]]; then
             echo "::error::Could not find AutoPkg .pkg in latest release."
             exit 1
