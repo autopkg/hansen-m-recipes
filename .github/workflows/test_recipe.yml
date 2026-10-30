@@ -80,7 +80,7 @@ jobs:
             -target /
           echo
           echo "AutoPkg installation complete."
-          "which autopkg"
+          "/usr/local/bin/autopkg version"
 
       - name: Install latest MacAdmins Python
         shell: bash
