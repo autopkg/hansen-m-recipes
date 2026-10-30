@@ -78,6 +78,9 @@ jobs:
           sudo installer \
             -pkg "$RUNNER_TEMP/autopkg.pkg" \
             -target /
+          echo
+          echo "AutoPkg installation complete."
+          "which autopkg"
 
       - name: Install latest MacAdmins Python
         shell: bash
