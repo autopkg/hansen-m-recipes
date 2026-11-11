@@ -197,6 +197,4 @@ jobs:
           echo
           echo "AutoPkg version:"
           autopkg version
-          echo
-          echo "/Library/AutoPkg/autopkg:"
-          "/Library/AutoPkg/autopkg version"
+
