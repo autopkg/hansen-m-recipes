@@ -186,7 +186,17 @@ jobs:
           echo
           echo "CoreFoundation:"
           "$PYTHON" -c "import CoreFoundation; print('CoreFoundation OK')"
-
+      - name: Verify AutoPkg
+        shell: bash
+        run: |
+          set -euo pipefail
+      
+          echo "AutoPkg binary:"
+          command -v autopkg
+      
           echo
-          echo "AutoPkg:"
-          "/usr/local/autopkg/python /Library/AutoPkg/autopkg version"
+          echo "AutoPkg version:"
+          autopkg version
+          echo
+          echo "/Library/AutoPkg/autopkg:"
+          "/Library/AutoPkg/autopkg version"
