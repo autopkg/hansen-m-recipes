@@ -19,6 +19,15 @@
     <string>0.2.0</string>
     <key>Process</key>
     <array>
+		<dict>
+			<key>Processor</key>
+			<string>DeprecationWarning</string>
+			<key>Arguments</key>
+			<dict>
+				 <key>warning_message</key>
+				 <string>This recipe has been deprecated and will be removed soon</string>
+			</dict>
+		</dict>
         <dict>
             <key>Processor</key>
             <string>URLDownloader</string>
