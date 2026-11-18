@@ -31,6 +31,8 @@ Process:
       url: "%SEARCH_URL%%release_page_match%%arch_release_page_match%"
       re_pattern: "%SEARCH_PATTERN3%"
       result_output_var_name: gallery_download_match
+      curl_opts:
+        - "-L"
   - Processor: URLDownloader
     Arguments:
       url: "%SEARCH_URL%%gallery_download_match%"
